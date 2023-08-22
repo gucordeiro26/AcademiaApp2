@@ -33,7 +33,9 @@ export class HomePage {
   ) { }
 
   criarConta(dados: any){
-    this._authenticate.register(dados.email, dados.password)
+    // this._authenticate.register(dados.email, dados.password)
+    console.log(dados.email);
+    console.log(dados.password);
   }
 
   realizarLogin(dados: any) {
