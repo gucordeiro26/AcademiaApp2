@@ -1,0 +1,35 @@
+#container a {
+    text-decoration: none;
+}  
+* {
+    // outline: 1px dotted darkorange;
+}
+.full-height {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.full {
+    margin-bottom: 1.875rem;
+    height: 80vh;
+    width: 80%;
+    border-radius: 0.875em;
+    background: #cfcece;
+}
+.full__table {
+    height: 80%;
+    margin-left: 6em;
+    width: 80%;
+}
+.container {
+    background: rgb(33, 32, 32);
+}
+h2{
+    color: #000000;
+}
+.table-grid {
+    border: 1px solid #000000;
+    padding: 10px;
+    margin-bottom: 10px;
+}

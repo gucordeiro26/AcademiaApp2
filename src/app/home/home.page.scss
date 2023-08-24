@@ -1,0 +1,35 @@
+
+#container a {
+  text-decoration: none;
+}
+* {
+  // outline: 1px dotted darkorange;
+}
+.text {
+  display: flex;
+}
+.full-height {
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background: black;
+}
+.card {
+  width: 70%;
+  background: #F2F2F2;
+  border-radius: 0.875em;
+}
+.card-list {
+  background: #F2F2F2;
+}
+.card__item {
+  // width: 40rem;
+}
+.card-content {
+  background: #F2F2F2;
+}
+.span-required {
+  display: none;
+}

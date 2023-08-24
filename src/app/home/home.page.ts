@@ -145,5 +145,4 @@ export class HomePage {
         }
       );
   }
-
 }

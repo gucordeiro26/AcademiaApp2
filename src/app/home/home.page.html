@@ -1,173 +1,78 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-
-  <!-- FORMULÁRIO CRIAR CONTA -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <form #criarContaForm="ngForm" (ngSubmit)="criarConta(criarContaForm.value)">
-        <ion-item lines="none">
-          <ion-label>Criar Conta</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Usuário" name="email" ngModel type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Senha" name="password" ngModel type="password"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-button color="light" slot="start" routerLink="/home">Voltar</ion-button>
-          <ion-button color="light" slot="end" type="submit">Cadastrar</ion-button>
-        </ion-item>
-      </form>
-    </ion-col>
-  </ion-row>
-
-<!-- FORMULÁRIO DE LOGIN -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <form #loginForm="ngForm" (ngSubmit)="realizarLogin(loginForm.value)">
-        <ion-item lines="none">
-          <ion-label>Login</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Usuário" name="email" ngModel type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Senha" name="password" ngModel type="password"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-button color="light" slot="end" type="submit">
-            <ng-container *ngIf="this._authenticate.isLoading">
-              <ion-spinner></ion-spinner>
-            </ng-container>
-            <ng-container *ngIf="!this._authenticate.isLoading">
-              Login
-            </ng-container>
-          </ion-button>
-        </ion-item>
-      </form>
-    </ion-col>
-  </ion-row>
-
+<ion-content class="container" [fullscreen]="true">
+  <div class="text">
+    <h2>Cadastro de Clientes</h2>
+    <ion-button routerLink="/geren-clientes">Gerenciamento</ion-button>
+  </div>
   
-  <!-- FORMULÁRIO PARA INSERIR UM NOVO ALUNO -->
   <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <form #inserirAlunoForm="ngForm" (ngSubmit)="inserirAluno(inserirAlunoForm.value)">
-        <ion-item lines="none">
-          <ion-label>Inserir Novo Aluno</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Usuário" name="nome" ngModel type="text"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-button color="light" slot="end" type="submit">Inserir Aluno</ion-button>
-        </ion-item>
-      </form>
+    <ion-col size="12" class="ion-text-center full-height">
+      <!-- Formulário -->
+      <ion-row class="card">
+        <ion-col size="12">
+          <div class="card-full">
+            <ion-card-header>
+              <ion-card-title>Cadastro de Clientes</ion-card-title>
+            </ion-card-header>
+            <ion-row>
+              <ion-col>
+                <div class="card-content">
+                  <form id="form">
+                  <ion-list class="card-list">
+                    <ion-item class="card__item">
+                      <ion-input label="Nome" label-placement="floating" fill="solid" placeholder="Coloque o nome" class="required"></ion-input>
+                      <span class="span-required">Nome deve ter no mínimo 3 caractéres</span>
+                    </ion-item>
+              
+                    <ion-item class="card__item">
+                      <ion-input label="CPF" label-placement="floating" type="number" fill="solid" placeholder="Coloque o CPF"></ion-input>
+                      <span class="span-required">Coloque um número de CPF válido</span>
+                    </ion-item>
+              
+                    <ion-item class="card__item">
+                      <ion-input label="RG" label-placement="floating" type="number" fill="solid" placeholder="Coloque o RG"></ion-input>
+                      <span class="span-required">Coloque um número de RG válido</span>
+                    </ion-item>
+              
+                    <ion-item class="card__item" lines="none">
+                      <ion-input label="Data de Nascimento" label-placement="floating" fill="solid" placeholder="Coloque a Data de Nascimento"></ion-input>
+                      <span class="span-required">Coloque uma data de nascimento válido</span>
+                    </ion-item>
+                  </ion-list>
+                </form>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="card-content">
+                  <form id="form">
+                  <ion-list class="card-list">
+                    <ion-item>
+                      <ion-input label="Endereço" label-placement="floating" fill="solid" placeholder="Coloque o endereço"></ion-input>
+                      <span class="span-required">Endereço deve ter no mínimo 3 caractéres</span>
+                    </ion-item>
+              
+                    <ion-item>
+                      <ion-input label="Cidade" label-placement="floating" fill="solid" placeholder="Coloque a cidade"></ion-input>
+                      <span class="span-required">Cidade deve ter no mínimo 3 caractéres</span>
+                    </ion-item>
+              
+                    <ion-item>
+                      <ion-input label="Telefone" label-placement="floating" type="tel" fill="solid" placeholder="Coloque o telefone"></ion-input>
+                      <span class="span-required">Coloque um núumero válido</span>
+                    </ion-item>
+              
+                    <ion-item lines="none">
+                      <ion-input label="E-mail" label-placement="floating" type="email" fill="solid" placeholder="Coloque o email"></ion-input>
+                      <span class="span-required">Digite um E-mail válido</span>
+                    </ion-item>
+                  </ion-list>
+                </form>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-button color="tertiary" shape="round">Cadastrar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
     </ion-col>
   </ion-row>
-
-
-  <!-- LISTAR TODOS ALUNOS -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <ion-item lines="none">
-        <ion-button color="light" slot="end" (click)="listarAlunos()">Listar Alunos</ion-button>
-      </ion-item>
-      <ng-container *ngFor="let aluno of this.alunos">
-        <h1>Nome: {{ aluno['nome'] }}</h1>
-        <h1>Idade: {{ aluno['idade'] }}</h1>
-      </ng-container>
-    </ion-col>
-  </ion-row>
-
-
-  <!-- FORMULÁRIO PARA REMOVER ALUNO -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <ng-container *ngFor="let aluno of this.alunos">
-        <form (ngSubmit)="removerAluno(aluno)">
-          <ion-item>
-            <ion-label>Nome do Aluno: {{ aluno['nome'] }}</ion-label>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-button color="light" slot="end" type="submit">Remover Aluno</ion-button>
-          </ion-item>
-        </form>
-      </ng-container>
-    </ion-col>
-  </ion-row>
-
-
-   <!-- FORMULÁRIO PARA CONSULTAR UM ALUNO -->
-   <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <form #consultarForm="ngForm" (ngSubmit)="consultarAluno(consultarForm.value)">
-        <ion-item lines="none">
-          <ion-label>Consultar Aluno</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Usuário" name="nome" ngModel type="text"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-button color="light" slot="end" type="submit">Consultar</ion-button>
-        </ion-item>
-      </form>
-    </ion-col>
-  </ion-row>
-
-
-     <!-- FORMULÁRIO ATUALIZAR UM ALUNO -->
-     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-lg="6">
-        <form #atualizarForm="ngForm" (ngSubmit)="atualizarDadosAluno(atualizarForm.value)">
-          <ion-item lines="none">
-            <ion-label>Atualizar Aluno</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-input label="Usuário" name="nome" ngModel type="text"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ng-container *ngIf="this.aluno.id == null">  
-              <ion-button color="light" slot="end" type="submit">Consultar</ion-button>
-            </ng-container>
-            <ng-container *ngIf="this.aluno.id != null">  
-              <ion-button color="light" slot="end" type="submit">Atualizar</ion-button>
-            </ng-container>
-          </ion-item>
-        </form>
-      </ion-col>
-    </ion-row>
-
-
-    <!-- TEMPLATE PARA ENVIAR ARQUIVO PARA O FIREBASE -->
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-lg="6">
-        <ion-item>
-          <input type="file" value="Upload" (change)="memorizarArquivo($event)">
-        </ion-item>
-        <ion-item>
-          <ion-button color="medium" slot="end" size="small" (click)="fazerUpload()">Enviar Tarefa</ion-button>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-lg="6">
-        <ion-item>
-          <img src="https://firebasestorage.googleapis.com/v0/b/projetoexemplo-e640c.appspot.com/o/minha_imagem.jpeg?alt=media&token=5b63e63b-081b-493b-981d-4ff73b18b14e" alt="">
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-
-  
-
 </ion-content>

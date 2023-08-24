@@ -1,0 +1,37 @@
+<ion-content class="container" [fullscreen]="true">
+  <ion-text>
+    <h2>Gerenciamento de Clientes</h2>
+  </ion-text>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="ion-text-center ion-align-items-center full-height">
+      <div class="full">
+        <div class="full__table ion-text-center ion-align-items-center ion-justify-content-center">
+        <ion-text>
+          <h3>Gerenciamento de Clientes</h3>
+        </ion-text>
+        <ion-row class="ion-justify-content-center" style="background-color: rgb(40, 40, 40); color: #fff;">
+          <ion-col size="3">Nome</ion-col>
+          <ion-col size="3">Email</ion-col>
+          <ion-col size="3">Telefone</ion-col>
+          <ion-col size="3">Data Nascimento</ion-col>
+        </ion-row>
+
+        <ion-content>
+          <ion-list>
+            <ion-item *ngFor="let cliente of clientes">
+              <ion-grid class="table-grid">
+                <ion-row class="ion-text-center">
+                  <ion-col size="3">{{ cliente.nome }}</ion-col>
+                  <ion-col size="3">{{ cliente.email }}</ion-col>
+                  <ion-col size="3">{{ cliente.telefone }}</ion-col>
+                  <ion-col size="3">{{ cliente.dataNascimento }}</ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </div>  
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

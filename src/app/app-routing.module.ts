@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'geren-clientes',
+    loadChildren: () => import('./geren-clientes/geren-clientes.module').then( m => m.GerenClientesPageModule)
+  },
 ];
 
 @NgModule({
