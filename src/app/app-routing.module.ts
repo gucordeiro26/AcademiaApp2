@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'geren-clientes',
     loadChildren: () => import('./geren-clientes/geren-clientes.module').then( m => m.GerenClientesPageModule)
   },
+  {
+    path: 'homepage',
+    loadChildren: () => import('./homepage/home.module').then( m => m.HomePageModule)
+  },
 ];
 
 @NgModule({
