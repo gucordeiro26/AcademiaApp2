@@ -10,8 +10,29 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  // Conteudo Pagina
   isLoading: boolean = false;
+  item_selecionado: string = 'inicio'
+  trocouAba(event: any){
+    // console.log(event.detail.value)
+    this.item_selecionado = event.detail.value
+  }
+    //Conteúdo Gerenciamento clientes
+    isModalOpen = false;
 
+    setOpen(isOpen: boolean) {
+      this.isModalOpen = isOpen;
+    }
+
+    item_selecionado_modal: string = 'perfil'
+    trocouComponente(event: any){
+      // console.log(event.detail.value)
+      this.item_selecionado_modal = event.detail.value;
+    }
+  }
+
+
+  // Backend
   alunos = [];
 
   nome = 'Joaozinho';
