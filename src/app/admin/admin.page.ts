@@ -5,34 +5,50 @@ import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fir
 import { MessageService } from '../services/message.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-admin',
+  templateUrl: 'admin.page.html',
+  styleUrls: ['admin.page.scss'],
 })
-export class HomePage {
+export class AdminPage {
   // Conteudo Pagina
   isLoading: boolean = false;
-  item_selecionado: string = 'inicio'
+  item_selecionado: string = 'inicio';
+  
   trocouAba(event: any){
     // console.log(event.detail.value)
-    this.item_selecionado = event.detail.value
+    this.item_selecionado = event.detail.value;
   }
     //Conteúdo Gerenciamento clientes
+
+    clientes = [
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
+      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' }
+    ]
+
     isModalOpen = false;
 
     setOpen(isOpen: boolean) {
       this.isModalOpen = isOpen;
     }
 
-    item_selecionado_modal: string = 'perfil'
+    item_selecionado_modal: string = 'perfil';
+    
     trocouComponente(event: any){
       // console.log(event.detail.value)
       this.item_selecionado_modal = event.detail.value;
     }
-  }
 
-
-  // Backend
+     // Backend
   alunos = [];
 
   nome = 'Joaozinho';
@@ -60,7 +76,7 @@ export class HomePage {
   realizarLogin(dados: any) {
     this._authenticate.login(dados.email, dados.password);
   }
-
+  
   inserirAluno(dados: any){
     this.aluno.nome = dados.nome;
     // this.aluno.idade = 10;
