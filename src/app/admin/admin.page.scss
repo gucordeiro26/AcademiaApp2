@@ -1,14 +1,26 @@
-
 #container a {
   text-decoration: none;
 }
+
 * {
-  // outline: 1px dotted darkorange;
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 100%;
+}
+
 .container {
   --background: rgb(33, 32, 32);
   color: #F2F2F2;
 }
+
 .segment-button {
   --indicator-color: #08a391;
   --color: #ffffff;
@@ -20,6 +32,7 @@
   display: flex;
   color: #F2F2F2;
 }
+
 .full-height {
   height: 90vh;
   overflow: hidden;
@@ -28,24 +41,30 @@
   justify-content: center;
   // background: black;
 }
+
 .card {
-  width: 70%;
-  height: 50%;
+  width: 70vw;
+  height: 50vh;
   background: #ffffff;
   border-radius: 0.875em;
 }
-.card-list {
-  background: #ffffff;
-}
+
 .card__item {
-  // width: 40rem;
+  min-width: 30vw;
 }
-.card-content {
-  background: #ffffff;
+
+.card__title {
+  padding-top: 5vh;
 }
+
+.card__button {
+  margin-bottom: 5vh;
+}
+
 .span-required {
   display: none;
 }
+
 // Conteúdo Gerenciamento Clientes
 .full {
   margin-bottom: 1.875rem;
@@ -54,6 +73,7 @@
   border-radius: 0.875em;
   background: #ffffff;
 }
+
 .full__table {
   height: 80%;
   margin-left: 10rem;
@@ -65,6 +85,12 @@
   padding: 0.625em;
   margin-bottom: 0.625em;
 }
+
+.btn_cadastrar {
+  height: 3em;
+  width: 5vw;
+}
+
 .modal-segment-button {
   --indicator-color: #025c39;
   --color: #000000;

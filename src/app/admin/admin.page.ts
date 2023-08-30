@@ -14,6 +14,13 @@ export class AdminPage {
   isLoading: boolean = false;
   item_selecionado: string = 'inicio';
   
+  constructor(
+    public _authenticate: AuthenticateService,
+    private _crudService: CrudService,
+    public storage: Storage,
+    private _message: MessageService
+  ) { }
+
   trocouAba(event: any){
     // console.log(event.detail.value)
     this.item_selecionado = event.detail.value;
@@ -48,11 +55,6 @@ export class AdminPage {
       this.item_selecionado_modal = event.detail.value;
     }
 
-     // Backend
-  alunos = [];
-
-  nome = 'Joaozinho';
-
   aluno = {
     nome: null,
     idade: null,
@@ -61,13 +63,6 @@ export class AdminPage {
   }
 
   public file: any = {};
-
-  constructor(
-    public _authenticate: AuthenticateService,
-    private _crudService: CrudService,
-    public storage: Storage,
-    private _message: MessageService
-  ) { }
 
   criarConta(dados: any){
     this._authenticate.register(dados.email, dados.password)
@@ -82,25 +77,25 @@ export class AdminPage {
     // this.aluno.idade = 10;
     // this.aluno.ra = 321321;
 
-    this._crudService.insert(this.aluno, 'alunos');
+    this._crudService.insert(this.aluno, 'clientes');
   }
 
-  listarAlunos(){
-    this._crudService.fetchAll('alunos')
-    .then( alunos => {
-      this.alunos = alunos;
+  listarClientes(){
+    this._crudService.fetchAll('clientes')
+    .then( clientes => {
+      this.clientes = clientes;
     })
   }
 
 
   removerAluno(aluno: any){
     console.log(aluno);
-    this._crudService.remove(aluno.id, 'alunos')
+    this._crudService.remove(aluno.id, 'clientes')
   }
 
   consultarAluno(dados: any){
     console.log(dados);
-    this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'alunos')
+    this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'clientes')
     .then( aluno => {
       console.log(aluno[0].id);
     })
@@ -108,13 +103,13 @@ export class AdminPage {
 
   atualizarDadosAluno(dados: any){
     if (this.aluno.id == null) {
-      this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'alunos')
+      this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'clientes')
       .then( aluno => {
         this.aluno = aluno[0];
         console.log(this.aluno);
       })
     } else {
-      this._crudService.update(this.aluno.id, dados, 'alunos');
+      this._crudService.update(this.aluno.id, dados, 'clientes');
     }
   }
 
