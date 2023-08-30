@@ -1,4 +1,8 @@
-#container {
+ion-content{
+  --background: none;
+}
+
+#container{
   text-align: center;
 
   position: absolute;
@@ -8,12 +12,12 @@
   transform: translateY(-50%);
 }
 
-#container strong {
+#container strong{
   font-size: 20px;
   line-height: 26px;
 }
 
-#container p {
+#container p{
   font-size: 16px;
   line-height: 22px;
 
@@ -22,6 +26,28 @@
   margin: 0;
 }
 
-#container a {
+#container a{
   text-decoration: none;
 }
+
+// .bg__landing-page{
+//   --background: blue;
+
+//   ion-header{
+//     height: 10%;
+  
+//     ion-toolbar{
+//       --background: transparent;
+//     }
+    
+//     ion-row{
+//       --background: transparent;
+//     }
+  
+//     a{
+//       color: white;
+//       text-decoration: none;
+//       font-style: none;
+//     }
+//   }
+// }
