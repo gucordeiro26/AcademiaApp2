@@ -1,0 +1,46 @@
+#container a {
+text-decoration: none;
+}
+
+* {
+// outline: 1px dotted darkorange;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url(../../assets/font/BebasNeue-Regular.ttf);
+}
+
+ion-content {
+    --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/sim.png') no-repeat center/cover fixed;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 25vh;
+    left: 9vw;
+}
+
+.text-see {
+    color: #ffffff;
+    font-weight: 900;
+    font-family: 'Bebas Neue';
+    font-size: 4em;
+}
+
+.button {
+    width: 40vw;
+    height: 8vh;
+    --border-radius: 0.625em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 65vh;
+    left: 7vw;
+}

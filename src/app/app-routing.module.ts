@@ -10,7 +10,19 @@ const routes: Routes = [
     path: '',
     redirectTo: 'homepage',
     pathMatch: 'full'
+  },  {
+    path: 'app',
+    loadChildren: () => import('./app/app.module').then( m => m.AppPageModule)
   },
+  {
+    path: 'modal-popup-login',
+    loadChildren: () => import('./modal-popup-login/modal-popup-login.module').then( m => m.ModalPopupLoginPageModule)
+  },
+  {
+    path: 'modal-popup-cadastro',
+    loadChildren: () => import('./modal-popup-cadastro/modal-popup-cadastro.module').then( m => m.ModalPopupCadastroPageModule)
+  },
+
 ];
 
 @NgModule({

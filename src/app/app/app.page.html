@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+
+  <!-- Texto de inspiração -->
+  <div class="text">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="" class="ion-align-items-center">
+        <ion-text class="text-see">O MELHOR APP <br>DE TREINOS <br>PARA VOCÊ</ion-text>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- Botões de Login e Cadastro -->
+  <div class="buttons">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6">
+        <ion-button class="button" (click)="openIonModalLogin()">Login</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6">
+        <ion-button class="button" color="light" (click)="openIonModalCadastro()">Cadastro</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  
+</ion-content>
