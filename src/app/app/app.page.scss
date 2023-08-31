@@ -11,7 +11,7 @@ text-decoration: none;
     src: url(../../assets/font/BebasNeue-Regular.ttf);
 }
 
-ion-content {
+.container {
     --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/sim.png') no-repeat center/cover fixed;
 }
 
@@ -31,8 +31,8 @@ ion-content {
 }
 
 .button {
-    width: 40vw;
-    height: 8vh;
+    width: 45vw;
+    height: 7vh;
     --border-radius: 0.625em;
 }
 
@@ -41,8 +41,26 @@ ion-content {
     top: 70%;
     left: 7%;
 }
+
 .buttons2 {
     position: absolute;
     top: 80%;
     left: 7%;
+}
+
+// Modal
+.container-modal {
+    --background: #404040;
+}
+
+.inputs {
+    --background: #737373;
+    --color: #ffffff;
+    --border-radius: 0.625em;
+    --placeholder-color: #ffffff;
+    --placeholder-opacity: 0.8;
+
+    width: 90%;
+    position: relative;
+    left: 2vh;
 }
