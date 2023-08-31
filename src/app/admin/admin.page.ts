@@ -56,17 +56,19 @@ export class AdminPage {
   public file: any = {};
 
   criarConta(dados: any){
-    this._authenticate.register(dados.name, dados.email, dados.telefone, dados.cpf, dados.endereco);
+    // this._authenticate.register(dados.name, dados.email, dados.telefone, dados.cpf, dados.endereco);
   }
 
   realizarLogin(dados: any) {
     this._authenticate.login(dados.name, dados.email);
   }
   
-  inserirAluno(dados: any){
+  inserirCliente(dados: any){
     this.cliente.name = dados.name;
-    // this.cliente.idade = 10;
-    // this.cliente.ra = 321321;
+    this.cliente.email = dados.email;
+    this.cliente.telefone = dados.telefone;
+    this.cliente.cpf = dados.cpf;
+    this.cliente.endereco = dados.endereco;
 
     this._crudService.insert(this.cliente, 'clientes');
   }
@@ -79,24 +81,24 @@ export class AdminPage {
   }
 
 
-  removerAluno(aluno: any){
-    console.log(aluno);
-    this._crudService.remove(aluno.id, 'clientes')
+  removerCliente(cliente: any){
+    console.log(cliente);
+    this._crudService.remove(cliente.id, 'clientes')
   }
 
-  consultarAluno(dados: any){
+  consultarCliente(dados: any){
     console.log(dados);
-    this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'clientes')
-    .then( aluno => {
-      console.log(aluno[0].id);
+    this._crudService.fetchByOperatorParam('nome', '==', dados.name, 'clientes')
+    .then( cliente => {
+      console.log(cliente[0].id);
     })
   }
 
-  atualizarDadosAluno(dados: any){
+  atualizarDadosCliente(dados: any){
     if (this.cliente.cpf == null) {
-      this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'clientes')
-      .then( aluno => {
-        this.cliente = aluno[0];
+      this._crudService.fetchByOperatorParam('nome', '==', dados.name, 'clientes')
+      .then( cliente => {
+        this.cliente = cliente[0];
         console.log(this.cliente);
       })
     } else {
