@@ -19,7 +19,7 @@ ion-content {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 25vh;
+    top: 20vh;
     left: 9vw;
 }
 
@@ -36,11 +36,13 @@ ion-content {
     --border-radius: 0.625em;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.buttons1 {
     position: absolute;
-    top: 65vh;
-    left: 7vw;
+    top: 70%;
+    left: 7%;
+}
+.buttons2 {
+    position: absolute;
+    top: 80%;
+    left: 7%;
 }

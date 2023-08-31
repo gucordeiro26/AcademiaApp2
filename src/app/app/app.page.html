@@ -1,26 +1,75 @@
 <ion-content [fullscreen]="true">
 
   <!-- Texto de inspiração -->
-  <div class="text">
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="" class="ion-align-items-center">
-        <ion-text class="text-see">O MELHOR APP <br>DE TREINOS <br>PARA VOCÊ</ion-text>
-      </ion-col>
-    </ion-row>
-  </div>
+  <ion-row class="ion-justify-content-center text">
+    <ion-col size="12" class="ion-align-items-center">
+      <ion-text class="text-see">O MELHOR APP <br>DE TREINOS <br>PARA VOCÊ</ion-text>
+    </ion-col>
+  </ion-row>
 
   <!-- Botões de Login e Cadastro -->
-  <div class="buttons">
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="6">
-        <ion-button class="button" (click)="openIonModalLogin()">Login</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="6">
-        <ion-button class="button" color="light" (click)="openIonModalCadastro()">Cadastro</ion-button>
-      </ion-col>
-    </ion-row>
-  </div>
+  <ion-row class="ion-justify-content-center buttons1">
+    <ion-col size="6">
+      <ion-button id="open-modal-login" class="button">SingIn</ion-button>
+
+      <!-- Modal Login -->
+      <ion-modal #modal trigger="open-modal-login" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+        <ng-template>
+          <ion-content>
+
+            <!-- Email -->
+            <ion-row>
+              <ion-col size="12">
+                <ion-input label="Email" label-placement="floating" fill="solid"
+                  placeholder="Digite o email"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <!-- Senha -->
+            <ion-row>
+              <ion-col size="12">
+                <ion-input label="Senha" label-placement="floating" fill="solid"
+                  placeholder="Digite a senha"></ion-input>
+              </ion-col>
+            </ion-row>
+
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+
+    </ion-col>
+  </ion-row>
   
+  <ion-row class="ion-justify-content-center buttons2">
+    <ion-col size="6">
+      <ion-button id="open-modal-cadastro" class="button" color="light">SingUp</ion-button>
+
+      <!-- Modal Cadastro -->
+      <ion-modal #modal trigger="open-modal-cadastro" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+        <ng-template>
+          <ion-content>
+
+            <!-- Email -->
+            <ion-row>
+              <ion-col size="12">
+                <ion-input label="Email" label-placement="floating" fill="solid"
+                  placeholder="Digite o email"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <!-- Senha -->
+            <ion-row>
+              <ion-col size="12">
+                <ion-input label="Senha" label-placement="floating" fill="solid"
+                  placeholder="Digite a senha"></ion-input>
+              </ion-col>
+            </ion-row>
+
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+
+    </ion-col>
+  </ion-row>
+
 </ion-content>
