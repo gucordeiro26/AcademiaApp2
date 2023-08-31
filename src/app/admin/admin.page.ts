@@ -25,22 +25,6 @@ export class AdminPage {
     // console.log(event.detail.value)
     this.item_selecionado = event.detail.value;
   }
-    //Conteúdo Gerenciamento clientes
-
-    clientes = [
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' },
-      { nome: 'Caique', email: 'caique@gmail.com', telefone: '1599999999', dataNascimento: '01/01/2000' }
-    ]
 
     isModalOpen = false;
 
@@ -55,29 +39,36 @@ export class AdminPage {
       this.item_selecionado_modal = event.detail.value;
     }
 
-  aluno = {
-    nome: null,
-    idade: null,
-    ra: null,
-    id: null
+  cliente = {
+    name: null,
+    email: null,
+    telefone: null,
+    cpf: null,
+    endereco: null
   }
+
+  //Conteúdo Gerenciamento clientes
+
+  clientes = [
+    { nome: this.cliente.name, email: this.cliente.email, telefone: this.cliente.telefone, cpf: this.cliente.cpf, endereco: this.cliente.endereco }
+  ]
 
   public file: any = {};
 
   criarConta(dados: any){
-    this._authenticate.register(dados.email, dados.password)
+    this._authenticate.register(dados.name, dados.email, dados.telefone, dados.cpf, dados.endereco);
   }
 
   realizarLogin(dados: any) {
-    this._authenticate.login(dados.email, dados.password);
+    this._authenticate.login(dados.name, dados.email);
   }
   
   inserirAluno(dados: any){
-    this.aluno.nome = dados.nome;
-    // this.aluno.idade = 10;
-    // this.aluno.ra = 321321;
+    this.cliente.name = dados.name;
+    // this.cliente.idade = 10;
+    // this.cliente.ra = 321321;
 
-    this._crudService.insert(this.aluno, 'clientes');
+    this._crudService.insert(this.cliente, 'clientes');
   }
 
   listarClientes(){
@@ -102,14 +93,14 @@ export class AdminPage {
   }
 
   atualizarDadosAluno(dados: any){
-    if (this.aluno.id == null) {
+    if (this.cliente.cpf == null) {
       this._crudService.fetchByOperatorParam('nome', '==', dados.nome, 'clientes')
       .then( aluno => {
-        this.aluno = aluno[0];
-        console.log(this.aluno);
+        this.cliente = aluno[0];
+        console.log(this.cliente);
       })
     } else {
-      this._crudService.update(this.aluno.id, dados, 'clientes');
+      this._crudService.update(this.cliente.cpf, dados, 'clientes');
     }
   }
 

@@ -24,15 +24,15 @@ export class AuthenticateService {
     * @param password: string
     * @return: Promise<any>
     * */
-    public async register(email: string, password: string): Promise<boolean> {
+    public async register(name: string, email: string, telefone: string, cpf: string, endereco: string): Promise<boolean> {
         this.isLoading = true;
 
-        createUserWithEmailAndPassword(this.auth, email, password)
+        createUserWithEmailAndPassword(this.auth, name, email)
         .then(() => {
             this._message.show('Conta criada com sucesso! Realize o Login!!!');
         })
         .catch((_: any) => {
-            this.showErro(_, email, password);
+            this.showErro(_, name, email);
         })
         .finally(() => {
             this.isLoading = false;

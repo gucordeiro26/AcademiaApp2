@@ -39,51 +39,39 @@
 
                       <ion-list>
                         <ion-item class="card__item">
-                          <ion-input label="Nome" name="name" label-placement="floating" type="text"
+                          <ion-input ngModel label="Nome" name="name" label-placement="floating" type="text"
                             placeholder="Coloque o nome" class="required"></ion-input>
                           <span class="span-required">Nome deve ter no mínimo 3 caractéres</span>
                         </ion-item>
 
                         <ion-item class="card__item">
-                          <ion-input label="CPF" name="cpf" label-placement="floating" type="tel"
-                            placeholder="Coloque o CPF"></ion-input>
-                          <span class="span-required">Coloque um número de CPF válido</span>
+                          <ion-input ngModel label="E-mail" name="email" label-placement="floating" type="email"
+                            placeholder="Coloque o email"></ion-input>
+                          <span class="span-required">Digite um E-mail válido</span>
                         </ion-item>
 
                         <ion-item class="card__item">
-                          <ion-input label="RG" name="rg" label-placement="floating" type="text"
-                            placeholder="Coloque o RG"></ion-input>
-                          <span class="span-required">Coloque um número de RG válido</span>
-                        </ion-item>
-
-                        <ion-item class="card__item">
-                          <ion-input label="Data de Nascimento" name="data_nasc" label-placement="floating" type=""
-                            placeholder="Coloque a Data de Nascimento"></ion-input>
-                          <span class="span-required">Coloque uma data de nascimento válida</span>
+                          <ion-input ngModel label="Telefone" name="telefone" label-placement="floating" type="tel"
+                            placeholder="Coloque o telefone"></ion-input>
+                          <span class="span-required">Coloque um núumero válido</span>
                         </ion-item>
                       </ion-list>
 
                       <ion-list>
                         <ion-item class="card__item">
-                          <ion-input label="Endereço" name="endereco" label-placement="floating" type="text"
+                          <ion-input ngModel label="CPF" name="cpf" label-placement="floating" type="tel"
+                            placeholder="Coloque o CPF"></ion-input>
+                          <span class="span-required">Coloque um número de CPF válido</span>
+                        </ion-item>
+
+                        <ion-item class="card__item">
+                          <ion-input ngModel label="Endereço" name="endereco" label-placement="floating" type="text"
                             placeholder="Coloque o endereço"></ion-input>
                           <span class="span-required">Endereço deve ter no mínimo 3 caractéres</span>
                         </ion-item>
-
-                        <ion-item class="card__item">
-                          <ion-input label="Telefone" name="telefone" label-placement="floating" type="tel"
-                            placeholder="Coloque o telefone"></ion-input>
-                          <span class="span-required">Coloque um núumero válido</span>
-                        </ion-item>
-
-                        <ion-item class="card__item">
-                          <ion-input label="E-mail" name="email" label-placement="floating" type="email"
-                            placeholder="Coloque o email"></ion-input>
-                          <span class="span-required">Digite um E-mail válido</span>
-                        </ion-item>
                         
                         <ion-item class="card__button" lines="none">
-                          <ion-button class="btn_cadastrar" color="primary" slot="start" type="submit">
+                          <ion-button class="btn_cadastrar" slot="end" type="submit">
                             <ng-container *ngIf="this._authenticate.isLoading">
                               <ion-spinner></ion-spinner>
                             </ng-container>
@@ -118,10 +106,11 @@
               <h3>Gerenciamento de Clientes</h3>
             </ion-text>
             <ion-row class="ion-justify-content-center" style="background-color: rgb(40, 40, 40); color: #fff;">
-              <ion-col size="3">Nome</ion-col>
-              <ion-col size="3">Email</ion-col>
-              <ion-col size="3">Telefone</ion-col>
-              <ion-col size="3">Data Nascimento</ion-col>
+              <ion-col size="2">Nome</ion-col>
+              <ion-col size="2">Email</ion-col>
+              <ion-col size="2">Telefone</ion-col>
+              <ion-col size="2">CPF</ion-col>
+              <ion-col size="2">Endereço</ion-col>
             </ion-row>
 
             <ion-content>
@@ -132,7 +121,8 @@
                       <ion-col size="3">{{ cliente.nome }}</ion-col>
                       <ion-col size="3">{{ cliente.email }}</ion-col>
                       <ion-col size="3">{{ cliente.telefone }}</ion-col>
-                      <ion-col size="3">{{ cliente.dataNascimento }}</ion-col>
+                      <ion-col size="3">{{ cliente.cpf }}</ion-col>
+                      <ion-col size="3">{{ cliente.endereco }}</ion-col>
                     </ion-row>
                   </ion-grid>
                 </ion-item>
