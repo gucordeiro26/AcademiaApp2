@@ -13,26 +13,54 @@
       <ion-button id="open-modal-login" class="button">Sing In</ion-button>
 
       <!-- Modal Login -->
-      <ion-modal #modal trigger="open-modal-login" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+      <ion-modal #modal trigger="open-modal-login" [initialBreakpoint]="0.65" [breakpoints]="[0, 0.25, 0.5, 0.75]">
         <ng-template>
           <ion-content class="container-modal">
 
+            <!-- Texto de Login -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-login-cadastro">Login</ion-text>
+              </ion-col>
+            </ion-row>
+
+            <!-- Texto de 'Que bom que voltou' -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-back-new">Que bom que voltou</ion-text>
+              </ion-col>
+            </ion-row>
+
             <form action="">
               <!-- Email -->
-              <ion-row>
+              <ion-row class="form">
                 <ion-col size="12">
-                  <ion-input class="inputs" label="Email" label-placement="floating" fill="solid" placeholder="Digite o email"
-                    name="email"></ion-input>
+                  <ion-input class="inputs" ngModel type="email" label="Email" label-placement="floating" fill="solid"
+                    placeholder="Digite o email" name="email"></ion-input>
                 </ion-col>
               </ion-row>
 
               <!-- Senha -->
-              <ion-row>
+              <ion-row class="form">
                 <ion-col size="12">
-                  <ion-input class="inputs" label="Senha" label-placement="floating" fill="solid" placeholder="Digite a senha"
-                    name="password"></ion-input>
+                  <ion-input class="inputs" ngModel type="password" label="Senha" label-placement="floating" fill="solid"
+                    placeholder="Digite a senha" name="password"></ion-input>
                 </ion-col>
               </ion-row>
+
+              <ion-row class="mensage">
+                <ion-col>
+                  <ion-text class="text-mensage">Não tem um login: <a href="">Cadastra-se aqui</a></ion-text>
+                </ion-col>
+              </ion-row>
+
+              <!-- Botão de Login -->
+              <ion-row class="button-singin-singup">
+                <ion-col size="12">
+                  <ion-button class="button-form">Login</ion-button>
+                </ion-col>
+              </ion-row>
+
             </form>
 
           </ion-content>
@@ -47,26 +75,54 @@
       <ion-button id="open-modal-cadastro" class="button" color="light">Sing Up</ion-button>
 
       <!-- Modal Cadastro -->
-      <ion-modal #modal trigger="open-modal-cadastro" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+      <ion-modal #modal trigger="open-modal-cadastro" [initialBreakpoint]="0.65" [breakpoints]="[0, 0.25, 0.5, 0.75]">
         <ng-template>
           <ion-content class="container-modal">
 
+            <!-- Texto de Cadastro -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-login-cadastro">Cadastro</ion-text>
+              </ion-col>
+            </ion-row>
+
+            <!-- Texto de 'Crie uma conta nova' -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-back-new">Crie uma conta nova</ion-text>
+              </ion-col>
+            </ion-row>
+
             <form action="">
               <!-- Email -->
-              <ion-row>
+              <ion-row class="form">
                 <ion-col size="12">
-                  <ion-input class="inputs" label="Email" label-placement="floating" fill="solid" placeholder="Digite o email"
-                    name="email"></ion-input>
+                  <ion-input class="inputs" ngModel type="email" label="Email" label-placement="floating" fill="solid"
+                    placeholder="Digite o email" name="email"></ion-input>
                 </ion-col>
               </ion-row>
 
               <!-- Senha -->
-              <ion-row>
+              <ion-row class="form">
                 <ion-col size="12">
-                  <ion-input class="inputs" label="Senha" label-placement="floating" fill="solid" placeholder="Digite a senha"
-                    name="password"></ion-input>
+                  <ion-input class="inputs" ngModel type="password" label="Senha" label-placement="floating" fill="solid"
+                    placeholder="Digite a senha" name="password"></ion-input>
                 </ion-col>
               </ion-row>
+
+              <ion-row class="mensage">
+                <ion-col>
+                  <ion-text class="text-mensage">Já tem login, entre aqui: <a trigger="open-modal-login">Login</a></ion-text>
+                </ion-col>
+              </ion-row>
+
+              <!-- Botão de Cadastrar -->
+              <ion-row class="button-singin-singup">
+                <ion-col size="12">
+                  <ion-button class="button-form">Cadastrar</ion-button>
+                </ion-col>
+              </ion-row>
+
             </form>
 
           </ion-content>

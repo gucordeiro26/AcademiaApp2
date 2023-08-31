@@ -2,13 +2,13 @@
 text-decoration: none;
 }
 
-* {
-// outline: 1px dotted darkorange;
-}
-
 @font-face {
     font-family: 'Bebas Neue';
     src: url(../../assets/font/BebasNeue-Regular.ttf);
+}
+@font-face {
+    font-family: 'Oswald';
+    src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
 }
 
 .container {
@@ -34,6 +34,8 @@ text-decoration: none;
     width: 45vw;
     height: 7vh;
     --border-radius: 0.625em;
+    font-family: 'Bebas Neue';
+    font-size: 1.5em;
 }
 
 .buttons1 {
@@ -53,7 +55,32 @@ text-decoration: none;
     --background: #404040;
 }
 
+.text-login-cadastro {
+    color: #ffffff;
+    font-family: 'Bebas Neue';
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.text-back-new {
+    color: #A6A6A6;
+    font-family: 'Oswald';
+    font-size: 1.25em;
+}
+
+.text-all {
+    text-align: center;
+    position: relative;
+    top: 2vh;
+}
+
+.form {
+    position: relative;
+    top: 10vh;
+}
+
 .inputs {
+
     --background: #737373;
     --color: #ffffff;
     --border-radius: 0.625em;
@@ -63,4 +90,40 @@ text-decoration: none;
     width: 90%;
     position: relative;
     left: 2vh;
+}
+
+.inputs:hover {
+    --background: #737373;
+}
+
+.button-form {
+    --background: #00B2FF;
+    --border-radius: 0.625em;
+
+    font-family: 'Bebas Neue';
+    font-size: 1.5em;
+    width: 35%;
+    height: 6.5vh;
+}
+
+.button-singin-singup {
+    position: relative;
+    top: 15vh;
+    left: 30vw;
+}
+
+.mensage {
+    position: relative;
+    top: 11vh;
+    text-align: center;
+}
+
+.text-mensage {
+    color: #ffffff;
+    font-family: 'Oswald';
+    font-size: 1em;
+}
+
+.text-mensage p {
+    color: #00B2FF;
 }
