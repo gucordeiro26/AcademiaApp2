@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size="12">
+      <ion-button (click)="this.getClientes()">Baixar Clientes</ion-button>
+      <ion-spinner *ngIf="this.isLoading"></ion-spinner>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-col size="6">
+      <ion-list>
+        <ng-container *ngFor="let cliente of this.clientes">
+          <ion-item class="ion-text-center">
+            <ion-label>{{ cliente.CodCli }}</ion-label>
+            <ion-label>{{ cliente.Nome }}</ion-label>
+            <ion-button (click)="removerCliente(cliente.CodCli)">Remover</ion-button>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>
