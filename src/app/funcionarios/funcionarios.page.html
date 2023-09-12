@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true">
+
+      <ion-row class="ion-justify-content-start">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col size="3">
+              <ion-segment value="listarTodos" (ionChange)="trocarAba($event)">
+                <ion-segment-button value="listarTodos">
+                  <ion-label>Funcionários</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="inserir">
+                  <ion-label>Inserir</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+          </ion-row>
+
+          <ng-container *ngIf="this.itemSelecionado == 'listarTodos'">
+            <ion-row class="ion-justify-content-center ion-align-items-center">
+              <ion-col size="8">
+                <ion-list>
+                  <ng-container *ngFor="let funcionario of this.funcionarios">
+                    <ion-item class="ion-text-center">
+                      <ion-label>{{ funcionario.CodFun }}</ion-label>
+                      <ion-label>{{ funcionario.Nome }}</ion-label>
+                      <ion-label>{{ funcionario.Cidade }}</ion-label>
+                      <ion-label>{{ funcionario.Fone }}</ion-label>
+                      <ion-button>Editar</ion-button>
+                      <ion-button>Excluir</ion-button>
+                    </ion-item>
+                  </ng-container>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ng-container>
+
+          <ng-container *ngIf="this.itemSelecionado == 'inserir'">
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="12">
+                
+                <form>
+                  <ion-row class="ion-justify-content-center ion-align-items-center">
+                    <ion-col size="3">
+                      <ion-input label="Cargo" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                    </ion-col>
+                    <ion-col size="1">
+                      <ion-checkbox>Nome</ion-checkbox>
+                    </ion-col>
+                    <ion-col size="1">
+                      <ion-checkbox>Cargo</ion-checkbox>
+                    </ion-col>
+                    <ion-col size="1">
+                      <ion-checkbox>Cidade</ion-checkbox>
+                    </ion-col>
+                    <ion-col size="1">
+                      <ion-checkbox>Telefone</ion-checkbox>
+                    </ion-col>
+                  </ion-row>
+                </form>
+  
+              </ion-col>
+            </ion-row>
+          </ng-container>
+
+        </ion-col>
+      </ion-row>
+
+</ion-content>

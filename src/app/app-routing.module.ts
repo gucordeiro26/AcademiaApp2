@@ -13,6 +13,10 @@ const routes: Routes = [
   },  {
     path: 'clientes',
     loadChildren: () => import('./clientes/clientes.module').then( m => m.ClientesPageModule)
+  },
+  {
+    path: 'funcionarios',
+    loadChildren: () => import('./funcionarios/funcionarios.module').then( m => m.FuncionariosPageModule)
   }
 
 ];
