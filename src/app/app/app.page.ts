@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-app',
   templateUrl: './app.page.html',
@@ -10,6 +11,15 @@ export class AppPage implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  
+  isModalOpen = false;
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
+  isModalOpenn = false;
+
+  setOpenn(isOpen: boolean) {
+    this.isModalOpenn = isOpen;
+  }
 }

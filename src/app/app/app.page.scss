@@ -15,6 +15,10 @@ text-decoration: none;
     --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/sim.png') no-repeat center/cover fixed;
 }
 
+ion-modal {
+    --border-radius: 0.625em;
+}
+
 .text {
     display: flex;
     justify-content: center;
@@ -74,6 +78,7 @@ text-decoration: none;
     top: 2vh;
 }
 
+// Formulário de login e Cadastro
 .form {
     position: relative;
     top: 10vh;
@@ -96,20 +101,37 @@ text-decoration: none;
     --background: #737373;
 }
 
+// Botão de Login e Cadastro
 .button-form {
     --background: #00B2FF;
     --border-radius: 0.625em;
 
     font-family: 'Bebas Neue';
     font-size: 1.5em;
-    width: 35%;
+    width: 35vw;
     height: 6.5vh;
+
+    @media (min-width: 1440px) {
+        width: 15vw;
+    }
 }
 
 .button-singin-singup {
     position: relative;
     top: 15vh;
     left: 30vw;
+
+    @media (min-width: 768px) {
+        left: 20vw;
+    }
+
+    @media (min-width: 1024px) {
+        left: 11vw;
+    }
+
+    @media (min-width: 1440px) {
+        left: 7.5vw;
+    }
 }
 
 .mensage {
@@ -124,6 +146,7 @@ text-decoration: none;
     font-size: 1em;
 }
 
-.text-mensage p {
+.text-mensage a {
     color: #00B2FF;
+    cursor: pointer;
 }
