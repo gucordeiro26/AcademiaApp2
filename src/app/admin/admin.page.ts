@@ -40,18 +40,22 @@ export class AdminPage {
     }
 
   cliente = {
-    name: null,
-    email: null,
-    telefone: null,
-    cpf: null,
-    endereco: null
-  }
+    name: '',
+    email: '',
+    telefone: '',
+    cpf: '',
+    endereco: ''
+  };
 
   //Conteúdo Gerenciamento clientes
 
   clientes = [
-    { nome: this.cliente.name, email: this.cliente.email, telefone: this.cliente.telefone, cpf: this.cliente.cpf, endereco: this.cliente.endereco }
-  ]
+    { name: this.cliente.name,
+      email: this.cliente.email,
+      telefone: this.cliente.telefone,
+      cpf: this.cliente.cpf,
+      endereco: this.cliente.endereco }
+  ];
 
   public file: any = {};
 
@@ -69,6 +73,7 @@ export class AdminPage {
     this.cliente.telefone = dados.telefone;
     this.cliente.cpf = dados.cpf;
     this.cliente.endereco = dados.endereco;
+    console.log(this.cliente);
 
     this._crudService.insert(this.cliente, 'clientes');
   }
