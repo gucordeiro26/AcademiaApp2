@@ -11,6 +11,12 @@ export class FuncionariosPage {
     this.getFuncionarios();
   }
 
+  isModalOpenUpdate = false;
+
+  setOpenToUpdate(isOpen: boolean) {
+    this.isModalOpenUpdate = isOpen;
+  }
+
   isLoading: boolean = false;
 
   funcionarios: any = [];
@@ -36,7 +42,7 @@ export class FuncionariosPage {
     })
   }
 
-  removerFuncionarios(CodFun: any){
+  removerFuncionario(CodFun: any){
     this.isLoading = true;
     fetch('http://localhost/empresa - php/funcionarios/remover.php', {
       method: "POST",
@@ -49,6 +55,7 @@ export class FuncionariosPage {
     .then(res => { console.log(res); })
     .catch(_ => { console.log(_); })
     .finally(() => {
+      this.getFuncionarios();
       this.isLoading = false;
       console.log("Processo finalizado!");
     })

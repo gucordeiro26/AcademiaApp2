@@ -3,65 +3,125 @@
       <ion-row class="ion-justify-content-start">
         <ion-col size="12">
 
-          <ion-row>
-            <ion-col size="3">
-              <ion-segment value="listarTodos" (ionChange)="trocarAba($event)">
-                <ion-segment-button value="listarTodos">
+          <ion-row class="header ion-align-items-center">
+            <ion-col size="12">
                   <ion-label>Funcionários</ion-label>
-                </ion-segment-button>
-                <ion-segment-button value="inserir">
-                  <ion-label>Inserir</ion-label>
-                </ion-segment-button>
-              </ion-segment>
             </ion-col>
           </ion-row>
 
-          <ng-container *ngIf="this.itemSelecionado == 'listarTodos'">
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="12">
+              
+              <form>
+                <ion-row class="ion-justify-content-center ion-align-items-center">
+                  <ion-col size="4">
+                    <ion-input label="Cargo" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                  </ion-col>
+                  <ion-col size="4">
+                    <ion-radio-group>
+                      <ion-radio class="ion-margin" color="secondary" value="nome">Nome</ion-radio>
+                      <ion-radio class="ion-margin" color="secondary" value="cargo">Cargo</ion-radio>
+                      <ion-radio class="ion-margin" color="secondary" value="cidade">Cidade</ion-radio>
+                      <ion-radio class="ion-margin" color="secondary" value="telefone">Telefone</ion-radio>
+                    </ion-radio-group>
+                  </ion-col>
+                  <ion-col size="2">
+                    <ion-button color="">Procurar</ion-button>
+                  </ion-col>
+                </ion-row>
+              </form>
+
+            </ion-col>
+          </ion-row>
+
             <ion-row class="ion-justify-content-center ion-align-items-center">
               <ion-col size="8">
                 <ion-list>
+                  <ion-item class="ion-justify-content-center ion-text-right">
+                    <ion-label>Código</ion-label>
+                    <ion-label>Nome</ion-label>
+                    <ion-label>Sobrenome</ion-label>
+                    <ion-label>Cidade</ion-label>
+                    <ion-label>Telefone</ion-label>
+                    <ion-label>Salário</ion-label>
+                    <ion-label></ion-label>
+                  </ion-item>
                   <ng-container *ngFor="let funcionario of this.funcionarios">
                     <ion-item class="ion-text-center">
                       <ion-label>{{ funcionario.CodFun }}</ion-label>
                       <ion-label>{{ funcionario.Nome }}</ion-label>
+                      <ion-label>{{ funcionario.Sobrenome }}</ion-label>
                       <ion-label>{{ funcionario.Cidade }}</ion-label>
                       <ion-label>{{ funcionario.Fone }}</ion-label>
-                      <ion-button>Editar</ion-button>
-                      <ion-button>Excluir</ion-button>
+                      <ion-label>{{ funcionario.Salario }}</ion-label>
+                      <ion-button (click)="setOpenToUpdate(true)"><ion-icon name="color-wand-outline"></ion-icon></ion-button>
+                      <ion-button color="danger" (click)="removerFuncionario(funcionario.CodFun)"><ion-icon name="trash-outline"></ion-icon></ion-button>
                     </ion-item>
+
+                    <ion-modal [isOpen]="isModalOpenUpdate">
+                      <ng-template>
+                        <ion-header>
+                          <ion-toolbar>
+                            <ion-title>Atualizar</ion-title>
+                            <ion-buttons slot="end">
+                              <ion-button (click)="setOpenToUpdate(false)">X</ion-button>
+                            </ion-buttons>
+                          </ion-toolbar>
+                        </ion-header>
+                        <ion-content class="ion-justify-content-center ion-align-items-center">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Nome" name="nome" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Sobrenome" name="sobrenome" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Cargo" name="cargo" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Data de Nascimento" name="dataNasc" type="date" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Endereço" name="endereco" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Cidade" name="cidade" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="CEP" name="cep" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="País" name="pais" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Telefone" name="telefone" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                            <ion-col size="6">
+                              <ion-input aria-label="Secondary input" color="secondary" label="Salário" name="salario" label-placement="floating" fill="outline" placeholder=""></ion-input>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row>
+                            <ion-col size="4">
+                              <ion-button color="secondary" size="medium"><ion-icon name="caret-forward-outline"></ion-icon></ion-button>
+                            </ion-col>
+                          </ion-row>
+                        </ion-content>
+                      </ng-template>
+                    </ion-modal>
+
                   </ng-container>
                 </ion-list>
               </ion-col>
             </ion-row>
-          </ng-container>
-
-          <ng-container *ngIf="this.itemSelecionado == 'inserir'">
-            <ion-row class="ion-justify-content-center">
-              <ion-col size="12">
-                
-                <form>
-                  <ion-row class="ion-justify-content-center ion-align-items-center">
-                    <ion-col size="3">
-                      <ion-input label="Cargo" label-placement="floating" fill="outline" placeholder=""></ion-input>
-                    </ion-col>
-                    <ion-col size="1">
-                      <ion-checkbox>Nome</ion-checkbox>
-                    </ion-col>
-                    <ion-col size="1">
-                      <ion-checkbox>Cargo</ion-checkbox>
-                    </ion-col>
-                    <ion-col size="1">
-                      <ion-checkbox>Cidade</ion-checkbox>
-                    </ion-col>
-                    <ion-col size="1">
-                      <ion-checkbox>Telefone</ion-checkbox>
-                    </ion-col>
-                  </ion-row>
-                </form>
-  
-              </ion-col>
-            </ion-row>
-          </ng-container>
 
         </ion-col>
       </ion-row>
