@@ -116,18 +116,14 @@
             <ion-content>
               <ion-list>
                 <ng-container *ngFor="let cliente of this.clientes">
-                  <ion-item (click)="setOpen(true)">
-                    <ion-grid class="table-grid">
-                      <ion-row class="ion-text-center">
-                        <ion-col size="2">{{ cliente.name }}</ion-col>
-                        <ion-col size="2">{{ cliente.email }}</ion-col>
-                        <ion-col size="2">{{ cliente.telefone }}</ion-col>
-                        <ion-col size="2">{{ cliente.cpf }}</ion-col>
-                        <ion-col size="2">{{ cliente.endereco }}</ion-col>
+                  <ion-item class="ion-text-center" (click)="setOpen(true)">
+                    <ion-label>{{ cliente.name }}</ion-label>
+                    <ion-label>{{ cliente.email }}</ion-label>
+                    <ion-label>{{ cliente.telefone }}</ion-label>
+                    <ion-label>{{ cliente.cpf }}</ion-label>
+                    <ion-label>{{ cliente.endereco }}</ion-label>
                         <!-- <ion-col size="1"><ion-button>Editar</ion-button></ion-col>
                         <ion-col size="1"><ion-button>Excluir</ion-button></ion-col> -->
-                      </ion-row>
-                    </ion-grid>
                   </ion-item>
                 </ng-container>
               </ion-list>

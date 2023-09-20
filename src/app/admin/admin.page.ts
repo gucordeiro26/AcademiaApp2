@@ -18,8 +18,10 @@ export class AdminPage {
     public _authenticate: AuthenticateService,
     private _crudService: CrudService,
     public storage: Storage,
-    private _message: MessageService
-  ) { }
+    private _message: MessageService,
+  ) {
+    this.listarClientes();
+  }
 
   trocouAba(event: any){
     // console.log(event.detail.value)
@@ -44,17 +46,23 @@ export class AdminPage {
     email: '',
     telefone: '',
     cpf: '',
-    endereco: ''
+    endereco: '',
+    dataCadastro: new Date(),
+    dataAtt: new Date()
   };
 
   //Conteúdo Gerenciamento clientes
 
   clientes = [
-    { name: this.cliente.name,
+    { 
+      name: this.cliente.name,
       email: this.cliente.email,
       telefone: this.cliente.telefone,
       cpf: this.cliente.cpf,
-      endereco: this.cliente.endereco }
+      endereco: this.cliente.endereco,
+      dataCadastro: this.cliente.dataCadastro,
+      dataAtt: this.cliente.dataAtt
+    }
   ];
 
   public file: any = {};
@@ -76,6 +84,7 @@ export class AdminPage {
     console.log(this.cliente);
 
     this._crudService.insert(this.cliente, 'clientes');
+    this.listarClientes();
   }
 
   listarClientes(){
