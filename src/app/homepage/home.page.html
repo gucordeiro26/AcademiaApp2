@@ -1,46 +1,40 @@
 <ion-content class="introduce-page" [fullscreen]="true">
   <!-- LANDING PAGE -->
-  <ion-col class="bg__landing-page">
-    <ion-row>
+  <ion-row class="bg__landing-page">
+    <ion-col>
       <!-- HEADER -->
-      <ion-header [translucent]="true" class="ion-no-border ">
+      <ion-header id="home" [translucent]="true" class="ion-no-border ">
         <ion-toolbar>
-          <ion-title>lorem ipsun</ion-title>
           <ion-row class="ion-justify-content-center ion-align-items-center">
-            <ion-row>
-              <ion-col><a href="">Home</a></ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col><a href="">Planos</a></ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col><a href="">Sobre</a></ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col><a href="">Suporte</a></ion-col>
-            </ion-row>
+            <ion-title>lorem ipsun</ion-title>
+            <ion-col><a href="#home">Home</a></ion-col>
+            <ion-col><a href="#planos">Planos</a></ion-col>
+            <ion-col><a href="#sobre">Sobre</a></ion-col>
+            <ion-col><a href="#suporte">Suporte</a></ion-col>
           </ion-row>
         </ion-toolbar>
       </ion-header>
-      <ion-col class="ion-justify-content-center ion-align-items-center ion-text-center">
-        <ion-row>
-          <ion-col>
-            <ion-title>Lorem ipsun</ion-title>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus quam a vero tempore itaque labore fugit, unde hic aliquam exercitationem odio quod in maiores, quibusdam nam ullam modi earum ipsum.</ion-text>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-button>lorem</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-col>
+      <ion-row class="content__landing-page ion-justify-content-center ion-align-items-center ion-text-center">
+        <ion-col>
+          <ion-row>
+            <ion-col>
+              <ion-title>Lorem ipsun</ion-title>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-text>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus quam a vero tempore itaque labore fugit, unde hic aliquam exercitationem odio quod in maiores, quibusdam nam ullam modi earum ipsum.</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button>lorem</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
   
   
 <!-- PLANOS -->
@@ -49,7 +43,7 @@
 
       <ion-row  class="ion-text-center">
         <ion-col>
-          <ion-title>Planos</ion-title>
+          <ion-title id="planos">Planos</ion-title>
         </ion-col>
       </ion-row>
       <ion-item-divider>
@@ -93,7 +87,7 @@
   <ion-col size="10" class="ion-text-center ion-no-border">
     <ion-row>
       <ion-col>
-        <ion-title>Sobre Nós</ion-title>
+        <ion-title id="sobre">Sobre Nós</ion-title>
       </ion-col>
     </ion-row>
 
@@ -122,7 +116,7 @@
     <ion-col size="8">
       <ion-row class="ion-text-center">
         <ion-col>
-          <ion-title>Contate-nos</ion-title>
+          <ion-title id="suporte">Contate-nos</ion-title>
         </ion-col>
       </ion-row>
 

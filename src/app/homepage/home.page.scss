@@ -1,53 +1,95 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 ion-content{
   --background: none;
 }
 
-#container{
-  text-align: center;
+// #container{
+//   text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong{
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p{
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a{
-  text-decoration: none;
-}
-
-// .bg__landing-page{
-//   --background: blue;
-
-//   ion-header{
-//     height: 10%;
-  
-//     ion-toolbar{
-//       --background: transparent;
-//     }
-    
-//     ion-row{
-//       --background: transparent;
-//     }
-  
-//     a{
-//       color: white;
-//       text-decoration: none;
-//       font-style: none;
-//     }
-//   }
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
 // }
+
+// #container strong{
+//   font-size: 20px;
+//   line-height: 26px;
+// }
+
+// #container p{
+//   font-size: 16px;
+//   line-height: 22px;
+
+//   color: #8c8c8c;
+
+//   margin: 0;
+// }
+
+// #container a{
+//   text-decoration: none;
+// }
+
+.bg__landing-page{
+  background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover fixed;
+  height: 100vh;
+
+
+  ion-header{
+    background: none;
+    height: 10%;
+  
+    ion-toolbar{
+      --background: transparent;
+
+      ion-title{
+        font-size: 2em;
+        margin: 1em;
+        color: white;
+      }
+    }
+    
+    ion-row{
+      --background: transparent;
+    }
+  
+    a{
+      color: white;
+      text-decoration: none;
+      font-style: none;
+      transition: all ease 0.3s;
+    }
+    a:hover{
+      transition: all ease 0.3s;
+      font-size: 1.25em;
+    }
+  }
+
+  .content__landing-page{
+    height: 100vh;
+
+    ion-title{
+      align-items: center;
+      font-size: 2em;
+      color: white;
+      margin-top: -10%;
+      margin-bottom: 5%;
+    }
+    
+    ion-text{
+      color: white;
+      margin-bottom: 50px;
+    }
+
+    ion-button{
+      margin-top: 10%;
+      height: 3em;
+    }
+  }
+}
