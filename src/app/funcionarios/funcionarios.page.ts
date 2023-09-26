@@ -11,6 +11,20 @@ export class FuncionariosPage {
     this.getFuncionarios();
   }
 
+  forms: any = {
+    codigo: '',
+    nome: '',
+    sobrenome: '',
+    cargo: '',
+    dataNasc: '',
+    endereco: '',
+    cidade: '',
+    cep: '',
+    pais: '',
+    telefone: '',
+    salario: '',
+  };
+
   isModalOpenUpdate = false;
 
   setOpenToUpdate(isOpen: boolean) {
@@ -50,6 +64,26 @@ export class FuncionariosPage {
         'Content-Type': 'appLocation/json',
       },
       body: JSON.stringify({ CodFun: CodFun })
+    })
+    .then(res => res.json())
+    .then(res => { console.log(res); })
+    .catch(_ => { console.log(_); })
+    .finally(() => {
+      this.getFuncionarios();
+      this.isLoading = false;
+      console.log("Processo finalizado!");
+    })
+  }
+
+  atualizarFuncionario(event: any){
+    this.isLoading = true;
+    event.preventDefault();
+    fetch('http://localhost/empresa%20-%20php/funcionarios/atualizar.php', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'appLocation/json',
+      },
+      body: JSON.stringify( this.forms ),
     })
     .then(res => res.json())
     .then(res => { console.log(res); })
