@@ -12,4 +12,13 @@ ion-content{
         text-align: left;
         background: rgb(65, 65, 65);
     }
+
+    .radio_group{
+        display: flex;
+        align-items: center;
+
+        .radio{
+            padding: .5em 2em;
+        }
+    }
 }

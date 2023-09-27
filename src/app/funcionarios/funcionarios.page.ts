@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FuncionariosPage {
 
-  constructor(){
-    this.getFuncionarios();
+  constructor() {
+    this.listarFuncionarios()
   }
 
-  forms: any = {
+  isLoading: boolean = false;
+  funcionarios: any = [];
+  formDados: any = {
     codigo: '',
     nome: '',
     sobrenome: '',
@@ -21,78 +23,126 @@ export class FuncionariosPage {
     cidade: '',
     cep: '',
     pais: '',
-    telefone: '',
+    fone: '',
     salario: '',
   };
+  
+  buscarDado: string = '';
+  selectedFilter: string = 'name';
 
-  isModalOpenUpdate = false;
 
-  setOpenToUpdate(isOpen: boolean) {
-    this.isModalOpenUpdate = isOpen;
-  }
 
-  isLoading: boolean = false;
-
-  funcionarios: any = [];
-
-  itemSelecionado: string = 'listarTodos';
-
-  trocarAba(event: any){
-    this.itemSelecionado = event.detail.value;
-  }
-
-  getFuncionarios(){
+  // Função de Listar Todos Funcionários
+  listarFuncionarios(){
     this.isLoading = true;
-    fetch('http://localhost/empresa - php/funcionarios/listarTodos.php')
-    .then(res => res.json())
-    .then(res => {
-      this.funcionarios = res['funcionarios'];
-      console.log(this.funcionarios);
+    let funcionario = { CodFun: '123' };
+    fetch('http://localhost/empresa - php/funcionarios/funcionariosSelect.php',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(funcionario)
     })
-    .catch(_ => { console.log(_); })
-    .finally(() => {
+    .then(response => response.json())
+    .then(response => {
+      this.funcionarios = response['funcionarios']
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{
       this.isLoading = false;
-      console.log("Processo finalizado!");
     })
   }
 
+  // Remover Funionários
   removerFuncionario(CodFun: any){
     this.isLoading = true;
-    fetch('http://localhost/empresa - php/funcionarios/remover.php', {
-      method: "POST",
+    let funcionario = { CodFun: CodFun };
+    fetch('http://localhost/empresa - php/funcionarios/funcionarioDelete.php',
+    {
+      method: 'DELETE',
       headers: {
-        'Content-Type': 'appLocation/json',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ CodFun: CodFun })
+      body: JSON.stringify(funcionario)
+    }
+		)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
     })
-    .then(res => res.json())
-    .then(res => { console.log(res); })
-    .catch(_ => { console.log(_); })
-    .finally(() => {
-      this.getFuncionarios();
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{
       this.isLoading = false;
-      console.log("Processo finalizado!");
+      console.log('excluiu');
+      this.listarFuncionarios();
     })
   }
 
-  atualizarFuncionario(event: any){
-    this.isLoading = true;
-    event.preventDefault();
-    fetch('http://localhost/empresa%20-%20php/funcionarios/atualizar.php', {
-      method: "POST",
+  // Atualizar Funcionários
+  isAtualizarOpen = false;
+
+  modalUpdate(isOpen: boolean) {
+    this.isAtualizarOpen = isOpen;
+  }
+
+  enviarDados(evento: any){
+    evento.preventDefault()
+    this.isLoading = true
+
+    fetch('http://localhost/empresa - php/funcionarios/funcionarioUpdate.php', {
+      method: 'POST',
       headers: {
-        'Content-Type': 'appLocation/json',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify( this.forms ),
+      body: JSON.stringify(this.formDados),
     })
-    .then(res => res.json())
-    .then(res => { console.log(res); })
-    .catch(_ => { console.log(_); })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.error(error);
+    })
     .finally(() => {
-      this.getFuncionarios();
       this.isLoading = false;
-      console.log("Processo finalizado!");
+      this.listarFuncionarios(); // Atualiza a lista de funcionários após a atualização
+      this.modalUpdate(false);
     })
   }
+
+  // Inserir Funcionários
+  isInserirOpen = false;
+
+  setOpenInserir(isOpen: boolean) {
+    this.isInserirOpen = isOpen;
+  }
+
+  inserirFuncionario(dados: any){
+      this.isLoading = true
+      fetch('http://localhost/empresa - php/funcionarios/funcionarioInsert.php',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'applicattion/json',
+        },
+        body: JSON.stringify(dados),
+      })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        this.listarFuncionarios();
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(()=>{
+        this.isLoading = false;
+        this.setOpenInserir(false)
+      })
+    }
 
 }
