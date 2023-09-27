@@ -47,6 +47,8 @@ export class AdminPage {
     telefone: '',
     cpf: '',
     endereco: '',
+    cidade: '',
+    dataNasc: '',
     dataCadastro: new Date(),
     dataAtt: new Date()
   };
@@ -60,6 +62,8 @@ export class AdminPage {
       telefone: this.cliente.telefone,
       cpf: this.cliente.cpf,
       endereco: this.cliente.endereco,
+      cidade: this.cliente.cidade,
+      dataNasc: this.cliente.dataNasc,
       dataCadastro: this.cliente.dataCadastro,
       dataAtt: this.cliente.dataAtt
     }
@@ -81,6 +85,7 @@ export class AdminPage {
     this.cliente.telefone = dados.telefone;
     this.cliente.cpf = dados.cpf;
     this.cliente.endereco = dados.endereco;
+    this.cliente.dataNasc = dados.dataNasc;
     console.log(this.cliente);
 
     this._crudService.insert(this.cliente, 'clientes');
