@@ -30,6 +30,7 @@ export class FuncionariosPage {
   }
 
   buscarTermo: string = '';
+  filtroPesquisa: string = 'nome';
 
   // Função de Listar Todos Funcionários
   listarFuncionarios(){
@@ -45,7 +46,7 @@ export class FuncionariosPage {
     })
     .then(response => response.json())
     .then(response => {
-      this.funcionarios = response['funcionarios']
+      this.funcionarios = response['funcionarios'];
     })
     .catch(erro => {
       console.log(erro);
@@ -102,7 +103,7 @@ export class FuncionariosPage {
     })
     .then(response => response.json())
     .then(response => {
-      console.log(response);
+      this.funcionarios = response.funcionarios;
     })
     .catch(error => {
       console.error(error);
@@ -145,16 +146,20 @@ export class FuncionariosPage {
     }
 
     filtrarPorSearchBar(){
-      fetch('http://localhost/empresa - php/funcionarios/filtro.php',{
+      const pesquisar = {
+        buscarTermo: this.buscarTermo,
+        filtroPesquisa: this.filtroPesquisa,
+      };
+      fetch('http://localhost/empresa - php/funcionarios/filtroPesquisa.php',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this.buscarTermo),
+      body: JSON.stringify(pesquisar),
     })
     .then((response) => response.json())
     .then((data) => {
-        this.funcionarios = data.funcionarios;
+      this.funcionarios = data['funcionarios'];
     })
     .catch((error) => {
         console.error('Erro na busca de funcionários:', error);

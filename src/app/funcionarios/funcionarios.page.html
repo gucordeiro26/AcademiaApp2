@@ -4,7 +4,7 @@
       <ion-text>Funcionários</ion-text>
     </ion-col>
     <ion-col class="ion-text-center">
-      <ion-button color="secondary" (click)="modalInserir(true)">Inserir</ion-button>
+      <ion-button color="secondary" (click)="modalInserir(true)">INSERIR</ion-button>
     </ion-col>
 
     <!-- Modal Para Inserir -->
@@ -108,11 +108,11 @@
           <ion-searchbar [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
         <ion-col class="radio_group" size="4">
-          <ion-radio-group class="radio_group">
-            <ion-radio color="secondary" class="radio" value="name">Nome</ion-radio>
+          <ion-radio-group class="radio_group" [(ngModel)]="filtroPesquisa" (ionChange)="filtrarPorSearchBar()">
+            <ion-radio color="secondary" class="radio" value="nome">Nome</ion-radio>
             <ion-radio color="secondary" class="radio" value="cargo">Cargo</ion-radio>
             <ion-radio color="secondary" class="radio" value="cidade">Cidade</ion-radio>
-            <ion-radio color="secondary" class="radio" value="fone">Telefone</ion-radio>
+            <ion-radio color="secondary" class="radio" value="telefone">Telefone</ion-radio>
           </ion-radio-group>
         </ion-col>
       </ion-row>
@@ -151,12 +151,10 @@
                 <ion-label>{{ funcionario.Pais }}</ion-label>
                 <ion-label>{{ funcionario.Cidade }}</ion-label>
                 <ion-label>{{ funcionario.Salario }}</ion-label>
-                <ion-button (click)="modalUpdate(true)"><ion-icon
-                    name="pencil-outline"></ion-icon></ion-button>
-                <ion-button color="danger" (click)="removerFuncionario(funcionario.CodFun)"><ion-icon
-                    name="trash-outline"></ion-icon></ion-button>
+                <ion-button (click)="modalUpdate(true)"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+                <ion-button color="danger" (click)="removerFuncionario(funcionario.CodFun)"><ion-icon name="trash-outline"></ion-icon></ion-button>
 
-                    <!-- Modal Para Atualizar -->
+                <!-- Modal Para Atualizar -->
                 <ion-modal [isOpen]="isAtualizarOpen">
                   <ng-template>
                     <ion-toolbar>
@@ -231,8 +229,8 @@
                               </ion-col>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.fone" label="Telefone" name="telefone" ngModel
-                                    type="tel" label-placement="floating"></ion-input>
+                                  <ion-input #input [(ngModel)]="formDados.fone" label="Telefone" name="telefone"
+                                    ngModel type="tel" label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                             </ion-row>
