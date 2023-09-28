@@ -4,15 +4,15 @@
       <ion-text>Funcionários</ion-text>
     </ion-col>
     <ion-col class="ion-text-center">
-      <ion-button color="secondary" (click)="setOpenInserir(true)">Inserir</ion-button>
+      <ion-button color="secondary" (click)="modalInserir(true)">Inserir</ion-button>
     </ion-col>
 
-    <!-- Modal Inserir -->
+    <!-- Modal Para Inserir -->
     <ion-modal [isOpen]="isInserirOpen">
       <ng-template>
         <ion-toolbar>
           <ion-buttons slot="end">
-            <ion-button (click)="setOpenInserir(false)">X</ion-button>
+            <ion-button (click)="modalInserir(false)">X</ion-button>
           </ion-buttons>
         </ion-toolbar>
         <ion-content class="ion-padding">
@@ -52,7 +52,7 @@
                   </ion-col>
                   <ion-col>
                     <ion-item>
-                      <ion-input #input ngModel label="Cidade" name="cidade" ngModel type="text" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="Cidade" name="cidade" type="text" label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                 </ion-row>
@@ -105,7 +105,7 @@
     <ion-col size="8">
       <ion-row>
         <ion-col size="6">
-          <ion-searchbar show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
+          <ion-searchbar [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
         <ion-col class="radio_group" size="4">
           <ion-radio-group class="radio_group">
@@ -119,37 +119,58 @@
     </ion-col>
   </ion-row>
 
-  <!-- LISTAR TODOS funcionarios -->
+  <!-- Listar Todos os Funcionários -->
   <ion-row class="ion-justify-content-center">
     <ion-col size="12">
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
           <ion-list class="list">
+            <ion-item>
+              <ion-label>Código</ion-label>
+              <ion-label>Nome</ion-label>
+              <ion-label>Sobrenome</ion-label>
+              <ion-label>Cargo</ion-label>
+              <ion-label>Telefone</ion-label>
+              <ion-label>Data de Nascimento</ion-label>
+              <ion-label>Endereço</ion-label>
+              <ion-label>CEP</ion-label>
+              <ion-label>País</ion-label>
+              <ion-label>Cidade</ion-label>
+              <ion-label>Salário</ion-label>
+            </ion-item>
             <ng-container *ngFor="let funcionario of this.funcionarios">
-              <ion-item>
-                <ion-label>Nome: {{ funcionario.Nome }}</ion-label>
-                <ion-label>Cargo: {{ funcionario.Cargo }}</ion-label>
-                <ion-label>Cidade: {{ funcionario.Cidade }}</ion-label>
-                <ion-label>Telefone: {{ funcionario.Fone }}</ion-label>
+              <ion-item class="ion-text-center">
+                <ion-label>{{ funcionario.CodFun }}</ion-label>
+                <ion-label>{{ funcionario.Nome }}</ion-label>
+                <ion-label>{{ funcionario.Sobrenome }}</ion-label>
+                <ion-label>{{ funcionario.Cargo }}</ion-label>
+                <ion-label>{{ funcionario.Fone }}</ion-label>
+                <ion-label>{{ funcionario.DataNasc }}</ion-label>
+                <ion-label>{{ funcionario.Endereco }}</ion-label>
+                <ion-label>{{ funcionario.CEP }}</ion-label>
+                <ion-label>{{ funcionario.Pais }}</ion-label>
+                <ion-label>{{ funcionario.Cidade }}</ion-label>
+                <ion-label>{{ funcionario.Salario }}</ion-label>
                 <ion-button (click)="modalUpdate(true)"><ion-icon
                     name="pencil-outline"></ion-icon></ion-button>
                 <ion-button color="danger" (click)="removerFuncionario(funcionario.CodFun)"><ion-icon
                     name="trash-outline"></ion-icon></ion-button>
 
+                    <!-- Modal Para Atualizar -->
                 <ion-modal [isOpen]="isAtualizarOpen">
                   <ng-template>
-                    <ion-buttons slot="end">
-                      <ion-button (click)="modalUpdate(false)">Close</ion-button>
-                    </ion-buttons>
+                    <ion-toolbar>
+                      <ion-label class="ion-padding-start">ATUALIZAR FUNCIONÁRIO</ion-label>
+                      <ion-buttons slot="end">
+                        <ion-button (click)="modalUpdate(false)">X</ion-button>
+                      </ion-buttons>
+                    </ion-toolbar>
                     <ion-content class="ion-padding">
                       <ion-row class="ion-justify-content-center">
                         <ion-col class="ion-text-align-center" size="12">
 
                           <!-- Formulário -->
-                          <form (submit)="enviarDados($event)" #AtualizarFuncionárioForm="ngForm">
-                            <ion-item class="ion-text-center" lines="none">
-                              <ion-label>Atualizar Funcionário</ion-label>
-                            </ion-item>
+                          <form (submit)="atualizarFuncionario($event)" #AtualizarFuncionárioForm="ngForm">
 
                             <ion-row>
                               <ion-col>
@@ -190,7 +211,7 @@
                             <ion-row>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.enderco" label="Endereço" name="endereco"
+                                  <ion-input #input [(ngModel)]="formDados.endereco" label="Endereço" name="endereco"
                                     ngModel type="text" label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
@@ -210,7 +231,7 @@
                               </ion-col>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.fone" label="Telefone" name="fone" ngModel
+                                  <ion-input #input [(ngModel)]="formDados.fone" label="Telefone" name="telefone" ngModel
                                     type="tel" label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>

@@ -12,7 +12,9 @@ export class FuncionariosPage {
   }
 
   isLoading: boolean = false;
+
   funcionarios: any = [];
+
   formDados: any = {
     codigo: '',
     nome: '',
@@ -23,14 +25,11 @@ export class FuncionariosPage {
     cidade: '',
     cep: '',
     pais: '',
-    fone: '',
+    telefone: '',
     salario: '',
-  };
-  
-  buscarDado: string = '';
-  selectedFilter: string = 'name';
+  }
 
-
+  buscarTermo: string = '';
 
   // Função de Listar Todos Funcionários
   listarFuncionarios(){
@@ -90,9 +89,9 @@ export class FuncionariosPage {
     this.isAtualizarOpen = isOpen;
   }
 
-  enviarDados(evento: any){
-    evento.preventDefault()
-    this.isLoading = true
+  atualizarFuncionario(evento: any){
+    evento.preventDefault();
+    this.isLoading = true;
 
     fetch('http://localhost/empresa - php/funcionarios/funcionarioUpdate.php', {
       method: 'POST',
@@ -110,7 +109,7 @@ export class FuncionariosPage {
     })
     .finally(() => {
       this.isLoading = false;
-      this.listarFuncionarios(); // Atualiza a lista de funcionários após a atualização
+      this.listarFuncionarios();
       this.modalUpdate(false);
     })
   }
@@ -118,7 +117,7 @@ export class FuncionariosPage {
   // Inserir Funcionários
   isInserirOpen = false;
 
-  setOpenInserir(isOpen: boolean) {
+  modalInserir(isOpen: boolean) {
     this.isInserirOpen = isOpen;
   }
 
@@ -141,8 +140,26 @@ export class FuncionariosPage {
       })
       .finally(()=>{
         this.isLoading = false;
-        this.setOpenInserir(false)
+        this.modalInserir(false)
       })
+    }
+
+    filtrarPorSearchBar(){
+      fetch('http://localhost/empresa - php/funcionarios/filtro.php',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.buscarTermo),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        this.funcionarios = data.funcionarios;
+    })
+    .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+    });
+
     }
 
 }
