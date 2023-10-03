@@ -12,6 +12,19 @@ export class FuncionariosPage {
   }
 
   isLoading: boolean = false;
+  guardarInfosUsuario: any = {
+    codigo: '',
+    nome: '',
+    sobrenome: '',
+    cargo: '',
+    dataNasc: '',
+    endereco: '',
+    cidade: '',
+    cep: '',
+    pais: '',
+    telefone: '',
+    salario: '',
+  };
 
   funcionarios: any = [];
 
@@ -33,86 +46,110 @@ export class FuncionariosPage {
   filtroPesquisa: string = 'nome';
 
   // Função de Listar Todos Funcionários
-  listarFuncionarios(){
+  listarFuncionarios() {
     this.isLoading = true;
     let funcionario = { CodFun: '123' };
-    fetch('http://localhost/empresa - php/funcionarios/funcionariosSelect.php',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(funcionario)
-    })
-    .then(response => response.json())
-    .then(response => {
-      this.funcionarios = response['funcionarios'];
-    })
-    .catch(erro => {
-      console.log(erro);
-    })
-    .finally(()=>{
-      this.isLoading = false;
-    })
+    fetch('http://localhost/empresa-php/funcionarios/funcionariosSelect.php',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(funcionario)
+      })
+      .then(response => response.json())
+      .then(response => {
+        this.funcionarios = response['funcionarios'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
   }
 
   // Remover Funionários
-  removerFuncionario(CodFun: any){
+  removerFuncionario(CodFun: any) {
     this.isLoading = true;
     let funcionario = { CodFun: CodFun };
-    fetch('http://localhost/empresa - php/funcionarios/funcionarioDelete.php',
-    {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(funcionario)
-    }
-		)
-    .then(response => response.json())
-    .then(response => {
-      console.log(response);
-    })
-    .catch(erro => {
-      console.log(erro);
-    })
-    .finally(()=>{
-      this.isLoading = false;
-      console.log('excluiu');
-      this.listarFuncionarios();
-    })
+    fetch('http://localhost/empresa-php/funcionarios/funcionarioDelete.php',
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(funcionario)
+      }
+    )
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+        console.log('excluiu');
+        this.listarFuncionarios();
+      })
   }
 
   // Atualizar Funcionários
   isAtualizarOpen = false;
 
-  modalUpdate(isOpen: boolean) {
+  modalUpdate(isOpen: boolean, codigo: any, nome: string, sobrenome: string, cargo: string, dataNasc: string, endereco: string, cidade: string, cep: string, pais: string, telefone: string, salario: string) {
     this.isAtualizarOpen = isOpen;
+    this.guardarInfosUsuario.codigo = codigo;
+    this.guardarInfosUsuario.nome = nome;
+    this.guardarInfosUsuario.sobrenome = sobrenome;
+    this.guardarInfosUsuario.cargo = cargo;
+    this.guardarInfosUsuario.dataNasc = dataNasc;
+    this.guardarInfosUsuario.endereco = endereco;
+    this.guardarInfosUsuario.cidade = cidade;
+    this.guardarInfosUsuario.cep = cep;
+    this.guardarInfosUsuario.pais = pais;
+    this.guardarInfosUsuario.telefone = telefone;
+    this.guardarInfosUsuario.salario = salario;
   }
 
-  atualizarFuncionario(evento: any){
-    evento.preventDefault();
+  atualizarFuncionario(dados: any) {
     this.isLoading = true;
 
-    fetch('http://localhost/empresa - php/funcionarios/funcionarioUpdate.php', {
+    const funcionarioAtualizado = {
+      codigo: this.guardarInfosUsuario.codigo,
+      sobrenome: dados.sobrenome,
+      nome: dados.nome,
+      cargo: dados.cargo,
+      dataNasc: dados.dataNasc,
+      endereco: dados.endereco,
+      cidade: dados.cidade,
+      cep: dados.cep,
+      pais: dados.pais,
+      telefone: dados.fone,
+      salario: dados.salario,
+    };
+
+    fetch('http://localhost/empresa-php/funcionarios/funcionarioUpdate.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this.formDados),
+      body: JSON.stringify(funcionarioAtualizado),
     })
-    .then(response => response.json())
-    .then(response => {
-      this.funcionarios = response.funcionarios;
-    })
-    .catch(error => {
-      console.error(error);
-    })
-    .finally(() => {
-      this.isLoading = false;
-      this.listarFuncionarios();
-      this.modalUpdate(false);
-    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+        this.listarFuncionarios();
+        this.modalUpdate(false, '', '', '', '', '', '', '', '', '', '', '');
+      })
   }
 
   // Inserir Funcionários
@@ -122,15 +159,15 @@ export class FuncionariosPage {
     this.isInserirOpen = isOpen;
   }
 
-  inserirFuncionario(dados: any){
-      this.isLoading = true
-      fetch('http://localhost/empresa - php/funcionarios/funcionarioInsert.php',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'applicattion/json',
-        },
-        body: JSON.stringify(dados),
-      })
+  inserirFuncionario(dados: any) {
+    this.isLoading = true
+    fetch('http://localhost/empresa-php/funcionarios/funcionarioInsert.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'applicattion/json',
+      },
+      body: JSON.stringify(dados),
+    })
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
@@ -139,32 +176,32 @@ export class FuncionariosPage {
       .catch((error) => {
         console.log(error);
       })
-      .finally(()=>{
+      .finally(() => {
         this.isLoading = false;
         this.modalInserir(false)
       })
-    }
+  }
 
-    filtrarPorSearchBar(){
-      const pesquisar = {
-        buscarTermo: this.buscarTermo,
-        filtroPesquisa: this.filtroPesquisa,
-      };
-      fetch('http://localhost/empresa - php/funcionarios/filtroPesquisa.php',{
+  filtrarPorSearchBar() {
+    const pesquisar = {
+      buscarTermo: this.buscarTermo,
+      filtroPesquisa: this.filtroPesquisa,
+    };
+    fetch('http://localhost/empresa-php/funcionarios/filtroPesquisa.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(pesquisar),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      this.funcionarios = data['funcionarios'];
-    })
-    .catch((error) => {
+      .then((response) => response.json())
+      .then((data) => {
+        this.funcionarios = data['funcionarios'];
+      })
+      .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
-    });
+      });
 
-    }
+  }
 
 }

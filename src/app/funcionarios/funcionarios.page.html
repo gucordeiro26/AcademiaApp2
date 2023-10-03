@@ -11,6 +11,7 @@
     <ion-modal [isOpen]="isInserirOpen">
       <ng-template>
         <ion-toolbar>
+          <ion-label class="ion-padding-start">Inserir um Funcionário</ion-label>
           <ion-buttons slot="end">
             <ion-button (click)="modalInserir(false)">X</ion-button>
           </ion-buttons>
@@ -22,68 +23,75 @@
 
               <!-- Formulário -->
               <form #formInserirFuncionario="ngForm" (ngSubmit)="inserirFuncionario(formInserirFuncionario.value)">
-                <ion-item class="ion-text-center" lines="none">
-                  <ion-label>Inserir um Funcionário</ion-label>
-                </ion-item>
                 <ion-row>
                   <ion-col>
                     <ion-item>
-                      <ion-input label="Nome" name="nome" ngModel type="text" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="Nome" name="nome" type="text"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                   <ion-col>
                     <ion-item>
-                      <ion-input label="Sobrenome" name="sobrenome" ngModel type="text" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="Sobrenome" name="sobrenome" type="text"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col>
                     <ion-item>
-                      <ion-input label="Cargo" name="cargo" ngModel type="text" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="Cargo" name="cargo" type="text"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col>
                     <ion-item>
-                      <ion-input label="Data de Nascimento" name="dataNasc" ngModel type="date" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="Data de Nascimento" name="dataNasc" type="date"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                   <ion-col>
                     <ion-item>
-                      <ion-input #input ngModel label="Cidade" name="cidade" type="text" label-placement="floating"></ion-input>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    <ion-item>
-                      <ion-input label="Endereço" name="endereco" ngModel type="text" label-placement="floating"></ion-input>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col>
-                    <ion-item>
-                      <ion-input label="CEP" name="cep" ngModel type="number" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="Cidade" name="cidade" type="text"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col>
                     <ion-item>
-                      <ion-input label="País" name="pais" ngModel type="text" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="Endereço" name="endereco" type="text"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                   <ion-col>
                     <ion-item>
-                      <ion-input label="Telefone" name="fone" ngModel type="tel" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="CEP" name="cep" type="number"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col>
                     <ion-item>
-                      <ion-input label="Salário" name="salario" ngModel type="number" label-placement="floating"></ion-input>
+                      <ion-input #input ngModel label="País" name="pais" type="text"
+                        label-placement="floating"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-input #input ngModel label="Telefone" name="fone" type="tel"
+                        label-placement="floating"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-input #input ngModel label="Salário" name="salario" type="number"
+                        label-placement="floating"></ion-input>
                     </ion-item>
                   </ion-col>
                 </ion-row>
@@ -105,7 +113,8 @@
     <ion-col size="8">
       <ion-row>
         <ion-col size="6">
-          <ion-searchbar [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
+          <ion-searchbar [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+            clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
         <ion-col class="radio_group" size="4">
           <ion-radio-group class="radio_group" [(ngModel)]="filtroPesquisa" (ionChange)="filtrarPorSearchBar()">
@@ -151,8 +160,9 @@
                 <ion-label>{{ funcionario.Pais }}</ion-label>
                 <ion-label>{{ funcionario.Cidade }}</ion-label>
                 <ion-label>{{ funcionario.Salario }}</ion-label>
-                <ion-button (click)="modalUpdate(true)"><ion-icon name="pencil-outline"></ion-icon></ion-button>
-                <ion-button color="danger" (click)="removerFuncionario(funcionario.CodFun)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+                <ion-button (click)="modalUpdate(true, funcionario.CodFun, funcionario.Nome, funcionario.Sobrenome, funcionario.Cargo, funcionario.DataNasc, funcionario.Endereco, funcionario.Cidade, funcionario.CEP, funcionario.Pais, funcionario.Fone, funcionario.Salario)"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+                <ion-button color="danger" (click)="removerFuncionario(funcionario.CodFun)"><ion-icon
+                    name="trash-outline"></ion-icon></ion-button>
 
                 <!-- Modal Para Atualizar -->
                 <ion-modal [isOpen]="isAtualizarOpen">
@@ -160,7 +170,7 @@
                     <ion-toolbar>
                       <ion-label class="ion-padding-start">ATUALIZAR FUNCIONÁRIO</ion-label>
                       <ion-buttons slot="end">
-                        <ion-button (click)="modalUpdate(false)">X</ion-button>
+                        <ion-button (click)="modalUpdate(false, '', '', '', '', '', '', '', '', '', '', '')">X</ion-button>
                       </ion-buttons>
                     </ion-toolbar>
                     <ion-content class="ion-padding">
@@ -168,84 +178,84 @@
                         <ion-col class="ion-text-align-center" size="12">
 
                           <!-- Formulário -->
-                          <form (submit)="atualizarFuncionario($event)" #AtualizarFuncionárioForm="ngForm">
-
+                          <form (submit)="atualizarFuncionario(formAtualizarFuncionario.value)" #formAtualizarFuncionario="ngForm">
                             <ion-row>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.nome" label="Nome" name="nome" ngModel
-                                    type="text" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.nome" label="Nome" name="nome" type="text"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.sobrenome" label="Sobrenome" name="sobrenome"
-                                    ngModel type="text" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.sobrenome" label="Sobrenome" value="sobrenome" name="sobrenome" type="text"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                             </ion-row>
                             <ion-row>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.cargo" label="Cargo" name="cargo" ngModel
-                                    type="text" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cargo" label="Cargo" value="cargo" name="cargo" type="text"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                             </ion-row>
                             <ion-row>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.dataNasc" label="Data de Nascimento"
-                                    name="dataNasc" ngModel type="date" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.dataNasc" label="Data de Nascimento" value="dataNasc" name="dataNasc" type="date"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.cidade" label="Cidade" name="cidade" ngModel
-                                    type="text" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cidade" label="Cidade" value="cidade" name="cidade" type="text"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                             </ion-row>
                             <ion-row>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.endereco" label="Endereço" name="endereco"
-                                    ngModel type="text" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.endereco" label="Endereço" value="endereco" name="endereco" type="text"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.cep" label="CEP" name="cep" ngModel
-                                    type="number" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cep" label="CEP" value="cep" name="cep" type="number"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                             </ion-row>
                             <ion-row>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.pais" label="País" name="pais" ngModel
-                                    type="text" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.pais" label="País" value="pais" name="pais" type="text"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.fone" label="Telefone" name="telefone"
-                                    ngModel type="tel" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.telefone" label="Telefone" value="telefone" name="fone" type="tel"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                             </ion-row>
                             <ion-row>
                               <ion-col>
                                 <ion-item>
-                                  <ion-input #input [(ngModel)]="formDados.salario" label="Salário" name="salario"
-                                    ngModel type="number" label-placement="floating"></ion-input>
+                                  <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.salario" label="Salário" value="salario" name="salario" type="number"
+                                    label-placement="floating"></ion-input>
                                 </ion-item>
                               </ion-col>
                             </ion-row>
-
-                            <ion-item lines="none">
-                              <ion-button color="light" slot="end" type="submit">Atualizar</ion-button>
-                            </ion-item>
+                              <ion-row class="ion-justify-content-end">
+                                <ion-col size="3">
+                                  <ion-button color="light" type="submit">Atualizar</ion-button>
+                                </ion-col>
+                              </ion-row>
                           </form>
 
                         </ion-col>
