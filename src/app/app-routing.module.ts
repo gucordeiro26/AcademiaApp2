@@ -14,7 +14,19 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren: () => import('./app/app.module').then( m => m.AppPageModule)
+  },  {
+    path: 'app-inicio',
+    loadChildren: () => import('./app-inicio/app-inicio.module').then( m => m.AppInicioPageModule)
   },
+  {
+    path: 'app-perfil',
+    loadChildren: () => import('./app-perfil/app-perfil.module').then( m => m.AppPerfilPageModule)
+  },
+  {
+    path: 'app-treino',
+    loadChildren: () => import('./app-treino/app-treino.module').then( m => m.AppTreinoPageModule)
+  },
+
 
 ];
 

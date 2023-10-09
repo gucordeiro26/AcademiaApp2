@@ -1,0 +1,45 @@
+ion-content {
+    --background: #262626 no-repeat center/cover fixed;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
+}
+
+// Imagens
+.perfil {
+    --size: 5em;
+}
+
+// Texto
+.text-nomeUsuario {
+    font-family: 'Oswald';
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.text-treinoHoje {
+    font-family: 'Oswald';
+    font-size: 1em;
+    color: #A6A6A6;
+}
+
+// Conteúdo
+.meio {
+    --background: #404040;
+    width: 90vw;
+    height: 80vh;
+}
+
+// Navegação
+.nav-bar {
+    --background: #262626;
+    position: sticky;
+    width: 100vw;
+}
+
+ion-button {
+    --background: #262626;
+}

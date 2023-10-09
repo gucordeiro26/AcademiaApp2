@@ -54,7 +54,7 @@
               <!-- Mensagem para abrir o cadastro -->
               <ion-row class="mensage">
                 <ion-col>
-                  <ion-text class="text-mensage">Não tem um login: <a (click)="setOpen(true)">Cadastra-se
+                  <ion-text class="text-mensage">Não tem um login: <a (click)="setOpen(true)" (click)="setOpenn(false)">Cadastra-se
                       aqui</a></ion-text>
                 </ion-col>
               </ion-row>
@@ -62,7 +62,7 @@
               <!-- Botão de Login -->
               <ion-row class="button-singin-singup">
                 <ion-col size="6" size-lg="12">
-                  <ion-button class="button-form" type="submit">
+                  <ion-button class="button-form" type="submit" [routerLink]="['./app-inicio']">
                     <ng-container *ngIf="this._authenticate.isLoading">
                       <ion-spinner></ion-spinner>
                     </ng-container>
@@ -135,7 +135,7 @@
               <ion-row class="mensage">
                 <ion-col>
                   <ion-text class="text-mensage">Já tem login, entre aqui: <a
-                      (click)="setOpenn(true)">Login</a></ion-text>
+                      (click)="setOpenn(true)" (click)="setOpen(false)">Login</a></ion-text>
                 </ion-col>
               </ion-row>
 
