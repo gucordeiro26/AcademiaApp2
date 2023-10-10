@@ -1,7 +1,6 @@
 ion-content {
     --background: #262626 no-repeat center/cover fixed;
 }
-
 @font-face {
     font-family: 'Oswald';
     src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
@@ -31,13 +30,26 @@ ion-content {
     --background: #404040;
     width: 90vw;
     height: 80vh;
+
+    // Imagens
+    .imgExercicio {
+        width: 150px;
+        height: 200px;
+        flex-shrink: 0;
+        --border-radius: 10px;
+        background: rgba(0, 0, 0, 0.50);
+    }
 }
+
+    
+
 
 // Navegação
 .nav-bar {
-    --background: #262626;
+    background: #262626;
     position: sticky;
     width: 100vw;
+    padding-left: 1em;
 }
 
 ion-button {
