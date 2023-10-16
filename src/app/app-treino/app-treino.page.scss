@@ -1,0 +1,72 @@
+ion-content {
+    --background: #262626 no-repeat center/cover fixed;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../../assets/font/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
+}
+
+// Title
+.title {
+    color: #FFF;
+    font-family: Bebas Neue;
+    font-size: 2.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+// Treino
+
+ion-accordion {
+    border-radius: 0.5em;
+    background-color: #404040;
+}
+
+ion-item {
+    --background: #404040;
+    --color: #fff;
+}
+
+.exercicioNome {
+    --color: #fff;
+    font-family: Bebas Neue;
+    font-size: 1.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.exercicioSerie {
+    color: #FFF;
+    font-family: Oswald;
+    font-size: 1.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.btnExercicio {
+    --border-radius: 8px;
+    --background: #00B2FF;
+    width: 80vw;
+    height: 5vh;
+}
+
+// Navegação
+.nav-bar {
+    background: #262626;
+    position: sticky;
+    width: 100vw;
+    padding-left: 1em;
+}
+
+ion-button {
+    --background: #262626;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-app-treino',
@@ -11,5 +11,9 @@ export class AppTreinoPage implements OnInit {
 
   ngOnInit() {
   }
+
+  // Conteúdo
+  accordionDisable = false;
+  
 
 }
