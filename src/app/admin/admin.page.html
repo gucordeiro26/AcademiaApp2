@@ -19,6 +19,10 @@
     </ion-col>
   </ion-row>
 
+  <ion-row>
+    <ion-col><canvas id="myChart"></canvas></ion-col>
+  </ion-row>
+
   <!-- Conteúdo Cadastro de Clientes -->
   <ng-container *ngIf="this.item_selecionado == 'cadastroCliente'">
     <ion-row class="ion-justify-content-center">
@@ -98,12 +102,7 @@
                           <ion-col>
                             <ion-item class="card__button" lines="none">
                               <ion-button class="btn_cadastrar" slot="end" type="submit">
-                                <ng-container *ngIf="this._authenticate.isLoading">
-                                  <ion-spinner></ion-spinner>
-                                </ng-container>
-                                <ng-container *ngIf="!this._authenticate.isLoading">
                                   Cadastrar
-                                </ng-container>
                               </ion-button>
                             </ion-item>
                           </ion-col>
@@ -143,147 +142,7 @@
 
             <ion-content>
               <ion-list>
-                <ng-container *ngFor="let cliente of this.clientes">
-                  <ion-item class="ion-text-center" (click)="setOpen(true)">
-                    <ion-label>{{ cliente.name }}</ion-label>
-                    <ion-label>{{ cliente.email }}</ion-label>
-                    <ion-label>{{ cliente.telefone }}</ion-label>
-                    <ion-label>{{ cliente.cpf }}</ion-label>
-                    <ion-label>{{ cliente.endereco }}</ion-label>
-
-                    <!-- Conteúdo Modal -->
-                    <ion-modal [isOpen]="isModalOpen">
-                      <ng-template>
-                        <ion-header>
-                          <ion-segment value="inicio" (ionChange)="trocouComponente($event)"  >
-        
-                            <ion-segment-button class="modal-segment-button" value="perfil">
-                              <ion-label>Perfil</ion-label>
-                            </ion-segment-button>
-        
-                            <ion-segment-button class="modal-segment-button" value="fichaTreino">
-                              <ion-label>Ficha de Treino</ion-label>
-                            </ion-segment-button>
-        
-                            <ion-segment-button class="modal-segment-button" value="alterarInformacao">
-                              <ion-label>Alterar Informação</ion-label>
-                            </ion-segment-button>
-        
-                          </ion-segment>
-                          <ion-buttons slot="end" class="ion-justify-content-end">
-                            <ion-button (click)="setOpen(false)"><img width="20" height="20"
-                                src="https://img.icons8.com/ios/50/000000/cancel.png" alt="cancel" /></ion-button>
-                          </ion-buttons>
-                        </ion-header>
-                        <ion-content class="ion-padding">
-        
-                          <!-- Perfil -->
-                          <ng-container *ngIf="this.item_selecionado_modal == 'perfil'">
-                            <ion-row class="ion-justify-content-center">
-                              <ion-col size="6"><ion-img class="img-perfil" src="https://cdn-icons-png.flaticon.com/512/5987/5987462.png"></ion-img></ion-col>
-                            </ion-row>
-        
-                            <ion-row>
-                              <ion-col size="6"><ion-label>{{ cliente.name }}</ion-label></ion-col>
-                              <ion-col size="6"><ion-label>{{ cliente.email }}</ion-label></ion-col>
-                            </ion-row>
-        
-                            <ion-row>
-                              <ion-col size="6"><ion-label>{{ cliente.cpf }}</ion-label></ion-col>
-                              <ion-col size="6"><ion-label>{{ cliente.dataNasc }}</ion-label></ion-col>
-                            </ion-row>
-        
-                            <ion-row>
-                              <ion-col size="6"><ion-label>{{ cliente.telefone }}</ion-label></ion-col>
-                              <ion-col size="6"><ion-label>{{ cliente.cidade }}</ion-label></ion-col>
-                            </ion-row>
-                            
-                            <ion-row>
-                              <ion-col><ion-label>{{ cliente.endereco }}</ion-label></ion-col>
-                            </ion-row>
-        
-                            <ion-row>
-                              <ion-col size="6"><ion-label>{{cliente.dataCadastro }}</ion-label></ion-col>
-                              <ion-col size="6"><ion-label>{{ cliente.dataAtt }}</ion-label></ion-col>
-                            </ion-row>
-                          </ng-container>
-        
-                          <!-- Ficha de Treino -->
-                          <ng-container *ngIf="this.item_selecionado_modal == 'fichaTreino'"></ng-container>
-        
-                          <!-- Atualizar Informação -->
-                          <ng-container *ngIf="this.item_selecionado_modal == 'alterarInformacao'">
-                            <ion-row>
-                              <ion-col size="12"><br><br>
-                                <form class="form" #inserirClienteForm="ngForm"
-                                  (ngSubmit)="inserirCliente(inserirClienteForm.value)">
-        
-                                  <ion-list>
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item class="card__item">
-                                          <ion-input ngModel label="Nome" name="name" label-placement="floating" type="text"
-                                            placeholder="Coloque o nome" class="required"></ion-input>
-                                          <span class="span-required">Nome deve ter no mínimo 3 caractéres</span>
-                                        </ion-item>
-                                      </ion-col>
-                                      <ion-col>
-                                        <ion-item class="card__item">
-                                          <ion-input ngModel label="E-mail" name="email" label-placement="floating" type="email"
-                                            placeholder="Coloque o email"></ion-input>
-                                          <span class="span-required">Digite um E-mail válido</span>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row>
-                                      <ion-col size="6">
-                                        <ion-item class="card__item">
-                                          <ion-input ngModel label="Telefone" name="telefone" label-placement="floating"
-                                            type="tel" placeholder="Coloque o telefone"></ion-input>
-                                          <span class="span-required">Coloque um núumero válido</span>
-                                        </ion-item>
-                                      </ion-col>
-                                      <ion-col size="6">
-                                        <ion-item class="card__item">
-                                          <ion-input ngModel label="CPF" name="cpf" label-placement="floating" type="tel"
-                                            placeholder="Coloque o CPF"></ion-input>
-                                          <span class="span-required">Coloque um número de CPF válido</span>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item class="card__item">
-                                          <ion-input ngModel label="Endereço" name="endereco" label-placement="floating"
-                                            type="text" placeholder="Coloque o endereço"></ion-input>
-                                          <span class="span-required">Endereço deve ter no mínimo 3 caractéres</span>
-                                        </ion-item>
-                                      </ion-col>
-                                      <ion-col>
-                                        <ion-item class="card__button" lines="none">
-                                          <ion-button class="btn_cadastrar" slot="end" type="submit">
-                                            <ng-container *ngIf="this._authenticate.isLoading">
-                                              <ion-spinner></ion-spinner>
-                                            </ng-container>
-                                            <ng-container *ngIf="!this._authenticate.isLoading">
-                                              Atualizar
-                                            </ng-container>
-                                          </ion-button>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                  </ion-list>
-        
-                                </form>
-                              </ion-col>
-                            </ion-row>
-                          </ng-container>
-        
-                        </ion-content>
-                      </ng-template>
-                    </ion-modal>
-                  </ion-item>
-                </ng-container>
+               
               </ion-list>
             </ion-content>
 

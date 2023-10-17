@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthenticateService } from '../services/auth.service';
-import { CrudService } from '../services/crud.service';
-import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fire/storage';
-import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-admin',
@@ -14,14 +10,7 @@ export class AdminPage {
   isLoading: boolean = false;
   item_selecionado: string = 'inicio';
   
-  constructor(
-    public _authenticate: AuthenticateService,
-    private _crudService: CrudService,
-    public storage: Storage,
-    private _message: MessageService,
-  ) {
-    this.listarClientes();
-  }
+  constructor() { }
 
   trocouAba(event: any){
     // console.log(event.detail.value)
@@ -41,152 +30,9 @@ export class AdminPage {
       this.item_selecionado_modal = event.detail.value;
     }
 
-  cliente = {
-    name: '',
-    email: '',
-    telefone: '',
-    cpf: '',
-    endereco: '',
-    cidade: '',
-    dataNasc: '',
-    dataCadastro: new Date(),
-    dataAtt: new Date()
-  };
+    inserirCliente(dados: any){
 
-  //Conteúdo Gerenciamento clientes
-
-  clientes = [
-    { 
-      name: this.cliente.name,
-      email: this.cliente.email,
-      telefone: this.cliente.telefone,
-      cpf: this.cliente.cpf,
-      endereco: this.cliente.endereco,
-      cidade: this.cliente.cidade,
-      dataNasc: this.cliente.dataNasc,
-      dataCadastro: this.cliente.dataCadastro,
-      dataAtt: this.cliente.dataAtt
     }
-  ];
 
-  public file: any = {};
-
-  criarConta(dados: any){
-    // this._authenticate.register(dados.name, dados.email, dados.telefone, dados.cpf, dados.endereco);
-  }
-
-  realizarLogin(dados: any) {
-    this._authenticate.login(dados.name, dados.email);
-  }
   
-  inserirCliente(dados: any){
-    this.cliente.name = dados.name;
-    this.cliente.email = dados.email;
-    this.cliente.telefone = dados.telefone;
-    this.cliente.cpf = dados.cpf;
-    this.cliente.endereco = dados.endereco;
-    this.cliente.dataNasc = dados.dataNasc;
-    console.log(this.cliente);
-
-    this._crudService.insert(this.cliente, 'clientes');
-    this.listarClientes();
-  }
-
-  listarClientes(){
-    this._crudService.fetchAll('clientes')
-    .then( clientes => {
-      this.clientes = clientes;
-    })
-  }
-
-
-  removerCliente(cliente: any){
-    console.log(cliente);
-    this._crudService.remove(cliente.id, 'clientes')
-  }
-
-  consultarCliente(dados: any){
-    console.log(dados);
-    this._crudService.fetchByOperatorParam('nome', '==', dados.name, 'clientes')
-    .then( cliente => {
-      console.log(cliente[0].id);
-    })
-  }
-
-  atualizarDadosCliente(dados: any){
-    if (this.cliente.cpf == null) {
-      this._crudService.fetchByOperatorParam('nome', '==', dados.name, 'clientes')
-      .then( cliente => {
-        this.cliente = cliente[0];
-        console.log(this.cliente);
-      })
-    } else {
-      this._crudService.update(this.cliente.cpf, dados, 'clientes');
-    }
-  }
-
-  memorizarArquivo(event: any) {
-    this.file = event.target.files[0];
-  }
-
-  fazerUpload() {
-    if (!this.file.name) {
-      this._message.show('Favor selecionar o arquivo a ser enviado', 5000);
-      return;
-    }
-
-    // Upload file and metadata to the object 'images/mountains.jpg'
-      const storageRef = ref(this.storage, this.file.name);
-      const uploadTask = uploadBytesResumable(storageRef, this.file);
-
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on('state_changed',
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-
-          console.log('Upload is ' + progress + '% done');
-
-          switch (snapshot.state) {
-            case 'paused':
-              console.log('Envio pausado');
-              break;
-            case 'running':
-              console.log('Carregando arquivo');
-              this._message.show('Carregando arquivo, favor aguardar!', 2000);
-              break;
-          }
-        },
-        (error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              console.log('Não enviado! Usuário sem permissão');
-              this._message.show('Não enviado! Usuário sem permissão!');
-              break;
-            case 'storage/canceled':
-              // User canceled the upload
-              console.log('Não enviado: upload cancelado');
-              this._message.show('Erro: Upload cancelado!');
-              break;
-            case 'storage/unknown':
-              // Unknown error occurred, inspect error.serverResponse
-              console.log('Não enviado. Ocorreu um erro desconhecido!');
-              this._message.show('Oops! Ocorreu um erro desconhecido!');
-              break;
-          }
-
-          console.log('Arquivo enviado');
-          this._message.show('Arquivo enviado com sucesso!');
-        },
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log('Url do arquivo é ' + downloadURL)
-          });
-        }
-      );
-  }
 }
