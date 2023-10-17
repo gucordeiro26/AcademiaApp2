@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'homepage',
     pathMatch: 'full'
+  },  {
+    path: 'admin-login',
+    loadChildren: () => import('./admin-login/admin-login.module').then( m => m.AdminLoginPageModule)
   },
+
 ];
 
 @NgModule({
