@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-app-inicio',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppInicioPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
+  }
+
+  passarInformacao(dadosTreino: string) {
+    this.dataService.setDadosTreino(dadosTreino);
+    this.router.navigate(['/app-treino'])
   }
 
 }

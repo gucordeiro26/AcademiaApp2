@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-app-treino',
@@ -6,14 +7,12 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./app-treino.page.scss'],
 })
 export class AppTreinoPage implements OnInit {
+  dadosTreino: any;
 
-  constructor() { }
+  constructor(private dataService: DataService) {
+    this.dadosTreino = this.dataService.getDadosTreino()
+   }
 
   ngOnInit() {
   }
-
-  // Conteúdo
-  accordionDisable = false;
-  
-
 }

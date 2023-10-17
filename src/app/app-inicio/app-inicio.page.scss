@@ -9,6 +9,7 @@ ion-content {
 // Imagens
 .perfil {
     --size: 5em;
+    position: relative;
 }
 
 // Texto
@@ -17,12 +18,16 @@ ion-content {
     font-size: 2em;
     font-weight: bold;
     color: #fff;
+    position: relative;
+    bottom: 1em;
 }
 
 .text-treinoHoje {
     font-family: 'Oswald';
     font-size: 1em;
     color: #A6A6A6;
+    position: relative;
+    bottom: 5em;
 }
 
 // Conteúdo
@@ -30,6 +35,8 @@ ion-content {
     --background: #404040;
     width: 90vw;
     height: 80vh;
+    position: relative;
+    bottom: 6em;
 
     // Imagens
     .imgExercicio {
@@ -38,11 +45,35 @@ ion-content {
         flex-shrink: 0;
         --border-radius: 10px;
         background: rgba(0, 0, 0, 0.50);
+        position: relative;
+        left: 0.5em;
+    }
+    // Peito
+    .peito {
+        position: relative;
+        top: 7.5em;
+    }
+    // Tríceps
+    .triceps {
+        position: relative;
+        top: 4em;
+    }
+    // Abdômen
+    .abdomen {
+        position: relative;
+        top: 5em;
+    }
+    // Bíceps
+    .biceps {
+        position: relative;
+        top: 1.75em;
+    }
+    // Costas
+    .costa {
+        position: relative;
+        top: 3em;
     }
 }
-
-    
-
 
 // Navegação
 .nav-bar {
@@ -52,6 +83,96 @@ ion-content {
     padding-left: 1em;
 }
 
-ion-button {
+.btns {
     --background: #262626;
+    position: relative;
+}
+
+
+// Responsividade
+@media (max-width: 320px) {
+    .meio {
+        height: 154vh;
+
+        // Imagens
+        .imgExercicio {
+            position: relative;
+            left: 2.8em;
+            width: 12em;
+            height: 16em;
+        }
+
+        // Peito
+        .peito {
+            position: relative;
+            top: 12em;
+        }
+        // Tríceps
+        .triceps {
+            position: relative;
+            top: 10em;
+        }
+        // Abdômen
+        .abdomen {
+            position: relative;
+            top: 8em;
+        }
+        // Bíceps
+        .biceps {
+            position: relative;
+            top: 6em;
+        }
+        // Costas
+        .costa {
+            position: relative;
+            top: 3em;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    // Perfil
+    .perfil {
+        left: 1em;
+        --size: 7em;
+    }
+
+    // Conteúdo
+    .meio {
+        left: 1.7em;
+        height: 140vh;
+
+        // Imagens
+        .imgExercicio {
+            width: 18.75em;
+            height: 25em;
+            left: 2em;
+        }
+    }
+    // Botões
+    .btns {
+        left: 4.8em;
+    }
+}
+
+@media (min-width: 1024px) {
+    // Perfil
+    .perfil {
+        left: 2.3em;
+    }
+
+    // Conteúdo
+    .meio {
+        left: 2.3em;
+
+        // Imagens
+        .imgExercicio {
+            left: 6.3em;
+        }
+    }
+
+    // Botões
+    .btns {
+        left: 8em;
+    }
 }

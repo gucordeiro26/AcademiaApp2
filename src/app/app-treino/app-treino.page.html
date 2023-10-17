@@ -1,6 +1,8 @@
 <ion-content [fullscreen]="true">
   <ion-row class="ion-justify-content-center">
-    <ion-col size="10"><p class="title">LISTA DE EXERCÍCIOS</p></ion-col>
+    <ion-col size="10">
+      <p class="title">LISTA DE EXERCÍCIOS</p>
+    </ion-col>
   </ion-row>
 
   <ion-row class="ion-justify-content-center">
@@ -8,12 +10,12 @@
 
       <ion-accordion-group [multiple]="true" [value]="['second']">
 
-        <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
+        <ion-accordion class="accordion" value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
           <ion-item slot="header">
 
             <ion-row>
               <ion-col size="12">
-                  <ion-label class="exercicioNome">Desenvolvimento</ion-label>
+                <ion-label class="exercicioNome">Desenvolvimento</ion-label>
               </ion-col>
             </ion-row>
 
@@ -21,13 +23,15 @@
 
           <ion-row class="ion-padding" slot="content">
             <ion-col>
-              <ion-row>
+              <ion-row class="ion-justify-content-center accordionContent">
                 <ion-col size="6">
                   <video controls width="100%">
                     <source src="../../assets/videos/desenvolvimentoOmbro.mp4" type="video/mp4">
                   </video>
                 </ion-col>
-                <ion-col size="6"><p class="exercicioSerie">Série: 4x15</p></ion-col>
+                <ion-col size="6">
+                  <p class="exercicioSerie">Série: 4x15</p>
+                </ion-col>
               </ion-row>
 
               <ion-row class="ion-justify-content-center">
@@ -41,12 +45,12 @@
 
         </ion-accordion><br>
 
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
+        <ion-accordion class="accordion" value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
           <ion-item slot="header">
 
             <ion-row>
               <ion-col size="12">
-                  <ion-label class="exercicioNome">Supino Reto</ion-label>
+                <ion-label class="exercicioNome">Supino Reto</ion-label>
               </ion-col>
             </ion-row>
 
@@ -54,13 +58,15 @@
 
           <ion-row class="ion-padding" slot="content">
             <ion-col>
-              <ion-row>
+              <ion-row class="ion-justify-content-center accordionContent">
                 <ion-col size="6">
                   <video controls width="100%">
                     <source src="../../assets/videos/supinoReto.mp4" type="video/mp4">
                   </video>
                 </ion-col>
-                <ion-col size="6"><p class="exercicioSerie">Série: 4x15</p></ion-col>
+                <ion-col size="6">
+                  <p class="exercicioSerie">Série: 4x15</p>
+                </ion-col>
               </ion-row>
 
               <ion-row class="ion-justify-content-center">
@@ -84,25 +90,25 @@
 <ion-footer class="nav-bar">
   <ion-row class="ion-justify-content-center">
     <ion-col>
-          <ion-row>  
-            <ion-col size="4" class="ion-padding-start">
-              <ion-button [routerLink]="'/app-treino'">
-                <ion-icon size="large" name="accessibility-outline"></ion-icon>
-              </ion-button>
-            </ion-col>
-        
-            <ion-col size="4" class="ion-padding-start">
-              <ion-button [routerLink]="'/app-inicio'">
-                <ion-icon size="large" name="home-outline"></ion-icon>
-              </ion-button>
-            </ion-col>
-        
-            <ion-col size="4" class="ion-padding-start">
-              <ion-button [routerLink]="'/app-perfil'">
-                <ion-icon size="large" name="person-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row>
+      <ion-row>
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-treino'">
+            <ion-icon size="large" name="accessibility-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-inicio'">
+            <ion-icon size="large" name="home-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-perfil'">
+            <ion-icon size="large" name="person-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </ion-col>
   </ion-row>
 </ion-footer>

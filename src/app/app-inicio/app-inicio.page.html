@@ -1,9 +1,9 @@
 <ion-content [fullscreen]="true">
-  
+
   <ion-row class="ion-justify-content-center">
     <ion-col size="2.5">
       <ion-thumbnail class="perfil">
-        <img src="../../assets/images/usuario-de-perfil.png"/>
+        <img src="../../assets/images/usuario-de-perfil.png" />
       </ion-thumbnail>
     </ion-col>
   </ion-row>
@@ -13,7 +13,7 @@
       <p class="text-nomeUsuario">Olá, nome_de_usuário</p>
     </ion-col>
   </ion-row>
-  
+
   <ion-row>
     <ion-col size="6" class="ion-padding-start">
       <p class="text-treinoHoje">Quer treinar o que hoje?</p>
@@ -25,18 +25,24 @@
       <ion-card class="meio">
         <ion-card-content>
           <ion-row>
-            <ion-col><ion-thumbnail class="imgExercicio"><img src="../../assets/images/perna.png" alt=""></ion-thumbnail></ion-col>
-            <ion-col><ion-thumbnail class="imgExercicio"><img src="../../assets/images/costas.png" alt=""></ion-thumbnail></ion-col>
+            <ion-col><ion-thumbnail (click)="passarInformacao('perna')" class="imgExercicio perna"><img
+                  src="../../assets/images/perna.png" alt=""></ion-thumbnail></ion-col>
+            <ion-col><ion-thumbnail (click)="passarInformacao('costa')" class="imgExercicio costa"><img
+                  src="../../assets/images/costas.png" alt=""></ion-thumbnail></ion-col>
           </ion-row>
 
           <ion-row>
-            <ion-col><ion-thumbnail class="imgExercicio"><img src="../../assets/images/biceps.png" alt=""></ion-thumbnail></ion-col>
-            <ion-col><ion-thumbnail class="imgExercicio"><img src="../../assets/images/abdomen.png" alt=""></ion-thumbnail></ion-col>
+            <ion-col><ion-thumbnail (click)="passarInformacao('biceps')" class="imgExercicio biceps"><img
+                  src="../../assets/images/biceps.png" alt=""></ion-thumbnail></ion-col>
+            <ion-col><ion-thumbnail (click)="passarInformacao('abdomen')" class="imgExercicio abdomen"><img
+                  src="../../assets/images/abdomen.png" alt=""></ion-thumbnail></ion-col>
           </ion-row>
 
           <ion-row>
-            <ion-col><ion-thumbnail class="imgExercicio"><img src="../../assets/images/triceps.png" alt=""></ion-thumbnail></ion-col>
-            <ion-col><ion-thumbnail class="imgExercicio"><img src="../../assets/images/peito.png" alt=""></ion-thumbnail></ion-col>
+            <ion-col><ion-thumbnail (click)="passarInformacao('triceps')" class="imgExercicio triceps"><img
+                  src="../../assets/images/triceps.png" alt=""></ion-thumbnail></ion-col>
+            <ion-col><ion-thumbnail (click)="passarInformacao('peito')" class="imgExercicio peito"><img
+                  src="../../assets/images/peito.png" alt=""></ion-thumbnail></ion-col>
           </ion-row>
 
         </ion-card-content>
@@ -44,28 +50,29 @@
     </ion-col>
   </ion-row>
 </ion-content>
+
 <ion-footer class="nav-bar">
   <ion-row class="ion-justify-content-center">
     <ion-col>
-          <ion-row>  
-            <ion-col size="4" class="ion-padding-start">
-              <ion-button [routerLink]="'/app-treino'">
-                <ion-icon size="large" name="accessibility-outline"></ion-icon>
-              </ion-button>
-            </ion-col>
-        
-            <ion-col size="4" class="ion-padding-start">
-              <ion-button [routerLink]="'/app-inicio'">
-                <ion-icon size="large" name="home-outline"></ion-icon>
-              </ion-button>
-            </ion-col>
-        
-            <ion-col size="4" class="ion-padding-start">
-              <ion-button [routerLink]="'/app-perfil'">
-                <ion-icon size="large" name="person-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row>
+      <ion-row>
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-treino'">
+            <ion-icon size="large" name="accessibility-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-inicio'">
+            <ion-icon size="large" name="home-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-perfil'">
+            <ion-icon size="large" name="person-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </ion-col>
   </ion-row>
 </ion-footer>
