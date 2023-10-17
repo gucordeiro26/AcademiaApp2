@@ -1,16 +1,16 @@
 <ion-content [fullscreen]="true">
-  <form #loginAdmin="ngForm">
+  <form #loginADM="ngForm" (ngSubmit)="loginAdmin(loginADM.value)">
     <ion-row class="ion-justify-content-center">
       <ion-col class="">
-        <ion-input ngModel label="email" name="email" label-placement="floating" type="email"
+        <ion-input ngModel label="email" name="email" label-placement="floating" type="text"
           placeholder="Coloque o seu email" class="required"></ion-input>
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-justify-content-center">
       <ion-col class="">
-        <ion-input ngModel label="senha" name="senha" label-placement="floating" type="senha"
-          placeholder="Coloque o sua senha" class="required"></ion-input>
+        <ion-input ngModel label="senha" name="senha" label-placement="floating" type="text"
+          placeholder="Coloque a sua senha" class="required"></ion-input>
       </ion-col>
     </ion-row>
 
