@@ -6,33 +6,36 @@ import { Component } from '@angular/core';
   styleUrls: ['admin.page.scss'],
 })
 export class AdminPage {
-  // Conteudo Pagina
-  isLoading: boolean = false;
-  item_selecionado: string = 'inicio';
   
   constructor() { }
+  
+  // Conteudo Pagina
+  isLoading: boolean = false;
+  conteudo: string = 'home';
+  iconActive: string = 'gere-outline';
+  clientes = [
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+    { nome: 'Caique', email: 'caique@gmail.com', cpf: '1599999999', codigo: '1' },
+  ]
 
-  trocouAba(event: any){
-    // console.log(event.detail.value)
-    this.item_selecionado = event.detail.value;
+  mudarConteudo(nvConteudo: string, nvIcon: string){
+    this.conteudo = nvConteudo;
+    this.iconActive = nvIcon;
   }
 
-    isModalOpen = false;
-
-    setOpen(isOpen: boolean) {
-      this.isModalOpen = isOpen;
-    }
-
-    item_selecionado_modal: string = 'perfil';
-    
-    trocouComponente(event: any){
-      // console.log(event.detail.value)
-      this.item_selecionado_modal = event.detail.value;
-    }
-
-    inserirCliente(dados: any){
-
-    }
-
-  
 }

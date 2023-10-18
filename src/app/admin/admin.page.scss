@@ -6,104 +6,115 @@
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
-}
-
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40vh;
-  width: 100%;
+  color: #fff;
+  font-family: 'Bebas Neue';
 }
 
 .container {
-  --background: rgb(33, 32, 32);
+  --background: #212020;
   color: #F2F2F2;
 }
 
-.segment-button {
-  --indicator-color: #08a391;
-  --color: #ffffff;
-  --color-checked: #e4e4e4;
+@font-face {
+  font-family: 'Oswald';
+  src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
 }
 
-// Conteúdo Cadastro de Clientes
-.text {
-  display: flex;
-  color: #F2F2F2;
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('../../assets/font/BebasNeue-Regular.ttf');
 }
 
-.full-height {
-  height: 90vh;
-  overflow: hidden;
+// Side Bar
+.custom__row {  
+  height: 100vh;
+  padding-right: 12em;
+  padding-top: 8em;
+}
+
+.customCol {
+  background: #404040;
   display: flex;
-  align-items: center;
   justify-content: center;
-  // background: black;
+  flex-direction: column;
+  border-radius: 1.25em;
+  height: 70vh;
+  -webkit-box-shadow: 1px 2px 43px 0px rgba(105,103,105,1);
+  -moz-box-shadow: 1px 2px 43px 0px rgba(105,103,105,1);
+  box-shadow: 1px 2px 43px 0px rgba(105,103,105,1);
 }
 
+.customRow {
+  padding-top: 2em;
+
+  .iconActive {
+    content: '\2022';
+    margin-right: 0.625em;
+    font-size: 1.25em;
+    color: #808080;
+  }
+}
+
+
+// Gerenciamento Clientes
 .card {
-  width: 70vw;
-  height: 50vh;
-  background: #ffffff;
-  border-radius: 0.875em;
+  --background: #404040;
+  --color: #fff;
+  height: 32em;
+  border-radius: 3em;
+  position: relative;
+  right: 3em;
+  webkit-box-shadow: 0px -2px 137px -18px rgba(97,97,97,1);
+  -moz-box-shadow: 0px -2px 137px -18px rgba(97,97,97,1);
+  box-shadow: 0px -2px 137px -18px rgba(97,97,97,1)
 }
 
-.card__item {
-  min-width: 30vw;
-  height: 9vh;
-  padding: 0;
-  margin: 0 auto;
-}
+.rowGereCliente {
+  margin-top: 12em;
+  margin-right: 10em;
+  width: 100vh;
+  
 
-.card__title {
-  padding-top: 5vh;
-}
+  .rowPesquisa {
+    padding-top: 2em;
+    width: 90vh;
 
-.card__button {
-  margin-bottom: 5vh;
-}
+    .searchBar {
+      margin-left: 0.5em;
+      --background: #808080;
+      --border-radius: 1em;
+      --placeholder-color: #fff;
+    }
+  
+    .radioGroup {
+      margin-left: 1em;
+      margin-top: 0.7em;
+      --border-radius: 0.5em;
+      --color: #a49f9f;
+      --color-checked: #b81212;
+    }
+  }
+  
+  .rowGere {
+    margin-top: 0.5em;
+    width: 90vh;
+    max-height: 60vh;
 
-.span-required {
-  display: none;
-}
+    .list {
+      --background: #404040;
+    }
 
-// Conteúdo Gerenciamento Clientes
-.full {
-  margin-bottom: 1.875rem;
-  height: 80vh;
-  width: 80%;
-  border-radius: 0.875em;
-  background: #ffffff;
-}
+    .scrollable-list {
+      max-height: 50vh;
+      overflow-y: auto;
+    }
 
-.full__table {
-  height: 80%;
-  margin-left: 10rem;
-  width: 80%;
-}
-
-.table-grid {
-  border: 1px solid #000000;
-  padding: 0.625em;
-  margin-bottom: 0.625em;
-}
-
-.btn_cadastrar {
-  height: 5vh;
-  width: 12vw;
-  --background: #2b2b2b;
-  color: #f5f5f5;
-}
-
-.modal-segment-button {
-  --indicator-color: #025c39;
-  --color: #000000;
-  --color-checked: #202020;
-}
-
-
-// Conteúdo Perfil
-.img-perfil {
-  width: 30%;
+    .labelInf {
+      position: relative; 
+      right: 3em;
+    }
+    .labelText {
+      font-size: 1em;
+    }
+  }
 }

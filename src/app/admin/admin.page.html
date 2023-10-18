@@ -1,154 +1,90 @@
 <ion-content class="container" [fullscreen]="true">
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="6">
-      <ion-segment value="inicio" (ionChange)="trocouAba($event)">
+  <ion-row>
+    <ion-col>
+      <ion-row class="custom__row">
+        <ion-col class="customCol" size="4">
 
-        <ion-segment-button class="segment-button" value="inicio">
-          <ion-label>Ínicio</ion-label>
-        </ion-segment-button>
+          <ion-row class="customRow ion-justify-content-center">
+            <ion-col size="12" class="ion-padding-top"><ion-icon (click)="mudarConteudo('home', 'home-outline')"
+                [ngClass]="{'iconActive': this.iconActive === 'home-outline'}" size="large" color="light"
+                name="home-outline"></ion-icon></ion-col>
+          </ion-row><br><br>
 
-        <ion-segment-button class="segment-button" value="cadastroCliente">
-          <ion-label>Cadastro de Clientes</ion-label>
-        </ion-segment-button>
+          <ion-row class="customRow ion-justify-content-center">
+            <ion-col size="12" class="ion-padding-top"><ion-icon (click)="mudarConteudo('chart', 'chart-outline')"
+                [ngClass]="{'iconActive': this.iconActive === 'chart-outline'}" size="large" color="light"
+                name="bar-chart-outline"></ion-icon></ion-col>
+          </ion-row><br><br>
 
-        <ion-segment-button class="segment-button" value="gerenciamentoClientes">
-          <ion-label>Gerenciamento de Clientes</ion-label>
-        </ion-segment-button>
+          <ion-row class="customRow ion-justify-content-center">
+            <ion-col size="12" class="ion-padding-top"><ion-icon (click)="mudarConteudo('fichaTreino', 'ficha-outline')"
+                [ngClass]="{'iconActive': this.iconActive === 'ficha-outline'}" size="large" color="light"
+                name="reader-outline"></ion-icon></ion-col>
+          </ion-row><br><br>
 
-      </ion-segment>
+          <ion-row class="customRow ion-justify-content-center">
+            <ion-col size="12" class="ion-padding-top"><ion-icon (click)="mudarConteudo('addCliente', 'add-outline')"
+                [ngClass]="{'iconActive': this.iconActive === 'add-outline'}" size="large" color="light"
+                name="person-add-outline"></ion-icon></ion-col>
+          </ion-row><br><br>
+
+          <ion-row class="customRow ion-justify-content-center">
+            <ion-col size="12" class="ion-padding-top"><ion-icon (click)="mudarConteudo('gereCliente', 'gere-outline')"
+                [ngClass]="{'iconActive': this.iconActive === 'gere-outline'}" size="large" color="light"
+                name="person-outline"></ion-icon></ion-col>
+          </ion-row><br><br>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="8">
+      <ion-row>
+        <ion-col>
+          <ng-container *ngIf="this.conteudo === 'home'"></ng-container>
+          <ng-container *ngIf="this.conteudo === 'chart'"></ng-container>
+          <ng-container *ngIf="this.conteudo === 'fichaTreino'"></ng-container>
+          <ng-container *ngIf="this.conteudo === 'addCliente'"></ng-container>
+
+          <ng-container *ngIf="this.conteudo === 'gereCliente'">
+            <ion-row class="rowGereCliente">
+              <ion-col size="12">
+                <ion-card class="card">
+                  <ion-card-content>
+                    <ion-row class="rowPesquisa ion-justify-content-center">
+                      <ion-col size="6">
+                        <ion-searchbar class="searchBar"></ion-searchbar>
+                      </ion-col>
+                      <ion-col>
+                        <ion-radio-group size="6">
+                          <ion-radio class="radioGroup" name="name">Nome:</ion-radio>
+                          <ion-radio class="radioGroup" name="email">Email:</ion-radio>
+                          <ion-radio class="radioGroup" name="code">Código:</ion-radio>
+                          <ion-radio class="radioGroup" name="cpf">CPF:</ion-radio>
+                        </ion-radio-group>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="rowGere ion-justify-content-start">
+                      <ion-col size="12">
+                        <ion-list class="scrollable-list">
+                          <ng-container *ngFor="let cliente of this.clientes">
+                            <ion-item class="list">
+                              <ion-label class="labelText">Codigo: {{ cliente.codigo }}</ion-label>
+                              <ion-label class="labelInf labelText">Nome: {{ cliente.nome }}</ion-label>
+                              <ion-label class="labelInf labelText">Email: {{ cliente.email }}</ion-label>
+                              <ion-label class="labelInf labelText">Cpf: {{ cliente.cpf }}</ion-label>
+                              <ion-button><ion-icon name="pencil-outline"></ion-icon></ion-button>
+                              <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+                            </ion-item>
+                          </ng-container>
+                        </ion-list>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ng-container>
+        </ion-col>
+      </ion-row>
     </ion-col>
   </ion-row>
-
-  <ion-row>
-    <ion-col><canvas id="myChart"></canvas></ion-col>
-  </ion-row>
-
-  <!-- Conteúdo Cadastro de Clientes -->
-  <ng-container *ngIf="this.item_selecionado == 'cadastroCliente'">
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="12" class="ion-text-center full-height">
-
-        <!-- Formulário -->
-        <ion-row class="card">
-          <ion-col size="12">
-            <div>
-              <ion-card-header>
-                <ion-card-title class="card__title">Cadastro de Clientes</ion-card-title>
-              </ion-card-header>
-
-              <ion-row>
-                <ion-col size="12">
-                  <div class="card-content">
-                    <form class="form" #inserirClienteForm="ngForm"
-                      (ngSubmit)="inserirCliente(inserirClienteForm.value)">
-
-                      <ion-list>
-
-                        <ion-row>
-                          <ion-col>
-                            <ion-item class="card__item">
-                              <ion-input ngModel label="Nome" name="name" label-placement="floating" type="text"
-                                placeholder="Coloque o nome" class="required"></ion-input>
-                              <span class="span-required">Nome deve ter no mínimo 3 caractéres</span>
-                            </ion-item>
-                          </ion-col>
-
-                          <ion-col>
-                            <ion-item class="card__item">
-                              <ion-input ngModel label="E-mail" name="email" label-placement="floating" type="email"
-                                placeholder="Coloque o email"></ion-input>
-                              <span class="span-required">Digite um E-mail válido</span>
-                            </ion-item>
-                          </ion-col>
-                        </ion-row>
-
-                        <ion-row>
-                          <ion-col>
-                            <ion-item class="card__item">
-                              <ion-input ngModel label="Telefone" name="telefone" label-placement="floating" type="tel"
-                                placeholder="Coloque o telefone"></ion-input>
-                              <span class="span-required">Coloque um núumero válido</span>
-                            </ion-item>
-                          </ion-col>
-
-                          <ion-col>
-                            <ion-item class="card__item">
-                              <ion-input ngModel label="CPF" name="cpf" label-placement="floating" type="tel"
-                                placeholder="Coloque o CPF"></ion-input>
-                              <span class="span-required">Coloque um número de CPF válido</span>
-                            </ion-item>
-                          </ion-col>
-                        </ion-row>
-
-                        <ion-row>
-                          <ion-col>
-                            <ion-item class="card__item">
-                              <ion-input ngModel label="Endereço" name="endereco" label-placement="floating" type="text"
-                                placeholder="Coloque o endereço"></ion-input>
-                              <span class="span-required">Endereço deve ter no mínimo 3 caractéres</span>
-                            </ion-item>
-                          </ion-col>
-
-                          <ion-col>
-                            <ion-item class="card__item">
-                              <ion-input ngModel label="Data de Nascimento" name="dataNasc" label-placement="floating" type="date"
-                                placeholder="Coloque sua data de nascimento"></ion-input>
-                              <span class="span-required">Endereço deve ter no mínimo 3 caractéres</span>
-                            </ion-item>
-                          </ion-col>
-                        </ion-row>
-
-                        <ion-row class="ion-justify-content-end">
-                          <ion-col>
-                            <ion-item class="card__button" lines="none">
-                              <ion-button class="btn_cadastrar" slot="end" type="submit">
-                                  Cadastrar
-                              </ion-button>
-                            </ion-item>
-                          </ion-col>
-                        </ion-row>
-                      </ion-list>
-
-                    </form>
-
-                  </div>
-                </ion-col>
-              </ion-row>
-
-            </div>
-          </ion-col>
-        </ion-row>
-
-      </ion-col>
-    </ion-row>
-  </ng-container>
-
-  <!-- Conteúdo Gerenciamento de Clientes -->
-  <ng-container *ngIf="this.item_selecionado == 'gerenciamentoClientes'">
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="12" class="ion-text-center ion-align-items-center full-height">
-        <div class="full">
-          <div class="full__table ion-text-center ion-align-items-center ion-justify-content-center">
-            <ion-text>
-              <h3>Gerenciamento de Clientes</h3>
-            </ion-text>
-            <ion-row class="ion-justify-content-center" style="background-color: rgb(40, 40, 40); color: #fff;">
-              <ion-col size="2">Nome</ion-col>
-              <ion-col size="2">Email</ion-col>
-              <ion-col size="2">Telefone</ion-col>
-              <ion-col size="2">CPF</ion-col>
-              <ion-col size="2">Endereço</ion-col>
-            </ion-row>
-
-            <ion-content>
-              <ion-list>
-               
-              </ion-list>
-            </ion-content>
-
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ng-container>
 </ion-content>
