@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
@@ -6,13 +6,13 @@ import { DataService } from '../data.service';
   templateUrl: './app-treino.page.html',
   styleUrls: ['./app-treino.page.scss'],
 })
-export class AppTreinoPage implements OnInit {
+export class AppTreinoPage {
   dadosTreino: any;
 
   constructor(private dataService: DataService) {
     this.dadosTreino = this.dataService.getDadosTreino()
    }
+   
 
-  ngOnInit() {
-  }
+
 }

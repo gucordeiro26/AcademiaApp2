@@ -30,31 +30,7 @@ export class AppPage {
   setOpenn(isOpen: boolean) {
     this.isModalOpenn = isOpen;
   }
+  
+  
 
-  loginCliente = {
-    name: '',
-    email: '',
-    password: '',
-  }
-
-  loginClientes = [
-    {
-      name: this.loginCliente.name,
-      email: this.loginCliente.email,
-      password: this.loginCliente.password,
-    }
-  ]
-
-  cadastrarConta(dados: any){
-    this.loginCliente.name = dados.name;
-    this.loginCliente.email = dados.email;
-    this.loginCliente.password = dados.password;
-
-    this._authenticate.register(this.loginCliente.email, this.loginCliente.password);
-    this._crudService.insert(this.loginCliente, 'Cadastros no App');
-  }
-
-  realizarLogin(dados: any) {
-    this._authenticate.login(dados.name, dados.email);
-  }
 }
