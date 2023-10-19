@@ -1,26 +1,34 @@
 <ion-content [fullscreen]="true">
-  <form #loginADM="ngForm" (ngSubmit)="loginAdmin(loginADM.value)">
-    <ion-row class="ion-justify-content-center">
-      <ion-col class="">
-        <ion-input ngModel label="email" name="email" label-placement="floating" type="text"
-          placeholder="Coloque o seu email" class="required"></ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-center">
-      <ion-col class="">
-        <ion-input ngModel label="senha" name="senha" label-placement="floating" type="text"
-          placeholder="Coloque a sua senha" class="required"></ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-center">
-      <ion-col class="ion-text-center">
-        <ion-button class="btn_cadastrar" type="submit">
-            Cadastrar
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-  </form>
+  <ion-row class="row ion-justify-content-center">
+    <ion-col class="col" size="6">
+      <ion-card class="customCard">
+        <ion-card-content>
+          <form #loginADM="ngForm" (ngSubmit)="loginAdmin(loginADM.value)">
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="10">
+                <ion-label class="customLabel">Email</ion-label>
+                <ion-input class="customInput"></ion-input>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="10">
+                <ion-label class="customLabel">Senha</ion-label>
+                <ion-input class="customInput"></ion-input>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="" class="ion-text-center">
+                <ion-button class="btn_cadastrar" type="submit">
+                    Cadastrar
+                </ion-button>
+              </ion-col>
+            </ion-row>
+        
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>

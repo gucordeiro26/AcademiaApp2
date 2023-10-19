@@ -50,24 +50,34 @@
               <ion-col>
                 <p>Ficha de Treino</p>
               </ion-col>
-            </ion-row><br>
+            </ion-row>
 
             <ion-row class="ion-justify-content-center">
-              <ion-col size="6">
+              <ion-col size="12">
                 <ion-card (click)="setOpen(true)" class="cardExercicio cardTodos">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Todos Exercícios</p>
+                    <ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/todosAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Todos os Exercícios</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
-            </ion-row><br>
+            </ion-row>
 
-            <ion-row>
+            <ion-row class="row__exercicio">
               <ion-col>
                 <ion-card (click)="setOpenPeito(true)" (click)="listarExerciciosPeito()"
                   class="cardExercicio cardPeito">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Peito</p>
+                    <ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/peitoAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Peito</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
@@ -75,18 +85,28 @@
                 <ion-card (click)="setOpenCostas(true)" (click)="listarExerciciosCostas()"
                   class="cardExercicio cardCostas">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Costas</p>
+                    <ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/costasAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Costas</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
-            </ion-row><br>
+            </ion-row>
 
-            <ion-row>
+            <ion-row class="row__exercicio">
               <ion-col>
                 <ion-card (click)="setOpenBiceps(true)" (click)="listarExerciciosBiceps()"
                   class="cardExercicio cardBiceps">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Bíceps</p>
+                    <ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/bicepsAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Bíceps</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
@@ -94,18 +114,28 @@
                 <ion-card (click)="setOpenTriceps(true)" (click)="listarExerciciosTriceps()"
                   class="cardExercicio cardTriceps">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Tríceps</p>
+                    <<ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/tricepsAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Tríceps</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
-            </ion-row><br>
+            </ion-row>
 
-            <ion-row>
+            <ion-row class="row__exercicio">
               <ion-col>
                 <ion-card (click)="setOpenOmbro(true)" (click)="listarExerciciosOmbros()"
                   class="cardExercicio cardOmbro">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Ombro</p>
+                  <ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/ombroAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Ombro</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
@@ -113,18 +143,28 @@
                 <ion-card (click)="setOpenPerna(true)" (click)="listarExerciciosPernas()"
                   class="cardExercicio cardPernas">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Pernas</p>
+                    <ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/pernaAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Pernas</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
-            </ion-row><br>
+            </ion-row>
 
-            <ion-row>
+            <ion-row class="row__exercicio">
               <ion-col>
                 <ion-card (click)="setOpenAbdomen(true)" (click)="listarExerciciosAbdomen()"
                   class="cardExercicio cardAbdomen">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Abdômen</p>
+                    <<ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg cardImgAbd td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/abdomenAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Abdômen</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
@@ -132,11 +172,16 @@
                 <ion-card (click)="setOpenCardio(true)" (click)="listarExerciciosCardio()"
                   class="cardExercicio cardCardio">
                   <ion-card-content>
-                    <p class="textExercicio ion-text-center">Cardio</p>
+                    <ion-item class="" lines="none">
+                      <ion-thumbnail class="cardImg td" slot="start">
+                        <img alt="Silhouette of mountains" src="../../assets/images/cardioAdm.jpg" />
+                      </ion-thumbnail>
+                      <ion-label class="textExercicio">Cardio</ion-label>
+                    </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
-            </ion-row><br>
+            </ion-row>
             <!-- Modais -->
             <!-- Modal para todos os Exercícios -->
             <ion-modal [isOpen]="isModalOpen">
@@ -145,7 +190,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpen(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="light"></ion-icon></ion-button>
+                          color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -185,7 +230,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenPeito(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="light"></ion-icon></ion-button>
+                          color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -223,7 +268,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenCostas(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="light"></ion-icon></ion-button>
+                          color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -261,7 +306,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenBiceps(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="light"></ion-icon></ion-button>
+                          color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -299,7 +344,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenTriceps(false)"><ion-icon size="large"
-                          name="caret-back-circle-outline" color="light"></ion-icon></ion-button>
+                          name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -337,7 +382,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenOmbro(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="light"></ion-icon></ion-button>
+                          color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -375,7 +420,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenPerna(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="light"></ion-icon></ion-button>
+                          color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -413,7 +458,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenAbdomen(false)"><ion-icon size="large"
-                          name="caret-back-circle-outline" color="light"></ion-icon></ion-button>
+                          name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -451,7 +496,7 @@
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
                       <ion-button (click)="setOpenCardio(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="light"></ion-icon></ion-button>
+                          color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -472,7 +517,6 @@
                                 <ion-label>{{ exercicio.nome }}</ion-label>
                               </ion-item>
                             </ng-container>
-                            <!-- <ng-container *ngIf="this.pesquisar === 'Peito'"></ng-container> -->
                           </ion-list>
                         </ion-col>
                       </ion-row>
@@ -575,7 +619,7 @@
                   <ion-row class="rowAdd__form">
                     <ion-col>
                       <ion-item class="itemAdd" lines="none">
-                        <ion-button class="btnAdd" color="light" slot="end" type="submit">Inserir</ion-button>
+                        <ion-button class="btnAdd" color="dark" slot="end" type="submit">Inserir</ion-button>
                       </ion-item>
                     </ion-col>
                   </ion-row>
@@ -729,7 +773,7 @@
                                       </ion-row>
                                       <ion-row class="ion-justify-content-end">
                                         <ion-col size="3">
-                                          <ion-button color="light" type="submit">Atualizar</ion-button>
+                                          <ion-button color="dark" type="submit">Atualizar</ion-button>
                                         </ion-col>
                                       </ion-row>
                                     </form>
