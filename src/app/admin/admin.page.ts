@@ -9,17 +9,66 @@ export class AdminPage {
   
   constructor() {
     this.listarClientes()
+    this.listarExercicios()
   }
 
   // Conteudo Pagina
   isLoading: boolean = false;
   conteudo: string = 'home';
-  iconActive: string = 'gere-outline';
+  iconActive: string = 'home-outline';
 
   mudarConteudo(nvConteudo: string, nvIcon: string){
     this.conteudo = nvConteudo;
     this.iconActive = nvIcon;
   }
+
+  // Modais
+  isModalOpen = false;
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+  
+  isModalPeito = false;
+  setOpenPeito(isOpen: boolean) {
+    this.isModalPeito = isOpen;
+  }
+
+  isModalCostas = false;
+  setOpenCostas(isOpen: boolean) {
+    this.isModalCostas = isOpen;
+  }
+
+  isModalBiceps = false;
+  setOpenBiceps(isOpen: boolean) {
+    this.isModalBiceps = isOpen;
+  }
+
+  isModalTriceps = false;
+  setOpenTriceps(isOpen: boolean) {
+    this.isModalTriceps = isOpen;
+  }
+
+  isModalOmbro = false;
+  setOpenOmbro(isOpen: boolean) {
+    this.isModalOmbro = isOpen;
+  }
+
+  isModalPerna = false;
+  setOpenPerna(isOpen: boolean) {
+    this.isModalPerna = isOpen;
+  }
+
+  isModalAbdomen = false;
+  setOpenAbdomen(isOpen: boolean) {
+    this.isModalAbdomen = isOpen;
+  }
+
+  isModalCardio = false;
+  setOpenCardio(isOpen: boolean) {
+    this.isModalCardio = isOpen;
+  }
+
+  // Funções
 
   guardarInfosUsuario: any = {
     codigo: '',
@@ -36,6 +85,7 @@ export class AdminPage {
 
   clientes: any[] = [];
 
+  
   formDados: any = {
     codigo: '',
     email: '',
@@ -49,6 +99,16 @@ export class AdminPage {
     FK_Planos_codigo: '',
   }
 
+  exercicios: any[] = [];
+  // categoriaPeito: string = 'Peito';
+  // categoriaCostas: string = 'Costas';
+  // categoriaBiceps: string = 'Bíceps';
+  // categoriaTricipes: string = 'Tríceps';
+  // categoriaOmbro: string = 'Ombros';
+  // categoriaPernas: string = 'Pernas';
+  // categoriaAbdomen: string = 'Abdômen';
+  // categoriaCardio: string = 'Cardio';
+  
   buscarTermo: string = '';
   filtroPesquisa: string = 'nome';
 
@@ -219,5 +279,55 @@ export class AdminPage {
       .finally(() => {
         this.isLoading = false;
       });
+  }
+
+  // Listar Exercícios da Ficha de treino
+  listarExercicios() {
+    this.isLoading = true;
+    // Configura o objeto de exercicios para enviar na solicitação POST
+    let exercicios = { codigo: '123' };
+    fetch('http://localhost/AcademiaAPP/admin/select/listarFichaTreino.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios)
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.exercicios = response['exercicios'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+  }
+  listarExerciciosCategoria(categoriaSelecionada: string){
+    this.isLoading = true;
+    const pesquisar = categoriaSelecionada;
+    fetch('http://localhost/AcademiaAPP/clientes/filtro.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(pesquisar),
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      this.exercicios = data.exercicios;
+    })
+    .catch((error) => {
+      console.error('Erro na busca de funcionários:', error);
+    })
+    .finally(() => {
+      this.isLoading = false;
+    });
   }
 }

@@ -41,265 +41,731 @@
         </ion-col>
 
         <ion-col size="11">
-          <ion-row class="ion-justify-content-center ion-align-items-center">
-            <ion-col size="8">
-              <ion-row>
-                <ion-col size="12">
-                  <ion-searchbar class="item" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()"
-                    show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
+          <ng-container *ngIf="conteudo === 'home'"></ng-container>
 
-          <ion-col class="ion-text-center">
-            <ion-button color="secondary" (click)="modalInserir(true)">INSERIR</ion-button>
-          </ion-col>
+          <ng-container *ngIf="conteudo === 'chart'"></ng-container>
 
-          <!-- Modal Para Inserir -->
-          <ion-modal [isOpen]="isInserirOpen">
-            <ng-template>
-              <ion-toolbar>
-                <ion-label class="ion-padding-start">Inserir um Funcionário</ion-label>
-                <ion-buttons slot="end">
-                  <ion-button (click)="modalInserir(false)">X</ion-button>
-                </ion-buttons>
-              </ion-toolbar>
-              <ion-content class="ion-padding">
+          <ng-container *ngIf="conteudo === 'fichaTreino'">
+            <ion-row>
+              <ion-col>
+                <p>Ficha de Treino</p>
+              </ion-col>
+            </ion-row><br>
 
-                <ion-row class="ion-justify-content-center">
-                  <ion-col class="ion-text-align-center" size="12">
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="6">
+                <ion-card (click)="setOpen(true)" class="cardExercicio cardTodos">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Todos Exercícios</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row><br>
 
-                    <!-- Formulário -->
-                    <form #forminserirClientes="ngForm"
-                      (ngSubmit)="inserirClientes(forminserirClientes.value)">
-                      <ion-row>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Email" name="email" type="text"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Senha" name="senha" type="password"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
+            <ion-row>
+              <ion-col>
+                <ion-card (click)="setOpenPeito(true)" (click)="listarExerciciosCategoria('Peito')"
+                  class="cardExercicio cardPeito">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Peito</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col>
+                <ion-card (click)="setOpenCostas(true)" (click)="listarExerciciosCategoria('Costas')"
+                  class="cardExercicio cardCostas">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Costas</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row><br>
+
+            <ion-row>
+              <ion-col>
+                <ion-card (click)="setOpenBiceps(true)" (click)="listarExerciciosCategoria('Bíceps')"
+                  class="cardExercicio cardBiceps">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Bíceps</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col>
+                <ion-card (click)="setOpenTriceps(true)" (click)="listarExerciciosCategoria('Tríceps')"
+                  class="cardExercicio cardTriceps">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Tríceps</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row><br>
+
+            <ion-row>
+              <ion-col>
+                <ion-card (click)="setOpenOmbro(true)" (click)="listarExerciciosCategoria('Ombros')"
+                  class="cardExercicio cardOmbro">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Ombro</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col>
+                <ion-card (click)="setOpenPerna(true)" (click)="listarExerciciosCategoria('Pernas')"
+                  class="cardExercicio cardPernas">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Pernas</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row><br>
+
+            <ion-row>
+              <ion-col>
+                <ion-card (click)="setOpenAbdomen(true)" (click)="listarExerciciosCategoria('Abdômen')"
+                  class="cardExercicio cardAbdomen">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Abdômen</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col>
+                <ion-card (click)="setOpenCardio(true)" (click)="listarExerciciosCategoria('Cardio')"
+                  class="cardExercicio cardCardio">
+                  <ion-card-content>
+                    <p class="textExercicio ion-text-center">Cardio</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row><br>
+            <!-- Modais -->
+            <!-- Modal para todos os Exercícios -->
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpen(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                              <ion-label>Categoria</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                                <ion-label>{{ exercicio.categoria }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
                         </ion-col>
                       </ion-row>
-                      <ion-row>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Nome" name="nome" type="text"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Peito -->
+            <ion-modal [isOpen]="isModalPeito">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenPeito(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
                         </ion-col>
                       </ion-row>
-                      <ion-row>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Sobrenome" name="sobrenome" type="text"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Data de Nascimento" name="dataNasc" type="date"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                      </ion-row>
-                      <ion-row>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="CPF" name="cpf" type="text"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Descrição" name="descricao" type="text"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                      </ion-row>
-                      <ion-row>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Foto de Perfil" name="fotoPerfil" type="text"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
-                        </ion-col>
-                        <ion-col>
-                          <ion-item>
-                            <ion-input #input ngModel label="Código do Plano" name="FK_Planos_codigo" type="number"
-                              label-placement="floating"></ion-input>
-                          </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Costas -->
+            <ion-modal [isOpen]="isModalCostas">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenCostas(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
                         </ion-col>
                       </ion-row>
-                      <ion-item class="ion-justify-content-center" lines="none">
-                        <ion-button color="light" slot="end" type="submit">Inserir</ion-button>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Biceps -->
+            <ion-modal [isOpen]="isModalBiceps">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenBiceps(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Triceps -->
+            <ion-modal [isOpen]="isModalTriceps">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenTriceps(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Ombro -->
+            <ion-modal [isOpen]="isModalOmbro">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenOmbro(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Perna -->
+            <ion-modal [isOpen]="isModalPerna">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenPerna(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Abdomen -->
+            <ion-modal [isOpen]="isModalAbdomen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenAbdomen(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Modal Cardio -->
+            <ion-modal [isOpen]="isModalCardio">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="modalExeTd">
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpenCardio(false)"><ion-icon size="large" name="caret-back-circle-outline"
+                          color="light"></ion-icon></ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+
+                <ion-content class="modalExeTd ion-padding">
+                  <ion-row class="ion-justify-content-center row">
+                    <ion-col size="12">
+                      <ion-row class="ion-justify-content-center">
+                        <ion-col size="12">
+                          <ion-list class="listModalExe">
+                            <ion-item class="itemModalExe ion-text-center">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let exercicio of this.exercicios">
+                              <ion-item class="itemModalExe ion-text-center">
+                                <ion-label>{{ exercicio.codigo }}</ion-label>
+                                <ion-label>{{ exercicio.nome }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                            <!-- <ng-container *ngIf="this.pesquisar === 'Peito'"></ng-container> -->
+                          </ion-list>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+
+          </ng-container>
+
+          <ng-container *ngIf="conteudo === 'addCliente'">
+            <ion-row class="ion-justify-content-center rowAdd">
+              <ion-col>
+                <form #forminserirClientes="ngForm" (ngSubmit)="inserirClientes(forminserirClientes.value)">
+                  <ion-row class="rowAdd__form ion-justify-content-center">
+                    <ion-col class="ion-text-center">
+                      <p class="textTitleAdd">Adicionar Cliente</p>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Nome" name="nome" type="text"
+                          label-placement="floating"></ion-input>
                       </ion-item>
-                    </form>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Sobrenome" name="sobrenome" type="text"
+                          label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
 
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Email" name="email" type="text"
+                          label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Senha" name="senha" type="password"
+                          label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" name="dataNasc"
+                          type="date" label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="CPF" name="cpf" type="text"
+                          label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-radio-group>
+                        <ion-row>
+                          <ion-col>
+                            <ion-item class="itemAdd" lines="none">
+                              <ion-label>Plano A</ion-label>
+                              <ion-radio #input value="Plano A"></ion-radio>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item class="itemAdd" lines="none">
+                              <ion-label>Plano B</ion-label>
+                              <ion-radio #input value="Plano B"></ion-radio>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item class="itemAdd" lines="none">
+                              <ion-label>Plano C</ion-label>
+                              <ion-radio #input value="Plano C"></ion-radio>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                      </ion-radio-group>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Descrição" name="descricao" type="text"
+                          label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Foto de Perfil" name="fotoPerfil" type="text"
+                          label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd" lines="none">
+                        <ion-button class="btnAdd" color="light" slot="end" type="submit">Inserir</ion-button>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </form>
+              </ion-col>
+            </ion-row>
+          </ng-container>
+
+          <ng-container *ngIf="conteudo === 'gereCliente'">
+
+            <ion-row class="ion-justify-content-center ion-align-items-center">
+              <ion-col size="8">
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-searchbar class="item" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()"
+                      show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <!-- Listar Todos os Funcionários -->
+            <ion-row class="ion-justify-content-center row">
+              <ion-col size="12">
+                <ion-row class="ion-justify-content-center">
+                  <ion-col size="12">
+                    <ion-list class="list">
+                      <ion-item class="item">
+                        <ion-label>Código</ion-label>
+                        <ion-label>Email</ion-label>
+                        <ion-label>Nome</ion-label>
+                        <ion-label>Sobrenome</ion-label>
+                        <ion-label>Data de Nascimento</ion-label>
+                        <ion-label>CPF</ion-label>
+                        <ion-label>Descrição</ion-label>
+                        <ion-label>Código do Plano</ion-label>
+                      </ion-item>
+                      <ng-container *ngFor="let cliente of this.clientes">
+                        <ion-item class="ion-text-center item">
+                          <ion-label>{{ cliente.codigo }}</ion-label>
+                          <ion-label>{{ cliente.email }}</ion-label>
+                          <ion-label>{{ cliente.nome }}</ion-label>
+                          <ion-label>{{ cliente.sobrenome }}</ion-label>
+                          <ion-label>{{ cliente.dataNasc }}</ion-label>
+                          <ion-label>{{ cliente.cpf }}</ion-label>
+                          <ion-label>{{ cliente.descricao }}</ion-label>
+                          <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
+                          <ion-button
+                            (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.dataNasc, cliente.cpf, cliente.descricao, cliente.FK_Planos_codigo)"><ion-icon
+                              name="pencil-outline"></ion-icon></ion-button>
+                          <ion-button color="danger" (click)="removerCliente(cliente.CodFun)"><ion-icon
+                              name="trash-outline"></ion-icon></ion-button>
+
+                          <!-- Modal Para Atualizar -->
+                          <ion-modal [isOpen]="isAtualizarOpen">
+                            <ng-template>
+                              <ion-toolbar>
+                                <ion-label class="ion-padding-start">ATUALIZAR FUNCIONÁRIO</ion-label>
+                                <ion-buttons slot="end">
+                                  <ion-button
+                                    (click)="modalUpdate(false, '', '', '', '', '', '', '', '')">X</ion-button>
+                                </ion-buttons>
+                              </ion-toolbar>
+                              <ion-content class="ion-padding">
+                                <ion-row class="ion-justify-content-center">
+                                  <ion-col class="ion-text-align-center" size="12">
+
+                                    <!-- Formulário -->
+                                    <form (submit)="atualizarCliente(formatualizarCliente.value)"
+                                      #formatualizarCliente="ngForm">
+                                      <ion-row>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.nome"
+                                              label="Nome" name="nome" type="text"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.sobrenome"
+                                              label="Sobrenome" value="sobrenome" name="sobrenome" type="text"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                      </ion-row>
+                                      <ion-row>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cargo"
+                                              label="Cargo" value="cargo" name="cargo" type="text"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                      </ion-row>
+                                      <ion-row>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.dataNasc"
+                                              label="Data de Nascimento" value="dataNasc" name="dataNasc" type="date"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cidade"
+                                              label="Cidade" value="cidade" name="cidade" type="text"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                      </ion-row>
+                                      <ion-row>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.endereco"
+                                              label="Endereço" value="endereco" name="endereco" type="text"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cep"
+                                              label="CEP" value="cep" name="cep" type="number"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                      </ion-row>
+                                      <ion-row>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.pais"
+                                              label="País" value="pais" name="pais" type="text"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.telefone"
+                                              label="Telefone" value="telefone" name="fone" type="tel"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                      </ion-row>
+                                      <ion-row>
+                                        <ion-col>
+                                          <ion-item>
+                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.salario"
+                                              label="Salário" value="salario" name="salario" type="number"
+                                              label-placement="floating"></ion-input>
+                                          </ion-item>
+                                        </ion-col>
+                                      </ion-row>
+                                      <ion-row class="ion-justify-content-end">
+                                        <ion-col size="3">
+                                          <ion-button color="light" type="submit">Atualizar</ion-button>
+                                        </ion-col>
+                                      </ion-row>
+                                    </form>
+
+                                  </ion-col>
+                                </ion-row>
+                              </ion-content>
+                            </ng-template>
+                          </ion-modal>
+                        </ion-item>
+                      </ng-container>
+                    </ion-list>
                   </ion-col>
                 </ion-row>
 
-              </ion-content>
-            </ng-template>
-          </ion-modal>
-          <!-- Tirar depois -->
+              </ion-col>
+            </ion-row>
+          </ng-container>
 
-          <!-- Listar Todos os Funcionários -->
-          <ion-row class="ion-justify-content-center row">
-            <ion-col size="12">
-              <ion-row class="ion-justify-content-center">
-                <ion-col size="12">
-                  <ion-list class="list">
-                    <ion-item class="item">
-                      <ion-label>Código</ion-label>
-                      <ion-label>Email</ion-label>
-                      <ion-label>Nome</ion-label>
-                      <ion-label>Sobrenome</ion-label>
-                      <ion-label>Data de Nascimento</ion-label>
-                      <ion-label>CPF</ion-label>
-                      <ion-label>Descrição</ion-label>
-                      <ion-label>Código do Plano</ion-label>
-                    </ion-item>
-                    <ng-container *ngFor="let cliente of this.clientes">
-                      <ion-item class="ion-text-center item">
-                        <ion-label>{{ cliente.codigo }}</ion-label>
-                        <ion-label>{{ cliente.email }}</ion-label>
-                        <ion-label>{{ cliente.nome }}</ion-label>
-                        <ion-label>{{ cliente.sobrenome }}</ion-label>
-                        <ion-label>{{ cliente.dataNasc }}</ion-label>
-                        <ion-label>{{ cliente.cpf }}</ion-label>
-                        <ion-label>{{ cliente.descricao }}</ion-label>
-                        <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
-                        <ion-button
-                          (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.dataNasc, cliente.cpf, cliente.descricao, cliente.FK_Planos_codigo)"><ion-icon
-                            name="pencil-outline"></ion-icon></ion-button>
-                        <ion-button color="danger" (click)="removerCliente(cliente.CodFun)"><ion-icon
-                            name="trash-outline"></ion-icon></ion-button>
-
-                        <!-- Modal Para Atualizar -->
-                        <ion-modal [isOpen]="isAtualizarOpen">
-                          <ng-template>
-                            <ion-toolbar>
-                              <ion-label class="ion-padding-start">ATUALIZAR FUNCIONÁRIO</ion-label>
-                              <ion-buttons slot="end">
-                                <ion-button
-                                  (click)="modalUpdate(false, '', '', '', '', '', '', '', '')">X</ion-button>
-                              </ion-buttons>
-                            </ion-toolbar>
-                            <ion-content class="ion-padding">
-                              <ion-row class="ion-justify-content-center">
-                                <ion-col class="ion-text-align-center" size="12">
-
-                                  <!-- Formulário -->
-                                  <form (submit)="atualizarCliente(formatualizarCliente.value)"
-                                    #formatualizarCliente="ngForm">
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.nome"
-                                            label="Nome" name="nome" type="text" label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.sobrenome"
-                                            label="Sobrenome" value="sobrenome" name="sobrenome" type="text"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cargo"
-                                            label="Cargo" value="cargo" name="cargo" type="text"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.dataNasc"
-                                            label="Data de Nascimento" value="dataNasc" name="dataNasc" type="date"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cidade"
-                                            label="Cidade" value="cidade" name="cidade" type="text"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.endereco"
-                                            label="Endereço" value="endereco" name="endereco" type="text"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cep"
-                                            label="CEP" value="cep" name="cep" type="number"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.pais"
-                                            label="País" value="pais" name="pais" type="text"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.telefone"
-                                            label="Telefone" value="telefone" name="fone" type="tel"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row>
-                                      <ion-col>
-                                        <ion-item>
-                                          <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.salario"
-                                            label="Salário" value="salario" name="salario" type="number"
-                                            label-placement="floating"></ion-input>
-                                        </ion-item>
-                                      </ion-col>
-                                    </ion-row>
-                                    <ion-row class="ion-justify-content-end">
-                                      <ion-col size="3">
-                                        <ion-button color="light" type="submit">Atualizar</ion-button>
-                                      </ion-col>
-                                    </ion-row>
-                                  </form>
-
-                                </ion-col>
-                              </ion-row>
-                            </ion-content>
-                          </ng-template>
-                        </ion-modal>
-                      </ion-item>
-                    </ng-container>
-                  </ion-list>
-                </ion-col>
-              </ion-row>
-
-            </ion-col>
-          </ion-row>
         </ion-col>
       </ion-row>
 

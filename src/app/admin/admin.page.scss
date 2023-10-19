@@ -50,6 +50,106 @@
   }
 }
 
+// Ficha de Treino
+.cardExercicio {
+  width: 12.5em;
+  height: 12.5em;
+  border-radius: 0.625em;
+
+  .textExercicio {
+    font-family: 'Oswald';
+    font-size: 1.5em;
+  }
+}
+
+.cardTodos {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/todosAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardPeito {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/peitoAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardCostas {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/costasAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardBiceps {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/bicepsAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardTriceps {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/tricepsAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardOmbro {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/ombroAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardPernas {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/pernaAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardAbdomen {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/abdomenAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+.cardCardio {
+  --background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/cardioAdm.jpg') no-repeat center/cover 
+  fixed;
+}
+
+// Modal
+.modalExeTd {
+  --background: #212020;
+
+  .listModalExe {
+    .itemModalExe {
+      --background: #212020;
+    }
+  }
+}
+
+// Adicionar Cliente
+.rowAdd {
+  margin-top: 10em;
+  background: #515151;
+  border-radius: 1.25em;
+
+  .textTitleAdd {
+    font-family: 'Oswald';
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .rowAdd__form {
+    margin-top: 1em;
+    background: #515151;
+
+    .itemAdd {
+      --background: #515151;
+    }
+    .inputAdd {
+      font-family: 'Oswald';
+      font-size: 1em;
+      --color: #fff;
+      --background: #515151;
+    }
+    .btnAdd {
+      font-family: 'Oswald';
+      font-size: 1em;
+    }
+  }
+}
+
 // Gerenciamento Clientes
 .item {
   --background: #404040;
