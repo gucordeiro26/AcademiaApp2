@@ -69,7 +69,7 @@
 
             <ion-row class="row__exercicio">
               <ion-col>
-                <ion-card (click)="setOpenPeito(true)" (click)="listarExerciciosCategoria('Peito')"
+                <ion-card (click)="setOpenPeito(true)" (click)="listarExerciciosPeito()"
                   class="cardExercicio cardPeito">
                   <ion-card-content>
                     <ion-item class="" lines="none">
@@ -82,7 +82,7 @@
                 </ion-card>
               </ion-col>
               <ion-col>
-                <ion-card (click)="setOpenCostas(true)" (click)="listarExerciciosCategoria('Costas')"
+                <ion-card (click)="setOpenCostas(true)" (click)="listarExerciciosCostas()"
                   class="cardExercicio cardCostas">
                   <ion-card-content>
                     <ion-item class="" lines="none">
@@ -98,7 +98,7 @@
 
             <ion-row class="row__exercicio">
               <ion-col>
-                <ion-card (click)="setOpenBiceps(true)" (click)="listarExerciciosCategoria('Bíceps')"
+                <ion-card (click)="setOpenBiceps(true)" (click)="listarExerciciosBiceps()"
                   class="cardExercicio cardBiceps">
                   <ion-card-content>
                     <ion-item class="" lines="none">
@@ -111,7 +111,7 @@
                 </ion-card>
               </ion-col>
               <ion-col>
-                <ion-card (click)="setOpenTriceps(true)" (click)="listarExerciciosCategoria('Tríceps')"
+                <ion-card (click)="setOpenTriceps(true)" (click)="listarExerciciosTriceps()"
                   class="cardExercicio cardTriceps">
                   <ion-card-content>
                     <<ion-item class="" lines="none">
@@ -127,7 +127,7 @@
 
             <ion-row class="row__exercicio">
               <ion-col>
-                <ion-card (click)="setOpenOmbro(true)" (click)="listarExerciciosCategoria('Ombros')"
+                <ion-card (click)="setOpenOmbro(true)" (click)="listarExerciciosOmbros()"
                   class="cardExercicio cardOmbro">
                   <ion-card-content>
                   <ion-item class="" lines="none">
@@ -140,7 +140,7 @@
                 </ion-card>
               </ion-col>
               <ion-col>
-                <ion-card (click)="setOpenPerna(true)" (click)="listarExerciciosCategoria('Pernas')"
+                <ion-card (click)="setOpenPerna(true)" (click)="listarExerciciosPernas()"
                   class="cardExercicio cardPernas">
                   <ion-card-content>
                     <ion-item class="" lines="none">
@@ -156,7 +156,7 @@
 
             <ion-row class="row__exercicio">
               <ion-col>
-                <ion-card (click)="setOpenAbdomen(true)" (click)="listarExerciciosCategoria('Abdômen')"
+                <ion-card (click)="setOpenAbdomen(true)" (click)="listarExerciciosAbdomen()"
                   class="cardExercicio cardAbdomen">
                   <ion-card-content>
                     <<ion-item class="" lines="none">
@@ -169,7 +169,7 @@
                 </ion-card>
               </ion-col>
               <ion-col>
-                <ion-card (click)="setOpenCardio(true)" (click)="listarExerciciosCategoria('Cardio')"
+                <ion-card (click)="setOpenCardio(true)" (click)="listarExerciciosCardio()"
                   class="cardExercicio cardCardio">
                   <ion-card-content>
                     <ion-item class="" lines="none">
@@ -343,8 +343,8 @@
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
-                      <ion-button (click)="setOpenTriceps(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
+                      <ion-button (click)="setOpenTriceps(false)"><ion-icon size="large"
+                          name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -457,8 +457,8 @@
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
                     <ion-buttons slot="start">
-                      <ion-button (click)="setOpenAbdomen(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
+                      <ion-button (click)="setOpenAbdomen(false)"><ion-icon size="large"
+                          name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -576,8 +576,8 @@
                   <ion-row class="rowAdd__form">
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" name="dataNasc"
-                          type="date" label-placement="floating"></ion-input>
+                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" name="dataNasc" type="date"
+                          label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
                   </ion-row>
@@ -590,28 +590,11 @@
                       </ion-item>
                     </ion-col>
                     <ion-col>
-                      <ion-radio-group>
-                        <ion-row>
-                          <ion-col>
-                            <ion-item class="itemAdd" lines="none">
-                              <ion-label>Plano A</ion-label>
-                              <ion-radio ngModel value="Plano A"></ion-radio>
-                            </ion-item>
-                          </ion-col>
-                          <ion-col>
-                            <ion-item class="itemAdd" lines="none">
-                              <ion-label>Plano B</ion-label>
-                              <ion-radio ngModel value="Plano B"></ion-radio>
-                            </ion-item>
-                          </ion-col>
-                          <ion-col>
-                            <ion-item class="itemAdd" lines="none">
-                              <ion-label>Plano C</ion-label>
-                              <ion-radio ngModel value="Plano C"></ion-radio>
-                            </ion-item>
-                          </ion-col>
-                        </ion-row>
-                      </ion-radio-group>
+                      <ion-select label="Planos" #input ngModel name="FK_Planos_codigo" label-placement="floating">
+                        <ion-select-option value="1">Plano A</ion-select-option>
+                        <ion-select-option value="2">Plano B</ion-select-option>
+                        <ion-select-option value="3">Plano C</ion-select-option>
+                      </ion-select>
                     </ion-col>
                   </ion-row>
 
