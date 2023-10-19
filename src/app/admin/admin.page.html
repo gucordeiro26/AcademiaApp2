@@ -119,7 +119,7 @@
                         <img alt="Silhouette of mountains" src="../../assets/images/tricepsAdm.jpg" />
                       </ion-thumbnail>
                       <ion-label class="textExercicio">Tríceps</ion-label>
-                    </ion-item>
+                      </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
@@ -130,7 +130,7 @@
                 <ion-card (click)="setOpenOmbro(true)" (click)="listarExerciciosOmbros()"
                   class="cardExercicio cardOmbro">
                   <ion-card-content>
-                  <ion-item class="" lines="none">
+                    <ion-item class="" lines="none">
                       <ion-thumbnail class="cardImg td" slot="start">
                         <img alt="Silhouette of mountains" src="../../assets/images/ombroAdm.jpg" />
                       </ion-thumbnail>
@@ -164,7 +164,7 @@
                         <img alt="Silhouette of mountains" src="../../assets/images/abdomenAdm.jpg" />
                       </ion-thumbnail>
                       <ion-label class="textExercicio">Abdômen</ion-label>
-                    </ion-item>
+                      </ion-item>
                   </ion-card-content>
                 </ion-card>
               </ion-col>
@@ -567,18 +567,16 @@
                   <ion-row class="rowAdd__form">
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Senha" name="senha" type="password"
-                          label-placement="floating"></ion-input>
+                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" name="dataNasc"
+                          type="date" label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
                     <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" name="dataNasc" type="date"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
+                      <ion-select class="inputAdd" label="Sexo" #input ngModel name="sexo" label-placement="floating">
+                        <ion-select-option value="Masculino">Masculino</ion-select-option>
+                        <ion-select-option value="Feminino">Feminino</ion-select-option>
+                        <ion-select-option value="Prefiro não dizer">Prefiro não dizer</ion-select-option>
+                      </ion-select>
                     </ion-col>
                   </ion-row>
 
@@ -590,29 +588,11 @@
                       </ion-item>
                     </ion-col>
                     <ion-col>
-                      <ion-select label="Planos" #input ngModel name="FK_Planos_codigo" label-placement="floating">
+                      <ion-select class="inputAdd" label="Planos" #input ngModel name="FK_Planos_codigo" label-placement="floating">
                         <ion-select-option value="1">Plano A</ion-select-option>
                         <ion-select-option value="2">Plano B</ion-select-option>
                         <ion-select-option value="3">Plano C</ion-select-option>
                       </ion-select>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Descrição" name="descricao" type="text"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Foto de Perfil" name="fotoPerfil" type="text"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
                     </ion-col>
                   </ion-row>
 
@@ -653,7 +633,7 @@
                         <ion-label>Sobrenome</ion-label>
                         <ion-label>Data de Nascimento</ion-label>
                         <ion-label>CPF</ion-label>
-                        <ion-label>Descrição</ion-label>
+                        <ion-label>Objetivo</ion-label>
                         <ion-label>Código do Plano</ion-label>
                       </ion-item>
                       <ng-container *ngFor="let cliente of this.clientes">

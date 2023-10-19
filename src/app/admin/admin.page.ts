@@ -92,6 +92,7 @@ export class AdminPage {
     senha: '',
     nome: '',
     sobrenome: '',
+    sexo: '',
     dataNasc: '',
     cpf: '',
     descricao: '',

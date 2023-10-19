@@ -93,7 +93,7 @@
 // Adicionar Cliente
 .rowAdd {
   margin-top: 10em;
-  background: #ffffff;
+  background: #000000;
   border-radius: 1.25em;
 
   .textTitleAdd {
@@ -104,10 +104,10 @@
 
   .rowAdd__form {
     margin-top: 1em;
-    background: #ffffff;
+    background: #000000;
 
     .itemAdd {
-      --background: #ffffff;
+      --background: #000000;
     }
     .inputAdd {
       font-family: 'Oswald';
@@ -124,7 +124,7 @@
 
 // Gerenciamento Clientes
 .item {
-  --background: #ffffff;
+  --background: #000000;
 }
 
 .radio_group {
