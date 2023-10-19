@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['admin.page.scss'],
 })
 export class AdminPage {
-  
+
   constructor() {
     this.listarClientes()
     this.listarExercicios()
@@ -17,7 +17,7 @@ export class AdminPage {
   conteudo: string = 'home';
   iconActive: string = 'home-outline';
 
-  mudarConteudo(nvConteudo: string, nvIcon: string){
+  mudarConteudo(nvConteudo: string, nvIcon: string) {
     this.conteudo = nvConteudo;
     this.iconActive = nvIcon;
   }
@@ -27,7 +27,7 @@ export class AdminPage {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  
+
   isModalPeito = false;
   setOpenPeito(isOpen: boolean) {
     this.isModalPeito = isOpen;
@@ -85,7 +85,7 @@ export class AdminPage {
 
   clientes: any[] = [];
 
-  
+
   formDados: any = {
     codigo: '',
     email: '',
@@ -100,15 +100,7 @@ export class AdminPage {
   }
 
   exercicios: any[] = [];
-  // categoriaPeito: string = 'Peito';
-  // categoriaCostas: string = 'Costas';
-  // categoriaBiceps: string = 'Bíceps';
-  // categoriaTricipes: string = 'Tríceps';
-  // categoriaOmbro: string = 'Ombros';
-  // categoriaPernas: string = 'Pernas';
-  // categoriaAbdomen: string = 'Abdômen';
-  // categoriaCardio: string = 'Cardio';
-  
+
   buscarTermo: string = '';
   filtroPesquisa: string = 'nome';
 
@@ -229,7 +221,7 @@ export class AdminPage {
     fetch('http://localhost/AcademiaAPP/clientes/insert/inserirClientes.php', {
       method: 'POST',
       headers: {
-        'Content-Type': 'applicattion/json', // Corrigir para 'application/json'
+        'Content-Type': 'applicattion/json',
       },
       body: JSON.stringify(dados),
     })
@@ -286,7 +278,7 @@ export class AdminPage {
     this.isLoading = true;
     // Configura o objeto de exercicios para enviar na solicitação POST
     let exercicios = { codigo: '123' };
-    fetch('http://localhost/AcademiaAPP/admin/select/listarFichaTreino.php', {
+    fetch('http://localhost/AcademiaAPP/exercicios/todosExercicios.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -304,30 +296,219 @@ export class AdminPage {
         this.isLoading = false;
       })
   }
-  listarExerciciosCategoria(categoriaSelecionada: string){
+  
+  listarExerciciosPeito() {
     this.isLoading = true;
-    const pesquisar = categoriaSelecionada;
-    fetch('http://localhost/AcademiaAPP/clientes/filtro.php', {
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroPeito.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(pesquisar),
+      body: JSON.stringify(exercicios),
     })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Erro na solicitação HTTP: ' + response.statusText);
-      }
-      return response.json();
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+
+  listarExerciciosCostas() {
+    this.isLoading = true;
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroCostas.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios),
     })
-    .then((data) => {
-      this.exercicios = data.exercicios;
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+
+  listarExerciciosBiceps() {
+    this.isLoading = true;
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroBiceps.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios),
     })
-    .catch((error) => {
-      console.error('Erro na busca de funcionários:', error);
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+
+  listarExerciciosTriceps() {
+    this.isLoading = true;
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroTriceps.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios),
     })
-    .finally(() => {
-      this.isLoading = false;
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+
+  listarExerciciosOmbros() {
+    this.isLoading = true;
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroOmbro.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+
+  listarExerciciosPernas() {
+    this.isLoading = true;
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroPerna.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+  listarExerciciosAbdomen() {
+    this.isLoading = true;
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroAbdomen.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+
+  listarExerciciosCardio() {
+    this.isLoading = true;
+    const exercicios = { codigo: '123'};
+    fetch('http://localhost/AcademiaAPP/exercicios/filtroCardio.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.exercicios = data['exercicios'];
+      })
+      .catch((error) => {
+        console.error('Erro na busca de funcionários:', error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
   }
 }
