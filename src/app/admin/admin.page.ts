@@ -218,6 +218,8 @@ export class AdminPage {
   // Função para inserir funcionários
   inserirClientes(dados: any) {
     this.isLoading = true;
+    console.log(dados);
+
     // Envia a solicitação POST para inserir um novo funcionário
     fetch('http://localhost/AcademiaAPP/clientes/insert/inserirClientes.php', {
       method: 'POST',
