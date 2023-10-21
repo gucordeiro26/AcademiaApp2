@@ -28,7 +28,6 @@ export class AppPage {
   cadastroApp(dados: any) {
     this.isLoading = true;
     this.nomeUsuario = dados.nome;
-
     const infos = {
       email: dados.email,
       senha: dados.senha,
