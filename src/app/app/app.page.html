@@ -33,7 +33,7 @@
               </ion-col>
             </ion-row>
 
-            <form #loginClienteForm="ngForm" (ngSubmit)="realizarLogin(loginClienteForm.value)">
+            <form #loginClienteForm="ngForm" (ngSubmit)="loginApp(loginClienteForm.value)">
 
               <!-- Email -->
               <ion-row class="form">
@@ -106,7 +106,7 @@
               </ion-col>
             </ion-row>
 
-            <form #cadastrarClienteForm="ngForm" (ngSubmit)="cadastrarConta(cadastrarClienteForm.value)">
+            <form #cadastrarClienteForm="ngForm" (ngSubmit)="cadastroApp(cadastrarClienteForm.value)">
               <!-- Nome Usuário -->
               <ion-row class="form">
                 <ion-col size="12">

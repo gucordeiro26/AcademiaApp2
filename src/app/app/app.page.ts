@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthenticateService } from '../services/auth.service';
-import { CrudService } from '../services/crud.service';
-import { Storage } from '@angular/fire/storage';
-import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-app',
@@ -12,12 +8,7 @@ import { MessageService } from '../services/message.service';
 
 export class AppPage {
 
-  constructor(
-    public _authenticate: AuthenticateService,
-    private _crudService: CrudService,
-    public storage: Storage,
-    private _message: MessageService,
-  ) {}
+  constructor() {}
 
   isModalOpen = false;
 
@@ -30,7 +21,51 @@ export class AppPage {
   setOpenn(isOpen: boolean) {
     this.isModalOpenn = isOpen;
   }
-  
-  
 
+  isLoading = false;
+  nomeUsuario: string = '';
+
+  cadastroApp(dados: any) {
+    this.isLoading = true;
+    this.nomeUsuario = dados.nome;
+
+    const infos = {
+      email: dados.email,
+      senha: dados.senha,
+    }
+
+    fetch('https://localhost/AcademiaAPP/clientes/insert/cadastro.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(infos),
+    })
+    .then((response) => response.json())
+    .catch((_) => {
+      console.log(_)
+    })
+    .finally(() => {
+      this.isLoading = false;
+    })
+  }
+
+  loginApp(dados: any) {
+    this.isLoading = true;
+
+    fetch('https://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dados),
+    })
+    .then((response) => response.json())
+    .catch((_) => {
+      console.log(_)
+    })
+    .finally(() => {
+      this.isLoading = false;
+    })
+  }
 }
