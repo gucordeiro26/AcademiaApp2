@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-app',
@@ -10,16 +11,16 @@ export class AppPage {
 
   constructor() {}
 
-  isModalOpen = false;
+  isModalOpen_Cadastro = false;
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  setOpen_Cadastro(isOpen: boolean) {
+    this.isModalOpen_Cadastro = isOpen;
   }
 
-  isModalOpenn = false;
+  isModalOpen_Login = false;
 
-  setOpenn(isOpen: boolean) {
-    this.isModalOpenn = isOpen;
+  setOpen_Login(isOpen: boolean) {
+    this.isModalOpen_Login = isOpen;
   }
 
   isLoading = false;
@@ -27,32 +28,13 @@ export class AppPage {
 
   cadastroApp(dados: any) {
     this.isLoading = true;
-    this.nomeUsuario = dados.nome;
+    /* this.nomeUsuario = dados.nome;
     const infos = {
       email: dados.email,
       senha: dados.senha,
-    }
+    } */
 
     fetch('https://localhost/AcademiaAPP/clientes/insert/cadastro.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(infos),
-    })
-    .then((response) => response.json())
-    .catch((_) => {
-      console.log(_)
-    })
-    .finally(() => {
-      this.isLoading = false;
-    })
-  }
-
-  loginApp(dados: any) {
-    this.isLoading = true;
-
-    fetch('https://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -65,6 +47,32 @@ export class AppPage {
     })
     .finally(() => {
       this.isLoading = false;
+    })
+  }
+
+  router: Router;
+
+  loginApp(dados: any) {
+    this.isLoading = true;
+
+    fetch('https://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dados),
+    })
+    .then((response) => response.json())
+    .then((response) => {
+      if(response['router'] === 'true'){
+        this.router.navigate(['/app-inicio'])
+      }
+    })
+    .catch((_) => {
+      console.log(_)
+    })
+    .finally(() => {
+      
     })
   }
 }

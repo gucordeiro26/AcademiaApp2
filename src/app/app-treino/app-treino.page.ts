@@ -11,12 +11,13 @@ export class AppTreinoPage {
 
   constructor(private dataService: DataService) {
     this.dadosTreino = this.dataService.getDadosTreino()
-   }
+    console.log(this.dadosTreino)
+  }
 
-   isLoading: boolean = false;
+  isLoading: boolean = false;
 
-   pegarExercicios() {
-    fetch('')
-   }
+  //  pegarExercicios() {
+  //   fetch('')
+  //  }
 
 }

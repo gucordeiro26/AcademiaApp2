@@ -16,13 +16,13 @@ export class DataService {
     return this.dadosTreino;
   }
 
-  private sharedData: any;
+  private modalLogin: any;
 
-  setSharedData(data: any) {
-    this.sharedData = data;
+  setCloseModalLogin(data: any) {
+    this.modalLogin = data;
   }
 
-  getSharedData() {
-    return this.sharedData;
+  getCloseModalLogin() {
+    return this.modalLogin;
   }
 }

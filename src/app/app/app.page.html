@@ -10,14 +10,14 @@
   <!-- Botões de Login e Cadastro -->
   <ion-row class="ion-justify-content-center buttons1">
     <ion-col size="6">
-      <ion-button id="open-modal-login" class="button">Sing In</ion-button>
+      <ion-button id="open-modal-login" (click)="setOpen_Login(true)" class="button">Sing In</ion-button>
 
       <!-- Modal Login -->
-      <ion-modal #modal trigger="open-modal-login" [isOpen]="isModalOpenn" [initialBreakpoint]="0.65"
+      <ion-modal #modal [isOpen]="isModalOpen_Login" [initialBreakpoint]="0.65"
         [breakpoints]="[0, 0.25, 0.5, 0.75]">
         <ng-template>
           <ion-content class="container-modal">
-            <ion-icon (click)="setOpenn(false)" color="light" name="arrow-back-circle-outline" size="large"></ion-icon>
+            <ion-icon (click)="setOpen_Login(false)" color="light" name="arrow-back-outline" size='large'></ion-icon>
 
             <!-- Texto de Login -->
             <ion-row class="text-all">
@@ -47,14 +47,15 @@
               <ion-row class="form">
                 <ion-col size="12">
                   <ion-input class="inputs" ngModel type="password" label="Senha" label-placement="floating"
-                    fill="solid" placeholder="Digite a senha" name="password"></ion-input>
+                    fill="solid" placeholder="Digite a senha" name="senha"></ion-input>
                 </ion-col>
               </ion-row>
 
               <!-- Mensagem para abrir o cadastro -->
               <ion-row class="mensage">
                 <ion-col>
-                  <ion-text class="text-mensage">Não tem um login: <a (click)="setOpen(true)" (click)="setOpenn(false)">Cadastra-se
+                  <ion-text class="text-mensage">Não tem um login: <a (click)="setOpen_Cadastro(true)"
+                      (click)="setOpen_Login(false)">Cadastra-se
                       aqui</a></ion-text>
                 </ion-col>
               </ion-row>
@@ -63,12 +64,7 @@
               <ion-row class="button-singin-singup">
                 <ion-col size="6" size-lg="12">
                   <ion-button class="button-form" type="submit" [routerLink]="['./app-inicio']">
-                    <ng-container *ngIf="this._authenticate.isLoading">
-                      <ion-spinner></ion-spinner>
-                    </ng-container>
-                    <ng-container *ngIf="!this._authenticate.isLoading">
-                      Login
-                    </ng-container>
+                    Login
                   </ion-button>
                 </ion-col>
               </ion-row>
@@ -83,14 +79,14 @@
 
   <ion-row class="ion-justify-content-center buttons2">
     <ion-col size="6">
-      <ion-button id="open-modal-cadastro" class="button" color="light">Sing Up</ion-button>
+      <ion-button (click)="setOpen_Cadastro(true)" class="button" color="light">Sing Up</ion-button>
 
       <!-- Modal Cadastro -->
-      <ion-modal #modal trigger="open-modal-cadastro" [isOpen]="isModalOpen" [initialBreakpoint]="0.65"
+      <ion-modal #modal [isOpen]="isModalOpen_Cadastro" [initialBreakpoint]="0.65"
         [breakpoints]="[0, 0.25, 0.5, 0.75]">
         <ng-template>
           <ion-content class="container-modal">
-            <ion-icon (click)="setOpen(false)" color="light" name="arrow-back-circle-outline" size="large"></ion-icon>
+            <ion-icon (click)="setOpen_Cadastro(false)" color="light" name="arrow-back-outline" size='large'></ion-icon>
 
             <!-- Texto de Cadastro -->
             <ion-row class="text-all">
@@ -127,15 +123,15 @@
               <ion-row class="form">
                 <ion-col size="12">
                   <ion-input class="inputs" ngModel type="password" label="Senha" label-placement="floating"
-                    fill="solid" placeholder="Digite a senha" name="password"></ion-input>
+                    fill="solid" placeholder="Digite a senha" name="senha"></ion-input>
                 </ion-col>
               </ion-row>
 
               <!-- Mensagem para abrir o login -->
               <ion-row class="mensage">
                 <ion-col>
-                  <ion-text class="text-mensage">Já tem login, entre aqui: <a
-                      (click)="setOpenn(true)" (click)="setOpen(false)">Login</a></ion-text>
+                  <ion-text class="text-mensage">Já tem login, entre aqui: <a (click)="setOpen_Login(true)"
+                      (click)="setOpen_Cadastro(false)">Login</a></ion-text>
                 </ion-col>
               </ion-row>
 
@@ -143,12 +139,7 @@
               <ion-row class="button-singin-singup">
                 <ion-col size="12">
                   <ion-button class="button-form" type="submit">
-                    <ng-container *ngIf="this._authenticate.isLoading">
-                      <ion-spinner></ion-spinner>
-                    </ng-container>
-                    <ng-container *ngIf="!this._authenticate.isLoading">
-                      Cadastrar
-                    </ng-container>
+                    Cadastrar
                   </ion-button>
                 </ion-col>
               </ion-row>
