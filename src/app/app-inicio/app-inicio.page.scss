@@ -5,6 +5,10 @@ ion-content {
     font-family: 'Oswald';
     src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
 }
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url(../../assets/font/BebasNeue-Regular.ttf);
+}
 
 // Imagens
 .perfil {
@@ -31,47 +35,72 @@ ion-content {
 }
 
 // Conteúdo
-.meio {
-    --background: #404040;
-    width: 90vw;
-    height: 80vh;
+.rowMeio {
     position: relative;
-    bottom: 6em;
+    bottom: 4em;
 
-    // Imagens
-    .imgExercicio {
-        width: 9.375em;
-        height: 12.5em;
-        flex-shrink: 0;
-        --border-radius: 10px;
-        background: rgba(0, 0, 0, 0.50);
-        position: relative;
-        left: 0.5em;
-    }
-    // Peito
-    .peito {
-        position: relative;
-        top: 7.5em;
-    }
-    // Tríceps
-    .triceps {
-        position: relative;
-        top: 4em;
-    }
-    // Abdômen
-    .abdomen {
-        position: relative;
-        top: 5em;
-    }
-    // Bíceps
-    .biceps {
-        position: relative;
-        top: 1.75em;
-    }
-    // Costas
-    .costa {
-        position: relative;
-        top: 3em;
+    .colMeio {
+        background: linear-gradient(168deg, #0f0f0fbf 0%, #262626bf 100%) no-repeat center/cover fixed;
+    
+        .card {
+            width: 21.875em;
+            height: 9em;
+            border-radius: 1.5em;
+    
+            .textExe {
+                color: #FFF;
+                font-family: 'Bebas Neue';
+                font-size: 2.5em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;
+            }
+    
+            .buttonExe {
+                --background: #00B2FF;
+                --border-radius: 0.5em;
+                color: #FFF;
+                font-family: 'Bebas Neue';
+                font-size: 1.25em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;
+            }
+        }
+
+        .cardPeito {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/peitoApp.png') no-repeat center/cover fixed;
+        }
+
+        .cardCostas {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/costasApp.png') no-repeat center/cover fixed;
+        }
+
+        .cardBiceps {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/bicepsApp.png') no-repeat center/cover fixed;
+        }
+
+        .cardTriceps {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/tricepsApp.png') no-repeat center/cover fixed;
+        }
+
+        .cardPernas {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/pernasApp.png') no-repeat center/cover fixed;
+        }
+
+        .cardOmbro {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/ombroApp.png') no-repeat center/cover fixed;
+        }
+
+        .cardAbdomen {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/abdomenApp.png') no-repeat center/cover fixed;
+        }
+
+        .cardCardio {
+            --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/cardioApp.png') no-repeat center/cover fixed;
+        }
     }
 }
 
@@ -93,40 +122,6 @@ ion-content {
 @media (max-width: 320px) {
     .meio {
         height: 154vh;
-
-        // Imagens
-        .imgExercicio {
-            position: relative;
-            left: 2.8em;
-            width: 12em;
-            height: 16em;
-        }
-
-        // Peito
-        .peito {
-            position: relative;
-            top: 12em;
-        }
-        // Tríceps
-        .triceps {
-            position: relative;
-            top: 10em;
-        }
-        // Abdômen
-        .abdomen {
-            position: relative;
-            top: 8em;
-        }
-        // Bíceps
-        .biceps {
-            position: relative;
-            top: 6em;
-        }
-        // Costas
-        .costa {
-            position: relative;
-            top: 3em;
-        }
     }
 }
 
@@ -141,13 +136,6 @@ ion-content {
     .meio {
         left: 1.7em;
         height: 140vh;
-
-        // Imagens
-        .imgExercicio {
-            width: 18.75em;
-            height: 25em;
-            left: 2em;
-        }
     }
     // Botões
     .btns {
@@ -164,11 +152,6 @@ ion-content {
     // Conteúdo
     .meio {
         left: 2.3em;
-
-        // Imagens
-        .imgExercicio {
-            left: 6.3em;
-        }
     }
 
     // Botões

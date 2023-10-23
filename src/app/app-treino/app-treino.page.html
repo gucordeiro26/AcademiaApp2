@@ -1,7 +1,19 @@
 <ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col class="startPeito">
+      <p class="textPeito">Peito</p>
+    </ion-col>
+  </ion-row>
+
   <ion-row class="ion-justify-content-center">
     <ion-col size="10">
-      <p class="title">LISTA DE EXERCÍCIOS</p>
+      <p class="title">Seu treino</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-searchbar class="searchBar"></ion-searchbar>
     </ion-col>
   </ion-row>
 
@@ -84,6 +96,23 @@
 
     </ion-col>
   </ion-row>
+  <ng-container *ngIf="this.dadosTreino === 'Peito'">
+    
+  </ng-container>
+
+  <ng-container></ng-container>
+
+  <ng-container></ng-container>
+
+  <ng-container></ng-container>
+
+  <ng-container></ng-container>
+
+  <ng-container></ng-container>
+
+  <ng-container></ng-container>
+
+  <ng-container></ng-container>
 
 </ion-content>
 

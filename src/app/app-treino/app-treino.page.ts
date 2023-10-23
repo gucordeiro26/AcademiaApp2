@@ -12,7 +12,11 @@ export class AppTreinoPage {
   constructor(private dataService: DataService) {
     this.dadosTreino = this.dataService.getDadosTreino()
    }
-   
 
+   isLoading: boolean = false;
+
+   pegarExercicios() {
+    fetch('')
+   }
 
 }

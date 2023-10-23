@@ -20,33 +20,167 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="ion-justify-content-center">
-    <ion-col>
-      <ion-card class="meio">
-        <ion-card-content>
-          <ion-row>
-            <ion-col><ion-thumbnail (click)="passarInformacao('Pernas')" class="imgExercicio perna"><img
-                  src="../../assets/images/perna.png" alt=""></ion-thumbnail></ion-col>
-            <ion-col><ion-thumbnail (click)="passarInformacao('Costas')" class="imgExercicio costa"><img
-                  src="../../assets/images/costas.png" alt=""></ion-thumbnail></ion-col>
-          </ion-row>
+  <ion-row class="rowMeio ion-justify-content-center">
+    <ion-col class="colMeio">
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardPeito">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Peito</p>
+                </ion-col>
+              </ion-row>
 
-          <ion-row>
-            <ion-col><ion-thumbnail (click)="passarInformacao('Biceps')" class="imgExercicio biceps"><img
-                  src="../../assets/images/biceps.png" alt=""></ion-thumbnail></ion-col>
-            <ion-col><ion-thumbnail (click)="passarInformacao('Abdômen')" class="imgExercicio abdomen"><img
-                  src="../../assets/images/abdomen.png" alt=""></ion-thumbnail></ion-col>
-          </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Peito')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
-          <ion-row>
-            <ion-col><ion-thumbnail (click)="passarInformacao('Triceps')" class="imgExercicio triceps"><img
-                  src="../../assets/images/triceps.png" alt=""></ion-thumbnail></ion-col>
-            <ion-col><ion-thumbnail (click)="passarInformacao('Peito')" class="imgExercicio peito"><img
-                  src="../../assets/images/peito.png" alt=""></ion-thumbnail></ion-col>
-          </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardCostas">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Costas</p>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Costas')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
-        </ion-card-content>
-      </ion-card>
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardBiceps">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Bíceps</p>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Biceps')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardTriceps">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Tríceps</p>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Triceps')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardPernas">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Pernas</p>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Pernas')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardOmbro">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Ombro</p>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Ombro')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardAbdomen">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Abdômen</p>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Abdomen')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card class="card cardCardio">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Cardio</p>
+                </ion-col>
+              </ion-row>
+              
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Cardio')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
     </ion-col>
   </ion-row>
 </ion-content>
