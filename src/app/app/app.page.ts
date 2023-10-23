@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 export class AppPage {
 
-  constructor() {}
+  constructor() { }
 
   isModalOpen_Cadastro = false;
 
@@ -41,13 +41,13 @@ export class AppPage {
       },
       body: JSON.stringify(dados),
     })
-    .then((response) => response.json())
-    .catch((_) => {
-      console.log(_)
-    })
-    .finally(() => {
-      this.isLoading = false;
-    })
+      .then((response) => response.json())
+      .catch((_) => {
+        console.log(_)
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
   }
 
   router: Router;
@@ -62,17 +62,17 @@ export class AppPage {
       },
       body: JSON.stringify(dados),
     })
-    .then((response) => response.json())
-    .then((response) => {
-      if(response['router'] === 'true'){
-        this.router.navigate(['/app-inicio'])
-      }
-    })
-    .catch((_) => {
-      console.log(_)
-    })
-    .finally(() => {
-      
-    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response['router'] === 'true') {
+          this.router.navigate(['/app-inicio'])
+        }
+      })
+      .catch((_) => {
+        console.log(_)
+      })
+      .finally(() => {
+
+      })
   }
 }
