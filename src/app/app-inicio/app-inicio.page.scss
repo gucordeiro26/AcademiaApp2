@@ -16,6 +16,10 @@ ion-content {
     position: relative;
 }
 
+.imgCircle1 {
+    position: relative;
+}
+
 // Texto
 .text-nomeUsuario {
     font-family: 'Oswald';
@@ -46,6 +50,7 @@ ion-content {
             width: 21.875em;
             height: 9em;
             border-radius: 1.5em;
+            margin-left: 1.7em;
     
             .textExe {
                 color: #FFF;
@@ -123,6 +128,19 @@ ion-content {
     .meio {
         height: 154vh;
     }
+    .card {
+        margin-left: 0;
+        position: relative;
+        right: 1.8em;
+        width: 0.5em;
+    }
+}
+
+@media (min-width: 425px) {
+    .card {
+        position: relative;
+        left: 1.7em;
+    }
 }
 
 @media (min-width: 768px) {
@@ -130,6 +148,11 @@ ion-content {
     .perfil {
         left: 1em;
         --size: 7em;
+    }
+
+    .card {
+        position: relative;
+        left: 13.5em;
     }
 
     // Conteúdo

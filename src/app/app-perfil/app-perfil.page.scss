@@ -1,5 +1,5 @@
 ion-content {
-    --background: #262626 no-repeat center/cover fixed;
+    --background: #0F0F0F no-repeat center/cover fixed;
 }
 
 @font-face {
@@ -23,7 +23,7 @@ ion-content {
 
 .text-nomeUsuario {
     color: #FFF;
-    font-family: Oswald;
+    font-family: 'Oswald';
     font-size: 1.75em;
     font-style: normal;
     font-weight: 400;
@@ -34,7 +34,7 @@ ion-content {
 
 .textDesc {
     color: #A6A6A6;
-    font-family: Oswald;
+    font-family: 'Oswald';
     font-size: 0.938em;
     font-style: normal;
     font-weight: 400;
@@ -45,16 +45,17 @@ ion-content {
 
 // Planos
 .plano {
-    --background: #404040;
+    --background: #00B2FF;
     --border-radius: 0.938em;
     position: relative;
     bottom: 6em;
+    text-align: center;
 
     // Texto Planos
     .textPlanoAss {
         color: #FFF;
-        font-family: Oswald;
-        font-size: 1.25em;
+        font-family: 'Oswald';
+        font-size: 1.563em;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -63,9 +64,9 @@ ion-content {
     }
     
     .textPlano {
-        color: #A6A6A6;
-        font-family: Oswald;
-        font-size: 0.938em;
+        color: #FFF;
+        font-family: 'Oswald';
+        font-size: 1em;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -73,37 +74,85 @@ ion-content {
     }
 }
 
-// Objetivos
-.accordion {
-    border-radius: 0.5em;
-    background: #404040;
-    position: relative;
-    bottom: 5.4em;
-}
-
-ion-item {
-    --background: #404040;
-    --color: #fff;
-}
-
 .objetivo {
-    --border-radius: 10px;
-    --background: #737373;
-
-    // Texto
-    .textCriarObjetivo {
-        color: #FFF;
-        font-family: Oswald;
-        font-size: 1.25em;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-transform: uppercase;
-    }
-    ion-icon {
-        color: #000;
+    color: #FFF;
+    font-family: 'Bebas Neue';
+    font-size: 1.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 5em;
+}
+.colIcon {
+    display: flex;
+    justify-content: center;
+    .icon {
+        position: relative;
+        bottom: 8em;
     }
 }
+
+.colCard {
+    background: #262626;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 8em;
+
+    .card {
+        --border-radius: 1.875em;
+        --background: linear-gradient(300deg, #707070 0%, #414141 100%);
+        width: 8em;
+        height: 9em;
+        display: flex;
+        justify-content: center;
+
+        .cardIcon {
+            width: 1.5em;
+            height: 1.5em;
+            margin-left: 0.35em;
+        }
+    
+        .textCriarObjetivo {
+            color: #FFF;
+            text-align: center;
+            font-family: 'Oswald';
+            font-size: 1em;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+            position: relative;
+            left: 0.7em;
+        }
+    }
+
+    .cardObjetivo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 8em;
+        height: 9em;
+        --border-radius: 0em 1.875em 0.625em 1.875em;
+        --background: linear-gradient(300deg, #94C5FF 0%, #0D51FF 100%);
+
+        .textObjetivo {
+            color: #FFF;
+            text-align: center;
+            font-family: 'Oswald';
+            font-size: 1.25;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
 
 // Modal
 .custom {
@@ -119,7 +168,7 @@ ion-item {
 
 .textModal {
     color: #FFF;
-    font-family: Oswald;
+    font-family: 'Oswald';
     font-size: 1.25em;
     font-style: normal;
     font-weight: 400;

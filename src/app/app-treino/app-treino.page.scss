@@ -12,13 +12,50 @@ ion-content {
     src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
 }
 
-.startPeito {
-    background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/peitoApp.png') no-repeat center/cover fixed;
+.rowStart {
+    .start {
+        height: 7em;
+        display: flex;
+        align-items: center;
+    }
 
-    .textPeito {
+    .startPeito {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/peitoApp.png') no-repeat center/cover fixed;
+    }
+
+    .startCostas {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/costasApp.png') no-repeat center/cover fixed;
+    }
+
+    .startBiceps {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/bicepsApp.png') no-repeat center/cover fixed;
+    }
+
+    .startTriceps {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/tricepsApp.png') no-repeat center/cover fixed;
+    }
+
+    .startPernas {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/pernasApp.png') no-repeat center/cover fixed;
+    }
+
+    .startOmbro {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/ombroApp.png') no-repeat center/cover fixed;
+    }
+
+    .startAbdomen {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/abdomenApp.png') no-repeat center/cover fixed;
+    }
+
+    .startCardio {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/cardioApp.png') no-repeat center/cover fixed;
+    }
+
+
+    .textExercio {
         color: #FFF;
         font-family: 'Bebas Neue';
-        font-size: 3em;
+        font-size: 2.5em;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -66,8 +103,17 @@ ion-content {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        position: relative;
     }
+
+    .exercicioSerieNum {
+        color: #7C7C7C;
+        font-family: 'Oswald';
+        font-size: 1em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
 
     // Botão
     .btnExercicio {
@@ -108,6 +154,7 @@ ion-item {
 
 // Responsabilidade
 @media (min-width: 768px) {
+
     // Conteúdo
     .accordionContent {
         position: relative;
@@ -131,6 +178,7 @@ ion-item {
 }
 
 @media (min-width: 1024px) {
+
     // Conteúdo
     .accordionContent {
         position: relative;

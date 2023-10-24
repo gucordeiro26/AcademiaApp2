@@ -110,7 +110,11 @@ ion-modal {
     font-size: 1.5em;
     width: 35vw;
     height: 6.5vh;
+    width: 85vw;
 
+    @media (min-width: 768px) {
+        width: 65vw;
+    }
     @media (min-width: 1440px) {
         width: 15vw;
     }
@@ -119,10 +123,10 @@ ion-modal {
 .button-singin-singup {
     position: relative;
     top: 15vh;
-    left: 30vw;
+    left: 1.3em;
 
     @media (min-width: 768px) {
-        left: 20vw;
+        left: 2.5em;
     }
 
     @media (min-width: 1024px) {
