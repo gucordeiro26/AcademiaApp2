@@ -12,8 +12,9 @@ ion-content {
 
 // Imagens
 .perfil {
-    --size: 5em;
+    --size: 4.5em;
     position: relative;
+    clip-path: circle(50%);
 }
 
 .imgCircle1 {

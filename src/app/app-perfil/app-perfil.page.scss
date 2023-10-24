@@ -19,6 +19,7 @@ ion-content {
     --border-radius: 6.25em;
     position: relative;
     right: 0.7em;
+    clip-path: circle(50%);
 }
 
 .text-nomeUsuario {
