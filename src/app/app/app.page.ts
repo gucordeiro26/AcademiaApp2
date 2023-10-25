@@ -28,18 +28,18 @@ export class AppPage {
 
   cadastroApp(dados: any) {
     this.isLoading = true;
-    /* this.nomeUsuario = dados.nome;
+    this.nomeUsuario = dados.nome;
     const infos = {
       email: dados.email,
       senha: dados.senha,
-    } */
+    } 
 
     fetch('https://localhost/AcademiaAPP/clientes/insert/cadastro.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(dados),
+      body: JSON.stringify(infos),
     })
       .then((response) => response.json())
       .catch((_) => {
