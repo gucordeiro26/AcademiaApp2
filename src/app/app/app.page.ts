@@ -11,6 +11,8 @@ export class AppPage {
 
   constructor() { }
 
+  private router: Router
+
   isModalOpen_Cadastro = false;
 
   setOpen_Cadastro(isOpen: boolean) {
@@ -32,9 +34,9 @@ export class AppPage {
     const infos = {
       email: dados.email,
       senha: dados.senha,
-    } 
+    }
 
-    fetch('https://localhost/AcademiaAPP/clientes/insert/cadastro.php', {
+    fetch('http://localhost/AcademiaAPP/clientes/insert/cadastro.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,15 +49,14 @@ export class AppPage {
       })
       .finally(() => {
         this.isLoading = false;
+        this.setOpen_Cadastro(false);
       })
   }
-
-  router: Router;
 
   loginApp(dados: any) {
     this.isLoading = true;
 
-    fetch('https://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
+    fetch('http://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +66,7 @@ export class AppPage {
       .then((response) => response.json())
       .then((response) => {
         if (response['router'] === 'true') {
-          this.router.navigate(['/app-inicio'])
+          this.router.navigate(['/app-inicio']);
         }
       })
       .catch((_) => {

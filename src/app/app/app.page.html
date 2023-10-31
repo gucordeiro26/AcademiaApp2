@@ -10,7 +10,7 @@
   <!-- Botões de Login e Cadastro -->
   <ion-row class="ion-justify-content-center buttons1">
     <ion-col size="6">
-      <ion-button id="open-modal-login" (click)="setOpen_Login(true)" class="button">Sing In</ion-button>
+      <ion-button id="open-modal-login" (click)="setOpen_Login(true)" class="button">Sign In</ion-button>
 
       <!-- Modal Login -->
       <ion-modal #modal [isOpen]="isModalOpen_Login" [initialBreakpoint]="0.65" [breakpoints]="[0, 0.25, 0.5, 0.75]">
@@ -62,7 +62,7 @@
               <!-- Botão de Login -->
               <ion-row class="button-singin-singup">
                 <ion-col size="6" size-lg="12">
-                  <ion-button class="button-form" type="submit" [routerLink]="['./app-inicio']">
+                  <ion-button class="button-form" type="submit">
                     Login
                   </ion-button>
                 </ion-col>
@@ -78,7 +78,7 @@
 
   <ion-row class="ion-justify-content-center buttons2">
     <ion-col size="6">
-      <ion-button (click)="setOpen_Cadastro(true)" class="button" color="light">Sing Up</ion-button>
+      <ion-button (click)="setOpen_Cadastro(true)" class="button" color="light">Sign Up</ion-button>
 
       <!-- Modal Cadastro -->
       <ion-modal #modal [isOpen]="isModalOpen_Cadastro" [initialBreakpoint]="0.68" [breakpoints]="[0, 0.25, 0.5, 0.75]">
