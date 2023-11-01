@@ -2,27 +2,46 @@
   <!-- LANDING PAGE -->
   <ion-row class="bg__landing-page">
     <ion-col>
+
+      <svg class="blob" id="blob-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#005AFF" d="M67.7,-20.8C75.5,2,61.1,33.2,39.3,47.5C17.5,61.8,-11.8,59.2,-31,44.7C-50.3,30.3,-59.5,4,-52.7,-17.5C-45.8,-39,-22.9,-55.7,3.5,-56.8C29.9,-57.9,59.9,-43.6,67.7,-20.8Z" transform="translate(100 100)" />
+      </svg>
+
+      <svg class="blob" id="blob-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" d="M67.7,-20.8C75.5,2,61.1,33.2,39.3,47.5C17.5,61.8,-11.8,59.2,-31,44.7C-50.3,30.3,-59.5,4,-52.7,-17.5C-45.8,-39,-22.9,-55.7,3.5,-56.8C29.9,-57.9,59.9,-43.6,67.7,-20.8Z" transform="translate(100 100)" />
+      </svg>
+
+      <!-- <svg class="blob" id="blob-3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FF8900" d="M67.7,-20.8C75.5,2,61.1,33.2,39.3,47.5C17.5,61.8,-11.8,59.2,-31,44.7C-50.3,30.3,-59.5,4,-52.7,-17.5C-45.8,-39,-22.9,-55.7,3.5,-56.8C29.9,-57.9,59.9,-43.6,67.7,-20.8Z" transform="translate(100 100)" />
+      </svg> -->
+
+      <img src="https://i.imgur.com/YH19zGs.png" alt="">
+
       <!-- HEADER -->
-      <ion-header id="home" [translucent]="true" class="ion-no-border ">
-        <ion-toolbar>
-          <ion-row class="ion-align-items-center">
-            <ion-title>Lorem Ipsun</ion-title>
-              <ion-col><a href="#home">Home</a></ion-col>
-              <ion-col><a href="#planos">Planos</a></ion-col>
-              <ion-col><a href="#sobre">Sobre</a></ion-col>
-              <ion-col><a href="#suporte">Suporte</a></ion-col>
-          </ion-row>
-        </ion-toolbar>
-      </ion-header>
+      <ion-row class="header">
+        <ion-col size="6">
+          <ion-title>Lorem Ipsun</ion-title>
+        </ion-col>
+        <ion-col size="6">
+          <ion-header id="home" [translucent]="true" class="ion-no-border ">
+            <ion-toolbar>
+                <ion-col><a href="#home">Home</a></ion-col>
+                <ion-col><a href="#planos">Planos</a></ion-col>
+                <ion-col><a href="#sobre">Sobre</a></ion-col>
+                <ion-col><a href="#suporte">Suporte</a></ion-col>
+            </ion-toolbar>
+          </ion-header>
+        </ion-col>
+      </ion-row>
       <ion-row class="content__landing-page ion-justify-content-center ion-align-items-center ion-text-center">
-        <ion-col>
+        <ion-col size="8">
           <ion-row class="ion-justify-content-center">
-            <ion-col size="6">
+            <ion-col size="10">
               <ion-title>Lorem ipsun</ion-title>
             </ion-col>
           </ion-row>
           <ion-row class="ion-justify-content-center">
-            <ion-col size="6">
+            <ion-col size="10">
               <ion-text>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus quam a vero tempore itaque labore fugit, unde hic aliquam exercitationem odio quod in maiores, quibusdam nam ullam modi earum ipsum.</ion-text>
             </ion-col>
           </ion-row>
@@ -54,23 +73,84 @@
 
         <ion-row class="ion-justify-content-around">
           <ion-col size="3">
-            <ion-card>
-              <ion-card-title>preco 00,00</ion-card-title>
+            <ion-card id="card-1">
+              <ion-card-title>Free</ion-card-title>
               <ion-card-subtitle>lorem ipsun</ion-card-subtitle>
+              <ion-card-content><b>$0</b> /mo</ion-card-content>
+              
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
               <ion-button>lorem</ion-button>
             </ion-card>
           </ion-col>  
           <ion-col size="3">
-            <ion-card>
-              <ion-card-title>preco 00,00</ion-card-title>
+            <ion-card id="card-2">
+              <ion-card-title>Pro</ion-card-title>
               <ion-card-subtitle>lorem ipsun</ion-card-subtitle>
+              <ion-card-content><b>$29</b> /mo</ion-card-content>
+              
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
               <ion-button>lorem</ion-button>
             </ion-card>
           </ion-col>
           <ion-col size="3">
-            <ion-card>
-              <ion-card-title>preco 00,00</ion-card-title>
+            <ion-card id="card-3">
+              <ion-card-title>Plus</ion-card-title>
               <ion-card-subtitle>lorem ipsun</ion-card-subtitle>
+              <ion-card-content><b>$70</b> /mo</ion-card-content>
+              
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-label>Lorem ipsum dolor sit amet</ion-label>
+                </ion-col>
+              </ion-row>
               <ion-button>lorem</ion-button>
             </ion-card>
           </ion-col>
