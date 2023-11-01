@@ -9,6 +9,11 @@ ion-content{
   --background: #262626;
 }
 
+.blob{
+  z-index: -1;
+  position: absolute;
+}
+
 .bg__landing-page{
   // background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover fixed;
   // background:  linear-gradient(rgba(136,131,138,.7), rgba(59,58,63,.7)) no-repeat center/contain fixed;
@@ -155,7 +160,6 @@ ion-content{
       padding: .5em;
       font-size: 3em;
       font-weight: bold;
-      border-bottom: solid 1px white;
       font-family: Helvetica;
     }
 
@@ -217,6 +221,7 @@ ion-content{
         }
 
         ion-col{
+          background: white;
           ion-label{
             font-size: 1.3em;
           }
@@ -264,25 +269,86 @@ ion-content{
     
   }
 
+  // Blob que esta na parte do about us
+
+.blob-sobre{
+  z-index: -1;
+  position: absolute;
+  width: 90vw;
+  top: 160vh;
+  left: -40vw;
+  animation: blob-sobre-animation 4s alternate infinite;
+}
+
+#blob-4{
+  z-index: 0;
+  top: 170vh;
+  left: -40vw;
+  width: 80vw;
+  animation: blob-sobre-animation 3s alternate infinite;
+}
+
+#blob-5{
+  z-index: 0;
+  top: 180vh;
+  left: -40vw;
+  width: 70vw;
+  animation: blob-sobre-animation 2s alternate infinite;
+}
+
+@keyframes blob-sobre-animation{
+  0%{transform: translateX(0);}
+  100%{transform: translateX(80px);}
+}
+
 .bg__sobre{
-  background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover fixed;
-  height: 100vh;
+  // background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover fixed;
+  background: linear-gradient(rgb(129, 217, 255), rgb(0, 178, 255));
+  height: 75vh;
 
   ion-title{
     color: white;
     margin: .75em;
     padding: .5em;
-    font-size: 2.5em;
-    border-bottom: solid 1px white;
-  }
+    font-size: 8em;
+    font-weight: 800;
+    color: rgba(255,255,255,0.5);
+    
+    position: relative;
+    
+    left: 7vw;
 
-  ion-text{
-    color: white;
+    animation: blob-sobre-animation 3s alternate infinite;
+}
+
+  .content__text{
+    // background: white;
+    padding: 8vh;
+    position: relative;
+    left: 24vw;
+    top: -20vh;
+    max-width: 50vw;
+    // border-radius: 10px;
+    // border: 2px solid black;
+    // box-shadow: 5px 5px 5px black;
+    transition: all ease .3s;
+    animation: blob-sobre-animation 3s alternate infinite;
+
+    ion-text{
+      position: relative;
+      min-width: 100vw;
+      font-size: 1.5em;
+      color: #f0f0f0;
+    }
+  }
+  .content__text:hover{
+    transform: translateY(-10px);
+    transition: all ease .3s;
   }
 }
 
 .bg__contact-us{
-  background: #262626;
+  background: linear-gradient(rgb(0, 178, 255), rgb(129, 217, 255));
   height: 50vh;
 
   ion-title{
