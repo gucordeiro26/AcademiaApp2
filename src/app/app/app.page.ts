@@ -56,15 +56,16 @@ export class AppPage {
   loginApp(dados: any) {
     this.isLoading = true;
 
-    fetch('http://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
+    fetch('http://localhost/AcademiaApp/clientes/insert/authcadastro.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(dados),
     })
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((response) => {
+        console.log(response);
         if (response['router'] === 'true') {
           this.router.navigate(['/app-inicio']);
         }

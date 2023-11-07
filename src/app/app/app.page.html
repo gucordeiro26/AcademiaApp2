@@ -13,7 +13,7 @@
       <ion-button id="open-modal-login" (click)="setOpen_Login(true)" class="button">Sign In</ion-button>
 
       <!-- Modal Login -->
-      <ion-modal #modal [isOpen]="isModalOpen_Login" [initialBreakpoint]="0.65" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+      <ion-modal #modal [isOpen]="isModalOpen_Login" [initialBreakpoint]="0.65" [breakpoints]="[0, 0.25, 0.5, 0.75]" (willDismiss)="setOpen_Login(false)">
         <ng-template>
           <ion-content class="container-modal">
             <ion-icon (click)="setOpen_Login(false)" color="light" name="arrow-back-outline" size='large'></ion-icon>
@@ -101,13 +101,6 @@
             </ion-row>
 
             <form #cadastrarClienteForm="ngForm" (ngSubmit)="cadastroApp(cadastrarClienteForm.value)">
-              <!-- Nome Usuário -->
-              <ion-row class="form">
-                <ion-col size="12">
-                  <ion-input class="inputs" ngModel type="text" label="Nome" label-placement="floating" fill="solid"
-                    placeholder="Digite o seu nome" name="name"></ion-input>
-                </ion-col>
-              </ion-row>
 
               <!-- Email -->
               <ion-row class="form">
