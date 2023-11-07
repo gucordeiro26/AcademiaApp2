@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AppPageRoutingModule } from './app-routing.module';
 
 import { AppPage } from './app.page';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AppPageRoutingModule
+    AppPageRoutingModule,
+    RouterLink,
+    RouterModule
   ],
   declarations: [AppPage]
 })

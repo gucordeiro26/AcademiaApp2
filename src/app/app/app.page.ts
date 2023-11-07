@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-app',
@@ -8,10 +9,12 @@ import { Router } from '@angular/router';
 })
 
 export class AppPage {
+  toastService: any;
 
-  constructor() { }
-
-  private router: Router
+  constructor(
+    private router: Router,
+    private toastController: ToastController,
+  ) { }
 
   isModalOpen_Cadastro = false;
 
@@ -44,6 +47,11 @@ export class AppPage {
       body: JSON.stringify(infos),
     })
       .then((response) => response.json())
+      .then(response => {
+        // if (response['mensagem'] === 'alerta') {
+        //   this.toastService.toast('Já existe uma senha relacionada a esse email!', 3000, 'bottom', 'success');
+        // }
+      })
       .catch((_) => {
         console.log(_)
       })
@@ -53,21 +61,25 @@ export class AppPage {
       })
   }
 
-  loginApp(dados: any) {
+  login(dados: any) {
     this.isLoading = true;
 
-    fetch('http://localhost/AcademiaApp/clientes/insert/authcadastro.php', {
+    fetch('http://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(dados),
     })
-      .then(response => response.json())
+      .then((response) => response.json())
       .then((response) => {
-        console.log(response);
-        if (response['router'] === 'true') {
-          this.router.navigate(['/app-inicio']);
+        console.log(response)
+
+        if (response['router'] === true) {
+          this.setOpen_Login(false);
+          setTimeout(() => {
+            this.router.navigate(['app-inicio']);
+          }, 500);
         }
       })
       .catch((_) => {
@@ -77,4 +89,6 @@ export class AppPage {
 
       })
   }
+
+
 }
