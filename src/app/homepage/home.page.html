@@ -196,47 +196,36 @@
   <!-- CONTACT US -->
   <ion-row class="bg__contact-us ion-justify-content-center">
     <ion-col size="8">
-      <ion-row class="ion-text-center">
+      <ion-row class="bg__title ion-text-center">
         <ion-col>
           <ion-title id="suporte">Contate-nos</ion-title>
         </ion-col>
       </ion-row>
 
       <ion-row class="ion-justify-content-around">
-        <ion-col size="5">
-          <ion-list class="list__contact">
-            <ion-item>
-              <ion-icon name="person-outline" class="ion-margin-end"></ion-icon>
-              <ion-label>(00) 00000-0000</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-icon name="mail-open-outline" class="ion-margin-end"></ion-icon>
-                <ion-label>email@mail.com</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-icon name="location-outline" class="ion-margin-end"></ion-icon>
-                <ion-label>Rua Sua Rua - 000 - Bairro</ion-label>
-            </ion-item>
-          </ion-list>
+        <ion-col size="6">
+          <ion-row class="contact-us__icons">
+            <ion-col><ion-icon name="logo-facebook"></ion-icon></ion-col>
+            <ion-col><ion-icon name="logo-whatsapp"></ion-icon></ion-col>
+            <ion-col><ion-icon name="logo-instagram"></ion-icon></ion-col>
+          </ion-row>
         </ion-col>
-        <ion-col size="5">
-          <ion-card>
-            <ion-card-title>Mande-nos uma mensagem!</ion-card-title>
+
+        <ion-col class="justify__card" size="6">
+          <ion-card size="12">
+            <ion-card-title>Encontre a gente!</ion-card-title>
             <ion-list>
               <ion-item>
-                <ion-icon name="person-outline" class="ion-margin-end"></ion-icon>
-                <ion-input placeholder="Nome"></ion-input>
-              </ion-item>
-              <ion-item>
                 <ion-icon name="mail-open-outline" class="ion-margin-end"></ion-icon>
-                <ion-input placeholder="Email"></ion-input>
+                <ion-label>email@email.com</ion-label>
               </ion-item>
               <ion-item>
-                <ion-icon name="call-outline" class="ion-margin-end"></ion-icon>
-                <ion-input placeholder="Telefone"></ion-input>
+                <ion-icon name="call-outline"></ion-icon>
+                <ion-label>+12 (34) 56789-0000</ion-label>
               </ion-item>
               <ion-item>
-                <ion-button>Enviar</ion-button>
+                <ion-icon name="location-outline"></ion-icon>
+                <ion-label>Endereço qualquer - bairro - 123</ion-label>
               </ion-item>
             </ion-list>
           </ion-card>
