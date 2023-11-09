@@ -533,7 +533,7 @@
           <ng-container *ngIf="conteudo === 'addCliente'">
             <ion-row class="ion-justify-content-center rowAdd">
               <ion-col>
-                <form #forminserirClientes="ngForm" (ngSubmit)="inserirClientes(forminserirClientes.value)">
+                <form [formGroup]="formInserir" #forminserirClientes="ngForm" (ngSubmit)="inserirClientes(forminserirClientes.value)">
                   <ion-row class="rowAdd__form ion-justify-content-center">
                     <ion-col class="ion-text-center">
                       <p class="textTitleAdd">Adicionar Cliente</p>
@@ -543,22 +543,13 @@
                   <ion-row class="rowAdd__form">
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Nome" name="nome" type="text"
+                        <ion-input class="inputAdd" #input ngModel label="Nome" formControlName="nome" name="nome" type="text"
                           label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Sobrenome" name="sobrenome" type="text"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Email" name="email" type="text"
+                        <ion-input class="inputAdd" #input ngModel label="Sobrenome" formControlName="sobrenome" name="sobrenome" type="text"
                           label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
@@ -567,12 +558,21 @@
                   <ion-row class="rowAdd__form">
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" name="dataNasc"
+                        <ion-input class="inputAdd" #input ngModel label="Email" formControlName="email" name="email" type="text"
+                          label-placement="floating"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row class="rowAdd__form">
+                    <ion-col>
+                      <ion-item class="itemAdd">
+                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" formControlName="DataNasc" name="DataNasc"
                           type="date" label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col>
-                      <ion-select class="inputAdd" label="Sexo" #input ngModel name="sexo" label-placement="floating">
+                      <ion-select class="inputAdd" label="Sexo" #input ngModel formControlName="sexo" name="sexo" label-placement="floating">
                         <ion-select-option value="Masculino">Masculino</ion-select-option>
                         <ion-select-option value="Feminino">Feminino</ion-select-option>
                         <ion-select-option value="Prefiro não dizer">Prefiro não dizer</ion-select-option>
@@ -583,13 +583,13 @@
                   <ion-row class="rowAdd__form">
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Altura" name="altura" type="number"
+                        <ion-input class="inputAdd" #input ngModel label="Altura" formControlName="altura" name="altura" type="number"
                           label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Peso" name="peso" type="number"
+                        <ion-input class="inputAdd" #input ngModel label="Peso" formControlName="peso" name="peso" type="number"
                           label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
@@ -598,12 +598,12 @@
                   <ion-row class="rowAdd__form">
                     <ion-col>
                       <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="CPF" name="cpf" type="text"
+                        <ion-input class="inputAdd" #input ngModel label="CPF" formControlName="cpf" name="cpf" type="text"
                           label-placement="floating"></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col>
-                      <ion-select class="inputAdd" label="Planos" #input ngModel name="FK_Planos_codigo" label-placement="floating">
+                      <ion-select class="inputAdd" label="Planos" #input ngModel formControlName="FK_Planos_codigo" name="FK_Planos_codigo" label-placement="floating">
                         <ion-select-option value="1">Plano A</ion-select-option>
                         <ion-select-option value="2">Plano B</ion-select-option>
                         <ion-select-option value="3">Plano C</ion-select-option>
@@ -646,9 +646,11 @@
                         <ion-label>Email</ion-label>
                         <ion-label>Nome</ion-label>
                         <ion-label>Sobrenome</ion-label>
+                        <ion-label>Sexo</ion-label>
+                        <ion-label>Altura (cm)</ion-label>
+                        <ion-label>peso (kg)</ion-label>
                         <ion-label>Data de Nascimento</ion-label>
                         <ion-label>CPF</ion-label>
-                        <ion-label>Objetivo</ion-label>
                         <ion-label>Código do Plano</ion-label>
                       </ion-item>
                       <ng-container *ngFor="let cliente of this.clientes">
@@ -657,14 +659,16 @@
                           <ion-label>{{ cliente.email }}</ion-label>
                           <ion-label>{{ cliente.nome }}</ion-label>
                           <ion-label>{{ cliente.sobrenome }}</ion-label>
+                          <ion-label>{{ cliente.sexo }}</ion-label>
+                          <ion-label>{{ cliente.altura }}</ion-label>
+                          <ion-label>{{ cliente.peso }}</ion-label>
                           <ion-label>{{ cliente.dataNasc }}</ion-label>
                           <ion-label>{{ cliente.cpf }}</ion-label>
-                          <ion-label>{{ cliente.descricao }}</ion-label>
                           <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
                           <ion-button
-                            (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.dataNasc, cliente.cpf, cliente.descricao, cliente.FK_Planos_codigo)"><ion-icon
+                            (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.dataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
                               name="pencil-outline"></ion-icon></ion-button>
-                          <ion-button color="danger" (click)="removerCliente(cliente.CodFun)"><ion-icon
+                          <ion-button color="danger" (click)="removerCliente(cliente.codigo)"><ion-icon
                               name="trash-outline"></ion-icon></ion-button>
 
                           <!-- Modal Para Atualizar -->
@@ -674,7 +678,7 @@
                                 <ion-label class="ion-padding-start">ATUALIZAR FUNCIONÁRIO</ion-label>
                                 <ion-buttons slot="end">
                                   <ion-button
-                                    (click)="modalUpdate(false, '', '', '', '', '', '', '', '')">X</ion-button>
+                                    (click)="modalUpdate(false, '', '', '', '', '', '', '', '', '', '')">X</ion-button>
                                 </ion-buttons>
                               </ion-toolbar>
                               <ion-content class="ion-padding">

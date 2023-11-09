@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,22 @@ import { Component } from '@angular/core';
 })
 export class AdminPage {
 
-  constructor() {
-    this.listarClientes()
-    this.listarExercicios()
+  constructor(private formBuilder: FormBuilder) {
+    this.listarClientes();
+    this.listarExercicios();
+    this.formInserir = this.formBuilder.group({
+      codigo: '',
+      email: '',
+      senha: '',
+      nome: '',
+      sobrenome: '',
+      sexo: '',
+      altura: '',
+      peso: '',
+      DataNasc: '',
+      cpf: '',
+      FK_Planos_codigo: '',
+    });
   }
 
   // Conteudo Pagina
@@ -76,27 +90,26 @@ export class AdminPage {
     senha: '',
     nome: '',
     sobrenome: '',
-    dataNasc: '',
+    sexo: '',
+    altura: '',
+    peso: '',
+    DataNasc: '',
     cpf: '',
-    descricao: '',
-    fotoPerfil: '',
     FK_Planos_codigo: '',
   };
 
   clientes: any[] = [];
 
-
   formDados: any = {
     codigo: '',
     email: '',
-    senha: '',
     nome: '',
     sobrenome: '',
     sexo: '',
-    dataNasc: '',
+    altura: '',
+    peso: '',
+    DataNasc: '',
     cpf: '',
-    descricao: '',
-    fotoPerfil: '',
     FK_Planos_codigo: '',
   }
 
@@ -104,6 +117,7 @@ export class AdminPage {
 
   buscarTermo: string = '';
   filtroPesquisa: string = 'nome';
+  formInserir: FormGroup;
 
   // Função para listar todos os funcionários
   listarClientes() {
@@ -134,7 +148,7 @@ export class AdminPage {
     this.isLoading = true;
     // Configura o objeto de funcionário para enviar na solicitação DELETE
     let cliente = { codigo: codigo };
-    fetch('http://localhost/AcademiaAPP/clientes/select/listarClientes.php', {
+    fetch('http://localhost/academiaApp/clientes/delete/excluirClientes.php', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -150,7 +164,6 @@ export class AdminPage {
       })
       .finally(() => {
         this.isLoading = false;
-        console.log('excluiu');
         this.listarClientes();
       })
   }
@@ -158,16 +171,18 @@ export class AdminPage {
   isAtualizarOpen = false;
 
   // Função para abrir o modal de atualização
-  modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, dataNasc: string, cpf: string, descricao: string, FK_Planos_codigo: string) {
+  modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, sexo: string, altura: string, peso: string, dataNasc: string, cpf: string, FK_Planos_codigo: string) {
     this.isAtualizarOpen = isOpen;
     // Armazena informações do funcionário para atualização
     this.guardarInfosUsuario.codigo = codigo;
     this.guardarInfosUsuario.email = email;
     this.guardarInfosUsuario.nome = nome;
     this.guardarInfosUsuario.sobrenome = sobrenome;
+    this.guardarInfosUsuario.sexo = sexo;
+    this.guardarInfosUsuario.altura = altura;
+    this.guardarInfosUsuario.peso = peso;
     this.guardarInfosUsuario.dataNasc = dataNasc;
     this.guardarInfosUsuario.cpf = cpf;
-    this.guardarInfosUsuario.descricao = descricao;
     this.guardarInfosUsuario.FK_Planos_codigo = FK_Planos_codigo;
   }
 
@@ -180,9 +195,11 @@ export class AdminPage {
       email: dados.email,
       nome: dados.nome,
       sobrenome: dados.sobrenome,
+      sexo: dados.sexo,
+      altura: dados.altura,
+      peso: dados.peso,
       dataNasc: dados.dataNasc,
       cpf: dados.cpf,
-      descricao: dados.descricao,
       FK_Planos_codigo: dados.FK_Planos_codigo,
     };
 
@@ -204,15 +221,8 @@ export class AdminPage {
       .finally(() => {
         this.isLoading = false;
         this.listarClientes();
-        this.modalUpdate(false, '', '', '', '', '', '', '', '');
+        this.modalUpdate(false, '', '', '', '', '', '', '', '', '', '');
       })
-  }
-
-  isInserirOpen = false;
-
-  // Função para abrir o modal de inserção
-  modalInserir(isOpen: boolean) {
-    this.isInserirOpen = isOpen;
   }
 
   // Função para inserir funcionários
@@ -231,14 +241,13 @@ export class AdminPage {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
-        this.listarClientes();
       })
       .catch((error) => {
         console.log(error);
       })
       .finally(() => {
         this.isLoading = false;
-        this.modalInserir(false);
+        this.listarClientes();
       })
   }
 
@@ -299,10 +308,10 @@ export class AdminPage {
         this.isLoading = false;
       })
   }
-  
+
   listarExerciciosPeito() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroPeito.php', {
       method: 'POST',
       headers: {
@@ -329,7 +338,7 @@ export class AdminPage {
 
   listarExerciciosCostas() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroCostas.php', {
       method: 'POST',
       headers: {
@@ -356,7 +365,7 @@ export class AdminPage {
 
   listarExerciciosBiceps() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroBiceps.php', {
       method: 'POST',
       headers: {
@@ -383,7 +392,7 @@ export class AdminPage {
 
   listarExerciciosTriceps() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroTriceps.php', {
       method: 'POST',
       headers: {
@@ -410,7 +419,7 @@ export class AdminPage {
 
   listarExerciciosOmbros() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroOmbro.php', {
       method: 'POST',
       headers: {
@@ -437,7 +446,7 @@ export class AdminPage {
 
   listarExerciciosPernas() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroPerna.php', {
       method: 'POST',
       headers: {
@@ -463,7 +472,7 @@ export class AdminPage {
   }
   listarExerciciosAbdomen() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroAbdomen.php', {
       method: 'POST',
       headers: {
@@ -490,7 +499,7 @@ export class AdminPage {
 
   listarExerciciosCardio() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroCardio.php', {
       method: 'POST',
       headers: {
