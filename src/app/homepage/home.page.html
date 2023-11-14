@@ -6,16 +6,17 @@
     <ion-col>
 
       <svg class="blob" id="blob-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#005AFF" d="M67.7,-20.8C75.5,2,61.1,33.2,39.3,47.5C17.5,61.8,-11.8,59.2,-31,44.7C-50.3,30.3,-59.5,4,-52.7,-17.5C-45.8,-39,-22.9,-55.7,3.5,-56.8C29.9,-57.9,59.9,-43.6,67.7,-20.8Z" transform="translate(100 100)" />
-      </svg>
-
-      <svg class="blob" id="blob-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path fill="#ffffff" d="M67.7,-20.8C75.5,2,61.1,33.2,39.3,47.5C17.5,61.8,-11.8,59.2,-31,44.7C-50.3,30.3,-59.5,4,-52.7,-17.5C-45.8,-39,-22.9,-55.7,3.5,-56.8C29.9,-57.9,59.9,-43.6,67.7,-20.8Z" transform="translate(100 100)" />
       </svg>
 
+      <!-- <svg class="blob" id="blob-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" d="M67.7,-20.8C75.5,2,61.1,33.2,39.3,47.5C17.5,61.8,-11.8,59.2,-31,44.7C-50.3,30.3,-59.5,4,-52.7,-17.5C-45.8,-39,-22.9,-55.7,3.5,-56.8C29.9,-57.9,59.9,-43.6,67.7,-20.8Z" transform="translate(100 100)" />
+      </svg> -->
+
       
 
-      <img src="https://i.imgur.com/YH19zGs.png" alt="">
+      <!-- <img src="https://i.imgur.com/YH19zGs.png" alt=""> -->
+      <img src="../../assets/images/app_login.png" alt="">
 
       <!-- HEADER -->
       <ion-row class="header">
@@ -23,14 +24,16 @@
           <ion-title>Lorem Ipsun</ion-title>
         </ion-col>
         <ion-col size="6">
-          <ion-header id="home" [translucent]="true" class="ion-no-border ">
-            <ion-toolbar>
-                <ion-col><a href="#home">Home</a></ion-col>
-                <ion-col><a href="#planos">Planos</a></ion-col>
-                <ion-col><a href="#sobre">Sobre</a></ion-col>
-                <ion-col><a href="#suporte">Suporte</a></ion-col>
-            </ion-toolbar>
-          </ion-header>
+          <ion-row>
+            <ion-header id="home" [translucent]="true" class="ion-no-border ">
+              <ion-toolbar>
+                  <ion-col><a href="#home">Home</a></ion-col>
+                  <ion-col><a href="#planos">Planos</a></ion-col>
+                  <ion-col><a href="#sobre">Sobre</a></ion-col>
+                  <ion-col><a href="#suporte">Suporte</a></ion-col>
+              </ion-toolbar>
+            </ion-header>
+          </ion-row>
         </ion-col>
       </ion-row>
       <ion-row class="content__landing-page ion-justify-content-center ion-align-items-center ion-text-center">
@@ -58,7 +61,7 @@
   
 <!-- PLANOS -->
   <ion-row class="bg__planos ion-justify-content-center">
-    <ion-col size="10">
+    <ion-col size="12">
 
       <ion-row  class="planos ion-text-center">
         <ion-col>
@@ -195,32 +198,34 @@
 
   <!-- CONTACT US -->
   <ion-row class="bg__contact-us ion-justify-content-center">
-    <ion-col size="8">
+    <ion-col class="bg-content__contact-us" size="8">
+      <ion-row>
+        <ion-col>
+          <ion-title>Contact Us</ion-title>
+        </ion-col>
+      </ion-row>
       <ion-row class="content__contact-us">
-        <ion-col size="6" class="nav__contact-us">
-          <ion-row>
-            <ion-col>
-              <ion-title>Contact Us</ion-title>
-            </ion-col>
-          </ion-row>
-    
+        <ion-col size="6" class="nav__contact-us-2">    
           <ion-row>
             <ion-col size="10">
               <!-- <ion-title>Encontre a gente!</ion-title> -->
-                <ion-list>
-                  <ion-item>
-                    <ion-icon name="mail-open-outline" class="ion-margin-end"></ion-icon>
-                    <ion-label>email@email.com</ion-label>
-                  </ion-item>
-                  <ion-item>
-                    <ion-icon name="call-outline"></ion-icon>
-                    <ion-label>+12 (34) 56789-0000</ion-label>
-                  </ion-item>
-                  <ion-item>
-                    <ion-icon name="location-outline"></ion-icon>
-                    <ion-label>Endereço qualquer - bairro - 123</ion-label>
-                  </ion-item>
-                </ion-list>
+                
+
+
+                <ion-row class="contact-us__icons">
+                  <ion-col>
+                    <ion-text>Facebook</ion-text>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-text>Whatsapp</ion-text>
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-text>Instagram</ion-text>
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </ion-col>
+                </ion-row>
             </ion-col>
           </ion-row>
     
@@ -263,18 +268,21 @@
           </ion-row> -->
         </ion-col>
     
-        <ion-col size="6" class="nav__contact-us-2">
-          <ion-row>
-            <ion-col>
-              <ion-title>Social Midias</ion-title>
-            </ion-col>        
-          </ion-row>
-    
-          <ion-row class="contact-us__icons">
-            <ion-col><ion-icon name="logo-facebook"></ion-icon></ion-col>
-            <ion-col><ion-icon name="logo-whatsapp"></ion-icon></ion-col>
-            <ion-col><ion-icon name="logo-instagram"></ion-icon></ion-col>
-          </ion-row>
+        <ion-col size="6" class="nav__contact-us">  
+          <ion-list>
+            <ion-item>
+              <ion-icon name="mail-open-outline" class="ion-margin-end"></ion-icon>
+              <ion-label>email@email.com</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="call-outline"></ion-icon>
+              <ion-label>+12 (34) 56789-0000</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="location-outline"></ion-icon>
+              <ion-label>Endereço qualquer - bairro - 123</ion-label>
+            </ion-item>
+          </ion-list>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -290,11 +298,11 @@
               <ion-title>NOSSO APP</ion-title>
               <ion-text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt beatae doloribus sed quam quos impedit architecto tempore numquam! Provident alias vero consequatur accusantium vel, error nulla culpa non sint voluptas!</ion-text>
               <ion-row>
-                <img src="https://images.unsplash.com/photo-1595079676601-f1adf5be5dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="">
+                <img id="qrcode" src="../../assets/images/QRCode_Fácil.svg" alt="">
               </ion-row>
             </ion-col>
             <ion-col size="4">
-              <img id="cell" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2118&q=80" alt="" height="800px">
+              <img id="cell" src="../../assets/images/app_login.png" alt="" height="800px">
             </ion-col>
           </ion-row>
         </ion-col>
@@ -312,18 +320,14 @@
             <ion-text>Copyright 2023 All right reserved</ion-text>
           </ion-col>
           <ion-col>
-            <ion-row class="ion-align-items-center">
-              <ion-icon name="logo-instagram" class="ion-margin-end ion-margin-start"></ion-icon>
-              <ion-text class="sociais">Instagram</ion-text>
-            </ion-row>
-            <ion-row class="ion-align-items-center">
-              <ion-icon name="logo-facebook" class="ion-margin-end ion-margin-start"></ion-icon>
-              <ion-text class="sociais">Facebook</ion-text>
-            </ion-row>
-            <ion-row class="ion-align-items-center">
-              <ion-icon name="logo-whatsapp" class="ion-margin-end ion-margin-start"></ion-icon>
-              <ion-text class="sociais">Whatsapp</ion-text>
-            </ion-row>
+              <ion-row class="ion-align-items-center">
+                <ion-icon name="logo-instagram" class="ion-margin-end ion-margin-start"></ion-icon>
+                <ion-text class="sociais">Instagram</ion-text>
+                <ion-icon name="logo-facebook" class="ion-margin-end ion-margin-start"></ion-icon>
+                <ion-text class="sociais">Facebook</ion-text>
+                <ion-icon name="logo-whatsapp" class="ion-margin-end ion-margin-start"></ion-icon>
+                <ion-text class="sociais">Whatsapp</ion-text>
+              </ion-row>
           </ion-col>
         </ion-row>
       </ion-col>
