@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../../assets/font/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
+}
+
+ion-content {
+    --background: #fff;
+}
+
+
+// Side Bar
+.sideBar {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    .sideRow {
+        width: 218px;
+        height: 896px;
+        background: #000000;
+        border-radius: 36px;
+        border: 1px solid #000000;
+        box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+        -webkit-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+        -moz-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+        position: fixed;
+        left: 47px;
+
+        .sideCol {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+
+            .sideCol__column {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .sideCol__logo {
+                    --size: 60px;
+                }
+
+                .sideCol__thumbnail {
+                    cursor: pointer;
+                }
+
+                .sideCol__text {
+                    color: #FFF;
+                    font-family: 'Bebas Neue';
+                    font-size: 36px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}
+
+// Conteúdo
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .conteudo__cardExercicio {
+        width: 222px;
+        height: 320px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .conteudo__text {
+            --color: #FFF;
+            font-family: 'Bebas Neue';
+            font-size: 40px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: normal;
+        }
+    }
+
+    .conteudo__card__peito {
+        --background: url('../../assets/images/academia.png');
+    }
+
+    .conteudo__card__costas {
+        --background: url('../../assets/images/academia2.png');
+    }
+
+    .conteudo__card__ombro {
+        --background: url('../../assets/images/academia3.png');
+    }
+
+    .conteudo__card__perna {
+        --background: url('../../assets/images/academia4.png');
+    }
+
+    .conteudo__card__abdomen {
+        --background: url('../../assets/images/academia5.png');
+    }
+
+    .conteudo__card__biceps {
+        --background: url('../../assets/images/academia6.png');
+    }
+
+    .conteudo__card__tricepes {
+        --background: url('../../assets/images/academia7.png');
+    }
+
+    .conteudo__card__cardio {
+        --background: url('../../assets/images/academia8.png');
+    }
+
+    // Modal
+    .conteudo__modalExeTd {
+        --background: #ffffff;
+
+        .conteudo__listModalExe {
+            .conteudo__itemModalExe {
+                --background: #ffffff;
+                color: #000000;
+            }
+        }
+    }
+
+}

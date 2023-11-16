@@ -2,17 +2,8 @@
   text-decoration: none;
 }
 
-* {
-  padding: 0;
-  margin: 0 auto;
-  box-sizing: border-box;
-  color: #fff;
-  font-family: 'Bebas Neue';
-}
-
 .container {
   --background: #ffffff;
-  color: #000000;
 }
 
 @font-face {
@@ -25,113 +16,316 @@
   src: url('../../assets/font/BebasNeue-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('../../assets/font/Inter-VariableFont.ttf');
+}
+
+
 // Side Bar
-.custom__row {
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  background: #404040;
-}
-
-.customCol {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
-
-.customRow {
-  padding-top: 2em;
-
-  .iconActive {
-    content: '\2022';
-    margin-right: 0.625em;
-    font-size: 1.25em;
-    color: #808080;
-  }
-}
-
-// Ficha de Treino
-.row__exercicio {
-  margin-top: 1em;
-}
-
-.cardExercicio {
-  width: 12.5em;
-  height: 6em.5em;
-  border-radius: 0.625em;
-
-  .textExercicio {
-    font-family: 'Oswald';
-    font-size: 1.5em;
-    color: #000000;
-  }
-
-  .cardImg {
-    position: relative;
-    right: 0.5em;
-    margin-top: 0.2em;
-  }
-}
-
-.cardTodos {
-  --padding-start: 0;
-}
-
-
-// Modal
-.modalExeTd {
-  --background: #ffffff;
-
-  .listModalExe {
-    .itemModalExe {
-      --background: #ffffff;
-      color: #000000;
-    }
-  }
-}
-
-// Adicionar Cliente
-.rowAdd {
-  margin-top: 10em;
-  background: #000000;
-  border-radius: 1.25em;
-
-  .textTitleAdd {
-    font-family: 'Oswald';
-    font-weight: bold;
-    font-size: 1.5em;
-  }
-
-  .rowAdd__form {
-    margin-top: 1em;
-    background: #000000;
-
-    .itemAdd {
-      --background: #000000;
-    }
-    .inputAdd {
-      font-family: 'Oswald';
-      font-size: 1em;
-      --color: #fff;
-      --background: #515151;
-    }
-    .btnAdd {
-      font-family: 'Oswald';
-      font-size: 1em;
-    }
-  }
-}
-
-// Gerenciamento Clientes
-.item {
-  --background: #000000;
-}
-
-.radio_group {
+.sideBar {
   display: flex;
   align-items: center;
+  height: 100vh;
 
-  .radio {
-    padding: .5em 2em;
+  .sideRow {
+      width: 218px;
+      height: 896px;
+      background: #000000;
+      border-radius: 36px;
+      border: 1px solid #000000;
+      box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
+      -webkit-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
+      -moz-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
+      position: fixed;
+      left: 47px;
+
+      .sideCol {
+          display: flex;
+          justify-content: space-evenly;
+          flex-direction: column;
+
+          .sideCol__column {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              .sideCol__logo {
+                  --size: 60px;
+              }
+
+              .sideCol__thumbnail {
+                  cursor: pointer;
+              }
+  
+              .sideCol__text {
+                  color: #FFF;
+                  font-family: 'Bebas Neue';
+                  font-size: 36px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+              }
+          }
+      }
   }
 }
+
+
+//Conteúdo
+.container{
+  height: 100vh;
+
+  .conteudo {
+    .conteudo__text__dashboard {
+      color: #000;
+      font-family: 'Inter';
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 10px;
+    }
+  
+    .conteudo__text__pag {
+      color: #D2D1D0;
+      font-family: 'Inter';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 10px;
+      position: absolute;
+      bottom: 1px;
+    }
+  
+    .conteudo__searchbar {
+      --border-radius: 10px;
+      --background: #D9D9D9;
+    }
+  
+    .conteudo__badge {
+      position: fixed;
+      top: 10px;
+      // right: 10px;
+    }
+    
+    .conteudo__fab {
+      position: absolute;
+      top: 1px;
+      right: 3px;
+    
+      .conteudo__fab__button {
+        --background: transparent;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  
+    .col__conteudo{
+      max-height: 200px;
+
+      .conteudo__ {
+        background: #D9D9D9;
+        border-radius: 18px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        width: 340px;
+        height: 171px;
+    
+        .conteudo__text {
+          max-height: 60px;
+    
+          .conteudo__thumbnail {
+            width: 60px;
+            height: 60px;
+          }
+    
+          .conteudo__text__ {
+            color: #000;
+            font-family: 'Inter';
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: uppercase;
+            position: absolute;
+            bottom: 0;
+          }
+        }
+    
+        .conteudo__text__c {
+          color: #000;
+          font-family: 'Inter';
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+    
+        .conteudo__text__d {
+          color: #000;
+          font-family: 'Inter';
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+  
+    }
+
+    .conteudo__3 {
+      .conteudo__3_canva{
+        height: 452px;
+      }
+
+      .conteudo__3__2{
+        .conteudo__3__textH{
+          color: #000;
+          font-family: 'Inter';
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+  
+        .conteudo__3__textMF{
+          color: #A6A3A1;
+          font-family: 'Inter';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-transform: lowercase;
+          position: absolute;
+          bottom: 1px;
+        }
+      }
+      
+      .conteudo__3_col2 {
+        width: 298px;
+        height: 662px;
+        border-radius: 18px;
+        background: #F2F2F2;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+      }
+
+      .conteudo__3_col2 {
+
+        .conteudo__3_col2__thumb {
+          width: 100px;
+          height: 100px;
+          margin-left: 100px;
+        }
+
+        .conteudo__3_col2_textR {
+          color: #000;
+          font-family: 'Inter';
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+
+        .conteudo__3_col2_textN { 
+          color: #A6A3A1;
+          font-family: 'Inter';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }   
+  }
+}
+
+
+
+// // Ficha de Treino
+// .row__exercicio {
+//   margin-top: 1em;
+// }
+
+// .cardExercicio {
+//   width: 12.5em;
+//   height: 6em.5em;
+//   border-radius: 0.625em;
+
+//   .textExercicio {
+//     font-family: 'Oswald';
+//     font-size: 1.5em;
+//     color: #000000;
+//   }
+
+//   .cardImg {
+//     position: relative;
+//     right: 0.5em;
+//     margin-top: 0.2em;
+//   }
+// }
+
+// .cardTodos {
+//   --padding-start: 0;
+// }
+
+
+// // Modal
+// .modalExeTd {
+//   --background: #ffffff;
+
+//   .listModalExe {
+//     .itemModalExe {
+//       --background: #ffffff;
+//       color: #000000;
+//     }
+//   }
+// }
+
+// // Adicionar Cliente
+// .rowAdd {
+//   margin-top: 10em;
+//   background: #000000;
+//   border-radius: 1.25em;
+
+//   .textTitleAdd {
+//     font-family: 'Oswald';
+//     font-weight: bold;
+//     font-size: 1.5em;
+//   }
+
+//   .rowAdd__form {
+//     margin-top: 1em;
+//     background: #000000;
+
+//     .itemAdd {
+//       --background: #000000;
+//     }
+//     .inputAdd {
+//       font-family: 'Oswald';
+//       font-size: 1em;
+//       --color: #fff;
+//       --background: #515151;
+//     }
+//     .btnAdd {
+//       font-family: 'Oswald';
+//       font-size: 1em;
+//     }
+//   }
+// }
+
+// // Gerenciamento Clientes
+// .item {
+//   --background: #000000;
+// }
+
+// .radio_group {
+//   display: flex;
+//   align-items: center;
+
+//   .radio {
+//     padding: .5em 2em;
+//   }
+// }

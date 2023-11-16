@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-admin',
   templateUrl: 'admin.page.html',
   styleUrls: ['admin.page.scss'],
 })
-export class AdminPage {
+export class AdminPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.listarClientes();
@@ -25,6 +26,11 @@ export class AdminPage {
       FK_Planos_codigo: '',
     });
   }
+
+  title = 'ng-chart';
+  chart: any = [];
+
+  ngOnInit() {}
 
   // Conteudo Pagina
   isLoading: boolean = false;

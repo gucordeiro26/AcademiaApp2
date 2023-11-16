@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../../assets/font/BebasNeue-Regular.ttf');
+}
+@font-face {
+    font-family: 'Oswald';
+    src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
+}
+ion-content {
+    --background: #9f9d9d;
+}
+
+
+// Side Bar
+.sideBar {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    .sideRow {
+        width: 218px;
+        height: 896px;
+        background: #000000;
+        border-radius: 36px;
+        border: 1px solid #000000;
+        box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
+        -webkit-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
+        -moz-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
+        position: fixed;
+        left: 47px;
+
+        .sideCol {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+
+            .sideCol__column {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .sideCol__logo {
+                    --size: 60px;
+                }
+
+                .sideCol__thumbnail {
+                    cursor: pointer;
+                }
+    
+                .sideCol__text {
+                    color: #FFF;
+                    font-family: 'Bebas Neue';
+                    font-size: 36px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}
+
+// Conteúdo
+.conteudo {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .conteudo__title {
+        font-family: 'Oswald';
+        font-weight: bold;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    
+    .conteudo__input {
+        width: 400px;
+        --background: #E7E7E7;
+        --border-radius: 20px;
+        --padding-start: 10px;
+        --highlight-color-focused: trasparent;
+        --color: #252525;
+        font-size: 1.3em;
+        font-family: 'Bebas Neue';
+    }
+    
+    .conteudo__input__email {
+        width: 87%;
+    }
+    
+    .conteudo__select {
+        width: 400px;
+        --background: #E7E7E7;
+        --border-radius: 20px;
+        --padding-start: 10px;
+        --highlight-color-focused: trasparent;
+        --color: #252525;
+        font-size: 1.3em;
+        font-family: 'Bebas Neue';
+    }
+    
+    .conteudo__text {
+        color: #000;
+        font-family: 'Bebas Neue';
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding-left: 8px;
+        padding-bottom: 3px;
+        font-family: 'Bebas Neue';
+    }
+    
+    .conteudo__button {
+        font-family: 'Bebas Neue';
+        --background: #8e0000;
+        --border-radius: 30px;
+        font-size: 1em;
+    }
+}

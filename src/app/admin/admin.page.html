@@ -1,5 +1,266 @@
-<ion-content class="container" [fullscreen]="true">
+<ion-content [fullscreen]="true">
   <ion-row>
+    <!-- Side bar -->
+    <ion-col size="2.5" class="sideBar">
+      <ion-row class="sideRow">
+        <ion-col class="sideCol">
+          <!-- Logo -->
+          <ion-row>
+            <ion-col class="sideCol__column">
+              <ion-thumbnail class="sideCol__logo">
+                <img src="../../assets/images/logo.png" alt="Logo">
+              </ion-thumbnail>
+            </ion-col>
+          </ion-row>
+
+          <!-- Home -->
+          <ion-row class="row">
+            <ion-col class="sideCol__column">
+              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin'">
+                <img src="../../assets/images/iconHome.png" alt="Home">
+              </ion-thumbnail>
+            </ion-col>
+            <ion-col class="sideCol__column">
+              <p class="sideCol__text">Home</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Adicionar -->
+          <ion-row>
+            <ion-col class="sideCol__column">
+              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-adcionar'">
+                <img src="../../assets/images/iconAdicionar.png" alt="Adicionar">
+              </ion-thumbnail>
+            </ion-col>
+            <ion-col class="sideCol__column">
+              <p class="sideCol__text">Adicionar</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Listar -->
+          <ion-row>
+            <ion-col class="sideCol__column">
+              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-list'">
+                <img src="../../assets/images/iconList.png" alt="Listar">
+              </ion-thumbnail>
+            </ion-col>
+            <ion-col class="sideCol__column">
+              <p class="sideCol__text">Listar</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Ficha -->
+          <ion-row>
+            <ion-col class="sideCol__column">
+              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-exercicios'">
+                <img src="../../assets/images/iconFicha.png" alt="Ficha">
+              </ion-thumbnail>
+            </ion-col>
+            <ion-col class="sideCol__column">
+              <p class="sideCol__text">Ficha</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="sideCol__column">
+              <ion-thumbnail class="sideCol__thumbnail">
+                <img src="../../assets/images/iconBack.png" alt="Sair">
+              </ion-thumbnail>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <!-- Conteúdo -->
+    <ion-col size="9.5">
+      <ion-row class="container">
+        <ion-col class="conteudo">
+          <ion-row>
+
+            <ion-col size="5">
+              <p class="conteudo__text__dashboard">Dashbord</p>
+              <p class="conteudo__text__pag">Pagamentos Updates</p>
+            </ion-col>
+
+            <ion-col size="5">
+              <ion-searchbar class="conteudo__searchbar" placeholder=""></ion-searchbar>
+            </ion-col>
+
+            <ion-col size="1">
+              <ion-thumbnail>
+                <img src="../../assets/images/notifications-outline.svg" alt="sino">
+              </ion-thumbnail>
+              <ion-badge class="conteudo__badge">1</ion-badge>
+            </ion-col>
+
+            <ion-col size="1">
+              <ion-thumbnail>
+                <img src="../../assets/images/perfil-esquilo.jpg" alt="">
+              </ion-thumbnail>
+              <ion-fab class="conteudo__fab">
+                <ion-fab-button class="conteudo__fab__button" size="small">
+                    <img src="../../assets/images/seta-para-baixo 1.png" alt="seta para baixo">
+                </ion-fab-button>
+                <ion-fab-list side="bottom">
+                  <ion-fab-button>
+                    <ion-icon name="document"></ion-icon>
+                  </ion-fab-button>
+                  <ion-fab-button>
+                    <ion-icon name="color-palette"></ion-icon>
+                  </ion-fab-button>
+                  <ion-fab-button>
+                    <ion-icon name="globe"></ion-icon>
+                  </ion-fab-button>
+                </ion-fab-list>
+              </ion-fab>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="col__conteudo" size="4">
+              <ion-row class="conteudo__">
+                <ion-col>
+                  <ion-row class="conteudo__text">
+                    <ion-col size="3">
+                      <ion-thumbnail class="conteudo__thumbnail">
+                        <img src="../../assets/images/dolar 1.png" alt="">
+                      </ion-thumbnail>
+                    </ion-col>
+                    <ion-col size="9"><p class="conteudo__text__">Money</p></ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col size="3"><p class="conteudo__text__c">$</p></ion-col>
+                    <ion-col size="9"><p class="conteudo__text__d">16.000</p></ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col class="col__conteudo" size="4">
+              <ion-row class="conteudo__">
+                <ion-col>
+                  <ion-row class="conteudo__text">
+                    <ion-col size="3">
+                      <ion-thumbnail class="conteudo__thumbnail">
+                        <img src="../../assets/images/calendario (1) 1.png" alt="">
+                      </ion-thumbnail>
+                    </ion-col>
+                    <ion-col size="9"><p class="conteudo__text__">New Leads</p></ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <canvas id="myChart" width="400px" height="400px"></canvas>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col class="col__conteudo" size="4">
+              <ion-row class="conteudo__">
+                <ion-col>
+                  <ion-row class="conteudo__text">
+                    <ion-col size="3">
+                      <ion-thumbnail class="conteudo__thumbnail">
+                        <img src="../../assets/images/e-mail 1.png" alt="">
+                      </ion-thumbnail>
+                    </ion-col>
+                    <ion-col size="9"><p class="conteudo__text__">Messages</p></ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="conteudo__3">
+            <ion-col size="8">
+              <ion-row class="conteudo__3_canva">
+                <ion-col size="12"></ion-col>
+              </ion-row>
+
+              <ion-row class="conteudo__3__2">
+                <ion-col size="12">
+                  <ion-row>
+                    <ion-col>
+                      <p class="conteudo__3__textH">History</p>
+                      <p class="conteudo__3__textMF">Money Transfer</p>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col>
+                      <ng-container></ng-container>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col size="4">
+              <ion-row class="conteudo__3_col2">
+                <ion-col>
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-thumbnail class="conteudo__3_col2__thumb">
+                        <img src="../../assets/images/icons8-cartão-50.png" alt="">
+                      </ion-thumbnail>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col>
+                      <p class="conteudo__3_col2_textR">Recent Activities</p>
+                      <p class="conteudo__3_col2_textN">07 Nov 2023</p>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col>
+                      <p class="conteudo__3_col2_textR">Upcoming payments</p>
+                      <p class="conteudo__3_col2_textN">25 Dez 2023</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <ion-row>
     <ion-col size="12">
 
       <ion-row>
@@ -181,10 +442,10 @@
                   </ion-card-content>
                 </ion-card>
               </ion-col>
-            </ion-row>
+            </ion-row> -->
             <!-- Modais -->
             <!-- Modal para todos os Exercícios -->
-            <ion-modal [isOpen]="isModalOpen">
+            <!-- <ion-modal [isOpen]="isModalOpen">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -221,10 +482,10 @@
 
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            </ion-modal> -->
 
             <!-- Modal Peito -->
-            <ion-modal [isOpen]="isModalPeito">
+            <!-- <ion-modal [isOpen]="isModalPeito">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -259,10 +520,10 @@
 
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            </ion-modal> -->
 
             <!-- Modal Costas -->
-            <ion-modal [isOpen]="isModalCostas">
+            <!-- <ion-modal [isOpen]="isModalCostas">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -297,10 +558,10 @@
 
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            </ion-modal> -->
 
             <!-- Modal Biceps -->
-            <ion-modal [isOpen]="isModalBiceps">
+            <!-- <ion-modal [isOpen]="isModalBiceps">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -335,10 +596,10 @@
 
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            </ion-modal> -->
 
             <!-- Modal Triceps -->
-            <ion-modal [isOpen]="isModalTriceps">
+            <!-- <ion-modal [isOpen]="isModalTriceps">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -373,10 +634,10 @@
 
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            </ion-modal> -->
 
             <!-- Modal Ombro -->
-            <ion-modal [isOpen]="isModalOmbro">
+            <!-- <ion-modal [isOpen]="isModalOmbro">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -411,10 +672,10 @@
 
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            </ion-modal> -->
 
             <!-- Modal Perna -->
-            <ion-modal [isOpen]="isModalPerna">
+            <!-- <ion-modal [isOpen]="isModalPerna">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -449,10 +710,10 @@
 
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            </ion-modal> -->
 
             <!-- Modal Abdomen -->
-            <ion-modal [isOpen]="isModalAbdomen">
+            <!-- <ion-modal [isOpen]="isModalAbdomen">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -490,7 +751,7 @@
             </ion-modal>
 
             <!-- Modal Cardio -->
-            <ion-modal [isOpen]="isModalCardio">
+            <!-- <ion-modal [isOpen]="isModalCardio">
               <ng-template>
                 <ion-header>
                   <ion-toolbar class="modalExeTd">
@@ -634,9 +895,9 @@
                   </ion-col>
                 </ion-row>
               </ion-col>
-            </ion-row>
+            </ion-row> -->
             <!-- Listar Todos os Funcionários -->
-            <ion-row class="ion-justify-content-center row">
+            <!-- <ion-row class="ion-justify-content-center row">
               <ion-col size="12">
                 <ion-row class="ion-justify-content-center">
                   <ion-col size="12">
@@ -669,10 +930,10 @@
                             (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.dataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
                               name="pencil-outline"></ion-icon></ion-button>
                           <ion-button color="danger" (click)="removerCliente(cliente.codigo)"><ion-icon
-                              name="trash-outline"></ion-icon></ion-button>
+                              name="trash-outline"></ion-icon></ion-button> --> 
 
                           <!-- Modal Para Atualizar -->
-                          <ion-modal [isOpen]="isAtualizarOpen">
+                          <!-- <ion-modal [isOpen]="isAtualizarOpen">
                             <ng-template>
                               <ion-toolbar>
                                 <ion-label class="ion-padding-start">ATUALIZAR FUNCIONÁRIO</ion-label>
@@ -683,10 +944,10 @@
                               </ion-toolbar>
                               <ion-content class="ion-padding">
                                 <ion-row class="ion-justify-content-center">
-                                  <ion-col class="ion-text-align-center" size="12">
+                                  <ion-col class="ion-text-align-center" size="12"> -->
 
                                     <!-- Formulário -->
-                                    <form (submit)="atualizarCliente(formatualizarCliente.value)"
+                                    <!-- <form (submit)="atualizarCliente(formatualizarCliente.value)"
                                       #formatualizarCliente="ngForm">
                                       <ion-row>
                                         <ion-col>
@@ -775,9 +1036,9 @@
                                           <ion-button color="dark" type="submit">Atualizar</ion-button>
                                         </ion-col>
                                       </ion-row>
-                                    </form>
+                                    </form> -->
 
-                                  </ion-col>
+                                  <!-- </ion-col>
                                 </ion-row>
                               </ion-content>
                             </ng-template>
@@ -796,5 +1057,5 @@
       </ion-row>
 
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 </ion-content>

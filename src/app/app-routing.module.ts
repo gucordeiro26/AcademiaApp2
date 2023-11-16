@@ -14,6 +14,18 @@ const routes: Routes = [
     path: 'admin-login',
     loadChildren: () => import('./admin-login/admin-login.module').then( m => m.AdminLoginPageModule)
   },
+  {
+    path: 'admin-adcionar',
+    loadChildren: () => import('./admin-adcionar/admin-adcionar.module').then( m => m.AdminAdcionarPageModule)
+  },
+  {
+    path: 'admin-exercicios',
+    loadChildren: () => import('./admin-exercicios/admin-exercicios.module').then( m => m.AdminExerciciosPageModule)
+  },
+  {
+    path: 'admin-list',
+    loadChildren: () => import('./admin-list/admin-list.module').then( m => m.AdminListPageModule)
+  },
 
 ];
 
