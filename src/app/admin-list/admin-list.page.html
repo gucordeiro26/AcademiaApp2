@@ -106,11 +106,11 @@
                     <ion-label>{{ cliente.sexo }}</ion-label>
                     <ion-label>{{ cliente.altura }}</ion-label>
                     <ion-label>{{ cliente.peso }}</ion-label>
-                    <ion-label>{{ cliente.dataNasc }}</ion-label>
+                    <ion-label>{{ cliente.DataNasc }}</ion-label>
                     <ion-label>{{ cliente.cpf }}</ion-label>
                     <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
                     <ion-button
-                      (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.dataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
+                      (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.DataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
                         name="pencil-outline"></ion-icon></ion-button>
                     <ion-button color="danger" (click)="removerCliente(cliente.codigo)"><ion-icon
                         name="trash-outline"></ion-icon></ion-button>
@@ -159,8 +159,8 @@
                                 <ion-row>
                                   <ion-col>
                                     <ion-item>
-                                      <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.dataNasc"
-                                        label="Data de Nascimento" value="dataNasc" name="dataNasc" type="date"
+                                      <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.DataNasc"
+                                        label="Data de Nascimento" value="DataNasc" name="DataNasc" type="date"
                                         label-placement="floating"></ion-input>
                                     </ion-item>
                                   </ion-col>

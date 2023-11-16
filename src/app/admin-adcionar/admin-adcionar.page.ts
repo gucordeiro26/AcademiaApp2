@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -72,7 +72,7 @@ export class AdminAdcionarPage {
   isAtualizarOpen = false;
 
   // Função para abrir o modal de atualização
-  modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, sexo: string, altura: string, peso: string, dataNasc: string, cpf: string, FK_Planos_codigo: string) {
+  modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, sexo: string, altura: string, peso: string, DataNasc: string, cpf: string, FK_Planos_codigo: string) {
     this.isAtualizarOpen = isOpen;
     // Armazena informações do funcionário para atualização
     this.guardarInfosUsuario.codigo = codigo;
@@ -82,7 +82,7 @@ export class AdminAdcionarPage {
     this.guardarInfosUsuario.sexo = sexo;
     this.guardarInfosUsuario.altura = altura;
     this.guardarInfosUsuario.peso = peso;
-    this.guardarInfosUsuario.dataNasc = dataNasc;
+    this.guardarInfosUsuario.DataNasc = DataNasc;
     this.guardarInfosUsuario.cpf = cpf;
     this.guardarInfosUsuario.FK_Planos_codigo = FK_Planos_codigo;
   }
@@ -99,7 +99,7 @@ export class AdminAdcionarPage {
       sexo: dados.sexo,
       altura: dados.altura,
       peso: dados.peso,
-      dataNasc: dados.dataNasc,
+      DataNasc: dados.DataNasc,
       cpf: dados.cpf,
       FK_Planos_codigo: dados.FK_Planos_codigo,
     };
