@@ -39,7 +39,11 @@
     -webkit-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
     -moz-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
     position: fixed;
-    left: 47px;
+    left: 10;
+    
+    @media (width: 1024px) {
+      height: 796px;
+    }
 
     .sideCol {
       display: flex;
@@ -76,6 +80,9 @@
 //Conteúdo
 .container {
   height: 90vh;
+  @media (width: 1024px) {
+    padding-left: 20px;
+  }
 
   .conteudo {
     .conteudo__text__dashboard {
@@ -124,6 +131,13 @@
           position: absolute;
           right: 37px;
         }
+        @media (width: 1024px) {
+          width: 15px;
+          height: 15px;
+          position: relative;
+          bottom: 5px;
+          left: 15px;
+        }
       }
       @media (width: 1920px){
         .conteudo__fab__list {
@@ -143,6 +157,10 @@
         width: 340px;
         height: 171px;
 
+        @media (width: 1024px) {
+          width: 240px;
+        }
+
         .conteudo__text {
           max-height: 60px;
 
@@ -161,6 +179,12 @@
             text-transform: uppercase;
             position: absolute;
             bottom: 0;
+
+            @media (width: 1024px) {
+              font-size: 20px;
+              padding-left: 20px;
+              padding-bottom: 10px;
+            }
           }
         }
 
@@ -196,6 +220,9 @@
 
         @media (width: 1920px) {
           height: 450px;
+        }
+        @media (width: 1024px) {
+          height: 300px;
         }
 
         & .conteudo__3_canvas {
@@ -233,11 +260,18 @@
         border-radius: 18px;
         background: #f2f2f2;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        @media (width: 1024px) {
+          width: 198px;
+        }
 
         .conteudo__3_col2__thumb {
           width: 100px;
           height: 100px;
           margin-left: 100px;
+
+          @media (width: 1024px) {
+            margin-left: 40px;
+          }
         }
 
         .conteudo__3_col2_textR {
