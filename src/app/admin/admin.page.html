@@ -103,7 +103,7 @@
                 <ion-fab-button class="conteudo__fab__button" size="small">
                     <img src="../../assets/images/seta-para-baixo 1.png" alt="seta para baixo">
                 </ion-fab-button>
-                <ion-fab-list side="bottom">
+                <ion-fab-list class="conteudo__fab__list" side="bottom">
                   <ion-fab-button>
                     <ion-icon name="document"></ion-icon>
                   </ion-fab-button>
@@ -156,7 +156,7 @@
 
               <ion-row>
                 <ion-col>
-                  <canvas id="myChart" width="400px" height="400px"></canvas>
+                  <canvas #grafico2 class="conteudo__canvas"></canvas>
                 </ion-col>
               </ion-row>
             </ion-col>
@@ -180,7 +180,11 @@
           <ion-row class="conteudo__3">
             <ion-col size="8">
               <ion-row class="conteudo__3_canva">
-                <ion-col size="12"></ion-col>
+                <ion-col size="12">
+                  <div class="conteudo__3_canvas">
+                    <canvas #grafico ></canvas>
+                  </div>
+                </ion-col>
               </ion-row>
 
               <ion-row class="conteudo__3__2">

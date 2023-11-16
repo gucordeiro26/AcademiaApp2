@@ -4,6 +4,7 @@
 
 .container {
   --background: #ffffff;
+  overflow: hidden;
 }
 
 @font-face {
@@ -29,52 +30,52 @@
   height: 100vh;
 
   .sideRow {
-      width: 218px;
-      height: 896px;
-      background: #000000;
-      border-radius: 36px;
-      border: 1px solid #000000;
-      box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
-      -webkit-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
-      -moz-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
-      position: fixed;
-      left: 47px;
+    width: 218px;
+    height: 896px;
+    background: #000000;
+    border-radius: 36px;
+    border: 1px solid #000000;
+    box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+    -webkit-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+    -moz-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+    position: fixed;
+    left: 47px;
 
-      .sideCol {
-          display: flex;
-          justify-content: space-evenly;
-          flex-direction: column;
+    .sideCol {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
 
-          .sideCol__column {
-              display: flex;
-              justify-content: center;
-              align-items: center;
+      .sideCol__column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-              .sideCol__logo {
-                  --size: 60px;
-              }
+        .sideCol__logo {
+          --size: 60px;
+        }
 
-              .sideCol__thumbnail {
-                  cursor: pointer;
-              }
-  
-              .sideCol__text {
-                  color: #FFF;
-                  font-family: 'Bebas Neue';
-                  font-size: 36px;
-                  font-style: normal;
-                  font-weight: 400;
-                  line-height: normal;
-              }
-          }
+        .sideCol__thumbnail {
+          cursor: pointer;
+        }
+
+        .sideCol__text {
+          color: #FFF;
+          font-family: 'Bebas Neue';
+          font-size: 36px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
       }
+    }
   }
 }
 
 
 //Conteúdo
-.container{
-  height: 100vh;
+.container {
+  height: 90vh;
 
   .conteudo {
     .conteudo__text__dashboard {
@@ -86,7 +87,7 @@
       line-height: normal;
       margin-top: 10px;
     }
-  
+
     .conteudo__text__pag {
       color: #D2D1D0;
       font-family: 'Inter';
@@ -98,31 +99,41 @@
       position: absolute;
       bottom: 1px;
     }
-  
+
     .conteudo__searchbar {
       --border-radius: 10px;
       --background: #D9D9D9;
     }
-  
+
     .conteudo__badge {
-      position: fixed;
+      position: absolute;
       top: 10px;
       // right: 10px;
     }
-    
+
     .conteudo__fab {
       position: absolute;
       top: 1px;
       right: 3px;
-    
+
       .conteudo__fab__button {
         --background: transparent;
         width: 20px;
         height: 20px;
+        @media (width: 1920px) {
+          position: absolute;
+          right: 37px;
+        }
+      }
+      @media (width: 1920px){
+        .conteudo__fab__list {
+          position: absolute;
+          right: 15px;
+        }
       }
     }
-  
-    .col__conteudo{
+
+    .col__conteudo {
       max-height: 200px;
 
       .conteudo__ {
@@ -131,15 +142,15 @@
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
         width: 340px;
         height: 171px;
-    
+
         .conteudo__text {
           max-height: 60px;
-    
+
           .conteudo__thumbnail {
             width: 60px;
             height: 60px;
           }
-    
+
           .conteudo__text__ {
             color: #000;
             font-family: 'Inter';
@@ -152,7 +163,12 @@
             bottom: 0;
           }
         }
-    
+
+        .conteudo__canvas {
+          width: 20vh;
+          height: 30vh;
+        }
+
         .conteudo__text__c {
           color: #000;
           font-family: 'Inter';
@@ -161,7 +177,7 @@
           font-weight: 700;
           line-height: normal;
         }
-    
+
         .conteudo__text__d {
           color: #000;
           font-family: 'Inter';
@@ -171,16 +187,25 @@
           line-height: normal;
         }
       }
-  
+
     }
 
     .conteudo__3 {
-      .conteudo__3_canva{
+      .conteudo__3_canva {
         height: 452px;
+
+        @media (width: 1920px) {
+          height: 450px;
+        }
+
+        & .conteudo__3_canvas {
+          width: 100%;
+          height: 100%;
+        }
       }
 
-      .conteudo__3__2{
-        .conteudo__3__textH{
+      .conteudo__3__2 {
+        .conteudo__3__textH {
           color: #000;
           font-family: 'Inter';
           font-size: 32px;
@@ -188,8 +213,8 @@
           font-weight: 700;
           line-height: normal;
         }
-  
-        .conteudo__3__textMF{
+
+        .conteudo__3__textMF {
           color: #A6A3A1;
           font-family: 'Inter';
           font-size: 16px;
@@ -201,16 +226,13 @@
           bottom: 1px;
         }
       }
-      
-      .conteudo__3_col2 {
-        width: 298px;
-        height: 662px;
-        border-radius: 18px;
-        background: #F2F2F2;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-      }
 
       .conteudo__3_col2 {
+        width: 298px;
+        height: 60vh;
+        border-radius: 18px;
+        background: #f2f2f2;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 
         .conteudo__3_col2__thumb {
           width: 100px;
@@ -227,7 +249,7 @@
           line-height: normal;
         }
 
-        .conteudo__3_col2_textN { 
+        .conteudo__3_col2_textN {
           color: #A6A3A1;
           font-family: 'Inter';
           font-size: 14px;
@@ -238,7 +260,7 @@
           bottom: 0;
         }
       }
-    }   
+    }
   }
 }
 
