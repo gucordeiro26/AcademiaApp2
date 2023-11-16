@@ -113,7 +113,7 @@ export class AdminListPage {
     };
 
     // Envia a solicitação POST para atualizar o funcionário
-    fetch('http://localhost/AcademiaAPP/clientes/update/atualizarCliente.php', {
+    fetch('http://localhost/AcademiaApp/clientes/update/atualizarCliente.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
