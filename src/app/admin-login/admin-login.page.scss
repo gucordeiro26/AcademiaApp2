@@ -52,7 +52,8 @@ ion-content {
             --background: #ebeaea;
             --border-radius: 0.975em;
             font-size: large;
-            --highlight-color-focused: none;
+            --padding-start: 10px;
+            --highlight-color-focused: trasparent;
         }
     }
 }
