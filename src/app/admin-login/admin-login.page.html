@@ -17,25 +17,25 @@
             <ion-row class="ion-justify-content-center">
               <ion-col size="10">
                 <ion-label class="customLabel">Email</ion-label>
-                <ion-input class="customInput" ngModel type="text"></ion-input>
+                <ion-input class="customInput" name="email" #input ngModel type="text"></ion-input>
               </ion-col>
             </ion-row>
-        
+
             <ion-row class="ion-justify-content-center">
               <ion-col size="10">
                 <ion-label class="customLabel">Senha</ion-label>
-                <ion-input class="customInput" ngModel type="password"></ion-input>
+                <ion-input class="customInput" name="senha" #input ngModel type="password"></ion-input>
               </ion-col>
             </ion-row>
-        
+
             <ion-row class="ion-justify-content-center">
               <ion-col size="" class="ion-text-center">
                 <ion-button class="btn_cadastrar" type="submit">
-                    Entrar
+                  Entrar
                 </ion-button>
               </ion-col>
             </ion-row>
-        
+
           </form>
         </ion-card-content>
       </ion-card>

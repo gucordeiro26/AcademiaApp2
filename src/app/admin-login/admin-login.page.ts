@@ -9,12 +9,9 @@ export class AdminLoginPage {
 
   constructor() { }
 
-  isLoading = false;
-
   loginAdmin(dados: any) {
-    this.isLoading = true;
     
-    fetch('http://localhost/AcademiaAPP/admin/insert/authAdmin.php', {
+    fetch('http://localhost/AcademiaApp/admin/insert/authAdmin.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +26,6 @@ export class AdminLoginPage {
         console.log(error);
       })
       .finally(() => {
-        this.isLoading = false;
       })
   }
 
