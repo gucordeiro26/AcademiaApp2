@@ -53,7 +53,8 @@ ion-content {
             --border-radius: 0.975em;
             font-size: large;
             --padding-start: 10px;
-            --highlight-color-focused: trasparent;
+            --highlight-color-focused: transparent !important;
+            --highlight-color-valid: transparent !important;
         }
     }
 }
