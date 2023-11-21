@@ -77,7 +77,7 @@
     <ion-col size="9.5">
       <ion-row>
         <ion-col class="conteudo">
-          <form #forminserirClientes="ngForm" (ngSubmit)="inserirClientes(forminserirClientes.value)">
+          <form #forminserirClientes="ngForm" [formGroup]="formInserir" (ngSubmit)="inserirClientes(forminserirClientes.value)">
             <ion-row>
               <ion-col>
                 <p class="conteudo__title">Adicionar Cliente</p>
@@ -87,12 +87,12 @@
             <ion-row>
               <ion-col size="6">
                 <ion-label class="conteudo__text">Nome</ion-label>
-                <ion-input placeholder="Primero Nome" class="conteudo__input" #input ngModel name="nome"
+                <ion-input placeholder="Primero Nome" class="conteudo__input" formControlName="nome" #input name="nome"
                   type="text"></ion-input>
               </ion-col>
               <ion-col size="6">
                 <ion-label class="conteudo__text">Sobrenome</ion-label>
-                <ion-input placeholder="Último Nome" class="conteudo__input" #input ngModel name="sobrenome"
+                <ion-input placeholder="Último Nome" class="conteudo__input" formControlName="sobrenome" #input name="sobrenome"
                   type="text"></ion-input>
               </ion-col>
             </ion-row>
@@ -100,20 +100,20 @@
             <ion-row>
               <ion-col size="12">
                 <ion-label class="conteudo__text">Email</ion-label>
-                <ion-input placeholder="Seu endereço de Email" class="conteudo__input conteudo__input__email" #input
-                  ngModel name="email" type="text"></ion-input>
+                <ion-input placeholder="Seu endereço de Email" class="conteudo__input conteudo__input__email" formControlName="email" #input
+                  name="email" type="text"></ion-input>
               </ion-col>
             </ion-row>
 
             <ion-row>
               <ion-col size="6">
                 <ion-label class="conteudo__text">Data Nascimento</ion-label>
-                <ion-input placeholder="Sua Data Nascimento" class="conteudo__input" #input ngModel name="DataNasc"
+                <ion-input placeholder="Sua Data Nascimento" class="conteudo__input" formControlName="DataNasc" #input name="DataNasc"
                   type="date"></ion-input>
               </ion-col>
               <ion-col size="6">
                 <ion-label class="conteudo__text">Altura</ion-label>
-                <ion-input placeholder="Seu Altura" class="conteudo__input" #input ngModel name="altura"
+                <ion-input placeholder="Seu Altura" class="conteudo__input" formControlName="altura" #input name="altura"
                   type="number"></ion-input>
               </ion-col>
             </ion-row>
@@ -121,12 +121,12 @@
             <ion-row>
               <ion-col size="6">
                 <ion-label class="conteudo__text">CPF</ion-label>
-                <ion-input placeholder="Seu CPF" class="conteudo__input" #input ngModel name="cpf"
+                <ion-input placeholder="Seu CPF" class="conteudo__input" formControlName="cpf" #input name="cpf"
                   type="text"></ion-input>
               </ion-col>
               <ion-col size="6">
                 <ion-label class="conteudo__text">Peso</ion-label>
-                <ion-input placeholder="Seu Peso" class="conteudo__input" #input ngModel name="peso"
+                <ion-input placeholder="Seu Peso" class="conteudo__input" formControlName="peso" #input name="peso"
                   type="number"></ion-input>
               </ion-col>
             </ion-row>
@@ -135,7 +135,7 @@
               <ion-col size="6">
                 <ion-label class="conteudo__text">Planos</ion-label>
                 <ion-select class="conteudo__select" interface="popover" toggleIcon="add" expandedIcon="remove"
-                  aria-label="Planos" placeholder="Selecione seu plano" #input ngModel name="FK_Planos_codigo">
+                  aria-label="Planos" placeholder="Selecione seu plano" formControlName="FK_Planos_codigo" #input name="FK_Planos_codigo">
                   <ion-select-option value="1">Plano A</ion-select-option>
                   <ion-select-option value="2">Plano B</ion-select-option>
                   <ion-select-option value="3">Plano C</ion-select-option>
@@ -144,7 +144,7 @@
               <ion-col size="6">
                 <ion-label class="conteudo__text">Sexo</ion-label>
                 <ion-select class="conteudo__select" interface="popover" toggleIcon="add" expandedIcon="remove"
-                  aria-label="Sexo" placeholder="Selecione seu gênero" #input ngModel name="sexo">
+                  aria-label="Sexo" placeholder="Selecione seu gênero" formControlName="sexo" #input name="sexo">
                   <ion-select-option value="Masculino">Masculino</ion-select-option>
                   <ion-select-option value="Feminino">Feminino</ion-select-option>
                   <ion-select-option value="Prefiro não dizer">Prefiro não dizer</ion-select-option>

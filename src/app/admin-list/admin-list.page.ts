@@ -11,8 +11,6 @@ export class AdminListPage {
     this.listarClientes();
   }
 
-  isLoading: boolean = false;
-
   guardarInfosUsuario: any = {
     codigo: '',
     email: '',
@@ -30,7 +28,6 @@ export class AdminListPage {
   clientes: any[] = [];
 
   listarClientes() {
-    this.isLoading = true;
     // Configura o objeto de funcionário para enviar na solicitação POST
     let cliente = { codigo: '123' };
     fetch('http://localhost/AcademiaApp/clientes/select/listarClientes.php', {
@@ -47,15 +44,12 @@ export class AdminListPage {
       .catch(erro => {
         console.log(erro);
       })
-      .finally(() => {
-        this.isLoading = false;
-      })
+      .finally(() => {})
   }
 
   // Função para remover funcionários
   removerCliente(codigo: any) {
-    this.isLoading = true;
-    // Configura o objeto de funcionário para enviar na solicitação DELETE
+    
     let cliente = { codigo: codigo };
     fetch('http://localhost/academiaApp/clientes/delete/excluirClientes.php', {
       method: 'DELETE',
@@ -72,7 +66,6 @@ export class AdminListPage {
         console.log(erro);
       })
       .finally(() => {
-        this.isLoading = false;
         this.listarClientes();
       })
   }
@@ -95,10 +88,9 @@ export class AdminListPage {
     this.guardarInfosUsuario.FK_Planos_codigo = FK_Planos_codigo;
   }
 
-  // Função para atualizar funcionários
+  // Função para atualizar cliente
   atualizarCliente(dados: any) {
-    this.isLoading = true;
-    // Configura o objeto de funcionário atualizado
+    
     const clienteAtualizado = {
       codigo: this.guardarInfosUsuario.codigo,
       email: dados.email,
@@ -128,7 +120,6 @@ export class AdminListPage {
         console.error(error);
       })
       .finally(() => {
-        this.isLoading = false;
         this.listarClientes();
         this.modalUpdate(false, '', '', '', '', '', '', '', '', '', '');
       })

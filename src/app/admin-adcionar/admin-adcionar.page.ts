@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-adcionar',
@@ -8,129 +8,35 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AdminAdcionarPage {
 
- 
+  formInserir: FormGroup;
+
   constructor(private formBuilder: FormBuilder) {
     this.formInserir = this.formBuilder.group({
       codigo: '',
-      email: '',
-      senha: '',
-      nome: '',
-      sobrenome: '',
-      sexo: '',
-      altura: '',
-      peso: '',
-      DataNasc: '',
-      cpf: '',
-      FK_Planos_codigo: '',
+      email: ['', [Validators.required, Validators.email]],
+      nome: ['', [Validators.required, Validators.maxLength(50), Validators.pattern(/^[A-Za-z]+$/)]],
+      sobrenome: ['', Validators.maxLength(50)],
+      sexo: ['', Validators.required],
+      altura: ['', [Validators.required, Validators.min(0)]],
+      peso: ['', [Validators.required, Validators.max(500)]],
+      DataNasc: ['', Validators.required], // Adicione um validador de data conforme necessário
+      cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
+      FK_Planos_codigo: ['', Validators.required],
     });
   }
 
-  // Conteudo Pagina
-  isLoading: boolean = false;
-  conteudo: string = 'home';
-  iconActive: string = 'home-outline';
-
+  onSubmit() {
+    if (this.formInserir.valid) {
+      this.inserirClientes(this.formInserir.value);
+    }
+  }
 
   // Funções
 
-  guardarInfosUsuario: any = {
-    codigo: '',
-    email: '',
-    senha: '',
-    nome: '',
-    sobrenome: '',
-    sexo: '',
-    altura: '',
-    peso: '',
-    DataNasc: '',
-    cpf: '',
-    FK_Planos_codigo: '',
-  };
-
-  clientes: any[] = [];
-
-  formDados: any = {
-    codigo: '',
-    email: '',
-    nome: '',
-    sobrenome: '',
-    sexo: '',
-    altura: '',
-    peso: '',
-    DataNasc: '',
-    cpf: '',
-    FK_Planos_codigo: '',
-  }
-
-  exercicios: any[] = [];
-
-  buscarTermo: string = '';
-  filtroPesquisa: string = 'nome';
-  formInserir: FormGroup;
-
-
-  isAtualizarOpen = false;
-
-  // Função para abrir o modal de atualização
-  modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, sexo: string, altura: string, peso: string, DataNasc: string, cpf: string, FK_Planos_codigo: string) {
-    this.isAtualizarOpen = isOpen;
-    // Armazena informações do funcionário para atualização
-    this.guardarInfosUsuario.codigo = codigo;
-    this.guardarInfosUsuario.email = email;
-    this.guardarInfosUsuario.nome = nome;
-    this.guardarInfosUsuario.sobrenome = sobrenome;
-    this.guardarInfosUsuario.sexo = sexo;
-    this.guardarInfosUsuario.altura = altura;
-    this.guardarInfosUsuario.peso = peso;
-    this.guardarInfosUsuario.DataNasc = DataNasc;
-    this.guardarInfosUsuario.cpf = cpf;
-    this.guardarInfosUsuario.FK_Planos_codigo = FK_Planos_codigo;
-  }
-
-  // Função para atualizar funcionários
-  atualizarCliente(dados: any) {
-    this.isLoading = true;
-    // Configura o objeto de funcionário atualizado
-    const clienteAtualizado = {
-      codigo: this.guardarInfosUsuario.codigo,
-      email: dados.email,
-      nome: dados.nome,
-      sobrenome: dados.sobrenome,
-      sexo: dados.sexo,
-      altura: dados.altura,
-      peso: dados.peso,
-      DataNasc: dados.DataNasc,
-      cpf: dados.cpf,
-      FK_Planos_codigo: dados.FK_Planos_codigo,
-    };
-
-    // Envia a solicitação POST para atualizar o funcionário
-    fetch('http://localhost/AcademiaAPP/clientes/update/atualizarCliente.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(clienteAtualizado),
-    })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => {
-        this.isLoading = false;
-        this.modalUpdate(false, '', '', '', '', '', '', '', '', '', '');
-      })
-  }
-
-  // Função para inserir funcionários
+  // Função para inserir clientes
   inserirClientes(dados: any) {
-    this.isLoading = true;
     console.log(dados);
-
-    // Envia a solicitação POST para inserir um novo funcionário
+  
     fetch('http://localhost/AcademiaAPP/clientes/insert/inserirClientes.php', {
       method: 'POST',
       headers: {
@@ -138,16 +44,15 @@ export class AdminAdcionarPage {
       },
       body: JSON.stringify(dados),
     })
-      .then((response) => response.json())
-      .then((response) => {
+      .then(response => response.json())
+      .then(response => {
         console.log(response);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       })
       .finally(() => {
-        this.isLoading = false;
-      })
+        this.formInserir.reset();
+      });
   }
-
 }
