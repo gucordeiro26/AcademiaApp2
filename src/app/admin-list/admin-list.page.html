@@ -14,9 +14,9 @@
           </ion-row>
 
           <!-- Home -->
-          <ion-row class="row">
+          <ion-row [routerLink]="'/admin'" class="row">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconHome.png" alt="Home">
               </ion-thumbnail>
             </ion-col>
@@ -26,9 +26,9 @@
           </ion-row>
 
           <!-- Adicionar -->
-          <ion-row>
+          <ion-row [routerLink]="'/admin-adcionar'">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-adcionar'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconAdicionar.png" alt="Adicionar">
               </ion-thumbnail>
             </ion-col>
@@ -38,9 +38,9 @@
           </ion-row>
 
           <!-- Listar -->
-          <ion-row>
+          <ion-row [routerLink]="'/admin-list'">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-list'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconList.png" alt="Listar">
               </ion-thumbnail>
             </ion-col>
@@ -50,9 +50,9 @@
           </ion-row>
 
           <!-- Ficha -->
-          <ion-row>
+          <ion-row [routerLink]="'/admin-exercicios'">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-exercicios'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconFicha.png" alt="Ficha">
               </ion-thumbnail>
             </ion-col>
@@ -62,7 +62,7 @@
           </ion-row>
 
           <ion-row>
-            <ion-col class="sideCol__column">
+            <ion-col [routerLink]="'/admin-login'" class="sideCol__column">
               <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconBack.png" alt="Sair">
               </ion-thumbnail>
@@ -109,14 +109,15 @@
                     <ion-label>{{ cliente.DataNasc }}</ion-label>
                     <ion-label>{{ cliente.cpf }}</ion-label>
                     <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
-                    <ion-button color="tertiary" (click)="modalAddFicha(true)"><ion-icon name="barbell-outline"></ion-icon></ion-button>
+                    <ion-button color="tertiary" (click)="modalAddFicha(true)"><ion-icon
+                        name="barbell-outline"></ion-icon></ion-button>
                     <ion-button
                       (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.DataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
                         name="pencil-outline"></ion-icon></ion-button>
                     <ion-button color="danger" (click)="removerCliente(cliente.codigo)"><ion-icon
                         name="trash-outline"></ion-icon></ion-button>
 
-                    
+
                     <!-- Modal para adicionar ficha de treino -->
                     <ion-modal class="conteudo__modalFicha" [isOpen]="isAddFichaOpen">
                       <ng-template>
@@ -127,73 +128,99 @@
                           </ion-buttons>
                         </ion-toolbar>
                         <ion-content>
-                          <ion-row>
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
+                          <ion-row class="conteudo__row">
+                            <ion-col size="3">
+                              <ion-label class="ion-text-center modalFicha__text">Peito</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
                             </ion-col>
 
-                            
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios2">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
-                              
+
+                            <ion-col size="3">
+                              <ion-label class="ion-text-center">Costas</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios2">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
                             </ion-col>
 
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios3">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
+                            <ion-col size="3">
+                              <ion-label class="ion-padding-start">Bíceps</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios3">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
                             </ion-col>
 
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios4">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
-                            </ion-col>
-
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios5">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
-                            </ion-col>
-
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios6">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
-                            </ion-col>
-
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios7">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
-                            </ion-col>
-
-                            <ion-col>
-                              <ng-container *ngFor="let exercicio of this.exercicios8">
-                                <ion-item class="item">
-                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
-                                </ion-item>
-                              </ng-container>
+                            <ion-col size="3">
+                              <ion-label class="ion-padding-start">Tríceps</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios4">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
                             </ion-col>
                           </ion-row>
+
+                          <ion-row class="conteudo__row">
+                            <ion-col class="ion-padding-top" size="3">
+                              <ion-label class="ion-padding-start">Ombro</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios5">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+
+                            <ion-col class="ion-padding-top" size="3">
+                              <ion-label class="ion-padding-start">Pernas</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios6">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+
+                            <ion-col class="ion-padding-top" size="3">
+                              <ion-label class="ion-padding-start">Abdômen</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios7">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+
+                            <ion-col class="ion-padding-top" size="3">
+                              <ion-label class="ion-padding-start">Cardio</ion-label>
+                              <ion-list class="conteudo__list">
+                                <ng-container *ngFor="let exercicio of this.exercicios8">
+                                  <ion-item class="item">
+                                    <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+
                         </ion-content>
                       </ng-template>
                     </ion-modal>

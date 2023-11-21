@@ -14,9 +14,9 @@
           </ion-row>
 
           <!-- Home -->
-          <ion-row class="row">
+          <ion-row [routerLink]="'/admin'" class="row">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconHome.png" alt="Home">
               </ion-thumbnail>
             </ion-col>
@@ -26,9 +26,9 @@
           </ion-row>
 
           <!-- Adicionar -->
-          <ion-row>
+          <ion-row [routerLink]="'/admin-adcionar'">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-adcionar'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconAdicionar.png" alt="Adicionar">
               </ion-thumbnail>
             </ion-col>
@@ -38,9 +38,9 @@
           </ion-row>
 
           <!-- Listar -->
-          <ion-row>
+          <ion-row [routerLink]="'/admin-list'">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-list'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconList.png" alt="Listar">
               </ion-thumbnail>
             </ion-col>
@@ -50,9 +50,9 @@
           </ion-row>
 
           <!-- Ficha -->
-          <ion-row>
+          <ion-row [routerLink]="'/admin-exercicios'">
             <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail" [routerLink]="'/admin-exercicios'">
+              <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconFicha.png" alt="Ficha">
               </ion-thumbnail>
             </ion-col>
@@ -62,7 +62,7 @@
           </ion-row>
 
           <ion-row>
-            <ion-col class="sideCol__column">
+            <ion-col [routerLink]="'/admin-login'" class="sideCol__column">
               <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconBack.png" alt="Sair">
               </ion-thumbnail>

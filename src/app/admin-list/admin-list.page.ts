@@ -203,7 +203,7 @@ export class AdminListPage {
         return response.json();
       })
       .then((data) => {
-        this.exercicios2 = data['exercicios2'];
+        this.exercicios2 = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -230,7 +230,7 @@ export class AdminListPage {
         return response.json();
       })
       .then((data) => {
-        this.exercicios3 = data['exercicios3'];
+        this.exercicios3 = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -257,7 +257,7 @@ export class AdminListPage {
         return response.json();
       })
       .then((data) => {
-        this.exercicios4 = data['exercicios4'];
+        this.exercicios4 = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -284,7 +284,7 @@ export class AdminListPage {
         return response.json();
       })
       .then((data) => {
-        this.exercicios5 = data['exercicios5'];
+        this.exercicios5 = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -311,7 +311,7 @@ export class AdminListPage {
         return response.json();
       })
       .then((data) => {
-        this.exercicios6 = data['exercicios6'];
+        this.exercicios6 = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -337,7 +337,7 @@ export class AdminListPage {
         return response.json();
       })
       .then((data) => {
-        this.exercicios7 = data['exercicios7'];
+        this.exercicios7 = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -364,7 +364,7 @@ export class AdminListPage {
         return response.json();
       })
       .then((data) => {
-        this.exercicios8 = data['exercicios8'];
+        this.exercicios8 = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);

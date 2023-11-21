@@ -1,10 +1,6 @@
-#container a {
-  text-decoration: none;
-}
-
-.container {
-  --background: #ffffff;
-  overflow: hidden;
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('../../assets/font/BebasNeue-Regular.ttf');
 }
 
 @font-face {
@@ -12,14 +8,8 @@
   src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
 }
 
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url('../../assets/font/BebasNeue-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('../../assets/font/Inter-VariableFont.ttf');
+ion-content {
+  --background: #fff;
 }
 
 
@@ -67,6 +57,7 @@
                   font-style: normal;
                   font-weight: 400;
                   line-height: normal;
+                  cursor: pointer;
               }
           }
       }

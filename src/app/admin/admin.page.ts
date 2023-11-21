@@ -33,7 +33,7 @@ export class AdminPage {
 
   ionViewDidEnter() {
     new Chart(this.elemento.nativeElement, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: ["Maça", "Banana", "Uva", "Manga", "Kiwi", "Goiaba"],
         datasets: [{
