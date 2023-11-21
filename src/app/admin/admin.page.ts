@@ -65,7 +65,7 @@ export class AdminPage {
     new Chart(this.elemento2.nativeElement, {
       type: 'doughnut',
       data: {
-        labels: ["Maça", "Banana", "Uva", "Manga", "Kiwi", "Goiaba"],
+        // labels: ["Maça", "Banana", "Uva", "Manga", "Kiwi", "Goiaba"],
         datasets: [{
           label: 'My First Dataset',
           data: [65, 59, 80, 81, 56, 55,],

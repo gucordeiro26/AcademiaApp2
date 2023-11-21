@@ -109,11 +109,94 @@
                     <ion-label>{{ cliente.DataNasc }}</ion-label>
                     <ion-label>{{ cliente.cpf }}</ion-label>
                     <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
+                    <ion-button color="tertiary" (click)="modalAddFicha(true)"><ion-icon name="barbell-outline"></ion-icon></ion-button>
                     <ion-button
                       (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.DataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
                         name="pencil-outline"></ion-icon></ion-button>
                     <ion-button color="danger" (click)="removerCliente(cliente.codigo)"><ion-icon
                         name="trash-outline"></ion-icon></ion-button>
+
+                    
+                    <!-- Modal para adicionar ficha de treino -->
+                    <ion-modal class="conteudo__modalFicha" [isOpen]="isAddFichaOpen">
+                      <ng-template>
+                        <ion-toolbar>
+                          <ion-label class="ion-padding-start">Ficha de Treino</ion-label>
+                          <ion-buttons slot="end">
+                            <ion-button (click)="modalAddFicha(false)">X</ion-button>
+                          </ion-buttons>
+                        </ion-toolbar>
+                        <ion-content>
+                          <ion-row>
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                            </ion-col>
+
+                            
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios2">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                              
+                            </ion-col>
+
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios3">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                            </ion-col>
+
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios4">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                            </ion-col>
+
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios5">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                            </ion-col>
+
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios6">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                            </ion-col>
+
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios7">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                            </ion-col>
+
+                            <ion-col>
+                              <ng-container *ngFor="let exercicio of this.exercicios8">
+                                <ion-item class="item">
+                                  <ion-checkbox labelPlacement="end">{{ exercicio.nome }}</ion-checkbox>
+                                </ion-item>
+                              </ng-container>
+                            </ion-col>
+                          </ion-row>
+                        </ion-content>
+                      </ng-template>
+                    </ion-modal>
 
                     <!-- Modal Para Atualizar -->
                     <ion-modal [isOpen]="isAtualizarOpen">

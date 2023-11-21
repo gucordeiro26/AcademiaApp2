@@ -2,10 +2,12 @@
     font-family: 'Bebas Neue';
     src: url('../../assets/font/BebasNeue-Regular.ttf');
 }
+
 @font-face {
     font-family: 'Oswald';
     src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
 }
+
 ion-content {
     --background: #fff;
 }
@@ -62,13 +64,18 @@ ion-content {
 }
 
 // Conteúdo
-.conteudo{
+.conteudo {
     .conteudo__searchbar {
         --border-radius: 10px;
         --background: #D9D9D9;
-      }
+    }
 
-      .item {
-          --background: #fff;
-        }
+    .item {
+        --background: #fff;
+    }
+
+    .conteudo__modalFicha {
+        --max-width: 100vw;
+    }
+
 }
