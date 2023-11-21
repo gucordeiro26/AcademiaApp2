@@ -27,53 +27,49 @@
 .sideBar {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100vh;
 
-  .sideRow {
-    width: 218px;
-    height: 896px;
-    background: #000000;
-    border-radius: 36px;
-    border: 1px solid #000000;
-    box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
-    -webkit-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
-    -moz-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
-    position: fixed;
-    left: 10;
-    
-    @media (width: 1024px) {
-      height: 796px;
-    }
+  & .sideRow {
+      width: 218px;
+      height: 100vh;
+      background: #000000;
+      border-top-right-radius: 36px;
+      border-bottom-right-radius: 36px;
+      border: 1px solid #000000;
+      box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+      -webkit-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+      -moz-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+      position: fixed;
+      left: 0;
 
-    .sideCol {
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: column;
+      & .sideCol {
+          display: flex;
+          justify-content: space-evenly;
+          flex-direction: column;
 
-      .sideCol__column {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+          & .sideCol__column {
+              display: flex;
+              justify-content: center;
+              align-items: center;
 
-        .sideCol__logo {
-          --size: 60px;
-        }
+              & .sideCol__logo {
+                  --size: 60px;
+              }
 
-        .sideCol__thumbnail {
-          cursor: pointer;
-        }
+              & .sideCol__thumbnail {
+                  cursor: pointer;
+              }
 
-        .sideCol__text {
-          color: #FFF;
-          font-family: 'Bebas Neue';
-          font-size: 36px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-        }
+              & .sideCol__text {
+                  color: #FFF;
+                  font-family: 'Bebas Neue';
+                  font-size: 36px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+              }
+          }
       }
-    }
   }
 }
 
@@ -190,8 +186,7 @@
         }
 
         .conteudo__canvas {
-          width: 20vh;
-          height: 30vh;
+          width: 100vw;
         }
 
         .conteudo__text__c {

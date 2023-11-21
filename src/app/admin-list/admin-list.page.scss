@@ -17,37 +17,38 @@ ion-content {
     align-items: center;
     height: 100vh;
 
-    .sideRow {
+    & .sideRow {
         width: 218px;
-        height: 896px;
+        height: 100vh;
         background: #000000;
-        border-radius: 36px;
+        border-top-right-radius: 36px;
+        border-bottom-right-radius: 36px;
         border: 1px solid #000000;
-        box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
-        -webkit-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
-        -moz-box-shadow: 1px 0px 24px 0px rgba(0,0,0,0.78);
+        box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+        -webkit-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
+        -moz-box-shadow: 1px 0px 24px 0px rgba(0, 0, 0, 0.78);
         position: fixed;
-        left: 47px;
+        left: 0;
 
-        .sideCol {
+        & .sideCol {
             display: flex;
             justify-content: space-evenly;
             flex-direction: column;
 
-            .sideCol__column {
+            & .sideCol__column {
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
-                .sideCol__logo {
+                & .sideCol__logo {
                     --size: 60px;
                 }
 
-                .sideCol__thumbnail {
+                & .sideCol__thumbnail {
                     cursor: pointer;
                 }
-    
-                .sideCol__text {
+
+                & .sideCol__text {
                     color: #FFF;
                     font-family: 'Bebas Neue';
                     font-size: 36px;
