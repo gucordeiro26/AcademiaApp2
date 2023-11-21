@@ -319,7 +319,7 @@ ion-content{
 .bg__sobre{
   // background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover fixed;
   background: linear-gradient(rgb(129, 217, 255), rgb(0, 178, 255));
-  height: 75vh;
+  height: 70vh;
 
   ion-title{
     color: white;
@@ -365,7 +365,7 @@ ion-content{
 .bg__contact-us{
   background: linear-gradient(rgb(0, 178, 255), rgb(129, 217, 255));
   // background: white;
-  height: 80vh;
+  height: 50vh;
   align-items: center;
   text-align: center;
   z-index: -1;
@@ -374,9 +374,9 @@ ion-content{
     background: white;
     height: 50vh;
 
-    border: 1px solid black;
-    box-shadow: 3px 3px 3px black;
-    border-radius: 10px;
+    // border: 1px solid black;
+    // box-shadow: 3px 3px 3px black;
+    // border-radius: 10px;
 
     ion-title{
       font-size: 2.5em;
@@ -404,7 +404,7 @@ ion-content{
             --border-style: none;
             
             ion-icon{
-              margin-right: 1%;
+              margin-right: 2%;
               color: black;
             }
 
@@ -430,32 +430,9 @@ ion-content{
 
         .contact-us__icons{
           position: relative;
-          top: 3vh;
+          top: 9vh;
           left: 1vw;
           width: 30vw;
-
-          ion-text{
-            display: block;
-            text-align: center;
-
-            position: relative;
-            top: -1vh;
-
-            background: white;
-            padding: 1em 2em;
-            font-size: 1.25em;
-            box-shadow: 0 10px 10px rgba(0,0,0,0.2);
-            border-radius: 10px;
-            margin: 1%;
-
-            opacity: 0;
-            pointer-events: none;
-          }
-
-          ion-icon:hover ion-text{
-            opacity: 1;
-            pointer-events: auto;
-          }
       
           ion-icon{
             z-index: 2;
@@ -469,6 +446,45 @@ ion-content{
             border: 1px solid black;
             box-shadow: 3px 3px 3px black;
             // box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
+
+            transition: all ease .3s;
+          }
+
+          #icon-facebook{
+            &:hover{
+              background: #3b5998;
+              color: white;
+              border: none;
+              box-shadow: 0 10px 10px rgba(0,0,0,.4);
+
+              transform: translateY(-10px);
+              transition: all ease .3s;
+            }
+          }
+
+          #icon-whatsapp{
+            &:hover{
+              background: #25D366;
+              color: white;
+              border: none;
+              box-shadow: 0 10px 10px rgba(0,0,0,.4);
+
+              transform: translateY(-10px);
+              transition: all ease .3s;
+            }
+          }
+
+          #icon-instagram{
+            &:hover{
+              background: linear-gradient(175deg, rgba(2,66,228,1) 0%, rgba(97,57,208,1) 19%, rgba(233,54,161,1) 54%, rgba(255,66,96,1) 66%, rgba(255,89,44,1) 82%, rgba(255,143,12,1) 92%, rgba(255,202,80,1) 100%);
+              color: white;
+              border: none;
+              box-shadow: 0 10px 10px rgba(0,0,0,.4);
+
+              transform: translate3d();
+              transform: translateY(-10px);
+              transition: all ease .3s;
+            }
           }
         }
       }
@@ -479,7 +495,7 @@ ion-content{
 .bg__app{
   height: 100vh;
   position: relative;
-  margin-top: 2em;
+  margin-top: 5%;
 
   ion-title{
     max-width: 10em;
@@ -505,6 +521,19 @@ ion-content{
   #cell{
     box-shadow: 0 0 40px rgba(255,255,255,0.4);
     border-radius: 10px;
+    animation: cell-animation linear infinite alternate 4s;
+  }
+
+  @keyframes cell-animation {
+    0%{
+      box-shadow: 0 0 10px rgba(255,255,255,.4);
+      transform: rotate(-5deg);
+    }
+
+    100%{
+      box-shadow: 0 0 40px rgba(255,255,255,.4);
+      transform: rotate(5deg);
+    }
   }
 }
 
@@ -540,6 +569,12 @@ ion-footer{
           color: var(--ion-color-medium);
           margin: 1em 0;
           margin-right: 1em;
+          transition: all .3s;
+
+          &:hover{
+            color: #f5f5f5;
+            transition: all .3s;
+          }
         }
       
         ion-icon{
