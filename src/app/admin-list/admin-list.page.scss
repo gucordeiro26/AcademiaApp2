@@ -2,10 +2,12 @@
     font-family: 'Bebas Neue';
     src: url('../../assets/font/BebasNeue-Regular.ttf');
 }
+
 @font-face {
     font-family: 'Oswald';
     src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
 }
+
 ion-content {
     --background: #fff;
 }
@@ -55,6 +57,7 @@ ion-content {
                     font-style: normal;
                     font-weight: 400;
                     line-height: normal;
+                    cursor: pointer;
                 }
             }
         }
@@ -62,13 +65,27 @@ ion-content {
 }
 
 // Conteúdo
-.conteudo{
-    .conteudo__searchbar {
+.conteudo {
+    &.conteudo__searchbar {
         --border-radius: 10px;
         --background: #D9D9D9;
-      }
+    }
 
-      .item {
-          --background: #fff;
+    &.item {
+        --background: #fff;
+    }
+
+    
+    &.conteudo__row {
+        &.conteudo__list {
+            
         }
+    }
+
+    &.modalFicha__text {
+        font-size: 4em;
+        font-weight: bold;
+        font-family: 'Oswald';
+    }
+
 }
