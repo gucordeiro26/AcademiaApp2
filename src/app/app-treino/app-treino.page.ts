@@ -7,19 +7,20 @@ import { DataService } from '../data.service';
   styleUrls: ['./app-treino.page.scss'],
 })
 export class AppTreinoPage {
-  dadosTreino: any;
+  dadosTreino: any = null;
   exercicios: any[] = [];
 
   constructor(private dataService: DataService) {
     this.dadosTreino = this.dataService.getDadosTreino()
+    
 
-    this.dadosTreino === 'Peito' ? this.listarExerciciosPeito() : 
-    this.dadosTreino === 'Costas' ? this.listarExerciciosCostas() :
-    this.dadosTreino === 'Biceps' ? this.listarExerciciosBiceps() :
-    this.dadosTreino === 'Triceps' ? this.listarExerciciosTriceps() :
-    this.dadosTreino === 'Pernas' ? this.listarExerciciosPernas() :
-    this.dadosTreino === 'Ombro' ? this.listarExerciciosOmbros() :
-    this.dadosTreino === 'Abdomen' ? this.listarExerciciosAbdomen() : this.listarExerciciosCardio()
+      this.dadosTreino === 'Peito' ? this.listarExerciciosPeito() :
+        this.dadosTreino === 'Costas' ? this.listarExerciciosCostas() :
+          this.dadosTreino === 'Biceps' ? this.listarExerciciosBiceps() :
+            this.dadosTreino === 'Triceps' ? this.listarExerciciosTriceps() :
+              this.dadosTreino === 'Pernas' ? this.listarExerciciosPernas() :
+                this.dadosTreino === 'Ombro' ? this.listarExerciciosOmbros() :
+                  this.dadosTreino === 'Abdomen' ? this.listarExerciciosAbdomen() : this.listarExerciciosCardio()
   }
 
   //Funcoes front
@@ -27,10 +28,32 @@ export class AppTreinoPage {
 
   //Funcoes back
   isLoading: boolean = false;
+  listarExercicios() {
+    this.isLoading = true;
+    // Configura o objeto de exercicios para enviar na solicitação POST
+    let exercicios = { codigo: '123' };
+    fetch('http://localhost/AcademiaAPP/exercicios/todosExercicios.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exercicios)
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.exercicios = response['exercicios'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+  }
 
   listarExerciciosPeito() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroPeito.php', {
       method: 'POST',
       headers: {
@@ -57,7 +80,7 @@ export class AppTreinoPage {
 
   listarExerciciosCostas() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroCostas.php', {
       method: 'POST',
       headers: {
@@ -84,7 +107,7 @@ export class AppTreinoPage {
 
   listarExerciciosBiceps() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroBiceps.php', {
       method: 'POST',
       headers: {
@@ -111,7 +134,7 @@ export class AppTreinoPage {
 
   listarExerciciosTriceps() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroTriceps.php', {
       method: 'POST',
       headers: {
@@ -138,7 +161,7 @@ export class AppTreinoPage {
 
   listarExerciciosOmbros() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroOmbro.php', {
       method: 'POST',
       headers: {
@@ -165,7 +188,7 @@ export class AppTreinoPage {
 
   listarExerciciosPernas() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroPerna.php', {
       method: 'POST',
       headers: {
@@ -192,7 +215,7 @@ export class AppTreinoPage {
 
   listarExerciciosAbdomen() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroAbdomen.php', {
       method: 'POST',
       headers: {
@@ -219,7 +242,7 @@ export class AppTreinoPage {
 
   listarExerciciosCardio() {
     this.isLoading = true;
-    const exercicios = { codigo: '123'};
+    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroCardio.php', {
       method: 'POST',
       headers: {

@@ -1,4 +1,81 @@
 <ion-content [fullscreen]="true">
+
+  <ng-container *ngIf="this.dadosTreino === null">
+    <ion-row class="rowStart">
+      <ion-col class="start">
+        <p class="textExercio">Peito</p>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#FF0066" d="M58.6,-31C68.3,-16.9,63.5,8.5,51.3,24.1C39.1,39.6,19.6,45.4,-0.1,45.5C-19.7,45.5,-39.4,39.8,-53.3,23.3C-67.1,6.7,-75.2,-20.7,-65.3,-34.8C-55.5,-48.9,-27.7,-49.8,-1.7,-48.8C24.4,-47.9,48.8,-45.1,58.6,-31Z" transform="translate(100 100)" />
+        </svg>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10">
+        <p class="title">Seu treino</p>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+        <ion-searchbar class="searchBar"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12">
+  
+        <ion-accordion-group [multiple]="true" [value]="['second']">
+          <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 6)">
+            <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle" toggleIconSlot="start">
+              <ion-item slot="header">
+    
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                  </ion-col>
+                </ion-row>
+    
+              </ion-item>
+    
+              <ion-row class="ion-padding" slot="content">
+                <ion-col>
+                  <ion-row class="ion-justify-content-center accordionContent">
+                    <ion-col size="12">
+                      <video class="video" controls width="100%">
+                        <source src="../../assets/videos/flexao.webm" type="video/mp4">
+                      </video>
+                    </ion-col>
+                  </ion-row>
+    
+                  <ion-row>
+                    <ion-col size="6" class="colSeries">
+                      <p class="exercicioSerie">Série:</p>
+                      <p class="exercicioSerieNum">4x15</p>
+                    </ion-col>
+                    <ion-col size="6">
+                      <p class="exercicioSerie">Detalhes:</p>
+                      <p class="exercicioSerieNum">Progreção de Carga</p>
+                    </ion-col>
+                  </ion-row>
+    
+                  <ion-row class="ion-justify-content-center">
+                    <ion-col size="12">
+                      <ion-button class="btnExercicio">Feito</ion-button>
+                    </ion-col>
+                  </ion-row>
+    
+                </ion-col>
+              </ion-row>
+    
+            </ion-accordion><br>
+          </ng-container>
+        </ion-accordion-group>
+  
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
   <ng-container *ngIf="this.dadosTreino === 'Peito'">
     <ion-row class="rowStart">
       <ion-col class="start startPeito">
@@ -39,11 +116,7 @@
                   <ion-row class="ion-justify-content-center accordionContent">
                     <ion-col size="12">
                       <video class="video" controls width="100%">
-<<<<<<< HEAD
                         <source src="../../assets/videos/flexao.webm" type="video/mp4">
-=======
-                        <source src="../../assets/videos/supino-reto-h.webm" type="video/mp4">
->>>>>>> 84e3acc1fff0992fc996ec53c308b5304bff6df1
                       </video>
                     </ion-col>
                   </ion-row>
@@ -607,7 +680,7 @@
 
         <ion-col size="4" class="ion-padding-start">
           <ion-button class="btns" [routerLink]="'/app-perfil'">
-            <ion-icon color="dark" size="large" name="person-circle-outline"></ion-icon>
+            <ion-icon color="light" size="large" name="person-circle-outline"></ion-icon>
           </ion-button>
         </ion-col>
       </ion-row>
