@@ -9,12 +9,24 @@ import { ToastController } from '@ionic/angular';
 })
 
 export class AppPage {
+
+  serverMessage: string = '';
   toastService: any;
 
   constructor(
     private router: Router,
-    private toastController: ToastController,
+    private toastController: ToastController
   ) { }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 5000, // duração em milissegundos
+      position: 'bottom', // posição do toast ('top', 'bottom', 'middle')
+      color: 'medium', // cor do toast
+    });
+    toast.present();
+  }
 
   isModalOpen_Cadastro = false;
 
@@ -27,17 +39,16 @@ export class AppPage {
   setOpen_Login(isOpen: boolean) {
     this.isModalOpen_Login = isOpen;
   }
-
-  isLoading = false;
   nomeUsuario: string = '';
 
   cadastroApp(dados: any) {
-    this.isLoading = true;
     this.nomeUsuario = dados.nome;
     const infos = {
       email: dados.email,
       senha: dados.senha,
     }
+
+    let serverMessage = '';
 
     fetch('http://localhost/AcademiaAPP/clientes/insert/cadastro.php', {
       method: 'POST',
@@ -48,6 +59,10 @@ export class AppPage {
     })
       .then((response) => response.json())
       .then(response => {
+        serverMessage = response['mensagem'];
+        if (response['mensagem']) {
+          this.presentToast(response['mensagem']);
+        }
         // if (response['mensagem'] === 'alerta') {
         //   this.toastService.toast('Já existe uma senha relacionada a esse email!', 3000, 'bottom', 'success');
         // }
@@ -56,13 +71,14 @@ export class AppPage {
         console.log(_)
       })
       .finally(() => {
-        this.isLoading = false;
+        this.serverMessage = serverMessage;
         this.setOpen_Cadastro(false);
       })
   }
 
   login(dados: any) {
-    this.isLoading = true;
+
+    let serverMessage = ''; 
 
     fetch('http://localhost/AcademiaAPP/clientes/insert/authcadastro.php', {
       method: 'POST',
@@ -81,12 +97,19 @@ export class AppPage {
             this.router.navigate(['app-inicio']);
           }, 500);
         }
+
+        if (response['mensagem']) {
+          this.presentToast(response['mensagem']);
+        }
+      })
+      .then((dadosCliente) => {
+        
       })
       .catch((_) => {
         console.log(_)
       })
       .finally(() => {
-
+        this.serverMessage = serverMessage;
       })
   }
 

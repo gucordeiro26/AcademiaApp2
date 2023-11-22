@@ -1,18 +1,19 @@
 #container a {
-text-decoration: none;
+    text-decoration: none;
 }
 
 @font-face {
     font-family: 'Bebas Neue';
     src: url(../../assets/font/BebasNeue-Regular.ttf);
 }
+
 @font-face {
     font-family: 'Oswald';
     src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
 }
 
 .container {
-    --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/sim.png') no-repeat center/cover fixed;
+    --background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/sim.png') no-repeat center/cover fixed;
 }
 
 ion-modal {
@@ -115,6 +116,7 @@ ion-modal {
     @media (min-width: 768px) {
         width: 65vw;
     }
+
     @media (min-width: 1440px) {
         width: 15vw;
     }
