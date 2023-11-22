@@ -107,6 +107,11 @@ ion-content {
         .cardCardio {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/cardioApp.png') no-repeat center/cover fixed;
         }
+
+        .blob1::before {
+            content: '';
+            position: relative;
+        }
     }
 }
 

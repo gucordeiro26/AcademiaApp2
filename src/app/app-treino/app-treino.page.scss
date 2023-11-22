@@ -11,48 +11,53 @@ ion-content {
     font-family: 'Oswald';
     src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
 }
+.row_perfil {
+    background: linear-gradient(99deg, #00B2FF 0%, #41C6FF 48.4%, #C2EDFF 101.01%) no-repeat center/cover fixed;
+}
 
 .rowStart {
-    .start {
+
+    & .start {
         height: 7em;
         display: flex;
         align-items: center;
+        background: linear-gradient(99deg, #00B2FF 0%, #41C6FF 48.4%, #C2EDFF 101.01%) no-repeat center/cover fixed;
     }
 
-    .startPeito {
+    & .startPeito {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/peitoApp.png') no-repeat center/cover fixed;
     }
 
-    .startCostas {
+    & .startCostas {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/costasApp.png') no-repeat center/cover fixed;
     }
 
-    .startBiceps {
+    & .startBiceps {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/bicepsApp.png') no-repeat center/cover fixed;
     }
 
-    .startTriceps {
+    & .startTriceps {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/tricepsApp.png') no-repeat center/cover fixed;
     }
 
-    .startPernas {
+    & .startPernas {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/pernasApp.png') no-repeat center/cover fixed;
     }
 
-    .startOmbro {
+    & .startOmbro {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/ombroApp.png') no-repeat center/cover fixed;
     }
 
-    .startAbdomen {
+    & .startAbdomen {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/abdomenApp.png') no-repeat center/cover fixed;
     }
 
-    .startCardio {
+    & .startCardio {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/cardioApp.png') no-repeat center/cover fixed;
     }
 
 
-    .textExercio {
+    & .textExercio {
         color: #FFF;
         font-family: 'Bebas Neue';
         font-size: 2.5em;
@@ -92,11 +97,11 @@ ion-content {
     background-color: #404040;
     position: relative;
 
-    .accordionContent {
+    & .accordionContent {
         position: relative;
     }
 
-    .exercicioSerie {
+    & .exercicioSerie {
         color: #FFF;
         font-family: 'Oswald';
         font-size: 1.25em;
@@ -105,7 +110,7 @@ ion-content {
         line-height: normal;
     }
 
-    .exercicioSerieNum {
+    & .exercicioSerieNum {
         color: #7C7C7C;
         font-family: 'Oswald';
         font-size: 1em;
@@ -116,7 +121,7 @@ ion-content {
 
 
     // Botão
-    .btnExercicio {
+    & .btnExercicio {
         --border-radius: 8px;
         --background: #00B2FF;
         width: 80vw;
