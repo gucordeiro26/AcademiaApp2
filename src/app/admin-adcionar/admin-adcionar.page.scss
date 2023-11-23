@@ -8,6 +8,10 @@
     src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
 }
 
+*{
+    outline: 1px dashed red;
+}
+
 ion-content {
     --background: linear-gradient(120deg, #ffffff , #ebebeb);
 }
@@ -16,19 +20,19 @@ ion-content {
 // Side Bar
 .sideBar {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
+    background: #000000;
 
     & .sideRow {
-        width: 15vw;
-        height: 100vh;
-        background: #000000;
         position: fixed;
         left: 0;
 
         & .sideCol {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             flex-direction: column;
 
             & .sideCol__column {
@@ -37,7 +41,7 @@ ion-content {
                 align-items: center;
 
                 & .sideCol__logo {
-                    --size: 60px;
+                    --size: 50px;
                 }
 
                 & .sideCol__thumbnail {
@@ -45,12 +49,9 @@ ion-content {
                 }
 
                 & .sideCol__text {
-                    color: #FFF;
+                    color: #c7c7c770;
                     font-family: 'Bebas Neue';
-                    font-size: 36px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
+                    font-size: 1.1vw;
                     cursor: pointer;
                 }
             }
@@ -63,16 +64,25 @@ ion-content {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 8vh;
 
     .conteudo {
         height: 80vh;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
         background: white;
 
         border: 2px solid black;
         box-shadow: 10px 10px 0 black;
+
+        form{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin: 0 auto;
+        }
     
         & .conteudo__title {
             font-family: 'Oswald';
@@ -80,13 +90,14 @@ ion-content {
             font-size: 2vw;
             text-transform: uppercase;
             text-align: center;
+            margin: 0 auto;
         }
     
         & .conteudo__input {
             width: 25vw;
             --background: #ffffff;
             border: 1px solid #262626;
-            box-shadow: 10px 10px 0 black;
+            // box-shadow: 10px 10px 0 black;
             --padding-start: 10px;
             --highlight-color-focused: #00B2FF;
             --highlight-color-valid: #00bb5d;
@@ -97,7 +108,7 @@ ion-content {
         }
     
         & .conteudo__input__email {
-            width: 64.1%;
+            width: 97%;
             text-transform: none;
         }
     
@@ -105,7 +116,7 @@ ion-content {
             width: 25vw;
             --background: #fff;
             border: 1px solid #262626;
-            box-shadow: 10px 10px 0 black;
+            // box-shadow: 10px 10px 0 black;
             --padding-start: 10px;
             --highlight-color-focused: #00B2FF;
             --highlight-color-valid: #00B2FF;
