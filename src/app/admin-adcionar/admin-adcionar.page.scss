@@ -13,47 +13,57 @@
 }
 
 ion-content {
-    --background: linear-gradient(120deg, #ffffff , #ebebeb);
+    --background: linear-gradient(120deg, #ffffff , #dbdbdb);
 }
 
 
 // Side Bar
 .sideBar {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     width: 100%;
     background: #000000;
 
     & .sideRow {
+        top: 0;
         position: fixed;
+        height: 100%;
+        width: 16.5%;
         left: 0;
 
         & .sideCol {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
 
             & .sideCol__column {
                 display: flex;
-                justify-content: center;
                 align-items: center;
+                padding: 0;
+                height: 5vh;
 
-                & .sideCol__logo {
+                & .sideCol__img {
+                    margin: 0 auto;
                     --size: 50px;
                 }
 
                 & .sideCol__thumbnail {
                     cursor: pointer;
+
+                    img{
+                        max-width: 2vw;
+                    }
                 }
 
                 & .sideCol__text {
                     color: #c7c7c770;
                     font-family: 'Bebas Neue';
                     font-size: 1.1vw;
+                    text-align: start;
                     cursor: pointer;
                 }
+            }
+
+            & .sideCol__logo{
+                padding: 10px;
+                height: 100px;
             }
         }
     }

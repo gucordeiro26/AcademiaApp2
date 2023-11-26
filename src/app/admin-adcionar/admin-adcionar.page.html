@@ -5,64 +5,68 @@
       <ion-row class="sideRow">
         <ion-col class="sideCol">
           <!-- Logo -->
-          <ion-row>
-            <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__logo">
+          <ion-row class="sideCol__logo">
+            <ion-col size="4" class="sideCol__column ">
+              <ion-thumbnail class="sideCol__img">
                 <img src="../../assets/images/logo.png" alt="Logo">
               </ion-thumbnail>
+            </ion-col>
+
+            <ion-col size="8" class="sideCol__column">
+              <p class="sideCol__text">Home</p>
             </ion-col>
           </ion-row>
 
           <!-- Home -->
           <ion-row [routerLink]="'/admin'" class="row">
-            <ion-col class="sideCol__column">
+            <ion-col size="3" class="sideCol__column">
               <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconHome.png" alt="Home">
               </ion-thumbnail>
             </ion-col>
-            <ion-col class="sideCol__column">
+            <ion-col size="9" class="sideCol__column">
               <p class="sideCol__text">Home</p>
             </ion-col>
           </ion-row>
 
           <!-- Adicionar -->
           <ion-row [routerLink]="'/admin-adcionar'">
-            <ion-col class="sideCol__column">
+            <ion-col size="3" class="sideCol__column">
               <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconAdicionar.png" alt="Adicionar">
               </ion-thumbnail>
             </ion-col>
-            <ion-col class="sideCol__column">
+            <ion-col size="9" class="sideCol__column">
               <p class="sideCol__text">Adicionar</p>
             </ion-col>
           </ion-row>
 
           <!-- Listar -->
           <ion-row [routerLink]="'/admin-list'">
-            <ion-col class="sideCol__column">
+            <ion-col size="3" class="sideCol__column">
               <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconList.png" alt="Listar">
               </ion-thumbnail>
             </ion-col>
-            <ion-col class="sideCol__column">
+            <ion-col size="9" class="sideCol__column">
               <p class="sideCol__text">Listar</p>
             </ion-col>
           </ion-row>
 
           <!-- Ficha -->
           <ion-row [routerLink]="'/admin-exercicios'">
-            <ion-col class="sideCol__column">
+            <ion-col size="3" class="sideCol__column">
               <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconFicha.png" alt="Ficha">
               </ion-thumbnail>
             </ion-col>
-            <ion-col class="sideCol__column">
+            <ion-col size="9" class="sideCol__column">
               <p class="sideCol__text">Ficha</p>
             </ion-col>
           </ion-row>
 
           <ion-row>
-            <ion-col [routerLink]="'/admin-login'" class="sideCol__column">
+            <ion-col size="12" [routerLink]="'/admin-login'" class="sideCol__column">
               <ion-thumbnail class="sideCol__thumbnail">
                 <img src="../../assets/images/iconBack.png" alt="Sair">
               </ion-thumbnail>
