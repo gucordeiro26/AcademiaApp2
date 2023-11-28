@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-app',
   templateUrl: './app.page.html',
@@ -91,19 +92,21 @@ export class AppPage {
       .then((response) => {
         console.log(response)
 
+        
+
         if (response['router'] === true) {
           this.setOpen_Login(false);
           setTimeout(() => {
-            this.router.navigate(['app-inicio']);
+            this.router.navigate(['app-inicio'], { state: {
+              data: response['email']
+            } 
+          });
           }, 500);
         }
 
         if (response['mensagem']) {
           this.presentToast(response['mensagem']);
         }
-      })
-      .then((dadosCliente) => {
-        
       })
       .catch((_) => {
         console.log(_)

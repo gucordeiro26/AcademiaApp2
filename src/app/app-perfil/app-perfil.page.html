@@ -13,7 +13,9 @@
 
   <ion-row class="ion-justify-content-center">
     <ion-col size="6">
-      <p class="text-nomeUsuario">nome_de_usuário</p>
+      <ng-container *ngFor="let nome of clienteData" >
+        <p class="text-nomeUsuario">Olá, {{nome.nome}}</p>
+      </ng-container>
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center">

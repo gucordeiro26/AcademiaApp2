@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppPage } from './app.page';
 import { AppInicioPage } from '../app-inicio/app-inicio.page';
 
+//-------------
+
 const routes: Routes = [
   {
     path: '',
@@ -12,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'app-inicio',
-    component: AppInicioPage
+    component: AppInicioPage,
+    data: {}
   }
 ];
 

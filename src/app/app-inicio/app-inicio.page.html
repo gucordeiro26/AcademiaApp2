@@ -16,7 +16,9 @@
 
   <ion-row>
     <ion-col size="12" class="ion-padding-start">
-      <p class="text-nomeUsuario">Olá, nome_de_usuário</p>
+      <ng-container *ngFor="let nome of clienteData" >
+        <p class="text-nomeUsuario">Olá, {{nome.nome}}</p>
+      </ng-container>
     </ion-col>
   </ion-row>
 
@@ -209,7 +211,7 @@
         </ion-col>
 
         <ion-col size="4" class="ion-padding-start">
-          <ion-button class="btns" [routerLink]="'/app-perfil'">
+          <ion-button class="btns" (onclick)="clickBtnDados()">
             <ion-icon size="large" name="person-circle-outline"></ion-icon>
           </ion-button>
         </ion-col>

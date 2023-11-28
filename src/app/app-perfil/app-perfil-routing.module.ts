@@ -6,7 +6,8 @@ import { AppPerfilPage } from './app-perfil.page';
 const routes: Routes = [
   {
     path: '',
-    component: AppPerfilPage
+    component: AppPerfilPage,
+    data: {}
   }
 ];
 

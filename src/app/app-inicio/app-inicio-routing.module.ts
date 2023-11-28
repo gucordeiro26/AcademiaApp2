@@ -6,7 +6,8 @@ import { AppInicioPage } from './app-inicio.page';
 const routes: Routes = [
   {
     path: '',
-    component: AppInicioPage
+    component: AppInicioPage,
+    data: {}
   }
 ];
 
