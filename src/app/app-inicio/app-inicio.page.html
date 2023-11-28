@@ -16,7 +16,7 @@
 
   <ion-row>
     <ion-col size="12" class="ion-padding-start">
-      <ng-container *ngFor="let nome of clienteData" >
+      <ng-container *ngFor="let nome of clienteData">
         <p class="text-nomeUsuario">Olá, {{nome.nome}}</p>
       </ng-container>
     </ion-col>
@@ -30,9 +30,9 @@
 
   <ion-row class="rowMeio ion-justify-content-center">
     <ion-col class="colMeio">
-      <div class="blob1"></div>
       <ion-row>
         <ion-col>
+
           <ion-card (click)="passarInformacao('Peito')" class="card cardPeito">
             <ion-card-content>
               <ion-row>

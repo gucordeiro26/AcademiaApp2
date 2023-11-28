@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-app-perfil',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AppPerfilPage implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private dataService: DataService) {
+    this.dadosEmail = this.dataService.getDadosEmail()
 
     this.email = this.router.getCurrentNavigation()?.extras.state?.['data']
     console.log(this.email)
@@ -16,6 +18,7 @@ export class AppPerfilPage implements OnInit {
     this.getDataCliente()
    }
 
+   dadosEmail: any;
    email: string = ''
    clienteData: any[] = []
 

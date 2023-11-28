@@ -8,9 +8,11 @@ import { DataService } from '../data.service';
 })
 export class AppTreinoPage {
   dadosTreino: any = null;
+  dadosEmail: any;
   exercicios: any[] = [];
 
   constructor(private dataService: DataService) {
+    this.dadosEmail = this.dataService.getDadosEmail()
     this.dadosTreino = this.dataService.getDadosTreino()
     
 

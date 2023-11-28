@@ -44,16 +44,20 @@ ion-content {
     position: relative;
     bottom: 4em;
 
-    .colMeio {
+    & .colMeio {
         background: linear-gradient(168deg, #0f0f0fbf 0%, #262626bf 100%) no-repeat center/cover fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
     
-        .card {
+        & .card {
             width: 21.875em;
             height: 9em;
             border-radius: 1.5em;
-            margin-left: 1.7em;
+            // margin-left: 1.7em;
     
-            .textExe {
+            & .textExe {
                 color: #FFF;
                 font-family: 'Bebas Neue';
                 font-size: 2.5em;
@@ -63,7 +67,7 @@ ion-content {
                 text-transform: uppercase;
             }
     
-            .buttonExe {
+            & .buttonExe {
                 --background: #00B2FF;
                 --border-radius: 0.5em;
                 color: #FFF;
@@ -76,41 +80,36 @@ ion-content {
             }
         }
 
-        .cardPeito {
+        & .cardPeito {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/peitoApp.png') no-repeat center/cover fixed;
         }
 
-        .cardCostas {
+        & .cardCostas {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/costasApp.png') no-repeat center/cover fixed;
         }
 
-        .cardBiceps {
+        & .cardBiceps {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/bicepsApp.png') no-repeat center/cover fixed;
         }
 
-        .cardTriceps {
+        & .cardTriceps {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/tricepsApp.png') no-repeat center/cover fixed;
         }
 
-        .cardPernas {
+        & .cardPernas {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/pernasApp.png') no-repeat center/cover fixed;
         }
 
-        .cardOmbro {
+        & .cardOmbro {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/ombroApp.png') no-repeat center/cover fixed;
         }
 
-        .cardAbdomen {
+        & .cardAbdomen {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/abdomenApp.png') no-repeat center/cover fixed;
         }
 
-        .cardCardio {
+        & .cardCardio {
             --background:  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../assets/images/cardioApp.png') no-repeat center/cover fixed;
-        }
-
-        .blob1::before {
-            content: '';
-            position: relative;
         }
     }
 }
@@ -135,17 +134,13 @@ ion-content {
         height: 154vh;
     }
     .card {
-        margin-left: 0;
-        position: relative;
-        right: 1.8em;
         width: 0.5em;
     }
 }
 
 @media (min-width: 425px) {
     .card {
-        position: relative;
-        left: 1.7em;
+        width: 30em;
     }
 }
 
@@ -154,11 +149,6 @@ ion-content {
     .perfil {
         left: 1em;
         --size: 7em;
-    }
-
-    .card {
-        position: relative;
-        left: 13.5em;
     }
 
     // Conteúdo

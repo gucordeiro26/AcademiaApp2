@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 export class AppInicioPage implements OnInit {
 
   constructor(private router: Router, private dataService: DataService) {
+    this.dadosEmail = this.dataService.getDadosEmail()
+
     this.email = this.router.getCurrentNavigation()?.extras.state?.['data']
     console.log(this.email)
 
     this.getDataCliente();
   }
 
+  dadosEmail: any;
   email: string = ''
   clienteData: any[] = []
 

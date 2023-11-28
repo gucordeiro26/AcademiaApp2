@@ -16,13 +16,13 @@ export class DataService {
     return this.dadosTreino;
   }
 
-  private modalLogin: any;
+  private dadosEmail: any;
 
-  setCloseModalLogin(data: any) {
-    this.modalLogin = data;
+  setDadosEmail(data: any) {
+    this.dadosEmail = data;
   }
 
-  getCloseModalLogin() {
-    return this.modalLogin;
+  getDadosEmail() {
+    return this.dadosEmail;
   }
 }

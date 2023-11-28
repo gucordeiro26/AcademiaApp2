@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
 
-  <ng-container *ngIf="this.dadosTreino === null">
+  <ng-container *ngIf="this.dadosTreino === undefined || this.dadosTreino === null || this.dadosTreino === ''">
     <ion-row class="rowStart">
       <ion-col class="start">
         <svg class="start__svg1" xmlns="http://www.w3.org/2000/svg" width="154" height="141" viewBox="0 0 154 141" fill="none">
@@ -150,7 +150,7 @@
     </ion-row>
   </ng-container>
 
-  <ng-container *ngIf="this.dadosTreino !== null">
+  <ng-container *ngIf="this.dadosTreino !== null && this.dadosTreino !== undefined && this.dadosTreino !== ''">
 
     <ng-container *ngIf="this.dadosTreino === 'Peito'">
       <ion-row class="rowStart">

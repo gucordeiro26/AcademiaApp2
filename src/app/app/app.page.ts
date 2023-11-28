@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -11,12 +12,14 @@ import { ToastController } from '@ionic/angular';
 
 export class AppPage {
 
+  email: string = ''
   serverMessage: string = '';
   toastService: any;
 
   constructor(
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private dataService: DataService
   ) { }
 
   async presentToast(message: string) {
@@ -27,6 +30,10 @@ export class AppPage {
       color: 'medium', // cor do toast
     });
     toast.present();
+  }
+
+  passarDadosEmail() {
+    this.dataService.setDadosEmail(this.email)
   }
 
   isModalOpen_Cadastro = false;
@@ -97,10 +104,8 @@ export class AppPage {
         if (response['router'] === true) {
           this.setOpen_Login(false);
           setTimeout(() => {
-            this.router.navigate(['app-inicio'], { state: {
-              data: response['email']
-            } 
-          });
+            this.router.navigate(['app-inicio']);
+            this.email = response['email']
           }, 500);
         }
 
