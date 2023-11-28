@@ -16,9 +16,9 @@ export class DataService {
     return this.dadosTreino;
   }
 
-  private dadosEmail: any;
+  private dadosEmail: string;
 
-  setDadosEmail(data: any) {
+  setDadosEmail(data: string) {
     this.dadosEmail = data;
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-app-inicio',
@@ -9,11 +9,29 @@ import { Router } from '@angular/router';
 })
 export class AppInicioPage implements OnInit {
 
+  dados = {
+    email: null,
+    token: null,
+  }
+
   constructor(private router: Router, private dataService: DataService) {
     this.dadosEmail = this.dataService.getDadosEmail()
+    console.log(this.dadosEmail);
 
-    this.email = this.router.getCurrentNavigation()?.extras.state?.['data']
-    console.log(this.email)
+    // if (!localStorage.getItem('dados')) {
+    //   this.router.navigate(['/app']);
+    // }
+
+
+    
+    const tmp_dados = localStorage.getItem('dados');
+
+    if (tmp_dados !== null) {
+      this.dados = JSON.parse(tmp_dados);
+      console.log(this.dados);
+    } else {
+      this.router.navigate(['/app'])
+    }
 
     this.getDataCliente();
   }
@@ -31,7 +49,7 @@ export class AppInicioPage implements OnInit {
   }
 
   getDataCliente(){
-    const email = this.email
+    const email = this.dadosEmail
 
     fetch('http://localhost/AcademiaAPP/clientes/select/selectPorEmail.php', {
       method: 'POST',

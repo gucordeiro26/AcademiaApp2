@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { DataService } from '../data.service';
+import { log } from 'console';
 
 
 @Component({
@@ -13,6 +14,10 @@ import { DataService } from '../data.service';
 export class AppPage {
 
   email: string = ''
+  dados = {
+    email: null,
+    token: null
+  }
   serverMessage: string = '';
   toastService: any;
 
@@ -106,6 +111,13 @@ export class AppPage {
           setTimeout(() => {
             this.router.navigate(['app-inicio']);
             this.email = response['email']
+            console.log(this.email)
+            this.dados.email = response['email'];
+            this.dados.token = response['session'];
+            localStorage.setItem('dados', JSON.stringify(this.dados));
+
+            // localStorage.removeItem('dados');
+            this.passarDadosEmail();
           }, 500);
         }
 
