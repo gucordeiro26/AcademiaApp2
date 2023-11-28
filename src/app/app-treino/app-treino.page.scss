@@ -22,6 +22,19 @@ ion-content {
         display: flex;
         align-items: center;
         background: linear-gradient(99deg, #00B2FF 0%, #41C6FF 48.4%, #C2EDFF 101.01%) no-repeat center/cover fixed;
+
+        & .start__svg1 {
+            position: relative;
+            right: 10px;
+            width: 120px;
+        }
+
+        & .start__svg2 {
+            position: relative;
+            width: 120px;
+            top: 20px;
+            left: 190px;
+        }
     }
 
     & .startPeito {
@@ -57,7 +70,7 @@ ion-content {
     }
 
 
-    & .textExercio {
+    & .textExercicio {
         color: #FFF;
         font-family: 'Bebas Neue';
         font-size: 2.5em;

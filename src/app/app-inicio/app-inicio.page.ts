@@ -47,12 +47,7 @@ export class AppInicioPage implements OnInit {
       })
       .finally(()=>{})
   }
-
-  clickBtnDados(){
-    this.router.navigate(['app-perfil'], {state: {
-      data: this.clienteData
-    }})
-  }
+  
 
 
 //     localStorage.setItem('session', JSON.stringy(sessao));
