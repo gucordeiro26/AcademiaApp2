@@ -75,10 +75,10 @@ ion-content {
         --background: #fff;
     }
 
-    
-    &.conteudo__row {
-        &.conteudo__list {
-            
+    .conteudo__list {
+        &.item__exercicio {
+            height: 1px;
+            overflow-y: auto;
         }
     }
 
