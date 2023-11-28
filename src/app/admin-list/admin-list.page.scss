@@ -64,6 +64,10 @@ ion-content {
     }
 }
 
+.item, .text_toast {
+    text-align: center;
+}
+
 // Conteúdo
 .conteudo {
     &.conteudo__searchbar {

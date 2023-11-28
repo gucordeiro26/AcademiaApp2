@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-adcionar',
@@ -10,7 +12,7 @@ export class AdminAdcionarPage {
 
   formInserir: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private toastController: ToastController, private router: Router,) {
     this.formInserir = this.formBuilder.group({
       codigo: '',
       email: ['', [Validators.required, Validators.email]],
@@ -31,11 +33,25 @@ export class AdminAdcionarPage {
     }
   }
 
+  serverMessage: string = '';
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 5000, // duração em milissegundos
+      position: 'bottom', // posição do toast ('top', 'bottom', 'middle')
+      color: 'dark', // cor do toast
+    });
+    toast.present();
+  }
+
   // Funções
 
   // Função para inserir clientes
   inserirClientes(dados: any) {
     console.log(dados);
+
+    let serverMessage = '';
   
     fetch('http://localhost/AcademiaAPP/clientes/insert/inserirClientes.php', {
       method: 'POST',
@@ -47,12 +63,18 @@ export class AdminAdcionarPage {
       .then(response => response.json())
       .then(response => {
         console.log(response);
+        serverMessage = response['mensagem'];
+
+        if (response['mensagem']) {
+          this.presentToast(response['mensagem']);
+        }
       })
       .catch(error => {
         console.log(error);
       })
       .finally(() => {
         this.formInserir.reset();
+        this.serverMessage = serverMessage;
       });
   }
 }
