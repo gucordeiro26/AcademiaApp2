@@ -64,6 +64,10 @@ ion-content {
     }
 }
 
+.item, .text_toast {
+    text-align: center;
+}
+
 // Conteúdo
 .conteudo {
     &.conteudo__searchbar {
@@ -75,10 +79,10 @@ ion-content {
         --background: #fff;
     }
 
-    
-    &.conteudo__row {
-        &.conteudo__list {
-            
+    .conteudo__list {
+        &.item__exercicio {
+            height: 1px;
+            overflow-y: auto;
         }
     }
 

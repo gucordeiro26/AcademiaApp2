@@ -152,6 +152,10 @@ ion-content {
             flex-direction: column;
             margin: 0 auto;
         }
+
+        .text_toast {
+            text-align: center;
+        }
     
         & .conteudo__title {
             font-family: 'Oswald';
