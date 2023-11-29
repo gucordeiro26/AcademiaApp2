@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
+import * as internal from 'stream';
 
 @Component({
   selector: 'app-app-inicio',
@@ -11,12 +12,16 @@ export class AppInicioPage implements OnInit {
 
   dados = {
     email: null,
+    id: null,
     token: null,
   }
 
   constructor(private router: Router, private dataService: DataService) {
     this.dadosEmail = this.dataService.getDadosEmail()
     console.log(this.dadosEmail);
+    this.dadosId = this.dataService.getDadosId()
+    console.log(this.dadosId);
+
 
     // if (!localStorage.getItem('dados')) {
     //   this.router.navigate(['/app']);
@@ -36,7 +41,8 @@ export class AppInicioPage implements OnInit {
     this.getDataCliente();
   }
 
-  dadosEmail: any;
+  dadosEmail: any
+  dadosId: any
   email: string = ''
   clienteData: any[] = []
 

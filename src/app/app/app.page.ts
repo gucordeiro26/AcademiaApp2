@@ -14,8 +14,11 @@ import { log } from 'console';
 export class AppPage {
 
   email: string = ''
+  id: number;
+  nome_plano: any;
   dados = {
     email: null,
+    id: null,
     token: null
   }
   serverMessage: string = '';
@@ -30,7 +33,7 @@ export class AppPage {
   async presentToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 5000, // duração em milissegundos
+      duration: 3000, // duração em milissegundos
       position: 'bottom', // posição do toast ('top', 'bottom', 'middle')
       color: 'medium', // cor do toast
     });
@@ -39,6 +42,14 @@ export class AppPage {
 
   passarDadosEmail() {
     this.dataService.setDadosEmail(this.email)
+  }
+
+  passarDadosId(){
+    this.dataService.setDadosId(this.id)
+  }
+
+  passarDadosNomePlano(){
+    this.dataService.setDadosNomePlano(this.nome_plano)
   }
 
   isModalOpen_Cadastro = false;
@@ -104,20 +115,24 @@ export class AppPage {
       .then((response) => {
         console.log(response)
 
-        
-
         if (response['router'] === true) {
           this.setOpen_Login(false);
           setTimeout(() => {
             this.router.navigate(['app-inicio']);
             this.email = response['email']
+            this.id = response['codigo']
+            this.nome_plano = response['nome_plano']
             console.log(this.email)
             this.dados.email = response['email'];
             this.dados.token = response['session'];
+            this.dados.id = response['codigo'];
             localStorage.setItem('dados', JSON.stringify(this.dados));
 
-            // localStorage.removeItem('dados');
             this.passarDadosEmail();
+            this.passarDadosId()
+            this.passarDadosNomePlano();
+
+            // localStorage.removeItem('dados');
           }, 500);
         }
 
