@@ -19,8 +19,6 @@ ion-content {
     // --background: #fff;
 }
 
-
-// Side Bar
 // Side Bar
 .sideBar {
     display: flex;
@@ -113,6 +111,12 @@ ion-content {
                 padding-top: 1%;
                 margin-top: 5%;
                 border-top: 1px solid #c7c7c7;
+  
+                &:hover{
+                  .alinhamento__centro{
+                    background: #00B2FF;
+                  }
+                }
   
                 .alinhamento__centro{
                     margin-top: 5%;
