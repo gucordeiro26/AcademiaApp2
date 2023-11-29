@@ -8,12 +8,19 @@
     src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url(../../assets/font/Inter-VariableFont.ttf);
+}
+
 *{
-    outline: 1px dashed red;
+    // outline: 1px dashed red;
 }
 
 ion-content {
-    --background: linear-gradient(120deg, #ffffff , #dbdbdb);
+    // --background: linear-gradient(120deg, #f6f6f8 , #dbdbdb);
+    // --background: linear-gradient(120deg, #ffffff , #dbdbdb);
+    --background: linear-gradient(120deg, #9ce1ff , #9ae1ff);
 }
 
 
@@ -22,7 +29,7 @@ ion-content {
     display: flex;
     height: 100vh;
     width: 100%;
-    background: #000000;
+    background: #fff;
 
     & .sideRow {
         top: 0;
@@ -30,6 +37,7 @@ ion-content {
         height: 100%;
         width: 16.5%;
         left: 0;
+        // box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
 
         & .sideCol {
 
@@ -39,23 +47,29 @@ ion-content {
                 padding: 0;
                 height: 5vh;
 
-                & .sideCol__img {
-                    margin: 0 auto;
-                    --size: 50px;
-                }
+                // & .sideCol__imgLogo {
+                //     margin: 0 auto;
+                //     --size: 50px;
+                // }
 
                 & .sideCol__thumbnail {
                     cursor: pointer;
-
-                    img{
-                        max-width: 2vw;
-                    }
+                    font-size: 4vw;
+                    color: #262626;
+                    margin-right: .8vw;
                 }
 
                 & .sideCol__text {
-                    color: #c7c7c770;
+                    color: #262626;
+                    font-family: 'Inter';
+                    font-size: 1vw;
+                    cursor: pointer;
+                }
+
+                & .sideCol__textLogo {
+                    color: #00B2FF;
                     font-family: 'Bebas Neue';
-                    font-size: 1.1vw;
+                    font-size: 2vw;
                     text-align: start;
                     cursor: pointer;
                 }
@@ -64,6 +78,51 @@ ion-content {
             & .sideCol__logo{
                 padding: 10px;
                 height: 100px;
+                margin-top: 3vh;
+                margin-bottom: 10%;
+            }
+
+            & .alinhamento__centro{
+                display: flex;
+                justify-content: center;
+                border: 1px solid #00B2FF;
+                border-radius: 10px;
+                margin-bottom: 1vh;
+                cursor: pointer;
+            }
+
+            // .activated-btn__GerenCliente{
+            //     background: #00B2FF;
+            //     border: 2px solid #00B2FF;
+            //     box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+
+            //     .sideCol__text{
+            //         color: white;
+            //     }
+
+            //     .activated-btn-icon__GerenCliente{
+            //         color: #fff;
+            //     }
+            // }
+
+            & .logout{
+                padding-top: 1%;
+                margin-top: 5%;
+                border-top: 1px solid #c7c7c7;
+
+                .alinhamento__centro{
+                    margin-top: 5%;
+                    background: #000;
+                    border: none;
+                }
+
+                .sideCol__thumbnail{
+                    color: #fff;
+                }
+
+                .sideCol__text{
+                    color: #fff;
+                }
             }
         }
     }
