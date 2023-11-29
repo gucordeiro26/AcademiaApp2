@@ -1,71 +1,89 @@
 <ion-content [fullscreen]="true">
   <ion-row>
     <!-- Side bar -->
-    <ion-col size="2.5" class="sideBar">
+    <ion-col size="2" class="sideBar">
       <ion-row class="sideRow">
         <ion-col class="sideCol">
           <!-- Logo -->
-          <ion-row>
-            <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__logo">
+          <ion-row class="sideCol__logo">
+            <!-- <ion-col size="4" class="sideCol__column ">
+              <ion-thumbnail class="sideCol__imgLogo">
                 <img src="../../assets/images/logo.png" alt="Logo">
               </ion-thumbnail>
+            </ion-col> -->
+
+            <ion-col size="12" class="sideCol__column">
+                  <ion-text class="sideCol__textLogo">Gereciamento de Clientes</ion-text>
             </ion-col>
           </ion-row>
 
           <!-- Home -->
           <ion-row [routerLink]="'/admin'" class="row">
-            <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail">
-                <img src="../../assets/images/iconHome.png" alt="Home">
-              </ion-thumbnail>
-            </ion-col>
-            <ion-col class="sideCol__column">
-              <p class="sideCol__text">Home</p>
+            <ion-col size="12" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="home-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Home</ion-text>
+                </ion-col>
+              </ion-row>
             </ion-col>
           </ion-row>
 
           <!-- Adicionar -->
-          <ion-row [routerLink]="'/admin-adcionar'">
-            <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail">
-                <img src="../../assets/images/iconAdicionar.png" alt="Adicionar">
-              </ion-thumbnail>
-            </ion-col>
-            <ion-col class="sideCol__column">
-              <p class="sideCol__text">Adicionar</p>
+          <ion-row>
+            <ion-col size="12" [routerLink]="'/admin-adcionar'" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="person-add-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Adicionar</ion-text>
+                </ion-col>
+              </ion-row>
             </ion-col>
           </ion-row>
 
           <!-- Listar -->
           <ion-row [routerLink]="'/admin-list'">
-            <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail">
-                <img src="../../assets/images/iconList.png" alt="Listar">
-              </ion-thumbnail>
-            </ion-col>
-            <ion-col class="sideCol__column">
-              <p class="sideCol__text">Listar</p>
+            <ion-col size="12" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="list-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Listar</ion-text>
+                </ion-col>
+              </ion-row>
             </ion-col>
           </ion-row>
 
           <!-- Ficha -->
           <ion-row [routerLink]="'/admin-exercicios'">
-            <ion-col class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail">
-                <img src="../../assets/images/iconFicha.png" alt="Ficha">
-              </ion-thumbnail>
-            </ion-col>
-            <ion-col class="sideCol__column">
-              <p class="sideCol__text">Ficha</p>
+            <ion-col size="12" class="activated-btn__GerenCliente">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="activated-btn-icon__GerenCliente" name="newspaper-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol-activated-btn__text">Treino</ion-text>
+                </ion-col>
+              </ion-row>
             </ion-col>
           </ion-row>
 
-          <ion-row>
-            <ion-col [routerLink]="'/admin-login'" class="sideCol__column">
-              <ion-thumbnail class="sideCol__thumbnail">
-                <img src="../../assets/images/iconBack.png" alt="Sair">
-              </ion-thumbnail>
+          <!-- Logout -->
+          <ion-row class="logout">
+            <ion-col size="12" [routerLink]="'/admin-login'" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="log-out-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Logout</ion-text>
+                </ion-col>
+              </ion-row>
             </ion-col>
           </ion-row>
 
