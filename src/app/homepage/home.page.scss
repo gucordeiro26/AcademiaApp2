@@ -25,17 +25,17 @@ ion-content{
   img{
     position: absolute;
     z-index: 0;
-    left: 17vw;
-    top: 20vh;
-    min-height: 50vh;
+    left: 10vw;
+    top: 15vh;
+    min-height: 90vh;
 
-    rotate: 20deg;
+    rotate: 10deg;
     transition: all ease .3s;
 
     border-radius: 20px;
 
     &:hover{
-      rotate: 10deg;
+      rotate: 0deg;
       transition: all ease .5s;
     }
   }
