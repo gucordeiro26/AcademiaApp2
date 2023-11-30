@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AdminListPage {
 
-  constructor() {
+  constructor(private modalController: ModalController) {
     this.listarClientes();
     this.listarExerciciosPeito();
     this.listarExerciciosAbdomen();
@@ -83,19 +83,25 @@ export class AdminListPage {
       })
       .finally(() => {
         this.listarClientes();
+        this.isRemoverOpen = false
       })
   }
 
-  isAddFichaOpen = false;
+  // Function para abrir e fechar modal de Remover Cliente
+  isRemoverOpen = false
+  modalRemover(isOpen: boolean){
+    this.isRemoverOpen = isOpen;
+  }
+
 
   // Função para abrir o modal de adicionar a ficha de treino
+  isAddFichaOpen = false;  
   modalAddFicha(isOpen: boolean) {
     this.isAddFichaOpen = isOpen;
   }
 
-  isAtualizarOpen = false;
-
   // Função para abrir o modal de atualização
+  isAtualizarOpen = false;
   modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, sexo: string, altura: string, peso: string, DataNasc: string, cpf: string, FK_Planos_codigo: string) {
     this.isAtualizarOpen = isOpen;
 
@@ -365,4 +371,5 @@ export class AdminListPage {
       });
 
   }
-}
+}import { ModalController } from '@ionic/angular';
+

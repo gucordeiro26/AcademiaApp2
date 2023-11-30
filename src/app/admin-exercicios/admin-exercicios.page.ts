@@ -7,13 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminExerciciosPage implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+    this.listarExerciciosAbdomen()
+    this.listarExerciciosBiceps()
+    this.listarExerciciosCardio()
+    this.listarExerciciosCostas()
+    this.listarExerciciosOmbros()
+    this.listarExerciciosPeito()
+    this.listarExerciciosPernas()
+    this.listarExerciciosTriceps()
+  }
 
   ngOnInit() {
   }
 
   isLoading: boolean = false;
-  exercicios: any[] = [];
+  exerciciosAbdomen: any[] = [];
+  exerciciosBiceps: any[] = [];
+  exerciciosCardio: any[] = [];
+  exerciciosCostas: any[] = [];
+  exerciciosOmbros: any[] = [];
+  exerciciosPeito: any[] = [];
+  exerciciosPernas: any[] = [];
+  exerciciosTriceps: any[] = [];
 
   // Modais
   isModalPeito = false;
@@ -60,56 +77,38 @@ export class AdminExerciciosPage implements OnInit {
   // Funções
   listarExerciciosPeito() {
     this.isLoading = true;
-    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroPeito.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(exercicios),
+      }
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        this.exercicios = data['exercicios'];
-      })
-      .catch((error) => {
-        console.error('Erro na busca de funcionários:', error);
-      })
-      .finally(() => {
-        this.isLoading = false;
-      });
+    .then(response => response.json())
+    .then(response => {
+      this.exerciciosPeito = response['exercicios'];
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(() => {})
   }
 
   listarExerciciosCostas() {
     this.isLoading = true;
-    const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroCostas.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(exercicios),
+      }
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        this.exercicios = data['exercicios'];
-      })
-      .catch((error) => {
-        console.error('Erro na busca de funcionários:', error);
-      })
-      .finally(() => {
-        this.isLoading = false;
-      });
+    .then(response => response.json())
+    .then(response => {
+      this.exerciciosCostas = response['exercicios'];
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(() => {})
   }
 
   listarExerciciosBiceps() {
@@ -129,7 +128,7 @@ export class AdminExerciciosPage implements OnInit {
         return response.json();
       })
       .then((data) => {
-        this.exercicios = data['exercicios'];
+        this.exerciciosBiceps = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -156,7 +155,7 @@ export class AdminExerciciosPage implements OnInit {
         return response.json();
       })
       .then((data) => {
-        this.exercicios = data['exercicios'];
+        this.exerciciosTriceps = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -183,7 +182,7 @@ export class AdminExerciciosPage implements OnInit {
         return response.json();
       })
       .then((data) => {
-        this.exercicios = data['exercicios'];
+        this.exerciciosOmbros = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -210,7 +209,7 @@ export class AdminExerciciosPage implements OnInit {
         return response.json();
       })
       .then((data) => {
-        this.exercicios = data['exercicios'];
+        this.exerciciosPernas = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -236,7 +235,7 @@ export class AdminExerciciosPage implements OnInit {
         return response.json();
       })
       .then((data) => {
-        this.exercicios = data['exercicios'];
+        this.exerciciosAbdomen = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);
@@ -263,7 +262,7 @@ export class AdminExerciciosPage implements OnInit {
         return response.json();
       })
       .then((data) => {
-        this.exercicios = data['exercicios'];
+        this.exerciciosCardio = data['exercicios'];
       })
       .catch((error) => {
         console.error('Erro na busca de funcionários:', error);

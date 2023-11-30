@@ -64,7 +64,7 @@
             <ion-col size="12" class="alinhamento__centro">
               <ion-row>
                 <ion-col size="3" class="sideCol__column">
-                  <ion-icon class="sideCol__thumbnail" name="newspaper-outline"></ion-icon>
+                  <ion-icon class="sideCol__thumbnail" name="barbell-outline"></ion-icon>
                 </ion-col>
                 <ion-col size="9" class="sideCol__column">
                   <ion-text class="sideCol__text">Treino</ion-text>
@@ -92,994 +92,130 @@
     </ion-col>
 
     <!-- Conteúdo -->
-    <ion-col size="9.5">
+    <ion-col size="10">
       <ion-row class="container">
-        <ion-col class="conteudo">
+        <ion-col class="content" size="12">
           <ion-row>
-
-            <ion-col size="5">
-              <p class="conteudo__text__dashboard">Dashbord</p>
-              <p class="conteudo__text__pag">Pagamentos Updates</p>
-            </ion-col>
-
-            <ion-col size="5">
-              <ion-searchbar class="conteudo__searchbar" placeholder=""></ion-searchbar>
-            </ion-col>
-
-            <ion-col size="1">
-              <ion-thumbnail>
-                <img src="../../assets/images/notifications-outline.svg" alt="sino">
-              </ion-thumbnail>
-              <ion-badge class="conteudo__badge">1</ion-badge>
-            </ion-col>
-
-            <ion-col size="1">
-              <ion-thumbnail>
-                <img src="../../assets/images/perfil-esquilo.jpg" alt="">
-              </ion-thumbnail>
-              <ion-fab class="conteudo__fab">
-                <ion-fab-button class="conteudo__fab__button" size="small">
-                    <img src="../../assets/images/seta-para-baixo 1.png" alt="seta para baixo">
-                </ion-fab-button>
-                <ion-fab-list class="conteudo__fab__list" side="bottom">
-                  <ion-fab-button>
-                    <ion-icon name="document"></ion-icon>
-                  </ion-fab-button>
-                  <ion-fab-button>
-                    <ion-icon name="color-palette"></ion-icon>
-                  </ion-fab-button>
-                  <ion-fab-button>
-                    <ion-icon name="globe"></ion-icon>
-                  </ion-fab-button>
-                </ion-fab-list>
-              </ion-fab>
-            </ion-col>
-
+            <ion-card class="adminDashboard__card">
+              <ion-card-header>
+                <ion-card-title class="adminDashboard__card-title">Admin Dashboard</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col>
+                    <ion-card class="subcard clienteNumber__card">
+                      <ion-card-header>
+                        <ion-card-title class="adminDashboard__card-subtitle">Clientes</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col size="9">
+                            <ion-text>12.00k</ion-text>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-icon name="people-outline"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                  <ion-col>
+                    <ion-card class="subcard exerNumber__card">
+                      <ion-card-header>
+                        <ion-card-title class="adminDashboard__card-subtitle">Exercícios</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col size="9">
+                            <ion-text>150</ion-text>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-icon name="barbell-outline"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                  <ion-col>
+                    <ion-card class="subcard planosNumber__card">
+                      <ion-card-header>
+                        <ion-card-title class="adminDashboard__card-subtitle">Planos</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col size="9">
+                            <ion-text>150</ion-text>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-icon name="layers-outline"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
           </ion-row>
 
           <ion-row>
-            <ion-col class="col__conteudo" size="4">
-              <ion-row class="conteudo__">
-                <ion-col>
-                  <ion-row class="conteudo__text">
-                    <ion-col size="3">
-                      <ion-thumbnail class="conteudo__thumbnail">
-                        <img src="../../assets/images/dolar 1.png" alt="">
-                      </ion-thumbnail>
-                    </ion-col>
-                    <ion-col size="9"><p class="conteudo__text__">Money</p></ion-col>
-                  </ion-row>
-
-                  <ion-row>
-                    <ion-col size="3"><p class="conteudo__text__c">$</p></ion-col>
-                    <ion-col size="9"><p class="conteudo__text__d">16.000</p></ion-col>
-                  </ion-row>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-
-            <ion-col class="col__conteudo" size="4">
-              <ion-row class="conteudo__">
-                <ion-col>
-                  <ion-row class="conteudo__text">
-                    <ion-col size="3">
-                      <ion-thumbnail class="conteudo__thumbnail">
-                        <img src="../../assets/images/calendario (1) 1.png" alt="">
-                      </ion-thumbnail>
-                    </ion-col>
-                    <ion-col size="9"><p class="conteudo__text__">New Leads</p></ion-col>
-                  </ion-row>
-                </ion-col>
-              </ion-row>
-
-              <ion-row>
-                <ion-col style="width: 100%;" size="12">
-                  <div style="width: 100px; height: 100px;">
-                    <canvas style="position: relative; bottom: 120px; left: 80px;" #grafico2></canvas>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-
-            <ion-col class="col__conteudo" size="4">
-              <ion-row class="conteudo__">
-                <ion-col>
-                  <ion-row class="conteudo__text">
-                    <ion-col size="3">
-                      <ion-thumbnail class="conteudo__thumbnail">
-                        <img src="../../assets/images/e-mail 1.png" alt="">
-                      </ion-thumbnail>
-                    </ion-col>
-                    <ion-col size="9"><p class="conteudo__text__">Messages</p></ion-col>
-                  </ion-row>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-
-          <ion-row class="conteudo__3">
             <ion-col size="8">
-              <ion-row class="conteudo__3_canva">
-                <ion-col size="12">
-                  <div class="conteudo__3_canvas">
-                    <canvas #grafico ></canvas>
-                  </div>
-                </ion-col>
-              </ion-row>
-
-              <ion-row class="conteudo__3__2">
-                <ion-col size="12">
-                  <ion-row>
-                    <ion-col>
-                      <p class="conteudo__3__textH">History</p>
-                      <p class="conteudo__3__textMF">Money Transfer</p>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row>
-                    <ion-col>
-                      <ng-container></ng-container>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-col>
-              </ion-row>
+              <ion-card class="dashboard__lists">
+                <ion-card-header>
+                  <ion-card-title class="dashboard__lists-title">Lista de Clientes</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-label>Código</ion-label>
+                      <ion-label>Nome</ion-label>
+                      <ion-label>Sobrenome</ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
             </ion-col>
-
             <ion-col size="4">
-              <ion-row class="conteudo__3_col2">
-                <ion-col>
-                  <ion-row>
-                    <ion-col size="12">
-                      <ion-thumbnail class="conteudo__3_col2__thumb">
-                        <img src="../../assets/images/icons8-cartão-50.png" alt="">
-                      </ion-thumbnail>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row>
-                    <ion-col>
-                      <p class="conteudo__3_col2_textR">Recent Activities</p>
-                      <p class="conteudo__3_col2_textN">07 Nov 2023</p>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row>
-                    <ion-col>
-                      <p class="conteudo__3_col2_textR">Upcoming payments</p>
-                      <p class="conteudo__3_col2_textN">25 Dez 2023</p>
-                    </ion-col>
-                  </ion-row>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-card>
+                    <ion-card-header>
+                      <ion-card-title>Lista de Planos</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <ion-list>
+                        <ion-item>
+                          <ion-label>Código</ion-label>
+                          <ion-label>Nome</ion-label>
+                          <ion-label>Preço</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-card>
+                    <ion-card-header>
+                      <ion-card-title>Lista de Exercícios</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <ion-list>
+                        <ion-item>
+                          <ion-label>Código</ion-label>
+                          <ion-label>Nome</ion-label>
+                          <ion-label>Categoria</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-card-content>
+                  </ion-card>
                 </ion-col>
               </ion-row>
             </ion-col>
           </ion-row>
-
         </ion-col>
       </ion-row>
     </ion-col>
   </ion-row>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- <ion-row>
-    <ion-col size="12">
-
-      <ion-row>
-        <ion-col size="1">
-          <ion-row class="custom__row">
-            <ion-col class="customCol">
-
-              <ion-row class="customRow ion-justify-content-center">
-                <ion-col size="12" class=""><ion-icon (click)="mudarConteudo('home', 'home-outline')"
-                    [ngClass]="{'iconActive': this.iconActive === 'home-outline'}" size="large" color="light"
-                    name="home-outline"></ion-icon></ion-col>
-              </ion-row>
-
-              <ion-row class="customRow ion-justify-content-center">
-                <ion-col size="12" class=""><ion-icon (click)="mudarConteudo('chart', 'chart-outline')"
-                    [ngClass]="{'iconActive': this.iconActive === 'chart-outline'}" size="large" color="light"
-                    name="bar-chart-outline"></ion-icon></ion-col>
-              </ion-row>
-
-              <ion-row class="customRow ion-justify-content-center">
-                <ion-col size="12" class=""><ion-icon (click)="mudarConteudo('fichaTreino', 'ficha-outline')"
-                    [ngClass]="{'iconActive': this.iconActive === 'ficha-outline'}" size="large" color="light"
-                    name="reader-outline"></ion-icon></ion-col>
-              </ion-row>
-
-              <ion-row class="customRow ion-justify-content-center">
-                <ion-col size="12" class=""><ion-icon (click)="mudarConteudo('addCliente', 'add-outline')"
-                    [ngClass]="{'iconActive': this.iconActive === 'add-outline'}" size="large" color="light"
-                    name="person-add-outline"></ion-icon></ion-col>
-              </ion-row>
-
-              <ion-row class="customRow ion-justify-content-center">
-                <ion-col size="12" class=""><ion-icon (click)="mudarConteudo('gereCliente', 'gere-outline')"
-                    [ngClass]="{'iconActive': this.iconActive === 'gere-outline'}" size="large" color="light"
-                    name="person-outline"></ion-icon></ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-
-        <ion-col size="11">
-          <ng-container *ngIf="conteudo === 'home'"></ng-container>
-
-          <ng-container *ngIf="conteudo === 'chart'"></ng-container>
-
-          <ng-container *ngIf="conteudo === 'fichaTreino'">
-            <ion-row>
-              <ion-col>
-                <p>Ficha de Treino</p>
-              </ion-col>
-            </ion-row>
-
-            <ion-row class="ion-justify-content-center">
-              <ion-col size="12">
-                <ion-card (click)="setOpen(true)" class="cardExercicio cardTodos">
-                  <ion-card-content>
-                    <ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/todosAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Todos os Exercícios</ion-label>
-                    </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-
-            <ion-row class="row__exercicio">
-              <ion-col>
-                <ion-card (click)="setOpenPeito(true)" (click)="listarExerciciosPeito()"
-                  class="cardExercicio cardPeito">
-                  <ion-card-content>
-                    <ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/peitoAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Peito</ion-label>
-                    </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-              <ion-col>
-                <ion-card (click)="setOpenCostas(true)" (click)="listarExerciciosCostas()"
-                  class="cardExercicio cardCostas">
-                  <ion-card-content>
-                    <ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/costasAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Costas</ion-label>
-                    </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-
-            <ion-row class="row__exercicio">
-              <ion-col>
-                <ion-card (click)="setOpenBiceps(true)" (click)="listarExerciciosBiceps()"
-                  class="cardExercicio cardBiceps">
-                  <ion-card-content>
-                    <ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/bicepsAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Bíceps</ion-label>
-                    </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-              <ion-col>
-                <ion-card (click)="setOpenTriceps(true)" (click)="listarExerciciosTriceps()"
-                  class="cardExercicio cardTriceps">
-                  <ion-card-content>
-                    <<ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/tricepsAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Tríceps</ion-label>
-                      </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-
-            <ion-row class="row__exercicio">
-              <ion-col>
-                <ion-card (click)="setOpenOmbro(true)" (click)="listarExerciciosOmbros()"
-                  class="cardExercicio cardOmbro">
-                  <ion-card-content>
-                    <ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/ombroAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Ombro</ion-label>
-                    </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-              <ion-col>
-                <ion-card (click)="setOpenPerna(true)" (click)="listarExerciciosPernas()"
-                  class="cardExercicio cardPernas">
-                  <ion-card-content>
-                    <ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/pernaAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Pernas</ion-label>
-                    </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-
-            <ion-row class="row__exercicio">
-              <ion-col>
-                <ion-card (click)="setOpenAbdomen(true)" (click)="listarExerciciosAbdomen()"
-                  class="cardExercicio cardAbdomen">
-                  <ion-card-content>
-                    <<ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg cardImgAbd td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/abdomenAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Abdômen</ion-label>
-                      </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-              <ion-col>
-                <ion-card (click)="setOpenCardio(true)" (click)="listarExerciciosCardio()"
-                  class="cardExercicio cardCardio">
-                  <ion-card-content>
-                    <ion-item class="" lines="none">
-                      <ion-thumbnail class="cardImg td" slot="start">
-                        <img alt="Silhouette of mountains" src="../../assets/images/cardioAdm.jpg" />
-                      </ion-thumbnail>
-                      <ion-label class="textExercicio">Cardio</ion-label>
-                    </ion-item>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row> -->
-            <!-- Modais -->
-            <!-- Modal para todos os Exercícios -->
-            <!-- <ion-modal [isOpen]="isModalOpen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpen(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                              <ion-label>Categoria</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                                <ion-label>{{ exercicio.categoria }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
-
-            <!-- Modal Peito -->
-            <!-- <ion-modal [isOpen]="isModalPeito">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenPeito(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
-
-            <!-- Modal Costas -->
-            <!-- <ion-modal [isOpen]="isModalCostas">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenCostas(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
-
-            <!-- Modal Biceps -->
-            <!-- <ion-modal [isOpen]="isModalBiceps">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenBiceps(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
-
-            <!-- Modal Triceps -->
-            <!-- <ion-modal [isOpen]="isModalTriceps">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenTriceps(false)"><ion-icon size="large"
-                          name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
-
-            <!-- Modal Ombro -->
-            <!-- <ion-modal [isOpen]="isModalOmbro">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenOmbro(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
-
-            <!-- Modal Perna -->
-            <!-- <ion-modal [isOpen]="isModalPerna">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenPerna(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
-
-            <!-- Modal Abdomen -->
-            <!-- <ion-modal [isOpen]="isModalAbdomen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenAbdomen(false)"><ion-icon size="large"
-                          name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal>
-
-            <!-- Modal Cardio -->
-            <!-- <ion-modal [isOpen]="isModalCardio">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar class="modalExeTd">
-                    <ion-buttons slot="start">
-                      <ion-button (click)="setOpenCardio(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                          color="dark"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="modalExeTd ion-padding">
-                  <ion-row class="ion-justify-content-center row">
-                    <ion-col size="12">
-                      <ion-row class="ion-justify-content-center">
-                        <ion-col size="12">
-                          <ion-list class="listModalExe">
-                            <ion-item class="itemModalExe ion-text-center">
-                              <ion-label>Código</ion-label>
-                              <ion-label>Nome</ion-label>
-                            </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
-                              <ion-item class="itemModalExe ion-text-center">
-                                <ion-label>{{ exercicio.codigo }}</ion-label>
-                                <ion-label>{{ exercicio.nome }}</ion-label>
-                              </ion-item>
-                            </ng-container>
-                          </ion-list>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                  </ion-row>
-
-                </ion-content>
-              </ng-template>
-            </ion-modal>
-
-
-          </ng-container>
-
-          <ng-container *ngIf="conteudo === 'addCliente'">
-            <ion-row class="ion-justify-content-center rowAdd">
-              <ion-col>
-                <form [formGroup]="formInserir" #forminserirClientes="ngForm" (ngSubmit)="inserirClientes(forminserirClientes.value)">
-                  <ion-row class="rowAdd__form ion-justify-content-center">
-                    <ion-col class="ion-text-center">
-                      <p class="textTitleAdd">Adicionar Cliente</p>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Nome" formControlName="nome" name="nome" type="text"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Sobrenome" formControlName="sobrenome" name="sobrenome" type="text"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Email" formControlName="email" name="email" type="text"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Data de Nascimento" formControlName="DataNasc" name="DataNasc"
-                          type="date" label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col>
-                      <ion-select class="inputAdd" label="Sexo" #input ngModel formControlName="sexo" name="sexo" label-placement="floating">
-                        <ion-select-option value="Masculino">Masculino</ion-select-option>
-                        <ion-select-option value="Feminino">Feminino</ion-select-option>
-                        <ion-select-option value="Prefiro não dizer">Prefiro não dizer</ion-select-option>
-                      </ion-select>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Altura" formControlName="altura" name="altura" type="number"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="Peso" formControlName="peso" name="peso" type="number"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd">
-                        <ion-input class="inputAdd" #input ngModel label="CPF" formControlName="cpf" name="cpf" type="text"
-                          label-placement="floating"></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col>
-                      <ion-select class="inputAdd" label="Planos" #input ngModel formControlName="FK_Planos_codigo" name="FK_Planos_codigo" label-placement="floating">
-                        <ion-select-option value="1">Plano A</ion-select-option>
-                        <ion-select-option value="2">Plano B</ion-select-option>
-                        <ion-select-option value="3">Plano C</ion-select-option>
-                      </ion-select>
-                    </ion-col>
-                  </ion-row>
-
-                  <ion-row class="rowAdd__form">
-                    <ion-col>
-                      <ion-item class="itemAdd" lines="none">
-                        <ion-button class="btnAdd" color="dark" slot="end" type="submit">Inserir</ion-button>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-                </form>
-              </ion-col>
-            </ion-row>
-          </ng-container>
-
-          <ng-container *ngIf="conteudo === 'gereCliente'">
-
-            <ion-row class="ion-justify-content-center ion-align-items-center">
-              <ion-col size="8">
-                <ion-row>
-                  <ion-col size="12">
-                    <ion-searchbar class="item" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()"
-                      show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
-                  </ion-col>
-                </ion-row>
-              </ion-col>
-            </ion-row> -->
-            <!-- Listar Todos os Funcionários -->
-            <!-- <ion-row class="ion-justify-content-center row">
-              <ion-col size="12">
-                <ion-row class="ion-justify-content-center">
-                  <ion-col size="12">
-                    <ion-list class="list">
-                      <ion-item class="item">
-                        <ion-label>Código</ion-label>
-                        <ion-label>Email</ion-label>
-                        <ion-label>Nome</ion-label>
-                        <ion-label>Sobrenome</ion-label>
-                        <ion-label>Sexo</ion-label>
-                        <ion-label>Altura (cm)</ion-label>
-                        <ion-label>peso (kg)</ion-label>
-                        <ion-label>Data de Nascimento</ion-label>
-                        <ion-label>CPF</ion-label>
-                        <ion-label>Código do Plano</ion-label>
-                      </ion-item>
-                      <ng-container *ngFor="let cliente of this.clientes">
-                        <ion-item class="ion-text-center item">
-                          <ion-label>{{ cliente.codigo }}</ion-label>
-                          <ion-label>{{ cliente.email }}</ion-label>
-                          <ion-label>{{ cliente.nome }}</ion-label>
-                          <ion-label>{{ cliente.sobrenome }}</ion-label>
-                          <ion-label>{{ cliente.sexo }}</ion-label>
-                          <ion-label>{{ cliente.altura }}</ion-label>
-                          <ion-label>{{ cliente.peso }}</ion-label>
-                          <ion-label>{{ cliente.dataNasc }}</ion-label>
-                          <ion-label>{{ cliente.cpf }}</ion-label>
-                          <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
-                          <ion-button
-                            (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.dataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
-                              name="pencil-outline"></ion-icon></ion-button>
-                          <ion-button color="danger" (click)="removerCliente(cliente.codigo)"><ion-icon
-                              name="trash-outline"></ion-icon></ion-button> --> 
-
-                          <!-- Modal Para Atualizar -->
-                          <!-- <ion-modal [isOpen]="isAtualizarOpen">
-                            <ng-template>
-                              <ion-toolbar>
-                                <ion-label class="ion-padding-start">ATUALIZAR FUNCIONÁRIO</ion-label>
-                                <ion-buttons slot="end">
-                                  <ion-button
-                                    (click)="modalUpdate(false, '', '', '', '', '', '', '', '', '', '')">X</ion-button>
-                                </ion-buttons>
-                              </ion-toolbar>
-                              <ion-content class="ion-padding">
-                                <ion-row class="ion-justify-content-center">
-                                  <ion-col class="ion-text-align-center" size="12"> -->
-
-                                    <!-- Formulário -->
-                                    <!-- <form (submit)="atualizarCliente(formatualizarCliente.value)"
-                                      #formatualizarCliente="ngForm">
-                                      <ion-row>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.nome"
-                                              label="Nome" name="nome" type="text"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.sobrenome"
-                                              label="Sobrenome" value="sobrenome" name="sobrenome" type="text"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                      </ion-row>
-                                      <ion-row>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cargo"
-                                              label="Cargo" value="cargo" name="cargo" type="text"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                      </ion-row>
-                                      <ion-row>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.dataNasc"
-                                              label="Data de Nascimento" value="dataNasc" name="dataNasc" type="date"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cidade"
-                                              label="Cidade" value="cidade" name="cidade" type="text"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                      </ion-row>
-                                      <ion-row>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.endereco"
-                                              label="Endereço" value="endereco" name="endereco" type="text"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.cep"
-                                              label="CEP" value="cep" name="cep" type="number"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                      </ion-row>
-                                      <ion-row>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.pais"
-                                              label="País" value="pais" name="pais" type="text"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.telefone"
-                                              label="Telefone" value="telefone" name="fone" type="tel"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                      </ion-row>
-                                      <ion-row>
-                                        <ion-col>
-                                          <ion-item>
-                                            <ion-input #input ngModel [(ngModel)]="this.guardarInfosUsuario.salario"
-                                              label="Salário" value="salario" name="salario" type="number"
-                                              label-placement="floating"></ion-input>
-                                          </ion-item>
-                                        </ion-col>
-                                      </ion-row>
-                                      <ion-row class="ion-justify-content-end">
-                                        <ion-col size="3">
-                                          <ion-button color="dark" type="submit">Atualizar</ion-button>
-                                        </ion-col>
-                                      </ion-row>
-                                    </form> -->
-
-                                  <!-- </ion-col>
-                                </ion-row>
-                              </ion-content>
-                            </ng-template>
-                          </ion-modal>
-                        </ion-item>
-                      </ng-container>
-                    </ion-list>
-                  </ion-col>
-                </ion-row>
-
-              </ion-col>
-            </ion-row>
-          </ng-container>
-
-        </ion-col>
-      </ion-row>
-
-    </ion-col>
-  </ion-row> -->
 </ion-content>

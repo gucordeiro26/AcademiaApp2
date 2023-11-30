@@ -14,8 +14,8 @@
 }
 
 ion-content {
-    // --background: linear-gradient(120deg, #9ce1ff , #9ae1ff);
-    --background: linear-gradient(120deg, #f6f6f8 , #dbdbdb);
+    --background: linear-gradient(120deg, #67d1ff , #9ae1ff);
+    // --background: linear-gradient(120deg, #f6f6f8 , #dbdbdb);
     // --background: #fff;
 }
 
@@ -140,7 +140,21 @@ ion-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 80%;
+    border: 2px solid;
+    box-shadow: 10px 10px 0 black;
+    background: white;
+    position: relative;
+    top: 5vh;
+
+    .title{
+        margin: 3vh 0;
+        font-family: 'Oswald';
+        font-weight: bold;
+        font-size: 2vw;
+        text-transform: uppercase;
+        text-align: center;
+    }
 
     .conteudo__cardExercicio {
         width: 222px;
@@ -162,34 +176,91 @@ ion-content {
 
     .conteudo__card__peito {
         --background: url('../../assets/images/academia.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
     }
 
     .conteudo__card__costas {
         --background: url('../../assets/images/academia2.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+
+            transition: all .3s;
+        }
     }
 
     .conteudo__card__ombro {
         --background: url('../../assets/images/academia3.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
     }
 
     .conteudo__card__perna {
         --background: url('../../assets/images/academia4.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+            transition: all .3s;
+        }
     }
 
     .conteudo__card__abdomen {
         --background: url('../../assets/images/academia5.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
     }
 
     .conteudo__card__biceps {
         --background: url('../../assets/images/academia6.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+            transition: all .3s;
+        }
     }
 
     .conteudo__card__tricepes {
         --background: url('../../assets/images/academia7.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
     }
 
     .conteudo__card__cardio {
         --background: url('../../assets/images/academia8.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+            transition: all .3s;
+        }
     }
 
     // Modal

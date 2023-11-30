@@ -64,7 +64,7 @@
             <ion-col size="12" class="activated-btn__GerenCliente">
               <ion-row>
                 <ion-col size="3" class="sideCol__column">
-                  <ion-icon class="activated-btn-icon__GerenCliente" name="newspaper-outline"></ion-icon>
+                  <ion-icon class="activated-btn-icon__GerenCliente" name="barbell-outline"></ion-icon>
                 </ion-col>
                 <ion-col size="9" class="sideCol__column">
                   <ion-text class="sideCol-activated-btn__text">Treino</ion-text>
@@ -92,9 +92,14 @@
     </ion-col>
 
     <!-- Conteúdo -->
-    <ion-col size="9.5">
-      <ion-row>
-        <ion-col class="conteudo">
+    <ion-col size="10">
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-col size="10" class="conteudo">
+          <ion-row>
+            <ion-col>
+              <ion-title class="title">FICHA DE TREINO</ion-title>
+            </ion-col>
+          </ion-row>
           <ion-row>
             <ion-col class="conteudo__col" size="3">
               <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__peito">
@@ -104,21 +109,21 @@
               </ion-card>
             </ion-col>
             <ion-col class="conteudo__col" size="3">
-              <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__costas">
+              <ion-card (click)="setOpenCostas(true)" class="conteudo__cardExercicio conteudo__card__costas">
                 <ion-card-content>
                   <ion-label class="conteudo__text">Costas</ion-label>
                 </ion-card-content>
               </ion-card>
             </ion-col>
             <ion-col class="conteudo__col" size="3">
-              <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__ombro">
+              <ion-card (click)="setOpenOmbro(true)" class="conteudo__cardExercicio conteudo__card__ombro">
                 <ion-card-content>
                   <ion-label class="conteudo__text">Ombro</ion-label>
                 </ion-card-content>
               </ion-card>
             </ion-col>
             <ion-col class="conteudo__col" size="3">
-              <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__perna">
+              <ion-card (click)="setOpenPerna(true)" class="conteudo__cardExercicio conteudo__card__perna">
                 <ion-card-content>
                   <ion-label class="conteudo__text">Perna</ion-label>
                 </ion-card-content>
@@ -127,28 +132,28 @@
           </ion-row>
           <ion-row>
             <ion-col class="conteudo__col" size="3">
-              <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__abdomen">
+              <ion-card (click)="setOpenAbdomen(true)" class="conteudo__cardExercicio conteudo__card__abdomen">
                 <ion-card-content>
                   <ion-label class="conteudo__text">Abdômen</ion-label>
                 </ion-card-content>
               </ion-card>
             </ion-col>
             <ion-col class="conteudo__col" size="3">
-              <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__biceps">
+              <ion-card (click)="setOpenBiceps(true)" class="conteudo__cardExercicio conteudo__card__biceps">
                 <ion-card-content>
                   <ion-label class="conteudo__text">Bícepes</ion-label>
                 </ion-card-content>
               </ion-card>
             </ion-col>
             <ion-col class="conteudo__col" size="3">
-              <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__tricepes">
+              <ion-card (click)="setOpenTriceps(true)" class="conteudo__cardExercicio conteudo__card__tricepes">
                 <ion-card-content>
                   <ion-label class="conteudo__text">Tríceps</ion-label>
                 </ion-card-content>
               </ion-card>
             </ion-col>
             <ion-col class="conteudo__col" size="3">
-              <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__cardio">
+              <ion-card (click)="setOpenCardio(true)" class="conteudo__cardExercicio conteudo__card__cardio">
                 <ion-card-content>
                   <ion-label class="conteudo__text">Cardio</ion-label>
                 </ion-card-content>
@@ -178,7 +183,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosPeito">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
@@ -216,7 +221,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosCostas">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
@@ -254,7 +259,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosBiceps">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
@@ -292,7 +297,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosTriceps">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
@@ -330,7 +335,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosOmbros">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
@@ -368,7 +373,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosPernas">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
@@ -406,7 +411,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosAbdomen">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
@@ -444,7 +449,7 @@
                               <ion-label>Código</ion-label>
                               <ion-label>Nome</ion-label>
                             </ion-item>
-                            <ng-container *ngFor="let exercicio of this.exercicios">
+                            <ng-container *ngFor="let exercicio of this.exerciciosCardio">
                               <ion-item class="conteudo__itemModalExe ion-text-center">
                                 <ion-label>{{ exercicio.codigo }}</ion-label>
                                 <ion-label>{{ exercicio.nome }}</ion-label>
