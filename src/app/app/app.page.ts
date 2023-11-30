@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { DataService } from '../data.service';
-import { log } from 'console';
-
 
 @Component({
   selector: 'app-app',

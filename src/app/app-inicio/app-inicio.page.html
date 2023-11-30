@@ -9,7 +9,9 @@
   <ion-row class="ion-justify-content-center">
     <ion-col size="2.5">
       <ion-thumbnail class="perfil">
-        <img src="../../assets/images/bicepsApp.png" />
+        <ng-container *ngFor="let fotoPerfil of this.fotoPerfil">
+          <img [src]="fotoPerfil.fotoPerfil" alt="Foto de Perfil do cliente">
+        </ng-container>
       </ion-thumbnail>
     </ion-col>
   </ion-row>

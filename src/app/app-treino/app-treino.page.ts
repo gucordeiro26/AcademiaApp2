@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-app-treino',
@@ -10,26 +11,91 @@ export class AppTreinoPage {
   dadosTreino: any = null;
   dadosEmail: any;
   exercicios: any[] = [];
+  fichaDeTreino: any[] = [];
+  dadosId: any;
+  serverMessage: string = '';
 
-  constructor(private dataService: DataService) {
-    this.dadosEmail = this.dataService.getDadosEmail()
-    this.dadosTreino = this.dataService.getDadosTreino()
-    
+  constructor(private dataService: DataService, private toastController: ToastController) {
+    this.dadosEmail = this.dataService.getDadosEmail();
+    this.dadosTreino = this.dataService.getDadosTreino();
+    this.dadosId = this.dataService.getDadosId();
 
-      this.dadosTreino === 'Peito' ? this.listarExerciciosPeito() :
-        this.dadosTreino === 'Costas' ? this.listarExerciciosCostas() :
-          this.dadosTreino === 'Biceps' ? this.listarExerciciosBiceps() :
-            this.dadosTreino === 'Triceps' ? this.listarExerciciosTriceps() :
-              this.dadosTreino === 'Pernas' ? this.listarExerciciosPernas() :
-                this.dadosTreino === 'Ombro' ? this.listarExerciciosOmbros() :
-                  this.dadosTreino === 'Abdomen' ? this.listarExerciciosAbdomen() : this.listarExerciciosCardio()
+    this.listarFichaDeTreino();
+
+
+    this.dadosTreino === 'Peito' ? this.listarExerciciosPeito() :
+      this.dadosTreino === 'Costas' ? this.listarExerciciosCostas() :
+        this.dadosTreino === 'Biceps' ? this.listarExerciciosBiceps() :
+          this.dadosTreino === 'Triceps' ? this.listarExerciciosTriceps() :
+            this.dadosTreino === 'Pernas' ? this.listarExerciciosPernas() :
+              this.dadosTreino === 'Ombro' ? this.listarExerciciosOmbros() :
+                this.dadosTreino === 'Abdomen' ? this.listarExerciciosAbdomen() : this.listarExerciciosCardio()
   }
 
-  //Funcoes front
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2500, // duração em milissegundos
+      position: 'bottom', // posição do toast ('top', 'bottom', 'middle')
+      color: 'medium', // cor do toast
+    });
+    toast.present();
+  }
 
+  listarFichaDeTreino() {
+
+    const codigo = this.dadosId;
+    console.log(codigo);
+
+    fetch('http://localhost/AcademiaAPP/fichaDeTreino/selectFicha.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(codigo),
+    })
+      .then((response) => response.json())
+      .then((response)=>{
+        console.log(response)
+        this.fichaDeTreino = response['fichaDeTreino'];
+      })
+      .catch((_)=>{
+        console.log(_)
+      })
+      .finally(()=>{})
+  }
+
+  removerExerFicha(codigo: any) {
+    
+    let serverMessage = '';
+    let codigoExer = { codigo: codigo };
+    fetch('http://localhost/academiaApp/fichaDeTreino/deleteFicha.php', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(codigoExer)
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+
+        if (response['mensagem']) {
+          this.presentToast(response['mensagem']);
+        }
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.listarFichaDeTreino();
+        this.serverMessage = serverMessage;
+      })
+  }
 
   //Funcoes back
   isLoading: boolean = false;
+  
   listarExercicios() {
     this.isLoading = true;
     // Configura o objeto de exercicios para enviar na solicitação POST

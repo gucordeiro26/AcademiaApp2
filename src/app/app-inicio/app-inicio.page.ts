@@ -22,13 +22,12 @@ export class AppInicioPage implements OnInit {
     this.dadosId = this.dataService.getDadosId()
     console.log(this.dadosId);
 
+    this.listarFichaDeTreino();
 
     // if (!localStorage.getItem('dados')) {
     //   this.router.navigate(['/app']);
     // }
 
-
-    
     const tmp_dados = localStorage.getItem('dados');
 
     if (tmp_dados !== null) {
@@ -41,10 +40,12 @@ export class AppInicioPage implements OnInit {
     this.getDataCliente();
   }
 
-  dadosEmail: any
-  dadosId: any
-  email: string = ''
-  clienteData: any[] = []
+  dadosEmail: any;
+  dadosId: any;
+  email: string = '';
+  fotoPerfil: any;
+  clienteData: any[] = [];
+  fichaDeTreino: any[] = [];
 
   ngOnInit() {
   }
@@ -52,6 +53,54 @@ export class AppInicioPage implements OnInit {
   passarInformacao(dadosTreino: string) {
     this.dataService.setDadosTreino(dadosTreino);
     this.router.navigate(['/app-treino'])
+  }
+
+  inserirFotoPerfil(dados: any) {
+
+    const infos = {
+      codigo: this.dadosId,
+      fotoPerfil: dados
+    };
+
+    fetch('http://localhost/AcademiaAPP/clientes/insert/inserirFotoPerfil.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(infos),
+    })
+      .then((response) => response.json())
+      .then((response)=>{
+        console.log(response)
+        this.fotoPerfil = response['fotoPerfil'];
+      })
+      .catch((_)=>{
+        console.log(_)
+      })
+      .finally(()=>{})
+  }
+
+  listarFichaDeTreino() {
+
+    const codigo = this.dadosId;
+    console.log(codigo);
+
+    fetch('http://localhost/AcademiaAPP/fichaDeTreino/selectFicha.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(codigo),
+    })
+      .then((response) => response.json())
+      .then((response)=>{
+        console.log(response)
+        this.fichaDeTreino = response['fichaDeTreino'];
+      })
+      .catch((_)=>{
+        console.log(_)
+      })
+      .finally(()=>{})
   }
 
   getDataCliente(){
