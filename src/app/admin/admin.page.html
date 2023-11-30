@@ -13,7 +13,7 @@
             </ion-col> -->
 
             <ion-col size="12" class="sideCol__column">
-                  <ion-text class="sideCol__textLogo">Gereciamento de Clientes</ion-text>
+              <ion-text class="sideCol__textLogo">Gereciamento de Clientes</ion-text>
             </ion-col>
           </ion-row>
 
@@ -110,7 +110,9 @@
                       <ion-card-content>
                         <ion-row>
                           <ion-col size="9">
-                            <ion-text>12.00k</ion-text>
+                            <ng-container *ngFor="let countClient of this.clientes">
+                              <ion-text>{{ countClient.clientes }}</ion-text>
+                            </ng-container>
                           </ion-col>
                           <ion-col size="3">
                             <ion-icon name="people-outline"></ion-icon>
@@ -127,7 +129,9 @@
                       <ion-card-content>
                         <ion-row>
                           <ion-col size="9">
-                            <ion-text>150</ion-text>
+                            <ng-container *ngFor="let countExercicios of this.exerciciosCount">
+                              <ion-text>{{ countExercicios.exercicios }}</ion-text>
+                            </ng-container>
                           </ion-col>
                           <ion-col size="3">
                             <ion-icon name="barbell-outline"></ion-icon>
@@ -144,7 +148,9 @@
                       <ion-card-content>
                         <ion-row>
                           <ion-col size="9">
-                            <ion-text>150</ion-text>
+                            <ng-container *ngFor="let countPlanos of this.planos">
+                              <ion-text>{{ countPlanos.planos }}</ion-text>
+                            </ng-container>
                           </ion-col>
                           <ion-col size="3">
                             <ion-icon name="layers-outline"></ion-icon>
@@ -167,10 +173,17 @@
                 <ion-card-content>
                   <ion-list>
                     <ion-item>
-                      <ion-label>Código</ion-label>
                       <ion-label>Nome</ion-label>
-                      <ion-label>Sobrenome</ion-label>
+                      <ion-label>SObrenome</ion-label>
+                      <ion-label>Plano Assinado</ion-label>
                     </ion-item>
+                    <ng-container *ngFor="let colunas3clientes of this.clientes3colunas">
+                      <ion-item>
+                        <ion-label>{{ colunas3clientes.nome }}</ion-label>
+                        <ion-label>{{ colunas3clientes.sobrenome }}</ion-label>
+                        <ion-label>{{ colunas3clientes.FK_Planos_codigo }}</ion-label>
+                      </ion-item>
+                    </ng-container>
                   </ion-list>
                 </ion-card-content>
               </ion-card>
@@ -189,6 +202,13 @@
                           <ion-label>Nome</ion-label>
                           <ion-label>Preço</ion-label>
                         </ion-item>
+                        <ng-container *ngFor="let colunas3planos of this.planos3colunas">
+                          <ion-item>
+                            <ion-label>{{ colunas3planos.codigo }}</ion-label>
+                            <ion-label>{{ colunas3planos.nome }}</ion-label>
+                            <ion-label>{{ colunas3planos.preco }}</ion-label>
+                          </ion-item>
+                        </ng-container>
                       </ion-list>
                     </ion-card-content>
                   </ion-card>
@@ -205,8 +225,15 @@
                         <ion-item>
                           <ion-label>Código</ion-label>
                           <ion-label>Nome</ion-label>
-                          <ion-label>Categoria</ion-label>
+                          <ion-label>Preço</ion-label>
                         </ion-item>
+                        <ng-container *ngFor="let colunas3planos of this.planos3colunas">
+                          <ion-item>
+                            <ion-label>{{ colunas3planos.codigo }}</ion-label>
+                            <ion-label>{{ colunas3planos.nome }}</ion-label>
+                            <ion-label>{{ colunas3planos.preco }}</ion-label>
+                          </ion-item>
+                        </ng-container>
                       </ion-list>
                     </ion-card-content>
                   </ion-card>

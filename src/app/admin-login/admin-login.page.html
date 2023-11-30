@@ -32,6 +32,8 @@
             </ion-row>
 
           </form>
+
+          <ion-toast *ngIf="serverMessage">{{ serverMessage }}</ion-toast>
         </ion-card-content>
       </ion-card>
     </ion-col>

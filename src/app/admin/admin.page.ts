@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Chart } from 'chart.js';
 
@@ -15,6 +15,11 @@ export class AdminPage {
 
   constructor(private formBuilder: FormBuilder) {
     this.listarClientes();
+    this.listarCountClientes();
+    this.listarCountExercicios();
+    this.listarCountPlanos();
+    this.listarColunasClientes();
+    this.listarColunasPlanos();
     this.listarExercicios();
     this.formInserir = this.formBuilder.group({
       codigo: '',
@@ -166,6 +171,10 @@ export class AdminPage {
   };
 
   clientes: any[] = [];
+  exerciciosCount: any[] = [];
+  planos: any[] = [];
+  clientes3colunas: any[] = [];
+  planos3colunas: any[] = [];
 
   formDados: any = {
     codigo: '',
@@ -201,6 +210,108 @@ export class AdminPage {
       .then(response => response.json())
       .then(response => {
         this.clientes = response['clientes'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+  }
+
+  listarCountClientes() {
+    
+    fetch('http://localhost/AcademiaAPP/clientes/select/selectCountClientes.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.clientes = response['clientes'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+  }
+
+  listarCountExercicios() {
+    
+    fetch('http://localhost/AcademiaAPP/exercicios/selectCountExercicios.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.exerciciosCount = response['exercicios'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+  }
+
+  listarCountPlanos() {
+    
+    fetch('http://localhost/AcademiaAPP/planos/selectCountPlanos.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.planos = response['planos'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+  }
+
+
+
+  listarColunasClientes() {
+    
+    fetch('http://localhost/AcademiaAPP/clientes/select/selectNomeSobrenomeFK.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.clientes3colunas = response['clientes3colunas'];
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      })
+  }
+
+  listarColunasPlanos() {
+    
+    fetch('http://localhost/AcademiaAPP/planos/selectCodigoNomePreco.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.planos3colunas = response['planos3colunas'];
       })
       .catch(erro => {
         console.log(erro);
