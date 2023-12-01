@@ -92,11 +92,111 @@
     </ion-col>
 
     <!-- Conteúdo -->
+<<<<<<< HEAD
     <ion-col>
       <ion-row class="ion-justify-content-end">
         <ion-col size="10">
           <ion-row class="container">
             <ion-col class="content" size="12">
+=======
+    <ion-col size="10">
+      <ion-row class="container">
+        <ion-col class="content" size="12">
+          <ion-row>
+            <ion-card class="adminDashboard__card">
+              <ion-card-header>
+                <ion-card-title class="adminDashboard__card-title">Admin Dashboard</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col>
+                    <ion-card class="subcard clienteNumber__card">
+                      <ion-card-header>
+                        <ion-card-title class="adminDashboard__card-subtitle">Clientes</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col size="9">
+                            <ng-container *ngFor="let countClient of this.clientes">
+                              <ion-text>{{ countClient.clientes }}</ion-text>
+                            </ng-container>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-icon name="people-outline"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                  <ion-col>
+                    <ion-card class="subcard exerNumber__card">
+                      <ion-card-header>
+                        <ion-card-title class="adminDashboard__card-subtitle">Exercícios</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col size="9">
+                            <ng-container *ngFor="let countExercicios of this.exerciciosCount">
+                              <ion-text>{{ countExercicios.exercicios }}</ion-text>
+                            </ng-container>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-icon name="barbell-outline"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                  <ion-col>
+                    <ion-card class="subcard planosNumber__card">
+                      <ion-card-header>
+                        <ion-card-title class="adminDashboard__card-subtitle">Planos</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col size="9">
+                            <ng-container *ngFor="let countPlanos of this.planos">
+                              <ion-text>{{ countPlanos.planos }}</ion-text>
+                            </ng-container>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-icon name="layers-outline"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="8">
+              <ion-card class="dashboard__lists">
+                <ion-card-header>
+                  <ion-card-title class="dashboard__lists-title">Lista de Clientes</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-label>Nome</ion-label>
+                      <ion-label>Sobrenome</ion-label>
+                      <ion-label>Plano Assinado</ion-label>
+                    </ion-item>
+                    <ng-container *ngFor="let colunas3clientes of this.clientes3colunas">
+                      <ion-item>
+                        <ion-label>{{ colunas3clientes.nome }}</ion-label>
+                        <ion-label>{{ colunas3clientes.sobrenome }}</ion-label>
+                        <ion-label>{{ colunas3clientes.FK_Planos_codigo }}</ion-label>
+                      </ion-item>
+                    </ng-container>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            <ion-col size="4">
+>>>>>>> 9c6f44e437ae584ed6cb2598ca2f23ca3be930de
               <ion-row>
                 <ion-card class="adminDashboard__card">
                   <ion-card-header>

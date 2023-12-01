@@ -131,7 +131,11 @@
                     <ion-label>{{ cliente.DataNasc }}</ion-label>
                     <ion-label>{{ cliente.cpf }}</ion-label>
                     <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
+<<<<<<< HEAD
                     <ion-button class="options__list" color="tertiary" (click)="modalAddFicha(true)"><ion-icon
+=======
+                    <ion-button color="tertiary" (click)="modalAddFicha(true, cliente.codigo)"><ion-icon
+>>>>>>> 9c6f44e437ae584ed6cb2598ca2f23ca3be930de
                         name="barbell-outline"></ion-icon></ion-button>
                     <ion-button
                       (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.DataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
@@ -146,7 +150,7 @@
                         <ion-toolbar>
                           <ion-label class="ion-padding-start">Ficha de Treino</ion-label>
                           <ion-buttons slot="end">
-                            <ion-button (click)="modalAddFicha(false)">X</ion-button>
+                            <ion-button (click)="modalAddFicha(false, cliente.codigo)">X</ion-button>
                           </ion-buttons>
                         </ion-toolbar>
                         <ion-content>
@@ -157,8 +161,10 @@
                                 <ion-label class="modalFicha__text">Peito</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -169,7 +175,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios5">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -179,8 +187,10 @@
                                 <ion-label class="ion-padding-start">Bíceps</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios3">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -193,8 +203,10 @@
                                 <ion-label class="ion-padding-start">Tríceps</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios4">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -204,8 +216,10 @@
                                 <ion-label class="ion-text-center">Costas</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios2">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -216,7 +230,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios7">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -230,7 +246,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios6">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -241,7 +259,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios8">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
