@@ -106,7 +106,7 @@
           <ion-row class="list__bg">
             <ion-col size="12">
               <ion-list class="list">
-                <ion-item class="item">
+                <ion-item class="item header__item">
                   <ion-label>Código</ion-label>
                   <ion-label>Email</ion-label>
                   <ion-label>Nome</ion-label>
@@ -131,12 +131,12 @@
                     <ion-label>{{ cliente.DataNasc }}</ion-label>
                     <ion-label>{{ cliente.cpf }}</ion-label>
                     <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
-                    <ion-button color="tertiary" (click)="modalAddFicha(true)"><ion-icon
+                    <ion-button color="tertiary" (click)="modalAddFicha(true, cliente.codigo)"><ion-icon
                         name="barbell-outline"></ion-icon></ion-button>
                     <ion-button
                       (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.DataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
                         name="pencil-outline"></ion-icon></ion-button>
-                    <ion-button color="danger" (click)="modalRemover(true)"><ion-icon
+                    <ion-button id="modalRemover" color="danger" (click)="modalRemover(true, cliente.codigo)"><ion-icon
                         name="trash-outline"></ion-icon></ion-button>
 
 
@@ -146,7 +146,7 @@
                         <ion-toolbar>
                           <ion-label class="ion-padding-start">Ficha de Treino</ion-label>
                           <ion-buttons slot="end">
-                            <ion-button (click)="modalAddFicha(false)">X</ion-button>
+                            <ion-button (click)="modalAddFicha(false, cliente.codigo)">X</ion-button>
                           </ion-buttons>
                         </ion-toolbar>
                         <ion-content>
@@ -157,8 +157,10 @@
                                 <ion-label class="modalFicha__text">Peito</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -169,7 +171,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios5">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -179,8 +183,10 @@
                                 <ion-label class="ion-padding-start">Bíceps</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios3">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -193,8 +199,10 @@
                                 <ion-label class="ion-padding-start">Tríceps</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios4">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -204,8 +212,10 @@
                                 <ion-label class="ion-text-center">Costas</ion-label>
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios2">
-                                    <ion-item class="item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                    <ion-item class="item item__exercicio">
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -216,7 +226,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios7">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -230,7 +242,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios6">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -241,7 +255,9 @@
                                 <ion-list class="conteudo__list">
                                   <ng-container *ngFor="let exercicio of this.exercicios8">
                                     <ion-item class="item item__exercicio">
-                                      <ion-checkbox>{{ exercicio.nome }}</ion-checkbox>
+                                      <ion-input [(ngModel)]="exercicio.series" name="series" type="text" placeholder="Series"></ion-input>
+                                      <ion-input [(ngModel)]="exercicio.descricao" name="descricao" type="text" placeholder="Descricao"></ion-input>
+                                      <ion-checkbox (ionChange)="verificarCheck(exercicio.codigo, exercicio, $event)" [value]="exercicio.codigo">{{ exercicio.nome }}</ion-checkbox>
                                     </ion-item>
                                   </ng-container>
                                 </ion-list>
@@ -358,10 +374,14 @@
                     </ion-modal>
 
                     <!-- Modal para Remover Cliente -->
-                    <ion-modal class="modalRemover" [isOpen]="isRemoverOpen">
+                    <ion-alert trigger="modalRemover" header="Quer mesmo excluir esse cliente?" [buttons]="alertButtons" (didDismiss)="setResult($event)"></ion-alert>
+
+
+
+                    <!-- <ion-modal class="modalRemover" [isOpen]="isRemoverOpen">
                       <ng-template>
                         <ion-content class="ion-padding">
-                            <!-- <ion-button (click)="modalRemover(false)">X</ion-button> -->
+                             <ion-button (click)="modalRemover(false)">X</ion-button> 
                           <ion-row class="ion-justify-content-center">
                             <ion-col class="ion-text-align-center" size="12">
                               <ion-row>
@@ -379,7 +399,7 @@
                           </ion-row>
                         </ion-content>
                       </ng-template>
-                    </ion-modal>
+                    </ion-modal> -->
                   </ion-item>
                 </ng-container>
               </ion-list>

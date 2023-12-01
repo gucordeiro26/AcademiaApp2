@@ -1,5 +1,5 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-list',
@@ -18,7 +18,15 @@ export class AdminListPage {
     this.listarExerciciosBiceps();
     this.listarExerciciosTriceps();
     this.listarExerciciosOmbros();
+
+
   }
+
+  // Animação de numero aleatorio no Dashboard
+
+
+
+
 
   guardarInfosUsuario: any = {
     codigo: '',
@@ -36,6 +44,7 @@ export class AdminListPage {
 
   buscarTermo: any;
   clientes: any[] = [];
+  codigoCliente: any;
   exercicios: any[] = [];
   exercicios2: any[] = [];
   exercicios3: any[] = [];
@@ -45,6 +54,71 @@ export class AdminListPage {
   exercicios7: any[] = [];
   exercicios8: any[] = [];
 
+
+  // Adicionar Ficha de treino
+  verificarCheck(id: number, dados: any, event: any) {
+    const infos = {
+      codigoExercicio: id,
+      codigoCliente: this.codigoCliente,
+      series: dados.series,
+      descricao: dados.descricao
+    }
+    console.log(infos)
+    if (event.detail.checked) {
+      if (infos.codigoExercicio && infos.codigoCliente && infos.descricao && infos.series) {
+        fetch('http://localhost/AcademiaApp/fichaDeTreino/inserirFicha.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(infos),
+        })
+          .then(response => response.json())
+          .then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+          .finally(() => {
+
+          })
+      }
+    } else {
+    }
+  }
+
+  // mandarDadosFicha(dados: any) {
+  //   const infos = {
+  //     dadosFicha: this.acmExercicios,
+  //     codigoCliente: this.codigoCliente,
+  //     infoFicha: [
+  //       [series: dados.series,],
+  //       [descricao: dados.descricao]
+  //     ]
+  //   }
+  //   console.log(infos)
+
+  //   fetch('http://localhost/AcademiaApp/fichaDeTreino/inserirFicha.php',{
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(infos),
+  //   })
+  //   .then(response => response.json())
+  //   .then(response => {
+  //     console.log(response)
+  //   })
+  //   .catch(error => {
+  //     console.log(error)
+  //   })
+  //   .finally(() => {
+  //     this.acmExercicios = [];
+  //   })
+  // }
+
+  // Lista Clientes
   listarClientes() {
     // Configura o objeto de funcionário para enviar na solicitação POST
     let cliente = { codigo: '123' };
@@ -91,21 +165,45 @@ export class AdminListPage {
 
   // Function para abrir e fechar modal de Remover Cliente
   isRemoverOpen = false
-  modalRemover(isOpen: boolean) {
+  modalRemover(isOpen: boolean, codigo: any) {
     this.isRemoverOpen = isOpen;
+    this.codigoCliente = codigo
+  }
+
+  public alertButtons = [
+    {
+      text: 'Cancelar',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'Quero',
+      role: 'confirm',
+      handler: () => {
+        console.log('Excluido com Sucesso!');
+      },
+    },
+  ];
+
+  setResult(ev: any) {
+    console.log(`Dismissed with role: ${ev.detail.role}`);
   }
 
 
   // Função para abrir o modal de adicionar a ficha de treino
   isAddFichaOpen = false;
-  modalAddFicha(isOpen: boolean) {
+  modalAddFicha(isOpen: boolean, codigo: any) {
     this.isAddFichaOpen = isOpen;
+    this.codigoCliente = codigo;
   }
 
   // Função para abrir o modal de atualização
   isAtualizarOpen = false;
   modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, sexo: string, altura: string, peso: string, DataNasc: string, cpf: string, FK_Planos_codigo: string) {
     this.isAtualizarOpen = isOpen;
+    this.codigoCliente = codigo
 
     // Armazena informações do funcionário para atualização
     this.guardarInfosUsuario.codigo = codigo;
@@ -403,5 +501,5 @@ export class AdminListPage {
       });
 
   }
-}
+}import { ModalController } from '@ionic/angular';
 

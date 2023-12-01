@@ -162,17 +162,37 @@ ion-content {
             padding-bottom: 2.5vh;
         }
 
+        ion-searchbar{
+            --box-shadow: none;
+            border-radius: 10px;
+            padding: 2.5px;
+            border: 1px solid #c7c7c7;
+        }
+
         .list__bg{
-
             .list{
+                overflow-y: scroll;
+                height: 65vh;
+                .item{
+                    border: 1px solid #c7c7c7;
+                    border-radius: 10px;
+                    margin: .5vw;
+                    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
 
-                ng-container{
+                    .options__list{
+                        border-left: 1px solid #c7c7c7;
+                        padding-left: 1.2vw;
+                    }
+                }
 
-                    ion-item{
+                .header__item{
+                    border: none;
+                    --border-style: none;
+                    margin: 0;
+                    box-shadow: none;
 
-                        .modalFicha{
-                            
-                        }
+                    ion-label{
+                        --color: #7c7c7c;
                     }
                 }
             }
