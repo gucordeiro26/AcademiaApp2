@@ -92,151 +92,156 @@
     </ion-col>
 
     <!-- Conteúdo -->
-    <ion-col size="10">
-      <ion-row class="container">
-        <ion-col class="content" size="12">
-          <ion-row>
-            <ion-card class="adminDashboard__card">
-              <ion-card-header>
-                <ion-card-title class="adminDashboard__card-title">Admin Dashboard</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col>
-                    <ion-card class="subcard clienteNumber__card">
-                      <ion-card-header>
-                        <ion-card-title class="adminDashboard__card-subtitle">Clientes</ion-card-title>
-                      </ion-card-header>
-                      <ion-card-content>
-                        <ion-row>
-                          <ion-col size="9">
-                            <ng-container *ngFor="let countClient of this.clientes">
-                              <ion-text>{{ countClient.clientes }}</ion-text>
-                            </ng-container>
-                          </ion-col>
-                          <ion-col size="3">
-                            <ion-icon name="people-outline"></ion-icon>
-                          </ion-col>
-                        </ion-row>
-                      </ion-card-content>
-                    </ion-card>
-                  </ion-col>
-                  <ion-col>
-                    <ion-card class="subcard exerNumber__card">
-                      <ion-card-header>
-                        <ion-card-title class="adminDashboard__card-subtitle">Exercícios</ion-card-title>
-                      </ion-card-header>
-                      <ion-card-content>
-                        <ion-row>
-                          <ion-col size="9">
-                            <ng-container *ngFor="let countExercicios of this.exerciciosCount">
-                              <ion-text>{{ countExercicios.exercicios }}</ion-text>
-                            </ng-container>
-                          </ion-col>
-                          <ion-col size="3">
-                            <ion-icon name="barbell-outline"></ion-icon>
-                          </ion-col>
-                        </ion-row>
-                      </ion-card-content>
-                    </ion-card>
-                  </ion-col>
-                  <ion-col>
-                    <ion-card class="subcard planosNumber__card">
-                      <ion-card-header>
-                        <ion-card-title class="adminDashboard__card-subtitle">Planos</ion-card-title>
-                      </ion-card-header>
-                      <ion-card-content>
-                        <ion-row>
-                          <ion-col size="9">
-                            <ng-container *ngFor="let countPlanos of this.planos">
-                              <ion-text>{{ countPlanos.planos }}</ion-text>
-                            </ng-container>
-                          </ion-col>
-                          <ion-col size="3">
-                            <ion-icon name="layers-outline"></ion-icon>
-                          </ion-col>
-                        </ion-row>
-                      </ion-card-content>
-                    </ion-card>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </ion-row>
-
-          <ion-row>
-            <ion-col size="8">
-              <ion-card class="dashboard__lists">
-                <ion-card-header>
-                  <ion-card-title class="dashboard__lists-title">Lista de Clientes</ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                  <ion-list>
-                    <ion-item>
-                      <ion-label>Nome</ion-label>
-                      <ion-label>SObrenome</ion-label>
-                      <ion-label>Plano Assinado</ion-label>
-                    </ion-item>
-                    <ng-container *ngFor="let colunas3clientes of this.clientes3colunas">
-                      <ion-item>
-                        <ion-label>{{ colunas3clientes.nome }}</ion-label>
-                        <ion-label>{{ colunas3clientes.sobrenome }}</ion-label>
-                        <ion-label>{{ colunas3clientes.FK_Planos_codigo }}</ion-label>
-                      </ion-item>
-                    </ng-container>
-                  </ion-list>
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-            <ion-col size="4">
+    <ion-col>
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="10">
+          <ion-row class="container">
+            <ion-col class="content" size="12">
               <ion-row>
-                <ion-col size="12">
-                  <ion-card>
+                <ion-card class="adminDashboard__card">
+                  <ion-card-header>
+                    <ion-card-title class="adminDashboard__card-title">Admin Dashboard</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-row>
+                      <ion-col>
+                        <ion-card class="subcard clienteNumber__card">
+                          <ion-card-header>
+                            <ion-card-title class="adminDashboard__card-subtitle">Clientes</ion-card-title>
+                          </ion-card-header>
+                          <ion-card-content>
+                            <ion-row>
+                              <ion-col size="9">
+                                <ng-container *ngFor="let countClient of this.clientes">
+                                  <ion-text>{{ countClient.clientes }}</ion-text>
+                                </ng-container>
+                              </ion-col>
+                              <ion-col size="3">
+                                <ion-icon name="people-outline"></ion-icon>
+                              </ion-col>
+                            </ion-row>
+                          </ion-card-content>
+                        </ion-card>
+                      </ion-col>
+                      <ion-col>
+                        <ion-card class="subcard exerNumber__card">
+                          <ion-card-header>
+                            <ion-card-title class="adminDashboard__card-subtitle">Exercícios</ion-card-title>
+                          </ion-card-header>
+                          <ion-card-content>
+                            <ion-row>
+                              <ion-col size="9">
+                                <ng-container *ngFor="let countExercicios of this.exerciciosCount">
+                                  <ion-text>{{ countExercicios.exercicios }}</ion-text>
+                                </ng-container>
+                              </ion-col>
+                              <ion-col size="3">
+                                <ion-icon name="barbell-outline"></ion-icon>
+                              </ion-col>
+                            </ion-row>
+                          </ion-card-content>
+                        </ion-card>
+                      </ion-col>
+                      <ion-col>
+                        <ion-card class="subcard planosNumber__card">
+                          <ion-card-header>
+                            <ion-card-title class="adminDashboard__card-subtitle">Planos</ion-card-title>
+                          </ion-card-header>
+                          <ion-card-content>
+                            <ion-row>
+                              <ion-col size="9">
+                                <ng-container *ngFor="let countPlanos of this.planos">
+                                  <ion-text>{{ countPlanos.planos }}</ion-text>
+                                </ng-container>
+                              </ion-col>
+                              <ion-col size="3">
+                                <ion-icon name="layers-outline"></ion-icon>
+                              </ion-col>
+                            </ion-row>
+                          </ion-card-content>
+                        </ion-card>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card-content>
+                </ion-card>
+              </ion-row>
+    
+              <!-- Listas do Dashboard -->
+              <ion-row>
+                <ion-col size="8">
+                  <ion-card class="dashboard__lists">
                     <ion-card-header>
-                      <ion-card-title>Lista de Planos</ion-card-title>
+                      <ion-card-title class="dashboard__lists-title">Lista de Clientes</ion-card-title>
                     </ion-card-header>
                     <ion-card-content>
-                      <ion-list>
-                        <ion-item>
-                          <ion-label>Código</ion-label>
+                      <ion-list class="list clientes__list">
+                        <ion-item class="header__list">
                           <ion-label>Nome</ion-label>
-                          <ion-label>Preço</ion-label>
+                          <ion-label>Sobrenome</ion-label>
+                          <ion-label>Plano Assinado</ion-label>
                         </ion-item>
-                        <ng-container *ngFor="let colunas3planos of this.planos3colunas">
-                          <ion-item>
-                            <ion-label>{{ colunas3planos.codigo }}</ion-label>
-                            <ion-label>{{ colunas3planos.nome }}</ion-label>
-                            <ion-label>{{ colunas3planos.preco }}</ion-label>
+                        <ng-container *ngFor="let colunas3clientes of this.clientes3colunas">
+                          <ion-item class="content__list">
+                            <ion-label>{{ colunas3clientes.nome }}</ion-label>
+                            <ion-label>{{ colunas3clientes.sobrenome }}</ion-label>
+                            <ion-label>{{ colunas3clientes.FK_Planos_codigo }}</ion-label>
                           </ion-item>
                         </ng-container>
                       </ion-list>
                     </ion-card-content>
                   </ion-card>
                 </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col size="12">
-                  <ion-card>
-                    <ion-card-header>
-                      <ion-card-title>Lista de Exercícios</ion-card-title>
-                    </ion-card-header>
-                    <ion-card-content>
-                      <ion-list>
-                        <ion-item>
-                          <ion-label>Código</ion-label>
-                          <ion-label>Nome</ion-label>
-                          <ion-label>Preço</ion-label>
-                        </ion-item>
-                        <ng-container *ngFor="let colunas3planos of this.planos3colunas">
-                          <ion-item>
-                            <ion-label>{{ colunas3planos.codigo }}</ion-label>
-                            <ion-label>{{ colunas3planos.nome }}</ion-label>
-                            <ion-label>{{ colunas3planos.preco }}</ion-label>
-                          </ion-item>
-                        </ng-container>
-                      </ion-list>
-                    </ion-card-content>
-                  </ion-card>
+                <ion-col size="4">
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-card class="dashboard__lists">
+                        <ion-card-header>
+                          <ion-card-title class="dashboard__lists-title">Lista de Planos</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                          <ion-list class="list planos__list">
+                            <ion-item class="header__list">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                              <ion-label>Preço</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let colunas3planos of this.planos3colunas">
+                              <ion-item class="content__list">
+                                <ion-label>{{ colunas3planos.codigo }}</ion-label>
+                                <ion-label>{{ colunas3planos.nome }}</ion-label>
+                                <ion-label>{{ colunas3planos.preco }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-card class="dashboard__lists">
+                        <ion-card-header>
+                          <ion-card-title class="dashboard__lists-title">Lista de Exercícios</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                          <ion-list class="list exers__list">
+                            <ion-item class="header__list">
+                              <ion-label>Código</ion-label>
+                              <ion-label>Nome</ion-label>
+                              <ion-label>Categoria</ion-label>
+                            </ion-item>
+                            <ng-container *ngFor="let listExer of this.exercicios">
+                              <ion-item class="content__list">
+                                <ion-label>{{ listExer.codigo }}</ion-label>
+                                <ion-label>{{ listExer.nome }}</ion-label>
+                                <ion-label>{{ listExer.categoria }}</ion-label>
+                              </ion-item>
+                            </ng-container>
+                          </ion-list>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                  </ion-row>
                 </ion-col>
               </ion-row>
             </ion-col>

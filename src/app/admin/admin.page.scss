@@ -26,7 +26,8 @@ ion-content {
   height: 100vh;
   width: 100%;
   background: #fff;
-
+  position: fixed;
+  z-index: 1;
   & .sideRow {
       top: 0;
       position: fixed;
@@ -140,6 +141,8 @@ ion-content {
 
 //Conteúdo
 .container {
+  display: flex;
+  justify-content: end;
 
   .content{
 
@@ -155,6 +158,7 @@ ion-content {
       .subcard{
         background: linear-gradient(120deg, #67d1ff , #9ae1ff);
         padding: 2%;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
   
           .adminDashboard__card-subtitle{
             font-family: 'Inter';
@@ -198,13 +202,47 @@ ion-content {
         }
       }
     }
-  
-    .dashboard_lists{
-      outline: red;
-      .dashboard__lists-title{
-        font-size: 200px;
+  }
+
+  .dashboard__lists{
+    max-height: 40vh;
+
+    .dashboard__lists-title{
+      font-size: 1.25vw;
+      font-weight: bold;
+      font-family: 'Inter';
+      text-align: center;
+    }
+
+    .list{
+      .header__list{
+        --border-style: none;
+        font-size: .8vw;
+        --color: #7c7c7c;
+      }
+
+      .content__list{
+        border: 1px solid #c7c7c7;
+        border-radius: 10px;
+        margin-bottom: .5vw;
+        box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
       }
     }
+  }
+
+  .clientes__list{
+    overflow-y: scroll;
+    max-height: 80vh;
+  }
+
+  .planos__list{
+    overflow-y: scroll;
+    max-width: 40vw;
+  }
+
+  .exers__list{
+    overflow-y: scroll;
+    max-height: 40vh;
   }
 }
 

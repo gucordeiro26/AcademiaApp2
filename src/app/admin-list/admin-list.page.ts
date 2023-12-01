@@ -1,9 +1,23 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
 
+
+const randomNumber = trigger('randomNumber', [
+  state('start', style({
+    transform: 'scale(1)',
+  })),
+  transition('void => *', [
+    style({
+      transform: 'scale(0.8)'
+    }),
+    animate('800ms ease-in'),
+  ]),
+]);
 @Component({
   selector: 'app-admin-list',
   templateUrl: './admin-list.page.html',
   styleUrls: ['./admin-list.page.scss'],
+  animations: [randomNumber]
 })
 export class AdminListPage {
 
@@ -17,7 +31,15 @@ export class AdminListPage {
     this.listarExerciciosBiceps();
     this.listarExerciciosTriceps();
     this.listarExerciciosOmbros();
+
+
   }
+
+  // Animação de numero aleatorio no Dashboard
+
+
+
+
 
   guardarInfosUsuario: any = {
     codigo: '',
@@ -91,6 +113,27 @@ export class AdminListPage {
   isRemoverOpen = false
   modalRemover(isOpen: boolean){
     this.isRemoverOpen = isOpen;
+  }
+
+  public alertButtons = [
+    {
+      text: 'Cancelar',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'Quero',
+      role: 'confirm',
+      handler: () => {
+        console.log('Excluido com Sucesso!');
+      },
+    },
+  ];
+
+  setResult(ev: any) {
+    console.log(`Dismissed with role: ${ev.detail.role}`);
   }
 
 
@@ -372,4 +415,5 @@ export class AdminListPage {
 
   }
 }import { ModalController } from '@ionic/angular';
+import { scales } from 'chart.js';
 
