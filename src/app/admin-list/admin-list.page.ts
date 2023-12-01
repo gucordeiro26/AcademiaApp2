@@ -1,6 +1,7 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-list',
@@ -9,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class AdminListPage {
 
-  constructor(private modalController: ModalController) {
+  constructor(private modalController: ModalController, private toastController: ToastController) {
     this.listarClientes();
     this.listarExerciciosPeito();
     this.listarExerciciosAbdomen();
@@ -22,12 +23,6 @@ export class AdminListPage {
 
 
   }
-
-  // Animação de numero aleatorio no Dashboard
-
-
-
-
 
   guardarInfosUsuario: any = {
     codigo: '',
@@ -43,6 +38,17 @@ export class AdminListPage {
     FK_Planos_codigo: '',
   };
 
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000, // duração em milissegundos
+      position: 'bottom', // posição do toast ('top', 'bottom', 'middle')
+      color: 'medium', // cor do toast
+    });
+    toast.present();
+  }
+
+  serverMessage: string = '';
   buscarTermo: any;
   clientes: any[] = [];
   codigoCliente: any;
@@ -143,6 +149,7 @@ export class AdminListPage {
   // Função para remover funcionários
   removerCliente(codigo: any) {
 
+    let serverMessage = '';
     let cliente = { codigo: codigo };
     fetch('http://localhost/academiaApp/clientes/delete/excluirClientes.php', {
       method: 'DELETE',
@@ -154,13 +161,18 @@ export class AdminListPage {
       .then(response => response.json())
       .then(response => {
         console.log(response);
+
+        if (response['mensagem']) {
+          this.presentToast(response['mensagem']);
+        }
       })
       .catch(erro => {
         console.log(erro);
       })
       .finally(() => {
         this.listarClientes();
-        this.isRemoverOpen = false
+        this.serverMessage = serverMessage;
+        this.isRemoverOpen = false;
       })
   }
 
@@ -222,6 +234,7 @@ export class AdminListPage {
   // Função para atualizar cliente
   atualizarCliente(dados: any) {
 
+    let serverMessage = '';
     const clienteAtualizado = {
       codigo: this.guardarInfosUsuario.codigo,
       email: dados.email,
@@ -246,12 +259,17 @@ export class AdminListPage {
       .then(response => response.json())
       .then(response => {
         console.log(response);
+
+        if (response['mensagem']) {
+          this.presentToast(response['mensagem']);
+        }
       })
       .catch(error => {
         console.error(error);
       })
       .finally(() => {
         this.listarClientes();
+        this.serverMessage = serverMessage;
         this.modalUpdate(false, '', '', '', '', '', '', '', '', '', '');
       })
   }
@@ -504,4 +522,3 @@ export class AdminListPage {
 
   }
 }
-
