@@ -21,6 +21,7 @@ export class AppInicioPage implements OnInit {
     console.log(this.dadosEmail);
     this.dadosId = this.dataService.getDadosId()
     console.log(this.dadosId);
+    
 
     this.listarFichaDeTreino();
 
@@ -52,7 +53,7 @@ export class AppInicioPage implements OnInit {
 
   passarInformacao(dadosTreino: string) {
     this.dataService.setDadosTreino(dadosTreino);
-    this.router.navigate(['/app-treino'])
+    this.router.navigate(['/app-treino-exe'])
   }
 
   inserirFotoPerfil(dados: any) {

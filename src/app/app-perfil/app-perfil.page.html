@@ -5,15 +5,43 @@
 
   <ion-row class="ion-justify-content-center">
     <ion-col size="2.5">
-      <ion-thumbnail class="perfil">
-        <img src="../../assets/images/bicepsApp.png" />
+      <ion-thumbnail (click)="setPerfilOpen(true)" class="perfil">
+        <ng-container *ngIf="this.fotoPerfil">
+          <img src="{{ this.fotoPerfil }}" alt="Foto Perfil do Cliente">
+        </ng-container>
+        <ng-container *ngIf="!this.fotoPerfil">
+          <img src="../../assets/images/usuario-de-perfil.png" alt="user-male-circle" alt="">
+        </ng-container>
+        <ion-modal [isOpen]="isModalPerfilOpen">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="end">
+                  <ion-button (click)="setPerfilOpen(false)">X</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <ion-row>
+                <ion-col>
+                  <form #formObjetivo="ngForm" (ngSubmit)="enviarImagemParaServidor(formObjetivo.value)">
+                    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+                    <br>
+                    <ion-button type="submit">Enviar</ion-button>
+                  </form>
+                </ion-col>
+              </ion-row>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
       </ion-thumbnail>
     </ion-col>
+    
   </ion-row>
 
   <ion-row class="ion-justify-content-center">
     <ion-col size="6">
-      <ng-container *ngFor="let nome of clienteData" >
+      <ng-container *ngFor="let nome of clienteData">
         <p class="text-nomeUsuario">{{nome.nome}}</p>
       </ng-container>
     </ion-col>
@@ -66,7 +94,8 @@
           <ion-card class="card">
             <ion-card-content>
               <ion-row (click)="setOpen(true)" class="ion-justify-content-center">
-                <ion-col><ion-icon class="cardIcon" color="light" size="large" name="add-circle-outline"></ion-icon></ion-col>
+                <ion-col><ion-icon class="cardIcon" color="light" size="large"
+                    name="add-circle-outline"></ion-icon></ion-col>
               </ion-row>
               <ion-row>
                 <ion-col size="9">
@@ -80,23 +109,22 @@
                       <ion-col><ion-icon color="light" (click)="setOpen(false)" name="arrow-back-circle-outline"
                           size="large"></ion-icon></ion-col>
                     </ion-row>
-                    <form #formObjetivo="ngForm">
+                    <form #formObjetivo="ngForm" (ngSubmit)="inserirObjetivo(formObjetivo.value)">
                       <ion-row class="ion-justify-content-center">
-                        <ion-col size="6">
+                        <ion-col class="ion-text-center" size="6">
                           <p class="textModal">Crie seu Objetivo</p>
                         </ion-col>
                       </ion-row>
                       <ion-row class="ion-justify-content-center">
                         <ion-col size="12">
-                          <ion-textarea class="custom" ngModel type="text" label="Objetivo"
-                            label-placement="floating" fill="solid" placeholder="Digite o seu objetivo"
-                            name="objetivo"></ion-textarea>
+                          <ion-textarea class="custom" ngModel type="text" label="Objetivo" label-placement="floating"
+                            fill="solid" placeholder="Digite o seu objetivo" name="objetivo"></ion-textarea>
                         </ion-col>
                       </ion-row>
                       <ion-row class="ion-justify-content-center">
                         <ion-col size="6" size-lg="12">
-                          <ion-button class="button-form" type="submit" [routerLink]="['./app-inicio']">
-                            Criar Objeitvo
+                          <ion-button class="button-form" type="submit">
+                            Criar Objetivo
                           </ion-button>
                         </ion-col>
                       </ion-row>
@@ -113,13 +141,15 @@
         <ion-col>
           <ion-card class="cardObjetivo">
             <ion-card-content>
-              <p class="textObjetivo">Chegar aos 70Kg em 60 dias</p>
+              <ng-container *ngFor="let cliente of this.clientes">
+                <p class="textObjetivo">{{ cliente.objetivo }}</p>
+              </ng-container>
             </ion-card-content>
           </ion-card>
         </ion-col>
         <ion-col></ion-col>
       </ion-row>
-      
+
     </ion-col>
   </ion-row>
 </ion-content>

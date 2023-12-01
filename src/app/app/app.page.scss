@@ -36,7 +36,7 @@ ion-modal {
 }
 
 .button {
-    width: 45vw;
+    width: 75vw;
     height: 7vh;
     --border-radius: 0.625em;
     font-family: 'Bebas Neue';
@@ -46,13 +46,14 @@ ion-modal {
 .buttons1 {
     position: absolute;
     top: 70%;
-    left: 7%;
+    right: 30%;
 }
 
 .buttons2 {
     position: absolute;
     top: 80%;
-    left: 7%;
+    // left: 7%;
+    right: 30%;
 }
 
 // Modal

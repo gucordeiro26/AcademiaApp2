@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'app-treino',
     loadChildren: () => import('./app-treino/app-treino.module').then( m => m.AppTreinoPageModule)
   },
+  {
+    path: 'app-treino-exe',
+    loadChildren: () => import('./app-treino-exe/app-treino-exe.module').then( m => m.AppTreinoExePageModule)
+  },
 
 
 ];
