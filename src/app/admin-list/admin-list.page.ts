@@ -1,5 +1,6 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-list',
@@ -278,6 +279,7 @@ export class AdminListPage {
       })
       .then((response) => {
         this.clientes = response['clientes'];
+        console.log(response)
       })
       .catch((error) => {
         console.error('Erro na busca de clientes:', error);
@@ -501,5 +503,5 @@ export class AdminListPage {
       });
 
   }
-}import { ModalController } from '@ionic/angular';
+}
 
