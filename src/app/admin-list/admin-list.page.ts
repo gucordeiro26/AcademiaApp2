@@ -3,22 +3,10 @@ import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 
-const randomNumber = trigger('randomNumber', [
-  state('start', style({
-    transform: 'scale(1)',
-  })),
-  transition('void => *', [
-    style({
-      transform: 'scale(0.8)'
-    }),
-    animate('800ms ease-in'),
-  ]),
-]);
 @Component({
   selector: 'app-admin-list',
   templateUrl: './admin-list.page.html',
   styleUrls: ['./admin-list.page.scss'],
-  animations: [randomNumber]
 })
 export class AdminListPage {
 
@@ -178,8 +166,9 @@ export class AdminListPage {
 
   // Function para abrir e fechar modal de Remover Cliente
   isRemoverOpen = false
-  modalRemover(isOpen: boolean) {
+  modalRemover(isOpen: boolean, codigo: any) {
     this.isRemoverOpen = isOpen;
+    this.codigoCliente = codigo
   }
 
   public alertButtons = [
@@ -215,6 +204,7 @@ export class AdminListPage {
   isAtualizarOpen = false;
   modalUpdate(isOpen: boolean, codigo: any, email: string, nome: string, sobrenome: string, sexo: string, altura: string, peso: string, DataNasc: string, cpf: string, FK_Planos_codigo: string) {
     this.isAtualizarOpen = isOpen;
+    this.codigoCliente = codigo
 
     // Armazena informações do funcionário para atualização
     this.guardarInfosUsuario.codigo = codigo;
@@ -482,10 +472,4 @@ export class AdminListPage {
       });
 
   }
-<<<<<<< HEAD
-}import { ModalController } from '@ionic/angular';
-import { scales } from 'chart.js';
-
-=======
 }
->>>>>>> 9c6f44e437ae584ed6cb2598ca2f23ca3be930de

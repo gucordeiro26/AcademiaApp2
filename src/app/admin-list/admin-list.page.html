@@ -131,16 +131,12 @@
                     <ion-label>{{ cliente.DataNasc }}</ion-label>
                     <ion-label>{{ cliente.cpf }}</ion-label>
                     <ion-label>{{ cliente.FK_Planos_codigo }}</ion-label>
-<<<<<<< HEAD
-                    <ion-button class="options__list" color="tertiary" (click)="modalAddFicha(true)"><ion-icon
-=======
                     <ion-button color="tertiary" (click)="modalAddFicha(true, cliente.codigo)"><ion-icon
->>>>>>> 9c6f44e437ae584ed6cb2598ca2f23ca3be930de
                         name="barbell-outline"></ion-icon></ion-button>
                     <ion-button
                       (click)="modalUpdate(true, cliente.codigo, cliente.email, cliente.nome, cliente.sobrenome, cliente.sexo, cliente.altura, cliente.peso, cliente.DataNasc, cliente.cpf, cliente.FK_Planos_codigo)"><ion-icon
                         name="pencil-outline"></ion-icon></ion-button>
-                    <ion-button id="modalRemover" color="danger" (click)="modalRemover(true)"><ion-icon
+                    <ion-button id="modalRemover" color="danger" (click)="modalRemover(true, cliente.codigo)"><ion-icon
                         name="trash-outline"></ion-icon></ion-button>
 
 
@@ -378,9 +374,8 @@
                     </ion-modal>
 
                     <!-- Modal para Remover Cliente -->
-
-
                     <ion-alert trigger="modalRemover" header="Quer mesmo excluir esse cliente?" [buttons]="alertButtons" (didDismiss)="setResult($event)"></ion-alert>
+
 
 
                     <!-- <ion-modal class="modalRemover" [isOpen]="isRemoverOpen">
