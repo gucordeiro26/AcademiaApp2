@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-list',
@@ -34,6 +35,7 @@ export class AdminListPage {
   };
 
   clientes: any[] = [];
+  codigoCliente: any;
   exercicios: any[] = [];
   exercicios2: any[] = [];
   exercicios3: any[] = [];
@@ -43,6 +45,71 @@ export class AdminListPage {
   exercicios7: any[] = [];
   exercicios8: any[] = [];
 
+
+  // Adicionar Ficha de treino
+  verificarCheck(id: number, dados: any, event: any) {
+    const infos = {
+      codigoExercicio: id,
+      codigoCliente: this.codigoCliente,
+      series: dados.series,
+      descricao: dados.descricao
+    }
+    console.log(infos)
+    if (event.detail.checked) {
+      if (infos.codigoExercicio && infos.codigoCliente && infos.descricao && infos.series) {
+        fetch('http://localhost/AcademiaApp/fichaDeTreino/inserirFicha.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(infos),
+        })
+          .then(response => response.json())
+          .then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+          .finally(() => {
+
+          })
+      }
+    } else {
+    }
+  }
+
+  // mandarDadosFicha(dados: any) {
+  //   const infos = {
+  //     dadosFicha: this.acmExercicios,
+  //     codigoCliente: this.codigoCliente,
+  //     infoFicha: [
+  //       [series: dados.series,],
+  //       [descricao: dados.descricao]
+  //     ]
+  //   }
+  //   console.log(infos)
+
+  //   fetch('http://localhost/AcademiaApp/fichaDeTreino/inserirFicha.php',{
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(infos),
+  //   })
+  //   .then(response => response.json())
+  //   .then(response => {
+  //     console.log(response)
+  //   })
+  //   .catch(error => {
+  //     console.log(error)
+  //   })
+  //   .finally(() => {
+  //     this.acmExercicios = [];
+  //   })
+  // }
+
+  // Lista Clientes
   listarClientes() {
     // Configura o objeto de funcionário para enviar na solicitação POST
     let cliente = { codigo: '123' };
@@ -60,12 +127,12 @@ export class AdminListPage {
       .catch(erro => {
         console.log(erro);
       })
-      .finally(() => {})
+      .finally(() => { })
   }
 
   // Função para remover funcionários
   removerCliente(codigo: any) {
-    
+
     let cliente = { codigo: codigo };
     fetch('http://localhost/academiaApp/clientes/delete/excluirClientes.php', {
       method: 'DELETE',
@@ -89,15 +156,16 @@ export class AdminListPage {
 
   // Function para abrir e fechar modal de Remover Cliente
   isRemoverOpen = false
-  modalRemover(isOpen: boolean){
+  modalRemover(isOpen: boolean) {
     this.isRemoverOpen = isOpen;
   }
 
 
   // Função para abrir o modal de adicionar a ficha de treino
-  isAddFichaOpen = false;  
-  modalAddFicha(isOpen: boolean) {
+  isAddFichaOpen = false;
+  modalAddFicha(isOpen: boolean, codigo: any) {
     this.isAddFichaOpen = isOpen;
+    this.codigoCliente = codigo;
   }
 
   // Função para abrir o modal de atualização
@@ -120,7 +188,7 @@ export class AdminListPage {
 
   // Função para atualizar cliente
   atualizarCliente(dados: any) {
-    
+
     const clienteAtualizado = {
       codigo: this.guardarInfosUsuario.codigo,
       email: dados.email,
@@ -157,7 +225,7 @@ export class AdminListPage {
 
   // Funções
   listarExerciciosPeito() {
-    
+
     const exercicios = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroPeito.php', {
       method: 'POST',
@@ -179,12 +247,12 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
   }
 
   listarExerciciosCostas() {
-    
+
     const exercicios2 = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroCostas.php', {
       method: 'POST',
@@ -206,12 +274,12 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
   }
 
   listarExerciciosBiceps() {
-    
+
     const exercicios3 = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroBiceps.php', {
       method: 'POST',
@@ -233,12 +301,12 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
   }
 
   listarExerciciosTriceps() {
-    
+
     const exercicios4 = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroTriceps.php', {
       method: 'POST',
@@ -260,12 +328,12 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
   }
 
   listarExerciciosOmbros() {
-    
+
     const exercicios5 = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroOmbro.php', {
       method: 'POST',
@@ -287,12 +355,12 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
   }
 
   listarExerciciosPernas() {
-    
+
     const exercicios6 = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroPerna.php', {
       method: 'POST',
@@ -314,11 +382,11 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
   }
   listarExerciciosAbdomen() {
-    
+
     const exercicios7 = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroAbdomen.php', {
       method: 'POST',
@@ -340,12 +408,12 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
   }
 
   listarExerciciosCardio() {
-    
+
     const exercicios8 = { codigo: '123' };
     fetch('http://localhost/AcademiaAPP/exercicios/filtroCardio.php', {
       method: 'POST',
@@ -367,9 +435,8 @@ export class AdminListPage {
         console.error('Erro na busca de funcionários:', error);
       })
       .finally(() => {
-        
+
       });
 
   }
-}import { ModalController } from '@ionic/angular';
-
+}
