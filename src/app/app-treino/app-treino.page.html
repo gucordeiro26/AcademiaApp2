@@ -107,7 +107,8 @@
 
     <ion-row>
       <ion-col>
-        <ion-searchbar class="searchBar"></ion-searchbar>
+        <ion-searchbar [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+                clear-icon="trash-bin"></ion-searchbar>
       </ion-col>
     </ion-row>
 
