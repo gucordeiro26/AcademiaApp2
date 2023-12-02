@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  },
-  {
     path: '',
     redirectTo: 'homepage',
     pathMatch: 'full'
@@ -14,7 +10,8 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren: () => import('./app/app.module').then( m => m.AppPageModule)
-  },  {
+  },
+  {
     path: 'app-inicio',
     loadChildren: () => import('./app-inicio/app-inicio.module').then( m => m.AppInicioPageModule)
   },

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-import * as internal from 'stream';
+// import * as internal from 'stream';
 
 @Component({
   selector: 'app-app-inicio',
