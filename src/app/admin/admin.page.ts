@@ -1,6 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Chart } from 'chart.js';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 

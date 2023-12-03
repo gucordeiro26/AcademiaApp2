@@ -91,7 +91,6 @@ export class AdminListPage {
 
           })
       }
-    } else {
     }
   }
 
