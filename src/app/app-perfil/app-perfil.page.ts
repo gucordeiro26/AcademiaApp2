@@ -92,7 +92,10 @@ export class AppPerfilPage implements OnInit {
       .catch((_) => {
         console.log(_)
       })
-      .finally(() => { this.listarClientes() })
+      .finally(() => {
+        this.listarClientes();
+        this.setOpen(false);
+      })
   }
 
   isModalPerfilOpen = false;

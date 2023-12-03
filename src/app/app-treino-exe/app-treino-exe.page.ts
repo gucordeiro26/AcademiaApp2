@@ -43,10 +43,6 @@ export class AppTreinoExePage {
     toast.present();
   }
 
-  zerarValor() {
-    this.dadosTreino = '';
-  }
-
   listarFichaDeTreino() {
 
     const codigo = this.dadosId;
