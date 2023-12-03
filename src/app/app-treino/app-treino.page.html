@@ -116,7 +116,7 @@
       <ion-col size="12">
 
         <ion-accordion-group [multiple]="true" [value]="['second']">
-          <ng-container *ngFor="let exercicio of this.exercicios">
+          <ng-container *ngFor="let fichaDeTreino of this.fichaDeTreino, let exercicio of this.exercicios">
             <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
               toggleIconSlot="start">
               <ion-item slot="header">
@@ -142,15 +142,11 @@
                   <ion-row>
                     <ion-col size="6" class="colSeries">
                       <p class="exercicioSerie">Série:</p>
-                      <ng-container *ngFor="let fichaDeTreino of this.fichaDeTreino">
                         <p class="exercicioSerieNum">{{ fichaDeTreino.series }}</p>
-                      </ng-container>
                     </ion-col>
                     <ion-col size="6">
                       <p class="exercicioSerie">Detalhes:</p>
-                      <ng-container *ngFor="let fichaDeTreino of this.fichaDeTreino">
                         <p class="exercicioSerieNum">{{ fichaDeTreino.descricao }}</p>
-                      </ng-container>
                     </ion-col>
                   </ion-row>
 

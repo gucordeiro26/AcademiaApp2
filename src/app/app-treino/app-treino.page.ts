@@ -81,6 +81,7 @@ export class AppTreinoPage {
       .then((response)=>{
         console.log(response)
         this.fichaDeTreino = response['fichaDeTreino'];
+        this.exercicios = response['exercicio'];
       })
       .catch((_)=>{
         console.log(_)
