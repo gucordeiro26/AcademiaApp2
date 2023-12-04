@@ -27,7 +27,7 @@
                 <ion-content>
                   <ion-row>
                     <ion-col>
-                      <form #formObjetivo="ngForm" (ngSubmit)="enviarImagemParaServidor(formObjetivo.value)">
+                      <form #formObjetivo="ngForm" (ngSubmit)="inserirFotoPerfil()" enctype="multipart/form-data">
                         <input type="file" (change)="onFileSelected($event)" accept="image/*">
                         <br>
                         <ion-button type="submit">Enviar</ion-button>

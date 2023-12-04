@@ -104,18 +104,13 @@ export class AppPerfilPage implements OnInit {
     this.isModalPerfilOpen = isOpen;
   }
 
-  inserirFotoPerfil(event: any) {
-
-    if (this.arquivoSelecionado) {
-      const formData = new FormData();
-      formData.append('imagem', this.arquivoSelecionado);
-      console.log(formData)
+  inserirFotoPerfil() {
 
       const infos = {
         codigo: this.dadosId,
-        fotoPerfil: formData
-      };
-
+        fotoPerfil: this.convertToBase64(this.arquivoSelecionado)
+      }
+  
       fetch('http://localhost/AcademiaAPP/clientes/insert/inserirFotoPerfil.php', {
         method: 'POST',
         headers: {
@@ -123,18 +118,26 @@ export class AppPerfilPage implements OnInit {
         },
         body: JSON.stringify(infos),
       })
-        .then((response) => response.json())
-        .then((response) => {
-          console.log(response)
-          this.fotoPerfil = response['fotoPerfil'];
-        })
-        .catch((_) => {
-          console.log(_)
-        })
-        .finally(() => {
-          this.listarClientes()
-        })
-    }
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        this.fotoPerfil = response['fotoPerfil'];
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        this.listarClientes();
+      });
+  }
+
+  convertToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   }
 
   isModalOpen = false;
