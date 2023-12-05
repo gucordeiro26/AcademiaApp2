@@ -1,5 +1,5 @@
 ion-content {
-    --background: #0F0F0F no-repeat center/cover fixed;
+    --background: #262626 no-repeat center/cover fixed;
 }
 
 @font-face {
@@ -12,27 +12,10 @@ ion-content {
     src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
 }
 
-
 // Conteúdo 
 .second {
-    max-height: 75vh;
-
-    .ball::before {
-        content: '';
-        width: 500px;
-        height: 400px;
-        background: #d9cece;
-        border-radius: 500px;
-    }
-
-    & .perfil {
-        --size: 6.25em;
-        --border-radius: 6.25em;
-        position: relative;
-        right: 0.7em;
-        clip-path: circle(50%);
-    }
-    
+    display: flex;
+    justify-content: center;
     & .text-nomeUsuario {
         color: #FFF;
         font-family: 'Oswald';
@@ -40,10 +23,8 @@ ion-content {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        position: relative;
-        bottom: 1em;
     }
-    
+
     & .textDesc {
         color: #A6A6A6;
         font-family: 'Oswald';
@@ -51,18 +32,16 @@ ion-content {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        position: relative;
-        bottom: 5em;
     }
-    
+
     // Planos
     & .plano {
         --background: #00B2FF;
         --border-radius: 0.938em;
         position: relative;
-        bottom: 6em;
+        top: 3em;
         text-align: center;
-    
+
         // Texto Planos
         & .textPlanoAss {
             color: #FFF;
@@ -72,9 +51,9 @@ ion-content {
             font-weight: 400;
             line-height: normal;
             position: relative;
-        
+
         }
-        
+
         & .textPlano {
             color: #FFF;
             font-family: 'Oswald';
@@ -85,7 +64,7 @@ ion-content {
             position: relative;
         }
     }
-    
+
     & .objetivo {
         color: #FFF;
         font-family: 'Bebas Neue';
@@ -96,39 +75,39 @@ ion-content {
         text-align: center;
         text-transform: uppercase;
         position: relative;
-        bottom: 5em;
+        top: 2em;
     }
+
     & .colIcon {
         display: flex;
         justify-content: center;
 
         & .icon {
-            position: relative;
-            bottom: 8em;
+            margin-top: 1em;
         }
     }
-    
+
     & .colCard {
         background: #262626;
         display: flex;
         justify-content: center;
-        position: relative;
-        bottom: 8em;
-    
+        margin-top: 1.5em;
+
         & .card {
             --border-radius: 1.875em;
             --background: linear-gradient(300deg, #707070 0%, #414141 100%);
-            width: 8em;
-            height: 9em;
+            width: 11.438em;
+            height: 8.625em;
             display: flex;
             justify-content: center;
-    
+            align-items: center;
+
             & .cardIcon {
                 width: 1.5em;
                 height: 1.5em;
-                margin-left: 0.35em;
+                margin-left: 0.5em;
             }
-        
+
             & .textCriarObjetivo {
                 color: #FFF;
                 text-align: center;
@@ -138,11 +117,9 @@ ion-content {
                 font-weight: 400;
                 line-height: normal;
                 text-transform: uppercase;
-                position: relative;
-                left: 0.7em;
             }
         }
-    
+
         & .cardObjetivo {
             display: flex;
             justify-content: center;
@@ -151,7 +128,7 @@ ion-content {
             height: 8.625em;
             --border-radius: 0px 1.875em 0.625em 1.875em;
             --background: linear-gradient(300deg, #94C5FF 0%, #0D51FF 100%);
-    
+
             & .textObjetivo {
                 color: #FFF;
                 text-align: center;
@@ -164,9 +141,9 @@ ion-content {
             }
         }
     }
-    
-    
-    
+
+
+
     // Modal
     & .custom {
         --background: #404040;
@@ -176,11 +153,11 @@ ion-content {
         width: 90vw;
         height: 15vh;
     }
-    
+
     & .custom:hover {
         --background: #404040;
     }
-    
+
     & .textModal {
         color: #FFF;
         font-family: 'Oswald';
@@ -190,10 +167,11 @@ ion-content {
         line-height: normal;
         text-transform: uppercase;
     }
+
     & .button-form {
         --background: #00B2FF;
         --border-radius: 0.625em;
-    
+
         font-family: 'Bebas Neue';
         font-size: 1.5em;
         width: 40vw;
@@ -203,28 +181,29 @@ ion-content {
 
 // Navegação
 .nav-bar {
-    background: #262626;
+    background: #0F0F0F;
     position: sticky;
     width: 100vw;
     padding-left: 1em;
 }
 
 .btns {
-    --background: #262626;
+    --background: #0F0F0F;
     position: relative;
 }
 
 // Responsabilidade
 @media (min-width: 768px) {
+
     // Conteúdo
     .perfil {
         left: 1.5em;
     }
-    
+
     .text-nomeUsuario {
         left: 3.5em;
     }
-    
+
     .textDesc {
         left: 3.9em;
     }
@@ -236,15 +215,16 @@ ion-content {
 }
 
 @media (min-width: 1024px) {
+
     // Conteúdo
     .perfil {
         left: 3.5em;
     }
-    
+
     .text-nomeUsuario {
         left: 5.8em;
     }
-    
+
     .textDesc {
         left: 8.3em;
     }

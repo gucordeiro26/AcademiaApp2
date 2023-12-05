@@ -5,43 +5,6 @@
 
   <ion-row class="second">
     <ion-col>
-      <div class="ball"></div>
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="2.5">
-          <ion-thumbnail (click)="setPerfilOpen(true)" class="perfil">
-            <ng-container *ngIf="this.fotoPerfil">
-              <img src="{{ this.fotoPerfil }}" alt="Foto Perfil do Cliente">
-            </ng-container>
-            <ng-container *ngIf="!this.fotoPerfil">
-              <img src="../../assets/images/usuario-de-perfil.png" alt="user-male-circle" alt="">
-            </ng-container>
-            <ion-modal [isOpen]="isModalPerfilOpen">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar>
-                    <ion-buttons slot="end">
-                      <ion-button (click)="setPerfilOpen(false)">X</ion-button>
-                    </ion-buttons>
-                  </ion-toolbar>
-                </ion-header>
-                <ion-content>
-                  <ion-row>
-                    <ion-col>
-                      <form #formObjetivo="ngForm" (ngSubmit)="inserirFotoPerfil()" enctype="multipart/form-data">
-                        <input type="file" (change)="onFileSelected($event)" accept="image/*">
-                        <br>
-                        <ion-button type="submit">Enviar</ion-button>
-                      </form>
-                    </ion-col>
-                  </ion-row>
-                </ion-content>
-              </ng-template>
-            </ion-modal>
-          </ion-thumbnail>
-        </ion-col>
-        
-      </ion-row>
-    
       <ion-row class="ion-justify-content-center">
         <ion-col size="6">
           <ng-container *ngFor="let nome of clienteData">
@@ -96,12 +59,12 @@
             <ion-col size="6">
               <ion-card class="card">
                 <ion-card-content>
-                  <ion-row (click)="setOpen(true)" class="ion-justify-content-center">
-                    <ion-col><ion-icon class="cardIcon" color="light" size="large"
+                  <ion-row (click)="setOpen(true)">
+                    <ion-col size="12"><ion-icon class="cardIcon" color="light" size="large"
                         name="add-circle-outline"></ion-icon></ion-col>
                   </ion-row>
                   <ion-row>
-                    <ion-col size="9">
+                    <ion-col size="12">
                       <p class="textCriarObjetivo">Criar Objetivo</p>
                     </ion-col>
                   </ion-row>

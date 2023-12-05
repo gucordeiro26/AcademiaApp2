@@ -5,28 +5,21 @@
 
   </ng-container> -->
 
-
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="2.5">
-      <ion-thumbnail class="perfil">
-        <ng-container *ngFor="let fotoPerfil of this.fotoPerfil">
-          <img [src]="fotoPerfil.fotoPerfil" alt="Foto de Perfil do cliente">
-        </ng-container>
-      </ion-thumbnail>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="12" class="ion-padding-start">
-      <ng-container *ngFor="let nome of clienteData">
-        <p class="text-nomeUsuario">Olá, {{nome.nome}}</p>
-      </ng-container>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="6" class="ion-padding-start">
-      <p class="text-treinoHoje">Quer treinar o que hoje?</p>
+  <ion-row class="row">
+    <ion-col>
+      <ion-row>
+        <ion-col size="12" class="ion-padding-start">
+          <ng-container *ngFor="let nome of clienteData">
+            <p class="text-nomeUsuario">Olá, {{nome.nome}}</p>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col size="12" class="ion-padding-start">
+          <p class="text-treinoHoje">Quer treinar o que hoje?</p>
+        </ion-col>
+      </ion-row>
     </ion-col>
   </ion-row>
 
@@ -145,7 +138,7 @@
 
               <ion-row>
                 <ion-col>
-                  <ion-button class="buttonExe" (click)="passarInformacao('Ombro')">Começar</ion-button>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Ombros')">Começar</ion-button>
                 </ion-col>
               </ion-row>
             </ion-card-content>

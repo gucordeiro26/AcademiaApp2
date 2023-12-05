@@ -15,6 +15,8 @@ export class AppTreinoExePage {
   fichaDeTreino: any[] = [];
   dadosId: any;
   serverMessage: string = '';
+  exerciciosAgrupados: any[] = [];
+  buscarTermo: string = '';
 
   constructor(private dataService: DataService, private toastController: ToastController) {
     this.dadosEmail = this.dataService.getDadosEmail();
@@ -43,9 +45,41 @@ export class AppTreinoExePage {
     toast.present();
   }
 
-  listarFichaDeTreino() {
+  filtrarPorSearchBar() {
 
-    const codigo = this.dadosId;
+    const pesquisar = {
+      buscarTermo: this.buscarTermo,
+    };
+
+    // Envia a solicitação POST para realizar a pesquisa
+    fetch('http://localhost/academiaapp/filtros/filtroClientes.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(pesquisar),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação HTTP: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        this.exercicios = response['exercicios'];
+        console.log(response)
+      })
+      .catch((error) => {
+        console.error('Erro na busca de exercicios:', error);
+      })
+      .finally(() => { });
+  }
+
+  listarFichaDeTreino() {
+    const codigo = { 
+      categoria: this.dadosTreino,
+      codigo: this.dadosId 
+    };
     console.log(codigo);
 
     fetch('http://localhost/AcademiaAPP/fichaDeTreino/selectFicha.php', {
@@ -55,15 +89,31 @@ export class AppTreinoExePage {
       },
       body: JSON.stringify(codigo),
     })
-      .then((response) => response.json())
-      .then((response)=>{
-        console.log(response)
-        this.fichaDeTreino = response['fichaDeTreino'];
-      })
-      .catch((_)=>{
-        console.log(_)
-      })
-      .finally(()=>{})
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      this.fichaDeTreino = response['fichaDeTreino'];
+      console.log(this.fichaDeTreino)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  // Função para agrupar por categoria
+  agruparPorCategoria(fichaDeTreino: any[]) {
+    const exerciciosAgrupados = fichaDeTreino.reduce((acc: any, exercicio: any) => {
+      const categoria = exercicio.categoria;
+
+      if (!acc[categoria]) {
+        acc[categoria] = [];
+      }
+
+      acc[categoria].push(exercicio);
+      return acc;
+    }, {});
+    this.exerciciosAgrupados = exerciciosAgrupados;
+    console.log(exerciciosAgrupados);
   }
 
   removerExerFicha(codigo: any) {

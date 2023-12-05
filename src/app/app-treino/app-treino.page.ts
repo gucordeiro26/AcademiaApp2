@@ -19,7 +19,7 @@ export class AppTreinoPage {
   constructor(private dataService: DataService, private toastController: ToastController) {
     this.dadosEmail = this.dataService.getDadosEmail();
     this.dadosTreino = this.dataService.getDadosTreino();
-    this.dadosId = this.dataService.getDadosId();
+    this.dadosId = this.dataService.getDadosId(); 
 
     this.listarFichaDeTreino();
   }
@@ -42,7 +42,7 @@ export class AppTreinoPage {
     };
 
     // Envia a solicitação POST para realizar a pesquisa
-    fetch('http://localhost/academiaapp/filtros/filtroClientes.php', {
+    fetch('http://localhost/academiaapp/filtros/filtroFicha.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export class AppTreinoPage {
         return response.json();
       })
       .then((response) => {
-        this.exercicios = response['exercicios'];
+        this.fichaDeTreino = response['exercicios'];
         console.log(response)
       })
       .catch((error) => {
@@ -67,21 +67,22 @@ export class AppTreinoPage {
 
   listarFichaDeTreino() {
 
-    const codigo = this.dadosId;
-    console.log(codigo);
+    const info = {
+      codigo: this.dadosId
+    }
 
-    fetch('http://localhost/AcademiaAPP/fichaDeTreino/selectFicha.php', {
+    fetch('http://localhost/AcademiaAPP/fichaDeTreino/selectFichaAll.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(codigo),
+      body: JSON.stringify(info),
     })
       .then((response) => response.json())
       .then((response)=>{
         console.log(response)
         this.fichaDeTreino = response['fichaDeTreino'];
-        this.exercicios = response['exercicio'];
+        console.log(this.fichaDeTreino)
       })
       .catch((_)=>{
         console.log(_)
@@ -114,32 +115,6 @@ export class AppTreinoPage {
       .finally(() => {
         this.listarFichaDeTreino();
         this.serverMessage = serverMessage;
-      })
-  }
-
-  //Funcoes back
-  isLoading: boolean = false;
-  
-  listarExercicios() {
-    this.isLoading = true;
-    // Configura o objeto de exercicios para enviar na solicitação POST
-    let exercicios = { codigo: '123' };
-    fetch('http://localhost/AcademiaAPP/exercicios/todosExercicios.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(exercicios)
-    })
-      .then(response => response.json())
-      .then(response => {
-        this.exercicios = response['exercicios'];
-      })
-      .catch(erro => {
-        console.log(erro);
-      })
-      .finally(() => {
-        this.isLoading = false;
       })
   }
 }

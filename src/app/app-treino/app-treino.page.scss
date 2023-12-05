@@ -37,39 +37,6 @@ ion-content {
         }
     }
 
-    & .startPeito {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/peitoApp.png') no-repeat center/cover fixed;
-    }
-
-    & .startCostas {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/costasApp.png') no-repeat center/cover fixed;
-    }
-
-    & .startBiceps {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/bicepsApp.png') no-repeat center/cover fixed;
-    }
-
-    & .startTriceps {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/tricepsApp.png') no-repeat center/cover fixed;
-    }
-
-    & .startPernas {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/pernasApp.png') no-repeat center/cover fixed;
-    }
-
-    & .startOmbro {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/ombroApp.png') no-repeat center/cover fixed;
-    }
-
-    & .startAbdomen {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/abdomenApp.png') no-repeat center/cover fixed;
-    }
-
-    & .startCardio {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/cardioApp.png') no-repeat center/cover fixed;
-    }
-
-
     & .textExercicio {
         color: #FFF;
         font-family: 'Bebas Neue';
@@ -159,14 +126,14 @@ ion-item {
 
 // Navegação
 .nav-bar {
-    background: #262626;
+    background: #0F0F0F;
     position: sticky;
     width: 100vw;
     padding-left: 1em;
 }
 
 .btns {
-    --background: #262626;
+    --background: #0F0F0F;
     position: relative;
 }
 

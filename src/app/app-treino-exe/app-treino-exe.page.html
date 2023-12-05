@@ -14,7 +14,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+          clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -22,7 +23,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 6)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -40,7 +41,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/flexao.webm" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -48,11 +49,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -88,7 +89,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+        clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -96,7 +98,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 6)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -114,7 +116,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/costa.webm" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -122,11 +124,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -162,7 +164,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+        clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -170,7 +173,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 4)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -188,7 +191,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/biceps.webm" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -196,11 +199,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -236,7 +239,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+        clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -244,7 +248,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 4)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -262,7 +266,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/triceps.webm" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -270,11 +274,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -310,7 +314,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+        clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -318,7 +323,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 8)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -336,7 +341,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/leg-press.webm" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -344,11 +349,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -369,7 +374,7 @@
       </ion-row>
     </ng-container>
 
-    <ng-container *ngIf="this.dadosTreino === 'Ombro'">
+    <ng-container *ngIf="this.dadosTreino === 'Ombros'">
       <ion-row class="rowStart">
         <ion-col class="start startOmbro">
           <p class="textExercicio">Ombro</p>
@@ -384,7 +389,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+        clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -392,7 +398,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 6)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -410,7 +416,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/desenvolvimentoOmbro.mp4" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -418,11 +424,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -458,7 +464,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+        clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -466,7 +473,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 3)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -484,7 +491,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/abdomen.webm" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -492,11 +499,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -532,7 +539,8 @@
 
       <ion-row>
         <ion-col>
-          <ion-searchbar class="searchBar"></ion-searchbar>
+          <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+        clear-icon="trash-bin"></ion-searchbar>
         </ion-col>
       </ion-row>
 
@@ -540,7 +548,7 @@
         <ion-col size="12">
 
           <ion-accordion-group [multiple]="true" [value]="['second']">
-            <ng-container *ngFor="let exercicio of this.exercicios.slice(0, 4)">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
               <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
                 toggleIconSlot="start">
                 <ion-item slot="header">
@@ -558,7 +566,7 @@
                     <ion-row class="ion-justify-content-center accordionContent">
                       <ion-col size="12">
                         <video class="video" controls width="100%">
-                          <source src="../../assets/videos/cardio.webm" type="video/mp4">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
                         </video>
                       </ion-col>
                     </ion-row>
@@ -566,11 +574,11 @@
                     <ion-row>
                       <ion-col size="6" class="colSeries">
                         <p class="exercicioSerie">Série:</p>
-                        <p class="exercicioSerieNum">4x15</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
                       </ion-col>
                       <ion-col size="6">
                         <p class="exercicioSerie">Detalhes:</p>
-                        <p class="exercicioSerieNum">Progreção de Carga</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
                       </ion-col>
                     </ion-row>
 
@@ -597,14 +605,14 @@
     <ion-col>
       <ion-row>
         <ion-col size="4" class="ion-padding-start">
-          <ion-button color="light" class="btns" [routerLink]="'/app-treino'">
-            <ion-icon size="large" name="accessibility-outline"></ion-icon>
+          <ion-button class="btns" [routerLink]="'/app-treino'">
+            <ion-icon color="light" size="large" name="accessibility-outline"></ion-icon>
           </ion-button>
         </ion-col>
 
         <ion-col size="4" class="ion-padding-start">
           <ion-button class="btns" [routerLink]="'/app-inicio'">
-            <ion-icon size="large" name="home-outline"></ion-icon>
+            <ion-icon color="light" size="large" name="home-outline"></ion-icon>
           </ion-button>
         </ion-col>
 
