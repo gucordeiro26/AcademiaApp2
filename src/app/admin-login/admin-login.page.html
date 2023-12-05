@@ -8,18 +8,18 @@
               <p class="title">Bem-vindo de Volta</p>
             </ion-col>
           </ion-row>
-          <form #loginADM="ngForm" (ngSubmit)="loginAdmin(loginADM.value)">
+          <form #loginADM="ngForm" [formGroup]="formLogin" (ngSubmit)="loginAdmin(loginADM.value)">
             <ion-row class="ion-justify-content-center">
               <ion-col size="10">
                 <ion-label class="customLabel">Email</ion-label>
-                <ion-input class="customInput" name="email" #input ngModel type="text"></ion-input>
+                <ion-input class="customInput" name="email" #input formControlName="email" type="text"></ion-input>
               </ion-col>
             </ion-row>
 
             <ion-row class="ion-justify-content-center">
               <ion-col size="10">
                 <ion-label class="customLabel">Senha</ion-label>
-                <ion-input class="customInput" name="senha" #input ngModel type="password"></ion-input>
+                <ion-input class="customInput" name="senha" #input formControlName="senha" type="password"></ion-input>
               </ion-col>
             </ion-row>
 

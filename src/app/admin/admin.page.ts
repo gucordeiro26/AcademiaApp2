@@ -1,5 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AdminPage {
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private dataService: DataService, private router: Router) {
     this.listarClientes();
     this.listarCountClientes();
     this.listarCountExercicios();
@@ -30,11 +32,25 @@ export class AdminPage {
       FK_Planos_codigo: '',
     });
 
+    this.dadosId = this.dataService.getAdminId();
+    console.log(this.dadosId);
 
+    const tmp_dados = localStorage.getItem('dados');
+
+    if (tmp_dados !== null) {
+      this.dados = JSON.parse(tmp_dados);
+      console.log(this.dados);
+    } else {
+      this.router.navigate(['/admin-login']);
+    }
 
   }
 
-
+  dados = {
+    id: null,
+    token: null,
+  };
+  dadosId: any;
 
 
   // Conteudo Pagina

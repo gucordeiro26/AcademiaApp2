@@ -49,28 +49,28 @@ export class AppInicioPage implements OnInit {
     this.router.navigate(['/app-treino-exe']);
   }
 
-  inserirFotoPerfil(dados: any) {
-    const infos = {
-      codigo: this.dadosId,
-      fotoPerfil: dados
-    };
+  // inserirFotoPerfil(dados: any) {
+  //   const infos = {
+  //     codigo: this.dadosId,
+  //     fotoPerfil: dados
+  //   };
 
-    fetch('http://localhost/AcademiaAPP/clientes/insert/inserirFotoPerfil.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(infos),
-    })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-      this.fotoPerfil = response['fotoPerfil'];
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
+  //   fetch('http://localhost/AcademiaAPP/clientes/insert/inserirFotoPerfil.php', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(infos),
+  //   })
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     console.log(response);
+  //     this.fotoPerfil = response['fotoPerfil'];
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  // }
 
   listarFichaDeTreino() {
     const codigo = { codigo: this.dadosId };

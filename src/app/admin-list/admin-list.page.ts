@@ -94,36 +94,6 @@ export class AdminListPage {
     }
   }
 
-  // mandarDadosFicha(dados: any) {
-  //   const infos = {
-  //     dadosFicha: this.acmExercicios,
-  //     codigoCliente: this.codigoCliente,
-  //     infoFicha: [
-  //       [series: dados.series,],
-  //       [descricao: dados.descricao]
-  //     ]
-  //   }
-  //   console.log(infos)
-
-  //   fetch('http://localhost/AcademiaApp/fichaDeTreino/inserirFicha.php',{
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(infos),
-  //   })
-  //   .then(response => response.json())
-  //   .then(response => {
-  //     console.log(response)
-  //   })
-  //   .catch(error => {
-  //     console.log(error)
-  //   })
-  //   .finally(() => {
-  //     this.acmExercicios = [];
-  //   })
-  // }
-
   // Lista Clientes
   listarClientes() {
     // Configura o objeto de funcionário para enviar na solicitação POST

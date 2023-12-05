@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -12,14 +11,14 @@ export class AdminAdcionarPage {
 
   formInserir: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private toastController: ToastController, private router: Router,) {
+  constructor(private formBuilder: FormBuilder, private toastController: ToastController,) {
     this.formInserir = this.formBuilder.group({
       codigo: '',
       email: ['', [Validators.required, Validators.email]],
       nome: ['', [Validators.required, Validators.maxLength(50), Validators.pattern(/^[A-Za-z]+$/)]],
       sobrenome: ['', Validators.maxLength(50)],
       sexo: ['', Validators.required],
-      altura: ['', [Validators.required, Validators.min(0)]],
+      altura: ['', [Validators.required, Validators.min(0), Validators.max(250)]],
       peso: ['', [Validators.required, Validators.max(500)]],
       DataNasc: ['', Validators.required], // Adicione um validador de data conforme necessário
       cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],

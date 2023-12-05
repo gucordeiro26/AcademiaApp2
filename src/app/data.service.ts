@@ -49,4 +49,14 @@ export class DataService {
   getDadosNomePlano(){
     return this.dadosNomePlano
   }
+
+  private adminId: number
+
+  setAdminId(data: number){
+    this.adminId = data
+  }
+
+  getAdminId(){
+    return this.adminId
+  }
 }

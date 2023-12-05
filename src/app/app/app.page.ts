@@ -127,7 +127,7 @@ export class AppPage {
             localStorage.setItem('dados', JSON.stringify(this.dados));
 
             this.passarDadosEmail();
-            this.passarDadosId()
+            this.passarDadosId();
             this.passarDadosNomePlano();
 
             // localStorage.removeItem('dados');

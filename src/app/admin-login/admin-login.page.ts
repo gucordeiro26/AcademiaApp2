@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { DataService } from '../data.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-login',
@@ -9,7 +11,18 @@ import { ToastController } from '@ionic/angular';
 })
 export class AdminLoginPage {
 
-  constructor(private toastController: ToastController, private router: Router,) { }
+  constructor(private toastController: ToastController, private router: Router, private dataService: DataService, private formBuilder: FormBuilder) {
+    this.formLogin = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required, Validators.minLength(8)]],
+    });
+  }
+
+  onSubmit() {
+    if (this.formLogin.valid) {
+      this.loginAdmin(this.formLogin.value);
+    }
+  }
 
   serverMessage: string = '';
   toastService: any;
@@ -19,16 +32,26 @@ export class AdminLoginPage {
       message: message,
       duration: 2500, // duração em milissegundos
       position: 'bottom', // posição do toast ('top', 'bottom', 'middle')
-      color: 'dark', // cor do toast
+      color: 'medium', // cor do toast
     });
     toast.present();
+  }
+
+  formLogin: FormGroup;
+  id: number;
+  dados = {
+    id: null,
+  }
+
+  passarDadosId(){
+    this.dataService.setAdminId(this.id)
   }
 
   loginAdmin(dados: any) {
 
     let serverMessage = '';
     
-    fetch('http://localhost/AcademiaApp/admin/insert/authAdmin.php', {
+    fetch('http://localhost/academiaapp/admin/insert/authAdmin.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +64,10 @@ export class AdminLoginPage {
 
         if (response['router'] === true) {
           setTimeout(() => {
-            this.router.navigate(['admin']);
+            this.router.navigate(['./admin']);
+            this.id = response['codigo'];
+            localStorage.setItem('dados', JSON.stringify(this.dados));
+            this.passarDadosId();
           }, 500);
         }
 
@@ -55,6 +81,7 @@ export class AdminLoginPage {
         console.log(error);
       })
       .finally(() => {
+        this.formLogin.reset();
         this.serverMessage = serverMessage;
       })
   }
