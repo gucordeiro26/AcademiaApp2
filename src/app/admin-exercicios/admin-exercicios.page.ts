@@ -34,6 +34,7 @@ export class AdminExerciciosPage implements OnInit {
   exerciciosTriceps: any[] = [];
 
   inserirExercicio(dados: any) {
+    console.log(dados)
     fetch('http://localhost/AcademiaAPP/exercicios/inserirExercicio.php', {
       method: 'POST',
       headers: {
