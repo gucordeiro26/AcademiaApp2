@@ -1,0 +1,319 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../../assets/font/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../../assets/font/Inter-VariableFont.ttf);
+}
+
+ion-content {
+    --background: linear-gradient(120deg, #67d1ff , #9ae1ff);
+    // --background: linear-gradient(120deg, #f6f6f8 , #dbdbdb);
+    // --background: #fff;
+}
+
+// Side Bar
+.sideBar {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    z-index: 1;
+  
+    & .sideRow {
+        top: 0;
+        position: fixed;
+        height: 100%;
+        width: 16.5%;
+        left: 0;
+        // box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  
+        & .sideCol {
+  
+            & .sideCol__column {
+                display: flex;
+                align-items: center;
+                padding: 0;
+                height: 5vh;
+  
+                // & .sideCol__imgLogo {
+                //     margin: 0 auto;
+                //     --size: 50px;
+                // }
+  
+                & .sideCol__thumbnail {
+                    cursor: pointer;
+                    font-size: 4vw;
+                    color: #262626;
+                    margin-right: .8vw;
+                }
+  
+                & .sideCol__text {
+                    color: #262626;
+                    font-family: 'Inter';
+                    font-size: 1vw;
+                    cursor: pointer;
+                }
+  
+                & .sideCol__textLogo {
+                    color: #00B2FF;
+                    font-family: 'Bebas Neue';
+                    font-size: 2vw;
+                    text-align: start;
+                    cursor: pointer;
+                }
+            }
+  
+            & .sideCol__logo{
+                padding: 10px;
+                height: 100px;
+                margin-top: 3vh;
+                margin-bottom: 10%;
+            }
+  
+            & .alinhamento__centro{
+                display: flex;
+                justify-content: center;
+                border: 1px solid #00B2FF;
+                border-radius: 10px;
+                margin-bottom: 1vh;
+                cursor: pointer;
+  
+                transition: all .3s;
+  
+                &:hover{
+                  transition: all .3s;
+                  background: #eeeeee;
+                }
+            }
+  
+            // .activated-btn__GerenCliente{
+            //     background: #00B2FF;
+            //     border: 2px solid #00B2FF;
+            //     box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+  
+            //     .sideCol__text{
+            //         color: white;
+            //     }
+  
+            //     .activated-btn-icon__GerenCliente{
+            //         color: #fff;
+            //     }
+            // }
+  
+            & .logout{
+                padding-top: 1%;
+                margin-top: 5%;
+                border-top: 1px solid #c7c7c7;
+  
+                &:hover{
+                  .alinhamento__centro{
+                    background: #00B2FF;
+                  }
+                }
+  
+                .alinhamento__centro{
+                    margin-top: 5%;
+                    background: #000;
+                    border: none;
+                }
+  
+                .sideCol__thumbnail{
+                    color: #fff;
+                }
+  
+                .sideCol__text{
+                    color: #fff;
+                }
+            }
+        }
+    }
+  }
+// Conteúdo
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    border: 2px solid;
+    box-shadow: 10px 10px 0 black;
+    background: white;
+    position: relative;
+    top: 5vh;
+
+    .title{
+        margin: 3vh 0;
+        font-family: 'Oswald';
+        font-weight: bold;
+        font-size: 2vw;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .card__addExer{
+        .card-title__addExer{
+            font-size: 1.25vw;
+            font-family: 'Inter';
+            font-weight: bold;
+        }
+        
+        .label{
+            font-size: 1vw;
+            font-family: 'Inter';
+            color: #262626;
+
+        }
+
+        .card-input__addExer{
+            border-style: none;
+            border: 1px solid #262626;
+            --padding-start: 2%;
+            color: #000;
+
+            ion-select-option{
+                background: red;
+            }
+        }
+
+        .card-select__addExer{
+            border: 1px solid #262626;
+            --padding-start: 2%;
+            color: #000;
+        }
+
+        ion-button{
+            --background: #00B2FF;
+            --border-radius: 0;
+            margin-left: .5%;
+            font-family: 'Inter';
+        }
+    }
+
+    .conteudo__cardExercicio {
+        width: 11.7vw;
+        height: 20vh;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .conteudo__text {
+            color: #c7c7c7;
+            font-family: 'Bebas Neue';
+            font-size: 40px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: normal;
+        }
+    }
+
+    .conteudo__card__peito {
+        --background: url('../../assets/images/academia.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
+    }
+
+    .conteudo__card__costas {
+        --background: url('../../assets/images/academia2.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+
+            transition: all .3s;
+        }
+    }
+
+    .conteudo__card__ombro {
+        --background: url('../../assets/images/academia3.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
+    }
+
+    .conteudo__card__perna {
+        --background: url('../../assets/images/academia4.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+            transition: all .3s;
+        }
+    }
+
+    .conteudo__card__abdomen {
+        --background: url('../../assets/images/academia5.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
+    }
+
+    .conteudo__card__biceps {
+        --background: url('../../assets/images/academia6.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+            transition: all .3s;
+        }
+    }
+
+    .conteudo__card__tricepes {
+        --background: url('../../assets/images/academia7.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(-5deg);
+            transition: all .3s;
+        }
+    }
+
+    .conteudo__card__cardio {
+        --background: url('../../assets/images/academia8.png');
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        transition: all .3s;
+
+        &:hover{
+            transform: translateY(-10px) rotate(5deg);
+            transition: all .3s;
+        }
+    }
+
+    // Modal
+    .conteudo__modalExeTd {
+        --background: #ffffff;
+
+        .conteudo__listModalExe {
+            .conteudo__itemModalExe {
+                --background: #ffffff;
+                color: #000000;
+            }
+        }
+    }
+
+}

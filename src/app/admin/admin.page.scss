@@ -1,72 +1,347 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('../../assets/font/BebasNeue-Regular.ttf');
+}
 
-#container a {
-  text-decoration: none;
+@font-face {
+  font-family: 'Oswald';
+  src: url('../../assets/font/Oswald-VariableFont_wght.ttf');
 }
-* {
-  // outline: 1px dotted darkorange;
+
+@font-face {
+  font-family: 'Inter';
+  src: url(../../assets/font/Inter-VariableFont.ttf);
 }
+
+ion-content {
+  // --background: #fff;
+    // --background: linear-gradient(120deg, #d6f3ff , #dff5ff);
+    --background: linear-gradient(120deg, #fbfbfb , #f2f2f2);
+}
+
+
+// Side Bar
+.sideBar {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  z-index: 1;
+  & .sideRow {
+      top: 0;
+      position: fixed;
+      height: 100%;
+      width: 16.5%;
+      left: 0;
+      // box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+
+      & .sideCol {
+
+          & .sideCol__column {
+              display: flex;
+              align-items: center;
+              padding: 0;
+              height: 5vh;
+
+              // & .sideCol__imgLogo {
+              //     margin: 0 auto;
+              //     --size: 50px;
+              // }
+
+              & .sideCol__thumbnail {
+                  cursor: pointer;
+                  font-size: 4vw;
+                  color: #262626;
+                  margin-right: .8vw;
+              }
+
+              & .sideCol__text {
+                  color: #262626;
+                  font-family: 'Inter';
+                  font-size: 1vw;
+                  cursor: pointer;
+              }
+
+              & .sideCol__textLogo {
+                  color: #00B2FF;
+                  font-family: 'Bebas Neue';
+                  font-size: 2vw;
+                  text-align: start;
+                  cursor: pointer;
+              }
+          }
+
+          & .sideCol__logo{
+              padding: 10px;
+              height: 100px;
+              margin-top: 3vh;
+              margin-bottom: 10%;
+          }
+
+          & .alinhamento__centro{
+              display: flex;
+              justify-content: center;
+              border: 1px solid #00B2FF;
+              border-radius: 10px;
+              margin-bottom: 1vh;
+              cursor: pointer;
+
+              transition: all .3s;
+
+              &:hover{
+                transition: all .3s;
+                background: #eeeeee;
+              }
+          }
+
+          // .activated-btn__GerenCliente{
+          //     background: #00B2FF;
+          //     border: 2px solid #00B2FF;
+          //     box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+
+          //     .sideCol__text{
+          //         color: white;
+          //     }
+
+          //     .activated-btn-icon__GerenCliente{
+          //         color: #fff;
+          //     }
+          // }
+
+          & .logout{
+              padding-top: 1%;
+              margin-top: 5%;
+              border-top: 1px solid #c7c7c7;
+
+              &:hover{
+                .alinhamento__centro{
+                  background: #00B2FF;
+                }
+              }
+
+              .alinhamento__centro{
+                  margin-top: 5%;
+                  background: #000;
+                  border: none;
+              }
+
+              .sideCol__thumbnail{
+                  color: #fff;
+              }
+
+              .sideCol__text{
+                  color: #fff;
+              }
+          }
+      }
+  }
+}
+
+
+//Conteúdo
 .container {
-  --background: rgb(33, 32, 32);
-  color: #F2F2F2;
-}
-.segment-button {
-  --indicator-color: #08a391;
-  --color: #ffffff;
-  --color-checked: #e4e4e4;
+  display: flex;
+  justify-content: end;
+
+  .content{
+
+    .adminDashboard__card{
+      width: 100%;
+      
+      .adminDashboard__card-title{
+        font-size: 1.5vw;
+        font-weight: bold;
+        font-family: 'Inter';
+      }
+  
+      .subcard{
+        background: linear-gradient(120deg, #67d1ff , #9ae1ff);
+        padding: 2%;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+  
+          .adminDashboard__card-subtitle{
+            font-family: 'Inter';
+            color: #fff;
+          }
+  
+          ion-text{
+            font-size: 2.75vw;
+            font-family: 'Bebas Neue';
+            font-weight: 400;
+            color: #fff;
+            // color: #000;
+          }
+  
+          ion-icon{
+            font-size: 4vw;
+            color: #009ee2;
+          }
+      }
+  
+      .clienteNumber__card{
+        background: linear-gradient(120deg, #67d1ff , #9ae1ff);
+        ion-icon{
+          color: #009ee2;
+        }
+      }
+  
+      .exerNumber__card{
+        background: linear-gradient(120deg, #34eda9 , #a0ffdc);
+
+        ion-icon{
+          color: #00c37b;
+        }
+      }
+  
+      .planosNumber__card{
+        background: linear-gradient(120deg, #6670FF , #aab0ff);
+
+        ion-icon{
+          color: #434bba;
+        }
+      }
+    }
+  }
+
+  .dashboard__lists{
+
+    .dashboard__lists-title{
+      font-size: 1.25vw;
+      font-weight: bold;
+      font-family: 'Inter';
+      text-align: center;
+    }
+
+    .list{
+    overflow-y: scroll;
+
+      .header__list{
+        --border-style: none;
+        font-size: .8vw;
+        --color: #7c7c7c;
+      }
+
+      .content__list{
+        border: 1px solid #c7c7c7;
+        border-radius: 10px;
+        margin-bottom: .5vw;
+        box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+      }
+    }
+  }
+
+  .clientes__list{
+    overflow-y: scroll;
+    height: 86.6vh;
+  }
+
+  .planos__list{
+    overflow-y: scroll;
+    height: 25vh;
+  }
+
+  .exers__list{
+    overflow-y: scroll;
+    height: 50vh;
+  }
 }
 
-// Conteúdo Cadastro de Clientes
-.text {
-  display: flex;
-  color: #F2F2F2;
-}
-.full-height {
-  height: 90vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // background: black;
-}
-.card {
-  width: 70%;
-  height: 50%;
-  background: #ffffff;
-  border-radius: 0.875em;
-}
-.card-list {
-  background: #ffffff;
-}
-.card__item {
-  // width: 40rem;
-}
-.card-content {
-  background: #ffffff;
-}
-.span-required {
-  display: none;
-}
-// Conteúdo Gerenciamento Clientes
-.full {
-  margin-bottom: 1.875rem;
-  height: 80vh;
-  width: 80%;
-  border-radius: 0.875em;
-  background: #ffffff;
-}
-.full__table {
-  height: 80%;
-  margin-left: 10rem;
-  width: 80%;
-}
 
-.table-grid {
-  border: 1px solid #000000;
-  padding: 0.625em;
-  margin-bottom: 0.625em;
-}
-.modal-segment-button {
-  --indicator-color: #025c39;
-  --color: #000000;
-  --color-checked: #202020;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+// // Ficha de Treino
+// .row__exercicio {
+//   margin-top: 1em;
+// }
+
+// .cardExercicio {
+//   width: 12.5em;
+//   height: 6em.5em;
+//   border-radius: 0.625em;
+
+//   .textExercicio {
+//     font-family: 'Oswald';
+//     font-size: 1.5em;
+//     color: #000000;
+//   }
+
+//   .cardImg {
+//     position: relative;
+//     right: 0.5em;
+//     margin-top: 0.2em;
+//   }
+// }
+
+// .cardTodos {
+//   --padding-start: 0;
+// }
+
+
+// // Modal
+// .modalExeTd {
+//   --background: #ffffff;
+
+//   .listModalExe {
+//     .itemModalExe {
+//       --background: #ffffff;
+//       color: #000000;
+//     }
+//   }
+// }
+
+// // Adicionar Cliente
+// .rowAdd {
+//   margin-top: 10em;
+//   background: #000000;
+//   border-radius: 1.25em;
+
+//   .textTitleAdd {
+//     font-family: 'Oswald';
+//     font-weight: bold;
+//     font-size: 1.5em;
+//   }
+
+//   .rowAdd__form {
+//     margin-top: 1em;
+//     background: #000000;
+
+//     .itemAdd {
+//       --background: #000000;
+//     }
+//     .inputAdd {
+//       font-family: 'Oswald';
+//       font-size: 1em;
+//       --color: #fff;
+//       --background: #515151;
+//     }
+//     .btnAdd {
+//       font-family: 'Oswald';
+//       font-size: 1em;
+//     }
+//   }
+// }
+
+// // Gerenciamento Clientes
+// .item {
+//   --background: #000000;
+// }
+
+// .radio_group {
+//   display: flex;
+//   align-items: center;
+
+//   .radio {
+//     padding: .5em 2em;
+//   }
+// }

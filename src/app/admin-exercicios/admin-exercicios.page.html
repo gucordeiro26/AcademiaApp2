@@ -1,0 +1,534 @@
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <!-- Side bar -->
+    <ion-col size="2" class="sideBar">
+      <ion-row class="sideRow">
+        <ion-col class="sideCol">
+          <!-- Logo -->
+          <ion-row class="sideCol__logo">
+            <!-- <ion-col size="4" class="sideCol__column ">
+              <ion-thumbnail class="sideCol__imgLogo">
+                <img src="../../assets/images/logo.png" alt="Logo">
+              </ion-thumbnail>
+            </ion-col> -->
+
+            <ion-col size="12" class="sideCol__column">
+              <ion-text class="sideCol__textLogo">Gereciamento de Clientes</ion-text>
+            </ion-col>
+          </ion-row>
+
+          <!-- Home -->
+          <ion-row [routerLink]="'/admin'" class="row">
+            <ion-col size="12" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="home-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Home</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Adicionar -->
+          <ion-row>
+            <ion-col size="12" [routerLink]="'/admin-adcionar'" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="person-add-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Adicionar</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Listar -->
+          <ion-row [routerLink]="'/admin-list'">
+            <ion-col size="12" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="list-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Listar</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Ficha -->
+          <ion-row [routerLink]="'/admin-exercicios'">
+            <ion-col size="12" class="activated-btn__GerenCliente">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="activated-btn-icon__GerenCliente" name="barbell-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol-activated-btn__text">Treino</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Logout -->
+          <ion-row class="logout">
+            <ion-col size="12" [routerLink]="'/admin-login'" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="log-out-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Logout</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <!-- Conteúdo -->
+    <ion-col>
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="10">
+          <ion-row class="ion-justify-content-center ion-align-items-center">
+            <ion-col size="10" class="conteudo">
+              <ion-row>
+                <ion-col>
+                  <ion-title class="title">LISTA DE EXERCÍCIOS</ion-title>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-card class="card__addExer">
+                    <ion-card-header>
+                      <ion-card-title class="card-title__addExer">Adicionar Exercício</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <form #forminserirExe="ngForm" (ngSubmit)="inserirExercicio(forminserirExe.value)">
+                        <ion-row>
+                          <ion-col size="6">
+                            <ion-row>
+                              <ion-col>
+                                <ion-label class="label">Nome</ion-label>
+                              </ion-col>
+                            </ion-row>
+                            <ion-row>
+                              <ion-col>
+                                <ion-input ngModel class="card-input__addExer" placeholder="Ex: Supino Inclinado" #input
+                                  name="nome" type="text"></ion-input>
+                              </ion-col>
+                            </ion-row>
+                          </ion-col>
+                          <ion-col size="6">
+                            <ion-row>
+                              <ion-col>
+                                <ion-label class="label">Categoria</ion-label>
+                              </ion-col>
+                            </ion-row>
+                            <ion-row>
+                              <ion-col>
+                                <ion-select ngModel class="card-select__addExer" placeholder="Escolha a Categoria" #input
+                                  name="categoria">
+                                  <ion-select-option value="Abdômen">Abdomen</ion-select-option>
+                                  <ion-select-option value="Bíceps">Bíceps</ion-select-option>
+                                  <ion-select-option value="Cardio">Cardio</ion-select-option>
+                                  <ion-select-option value="Costas">Costas</ion-select-option>
+                                  <ion-select-option value="Ombros">Ombro</ion-select-option>
+                                  <ion-select-option value="Peito">Peito</ion-select-option>
+                                  <ion-select-option value="Pernas">Perna</ion-select-option>
+                                  <ion-select-option value="Tríceps">Tríceps</ion-select-option>
+                                </ion-select>
+                              </ion-col>
+                            </ion-row>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col size="2">
+                            <ion-button type="submit">Adicionar</ion-button>
+                          </ion-col>
+                        </ion-row>
+                      </form>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenPeito(true)" class="conteudo__cardExercicio conteudo__card__peito">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Peito</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenCostas(true)" class="conteudo__cardExercicio conteudo__card__costas">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Costas</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenOmbro(true)" class="conteudo__cardExercicio conteudo__card__ombro">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Ombro</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenPerna(true)" class="conteudo__cardExercicio conteudo__card__perna">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Perna</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenAbdomen(true)" class="conteudo__cardExercicio conteudo__card__abdomen">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Abdômen</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenBiceps(true)" class="conteudo__cardExercicio conteudo__card__biceps">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Bícepes</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenTriceps(true)" class="conteudo__cardExercicio conteudo__card__tricepes">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Tríceps</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+                <ion-col class="conteudo__col" size="3">
+                  <ion-card (click)="setOpenCardio(true)" class="conteudo__cardExercicio conteudo__card__cardio">
+                    <ion-card-content>
+                      <ion-label class="conteudo__text">Cardio</ion-label>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+
+                <!-- Modais -->
+                <!-- Modal Peito -->
+                <ion-modal [isOpen]="isModalPeito">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenPeito(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosPeito">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+                <!-- Modal Costas -->
+                <ion-modal [isOpen]="isModalCostas">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenCostas(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosCostas">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+                <!-- Modal Biceps -->
+                <ion-modal [isOpen]="isModalBiceps">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenBiceps(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosBiceps">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+                <!-- Modal Triceps -->
+                <ion-modal [isOpen]="isModalTriceps">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenTriceps(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosTriceps">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+                <!-- Modal Ombro -->
+                <ion-modal [isOpen]="isModalOmbro">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenOmbro(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosOmbros">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+                <!-- Modal Perna -->
+                <ion-modal [isOpen]="isModalPerna">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenPerna(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosPernas">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+                <!-- Modal Abdomen -->
+                <ion-modal [isOpen]="isModalAbdomen">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenAbdomen(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosAbdomen">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+                <!-- Modal Cardio -->
+                <ion-modal [isOpen]="isModalCardio">
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar class="conteudo__modalExeTd">
+                        <ion-buttons slot="start">
+                          <ion-button (click)="setOpenCardio(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+
+                    <ion-content class="conteudo__modalExeTd ion-padding">
+                      <ion-row class="ion-justify-content-center row">
+                        <ion-col size="12">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-list class="conteudo__listModalExe">
+                                <ion-item class="conteudo__itemModalExe ion-text-center">
+                                  <ion-label>Código</ion-label>
+                                  <ion-label>Nome</ion-label>
+                                </ion-item>
+                                <ng-container *ngFor="let exercicio of this.exerciciosCardio">
+                                  <ion-item class="conteudo__itemModalExe ion-text-center">
+                                    <ion-label>{{ exercicio.codigo }}</ion-label>
+                                    <ion-label>{{ exercicio.nome }}</ion-label>
+                                  </ion-item>
+                                </ng-container>
+                              </ion-list>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
+
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

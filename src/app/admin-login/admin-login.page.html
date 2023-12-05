@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="true">
+  <ion-row class="row ion-justify-content-center">
+    <ion-col class="col" size="4">
+      <ion-card class="customCard">
+        <ion-card-content>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <p class="title">Bem-vindo de Volta</p>
+            </ion-col>
+          </ion-row>
+          <form #loginADM="ngForm" (ngSubmit)="loginAdmin(loginADM.value)">
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="10">
+                <ion-label class="customLabel">Email</ion-label>
+                <ion-input class="customInput" name="email" #input ngModel type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="10">
+                <ion-label class="customLabel">Senha</ion-label>
+                <ion-input class="customInput" name="senha" #input ngModel type="password"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="12" class="ion-text-center">
+                <ion-button class="btn_cadastrar" type="submit">
+                  Entrar
+                </ion-button>
+              </ion-col>
+            </ion-row>
+
+          </form>
+
+          <ion-toast *ngIf="serverMessage">{{ serverMessage }}</ion-toast>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

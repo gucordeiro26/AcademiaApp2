@@ -1,0 +1,186 @@
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <!-- Side bar -->
+    <ion-col size="2" class="sideBar">
+      <ion-row class="sideRow">
+        <ion-col class="sideCol">
+          <!-- Logo -->
+          <ion-row class="sideCol__logo">
+            <!-- <ion-col size="4" class="sideCol__column ">
+              <ion-thumbnail class="sideCol__imgLogo">
+                <img src="../../assets/images/logo.png" alt="Logo">
+              </ion-thumbnail>
+            </ion-col> -->
+
+            <ion-col size="12" class="sideCol__column">
+                  <ion-text class="sideCol__textLogo">Gereciamento de Clientes</ion-text>
+            </ion-col>
+          </ion-row>
+
+          <!-- Home -->
+          <ion-row [routerLink]="'/admin'" class="row">
+            <ion-col size="12" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="home-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Home</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Adicionar -->
+          <ion-row>
+            <ion-col size="12" [routerLink]="'/admin-adcionar'" class="activated-btn__GerenCliente">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="activated-btn-icon__GerenCliente" name="person-add-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol-activated-btn__text">Adicionar</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Listar -->
+          <ion-row [routerLink]="'/admin-list'">
+            <ion-col size="12" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="list-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Listar</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Ficha -->
+          <ion-row [routerLink]="'/admin-exercicios'">
+            <ion-col size="12" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="barbell-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Treino</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <!-- Logout -->
+          <ion-row class="logout">
+            <ion-col size="12" [routerLink]="'/admin-login'" class="alinhamento__centro">
+              <ion-row>
+                <ion-col size="3" class="sideCol__column">
+                  <ion-icon class="sideCol__thumbnail" name="log-out-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" class="sideCol__column">
+                  <ion-text class="sideCol__text">Logout</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <!-- Conteúdo -->
+    <ion-col size="10">
+      <ion-row class="bg__conteudo ion-justify-content-center ion-align-items-center">
+        <ion-col size="10" class="conteudo">
+          <form #forminserirClientes="ngForm" [formGroup]="formInserir" (ngSubmit)="inserirClientes(forminserirClientes.value)">
+            <ion-row>
+              <ion-col>
+                <p class="conteudo__title">Adicionar Cliente</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">Nome</ion-label>
+                <ion-input placeholder="Primero Nome" class="conteudo__input" formControlName="nome" #input name="nome"
+                  type="text"></ion-input>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">Sobrenome</ion-label>
+                <ion-input placeholder="Último Nome" class="conteudo__input" formControlName="sobrenome" #input name="sobrenome"
+                  type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="12">
+                <ion-label class="conteudo__text">Email</ion-label>
+                <ion-input placeholder="endereço de Email" class="conteudo__input conteudo__input__email" formControlName="email" #input
+                  name="email" type="text"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">Data Nascimento</ion-label>
+                <ion-input placeholder="Data Nascimento" class="conteudo__input" formControlName="DataNasc" #input name="DataNasc"
+                  type="date"></ion-input>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">Altura</ion-label>
+                <ion-input placeholder="Altura" class="conteudo__input" formControlName="altura" #input name="altura"
+                  type="number"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">CPF</ion-label>
+                <ion-input placeholder="CPF no modelo XXX.XXX.XXX-XX" class="conteudo__input" formControlName="cpf" #input name="cpf"
+                  type="text"></ion-input>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">Peso</ion-label>
+                <ion-input placeholder="Peso" class="conteudo__input" formControlName="peso" #input name="peso"
+                  type="number"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">Planos</ion-label>
+                <ion-select class="conteudo__select" interface="popover" toggleIcon="add" expandedIcon="remove"
+                  aria-label="Planos" placeholder="Selecione o plano" formControlName="FK_Planos_codigo" #input name="FK_Planos_codigo">
+                  <ion-select-option value="1">Plano A</ion-select-option>
+                  <ion-select-option value="2">Plano B</ion-select-option>
+                  <ion-select-option value="3">Plano C</ion-select-option>
+                </ion-select>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label class="conteudo__text">Sexo</ion-label>
+                <ion-select class="conteudo__select" interface="popover" toggleIcon="add" expandedIcon="remove"
+                  aria-label="Sexo" placeholder="Selecione o gênero" formControlName="sexo" #input name="sexo">
+                  <ion-select-option value="Masculino">Masculino</ion-select-option>
+                  <ion-select-option value="Feminino">Feminino</ion-select-option>
+                  <ion-select-option value="Prefiro não dizer">Prefiro não dizer</ion-select-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="12" class="ion-text-center">
+                <ion-button type="submit" class="conteudo__button">Inserir</ion-button>
+              </ion-col>
+            </ion-row>
+
+            <ion-toast class="text_toast" *ngIf="serverMessage">{{ serverMessage }}</ion-toast>
+          </form>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>
