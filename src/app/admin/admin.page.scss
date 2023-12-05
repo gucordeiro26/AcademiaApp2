@@ -205,7 +205,6 @@ ion-content {
   }
 
   .dashboard__lists{
-    max-height: 40vh;
 
     .dashboard__lists-title{
       font-size: 1.25vw;
@@ -215,6 +214,8 @@ ion-content {
     }
 
     .list{
+    overflow-y: scroll;
+
       .header__list{
         --border-style: none;
         font-size: .8vw;
@@ -232,17 +233,17 @@ ion-content {
 
   .clientes__list{
     overflow-y: scroll;
-    max-height: 80vh;
+    height: 86.6vh;
   }
 
   .planos__list{
     overflow-y: scroll;
-    max-width: 40vw;
+    height: 25vh;
   }
 
   .exers__list{
     overflow-y: scroll;
-    max-height: 40vh;
+    height: 50vh;
   }
 }
 
