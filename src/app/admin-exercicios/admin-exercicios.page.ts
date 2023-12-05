@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-exercicios',
@@ -31,6 +32,25 @@ export class AdminExerciciosPage implements OnInit {
   exerciciosPeito: any[] = [];
   exerciciosPernas: any[] = [];
   exerciciosTriceps: any[] = [];
+
+  inserirExercicio(dados: any) {
+    fetch('http://localhost/AcademiaAPP/exercicios/inserirExercicio.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dados),
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+      });
+  }
 
   // Modais
   isModalPeito = false;

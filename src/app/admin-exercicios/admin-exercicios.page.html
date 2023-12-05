@@ -13,7 +13,7 @@
             </ion-col> -->
 
             <ion-col size="12" class="sideCol__column">
-                  <ion-text class="sideCol__textLogo">Gereciamento de Clientes</ion-text>
+              <ion-text class="sideCol__textLogo">Gereciamento de Clientes</ion-text>
             </ion-col>
           </ion-row>
 
@@ -110,46 +110,50 @@
                       <ion-card-title class="card-title__addExer">Adicionar Exercício</ion-card-title>
                     </ion-card-header>
                     <ion-card-content>
-                      <ion-row>
-                        <ion-col size="6">
-                          <ion-row>
-                            <ion-col>
-                              <ion-label class="label">Nome</ion-label>
-                            </ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>
-                              <ion-input class="card-input__addExer" placeholder="Ex: Supino Inclinado"></ion-input>
-                            </ion-col>
-                          </ion-row>
-                        </ion-col>
-                        <ion-col size="6">
-                          <ion-row>
-                            <ion-col>
-                              <ion-label class="label">Categoria</ion-label>
-                            </ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>
-                              <ion-select class="card-select__addExer" placeholder="Escolha a Categoria">
-                                <ion-select-option>Abdomen</ion-select-option>
-                                <ion-select-option>Bíceps</ion-select-option>
-                                <ion-select-option>Cardio</ion-select-option>
-                                <ion-select-option>Costas</ion-select-option>
-                                <ion-select-option>Ombro</ion-select-option>
-                                <ion-select-option>Peito</ion-select-option>
-                                <ion-select-option>Perna</ion-select-option>
-                                <ion-select-option>Tríceps</ion-select-option>
-                              </ion-select>
-                            </ion-col>
-                          </ion-row>
-                        </ion-col>
-                      </ion-row>
-                      <ion-row>
-                        <ion-col size="2">
-                          <ion-button>Adicionar</ion-button>
-                        </ion-col>
-                      </ion-row>
+                      <form #forminserirExe="ngForm" (ngSubmit)="inserirExercicio(forminserirExe.value)">
+                        <ion-row>
+                          <ion-col size="6">
+                            <ion-row>
+                              <ion-col>
+                                <ion-label class="label">Nome</ion-label>
+                              </ion-col>
+                            </ion-row>
+                            <ion-row>
+                              <ion-col>
+                                <ion-input class="card-input__addExer" placeholder="Ex: Supino Inclinado" #input
+                                  name="nome" type="text"></ion-input>
+                              </ion-col>
+                            </ion-row>
+                          </ion-col>
+                          <ion-col size="6">
+                            <ion-row>
+                              <ion-col>
+                                <ion-label class="label">Categoria</ion-label>
+                              </ion-col>
+                            </ion-row>
+                            <ion-row>
+                              <ion-col>
+                                <ion-select class="card-select__addExer" placeholder="Escolha a Categoria" #input
+                                  name="categoria">
+                                  <ion-select-option value="Abdômen">Abdomen</ion-select-option>
+                                  <ion-select-option value="Bíceps">Bíceps</ion-select-option>
+                                  <ion-select-option value="Cardio">Cardio</ion-select-option>
+                                  <ion-select-option value="Costas">Costas</ion-select-option>
+                                  <ion-select-option value="Ombros">Ombro</ion-select-option>
+                                  <ion-select-option value="Peito">Peito</ion-select-option>
+                                  <ion-select-option value="Pernas">Perna</ion-select-option>
+                                  <ion-select-option value="Tríceps">Tríceps</ion-select-option>
+                                </ion-select>
+                              </ion-col>
+                            </ion-row>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col size="2">
+                            <ion-button type="submit">Adicionar</ion-button>
+                          </ion-col>
+                        </ion-row>
+                      </form>
                     </ion-card-content>
                   </ion-card>
                 </ion-col>
@@ -214,7 +218,7 @@
                     </ion-card-content>
                   </ion-card>
                 </ion-col>
-    
+
                 <!-- Modais -->
                 <!-- Modal Peito -->
                 <ion-modal [isOpen]="isModalPeito">
@@ -222,12 +226,12 @@
                     <ion-header>
                       <ion-toolbar class="conteudo__modalExeTd">
                         <ion-buttons slot="start">
-                          <ion-button (click)="setOpenPeito(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                              color="dark"></ion-icon></ion-button>
+                          <ion-button (click)="setOpenPeito(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -249,23 +253,23 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
                 <!-- Modal Costas -->
                 <ion-modal [isOpen]="isModalCostas">
                   <ng-template>
                     <ion-header>
                       <ion-toolbar class="conteudo__modalExeTd">
                         <ion-buttons slot="start">
-                          <ion-button (click)="setOpenCostas(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                              color="dark"></ion-icon></ion-button>
+                          <ion-button (click)="setOpenCostas(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -287,23 +291,23 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
                 <!-- Modal Biceps -->
                 <ion-modal [isOpen]="isModalBiceps">
                   <ng-template>
                     <ion-header>
                       <ion-toolbar class="conteudo__modalExeTd">
                         <ion-buttons slot="start">
-                          <ion-button (click)="setOpenBiceps(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                              color="dark"></ion-icon></ion-button>
+                          <ion-button (click)="setOpenBiceps(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -325,11 +329,11 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
                 <!-- Modal Triceps -->
                 <ion-modal [isOpen]="isModalTriceps">
                   <ng-template>
@@ -341,7 +345,7 @@
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -363,23 +367,23 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
                 <!-- Modal Ombro -->
                 <ion-modal [isOpen]="isModalOmbro">
                   <ng-template>
                     <ion-header>
                       <ion-toolbar class="conteudo__modalExeTd">
                         <ion-buttons slot="start">
-                          <ion-button (click)="setOpenOmbro(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                              color="dark"></ion-icon></ion-button>
+                          <ion-button (click)="setOpenOmbro(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -401,23 +405,23 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
                 <!-- Modal Perna -->
                 <ion-modal [isOpen]="isModalPerna">
                   <ng-template>
                     <ion-header>
                       <ion-toolbar class="conteudo__modalExeTd">
                         <ion-buttons slot="start">
-                          <ion-button (click)="setOpenPerna(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                              color="dark"></ion-icon></ion-button>
+                          <ion-button (click)="setOpenPerna(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -439,11 +443,11 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
                 <!-- Modal Abdomen -->
                 <ion-modal [isOpen]="isModalAbdomen">
                   <ng-template>
@@ -455,7 +459,7 @@
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -477,23 +481,23 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
                 <!-- Modal Cardio -->
                 <ion-modal [isOpen]="isModalCardio">
                   <ng-template>
                     <ion-header>
                       <ion-toolbar class="conteudo__modalExeTd">
                         <ion-buttons slot="start">
-                          <ion-button (click)="setOpenCardio(false)"><ion-icon size="large" name="caret-back-circle-outline"
-                              color="dark"></ion-icon></ion-button>
+                          <ion-button (click)="setOpenCardio(false)"><ion-icon size="large"
+                              name="caret-back-circle-outline" color="dark"></ion-icon></ion-button>
                         </ion-buttons>
                       </ion-toolbar>
                     </ion-header>
-    
+
                     <ion-content class="conteudo__modalExeTd ion-padding">
                       <ion-row class="ion-justify-content-center row">
                         <ion-col size="12">
@@ -515,11 +519,11 @@
                           </ion-row>
                         </ion-col>
                       </ion-row>
-    
+
                     </ion-content>
                   </ng-template>
                 </ion-modal>
-    
+
               </ion-row>
             </ion-col>
           </ion-row>
