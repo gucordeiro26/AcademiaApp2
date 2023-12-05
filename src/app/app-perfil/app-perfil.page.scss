@@ -16,6 +16,8 @@ ion-content {
 .second {
     display: flex;
     justify-content: center;
+    text-align: center;
+
     & .text-nomeUsuario {
         color: #FFF;
         font-family: 'Oswald';
@@ -23,6 +25,7 @@ ion-content {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        margin-top: 10%;
     }
 
     & .textDesc {
@@ -75,7 +78,7 @@ ion-content {
         text-align: center;
         text-transform: uppercase;
         position: relative;
-        top: 2em;
+        top: 2.5em;
     }
 
     & .colIcon {
@@ -88,10 +91,12 @@ ion-content {
     }
 
     & .colCard {
-        background: #262626;
+        background: #1c1c1c;
         display: flex;
         justify-content: center;
         margin-top: 1.5em;
+        height: 53vh;
+        border-radius: 10px;
 
         & .card {
             --border-radius: 1.875em;

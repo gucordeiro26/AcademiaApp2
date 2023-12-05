@@ -1,20 +1,11 @@
 <ion-content [fullscreen]="true">
-  <ion-row class="start">
-    <ion-col></ion-col>
-  </ion-row>
-
   <ion-row class="second">
     <ion-col>
       <ion-row class="ion-justify-content-center">
         <ion-col size="6">
           <ng-container *ngFor="let nome of clienteData">
-            <p class="text-nomeUsuario">{{nome.nome}}</p>
+            <ion-text class="text-nomeUsuario">{{nome.nome}}</ion-text>
           </ng-container>
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="6">
-          <p class="textDesc">descrição qualquer de um usuário qualquer</p>
         </ion-col>
       </ion-row>
     
@@ -25,7 +16,7 @@
     
               <ion-row>
                 <ion-col>
-                  <p class="textPlanoAss">Plano Assinado</p>
+                  <ion-text class="textPlanoAss">Plano Assinado</ion-text>
                 </ion-col>
               </ion-row>
               <ion-row>
