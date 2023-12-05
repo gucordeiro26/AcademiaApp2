@@ -1,7 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-
 
 @Component({
   selector: 'app-admin',
