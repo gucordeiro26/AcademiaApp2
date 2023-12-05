@@ -92,22 +92,36 @@ ion-content {
 
     & .colCard {
         background: #1c1c1c;
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5em;
         height: 60vh;
+        border-radius: 10px;
 
         & .card {
             --border-radius: 1.875em;
             --background: linear-gradient(300deg, #707070 0%, #414141 100%);
-            width: 3em;
-            height: 3em;
-            position: fixed;
-            right: 20px;
+            width: 5em;
+            height: 6em;
+            margin-left: 90px;
+            margin-bottom: 10px;
 
             & .cardIcon {
-                width: 1em;
-                height: 1em;
+                width: 1.5em;
+                height: 1.5em;
                 position: relative;
-                right: 16px;
-                bottom: 12px;
+                right: 10px;
+            }
+
+            & .textCriarObjetivo {
+                color: #FFF;
+                text-align: center;
+                font-family: 'Oswald';
+                font-size: 1em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;
             }
         }
 
@@ -120,7 +134,8 @@ ion-content {
             --border-radius: 0px 1.875em 0.625em 1.875em;
             --background: #404040;
             position: relative;
-            top: 50px;
+            right: 85px;
+            top: 120px;
 
 
 
@@ -137,95 +152,93 @@ ion-content {
         }
     }
 
+        // Modal
+        & .custom {
+            --background: #404040;
+            --color: #fff;
+            --placeholder-color: #404040;
+            --placeholder-opacity: 0.8;
+            width: 90vw;
+            height: 15vh;
+        }
 
+        & .custom:hover {
+            --background: #404040;
+        }
 
-    // Modal
-    & .custom {
-        --background: #404040;
-        --color: #fff;
-        --placeholder-color: #404040;
-        --placeholder-opacity: 0.8;
-        width: 90vw;
-        height: 15vh;
+        & .textModal {
+            color: #FFF;
+            font-family: 'Oswald';
+            font-size: 1.25em;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+
+        & .button-form {
+            --background: #00B2FF;
+            --border-radius: 0.625em;
+
+            font-family: 'Bebas Neue';
+            font-size: 1.5em;
+            width: 40vw;
+            height: 6.5vh;
+        }
     }
 
-    & .custom:hover {
-        --background: #404040;
+    // Navegação
+    .nav-bar {
+        background: #0F0F0F;
+        position: sticky;
+        width: 100vw;
+        padding-left: 1em;
     }
 
-    & .textModal {
-        color: #FFF;
-        font-family: 'Oswald';
-        font-size: 1.25em;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-transform: uppercase;
-    }
-
-    & .button-form {
-        --background: #00B2FF;
-        --border-radius: 0.625em;
-
-        font-family: 'Bebas Neue';
-        font-size: 1.5em;
-        width: 40vw;
-        height: 6.5vh;
-    }
-}
-
-// Navegação
-.nav-bar {
-    background: #0F0F0F;
-    position: sticky;
-    width: 100vw;
-    padding-left: 1em;
-}
-
-.btns {
-    --background: #0F0F0F;
-    position: relative;
-}
-
-// Responsabilidade
-@media (min-width: 768px) {
-
-    // Conteúdo
-    .perfil {
-        left: 1.5em;
-    }
-
-    .text-nomeUsuario {
-        left: 3.5em;
-    }
-
-    .textDesc {
-        left: 3.9em;
-    }
-
-    // Botões
     .btns {
-        left: 4.8em;
-    }
-}
-
-@media (min-width: 1024px) {
-
-    // Conteúdo
-    .perfil {
-        left: 3.5em;
+        --background: #0F0F0F;
+        position: relative;
     }
 
-    .text-nomeUsuario {
-        left: 5.8em;
+    // Responsabilidade
+    @media (min-width: 768px) {
+
+        // Conteúdo
+        .perfil {
+            left: 1.5em;
+        }
+
+        .text-nomeUsuario {
+            left: 3.5em;
+        }
+
+        .textDesc {
+            left: 3.9em;
+        }
+
+        // Botões
+        .btns {
+            left: 4.8em;
+        }
     }
 
-    .textDesc {
-        left: 8.3em;
-    }
+    @media (min-width: 1024px) {
 
-    // Botões
-    .btns {
-        left: 8em;
+        // Conteúdo
+        .perfil {
+            left: 3.5em;
+        }
+
+        .text-nomeUsuario {
+            left: 5.8em;
+        }
+
+        .textDesc {
+            left: 8.3em;
+        }
+
+        // Botões
+        .btns {
+            left: 8em;
+        }
     }
-}
