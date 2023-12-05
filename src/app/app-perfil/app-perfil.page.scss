@@ -101,27 +101,15 @@ ion-content {
         & .card {
             --border-radius: 1.875em;
             --background: linear-gradient(300deg, #707070 0%, #414141 100%);
-            width: 5em;
-            height: 6em;
+            width: 8vw;
+            height: 4vh;
             margin-left: 90px;
-            margin-bottom: 10px;
 
             & .cardIcon {
-                width: 1.5em;
-                height: 1.5em;
+                font-size: 1vw;
                 position: relative;
-                right: 10px;
-            }
-
-            & .textCriarObjetivo {
-                color: #FFF;
-                text-align: center;
-                font-family: 'Oswald';
-                font-size: 1em;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                text-transform: uppercase;
+                left: -4.5vw;
+                top: -2vh;
             }
         }
 
@@ -134,8 +122,8 @@ ion-content {
             --border-radius: 0px 1.875em 0.625em 1.875em;
             --background: #404040;
             position: relative;
-            right: 85px;
-            top: 120px;
+            right: 17vw;
+            top: 5vh;
 
 
 
