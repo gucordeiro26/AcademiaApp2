@@ -1,0 +1,185 @@
+ion-content {
+    --background: #262626 no-repeat center/cover fixed;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../../assets/font/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url(../../assets/font/Oswald-VariableFont_wght.ttf);
+}
+.row_perfil {
+    background: linear-gradient(99deg, #00B2FF 0%, #41C6FF 48.4%, #C2EDFF 101.01%) no-repeat center/cover fixed;
+}
+
+.rowStart {
+
+    & .start {
+        height: 7em;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(99deg, #00B2FF 0%, #41C6FF 48.4%, #C2EDFF 101.01%) no-repeat center/cover fixed;
+
+        & .start__svg1 {
+            position: relative;
+            right: 10px;
+            width: 120px;
+        }
+
+        & .start__svg2 {
+            position: relative;
+            width: 120px;
+            top: 20px;
+            left: 190px;
+        }
+    }
+
+    & .textExercicio {
+        color: #FFF;
+        font-family: 'Bebas Neue';
+        font-size: 2.5em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+        padding-left: 0.5em;
+    }
+}
+
+// Title
+.title {
+    color: #FFF;
+    font-family: 'Bebas Neue';
+    font-size: 2.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+// Search Bar
+.searchBar {
+    --background: #242424;
+    --border-radius: 0.5em;
+    --color: #666;
+    position: relative;
+    bottom: 1.5em;
+}
+
+// Treino
+
+.accordion {
+    border-radius: 0.5em;
+    background-color: #404040;
+    position: relative;
+
+    & .accordionContent {
+        position: relative;
+    }
+
+    & .exercicioSerie {
+        color: #FFF;
+        font-family: 'Oswald';
+        font-size: 1.25em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    & .exercicioSerieNum {
+        color: #7C7C7C;
+        font-family: 'Oswald';
+        font-size: 1em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+
+    // Botão
+    & .btnExercicio {
+        --border-radius: 8px;
+        --background: #00B2FF;
+        width: 80vw;
+        height: 5vh;
+        position: relative;
+    }
+}
+
+ion-item {
+    --background: #404040;
+    --color: #fff;
+}
+
+.exercicioNome {
+    --color: #fff;
+    font-family: 'Bebas Neue';
+    font-size: 1.25em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+// Navegação
+.nav-bar {
+    background: #0F0F0F;
+    position: sticky;
+    width: 100vw;
+    padding-left: 1em;
+}
+
+.btns {
+    --background: #0F0F0F;
+    position: relative;
+}
+
+// Responsabilidade
+@media (min-width: 768px) {
+
+    // Conteúdo
+    .accordionContent {
+        position: relative;
+        left: 5em;
+    }
+
+    .exercicioSerie {
+        top: 3em;
+    }
+
+    .btnExercicio {
+        left: 3em;
+    }
+
+
+
+    // Botões
+    .btns {
+        left: 4.8em;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    // Conteúdo
+    .accordionContent {
+        position: relative;
+        left: 8em;
+    }
+
+    .exercicioSerie {
+        top: 5em;
+    }
+
+    .btnExercicio {
+        left: 5em;
+    }
+
+    // Botões
+    .btns {
+        left: 8em;
+    }
+}

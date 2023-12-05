@@ -1,0 +1,133 @@
+<ion-content [fullscreen]="true">
+  <ion-row class="second">
+    <ion-col>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="6">
+          <ng-container *ngFor="let nome of clienteData">
+            <ion-text class="text-nomeUsuario">{{nome.nome}}</ion-text>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row class="ion-justify-content-center">
+        <ion-col>
+          <ion-card class="plano">
+            <ion-card-content>
+    
+              <ion-row>
+                <ion-col>
+                  <ion-text class="textPlanoAss">Plano Assinado</ion-text>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ng-container *ngFor="let plano of clienteDataPlano">
+                    <ion-text class="textPlano">{{plano.nome}}</ion-text>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+    
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col>
+          <p class="objetivo">Objetivos</p>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col class="colIcon">
+          <ion-icon class="icon" color="light" name="arrow-down-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col class="colCard">
+          <ion-row>
+            <ion-col size="12">
+              <ion-card class="card" (click)="setOpen(true)">
+                <ion-card-content>
+                  <ion-row (click)="setOpen(true)">
+                    <ion-col size="12"><ion-icon class="cardIcon" color="light" size="large"
+                        name="add-circle-outline"></ion-icon></ion-col>
+                  </ion-row>
+                  <ion-modal class="modalObjetivo" [isOpen]="isModalOpen">
+                    <ng-template>
+                      <ion-content class="ion-padding">
+                        <ion-row>
+                          <ion-col><ion-icon color="light" (click)="setOpen(false)" name="arrow-back-circle-outline" size="large"></ion-icon></ion-col>
+                        </ion-row>
+                        <form #formObjetivo="ngForm" (ngSubmit)="inserirObjetivo(formObjetivo.value)">
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col class="ion-text-center" size="6">
+                              <ion-text class="textModal">Crie seu Objetivo</ion-text>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="12">
+                              <ion-textarea class="custom" ngModel type="text" label="Objetivo" label-placement="floating"
+                                fill="solid" placeholder="Digite o seu objetivo" name="objetivo"></ion-textarea>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-justify-content-center">
+                            <ion-col size="6" size-lg="12">
+                              <ion-button class="button-form" type="submit">
+                                Criar Objetivo
+                              </ion-button>
+                            </ion-col>
+                          </ion-row>
+                        </form>
+                      </ion-content>
+                    </ng-template>
+                  </ion-modal>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-card class="cardObjetivo">
+                <ion-card-content>
+                  <ng-container *ngFor="let cliente of clienteData">
+                    <ion-text class="textObjetivo">{{ cliente.objetivo }}</ion-text>
+                  </ng-container>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>  
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer class="nav-bar">
+  <ion-row class="ion-justify-content-center">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-treino'">
+            <ion-icon size="large" name="accessibility-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-inicio'">
+            <ion-icon size="large" name="home-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button color="light" class="btns" [routerLink]="'/app-perfil'">
+            <ion-icon color="dark" size="large" name="person-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>

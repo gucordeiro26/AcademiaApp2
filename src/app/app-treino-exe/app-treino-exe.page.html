@@ -1,0 +1,619 @@
+<ion-content [fullscreen]="true">
+    <ng-container *ngIf="this.dadosTreino === 'Peito'">
+      <ion-row class="rowStart">
+        <ion-col class="start startPeito">
+          <p class="textExercicio">Peito</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf="this.dadosTreino === 'Costas'">
+      <ion-row class="rowStart">
+        <ion-col class="start startCostas">
+          <p class="textExercicio">Costas</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf="this.dadosTreino === 'Biceps'">
+      <ion-row class="rowStart">
+        <ion-col class="start startBiceps">
+          <p class="textExercicio">Bíceps</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf="this.dadosTreino === 'Triceps'">
+      <ion-row class="rowStart">
+        <ion-col class="start startTriceps">
+          <p class="textExercicio">Tríceps</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf="this.dadosTreino === 'Pernas'">
+      <ion-row class="rowStart">
+        <ion-col class="start startPernas">
+          <p class="textExercicio">Pernas</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf="this.dadosTreino === 'Ombros'">
+      <ion-row class="rowStart">
+        <ion-col class="start startOmbro">
+          <p class="textExercicio">Ombro</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf="this.dadosTreino === 'Abdomen'">
+      <ion-row class="rowStart">
+        <ion-col class="start startAbdomen">
+          <p class="textExercicio">Abdômen</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf="this.dadosTreino === 'Cardio'">
+      <ion-row class="rowStart">
+        <ion-col class="start startCardio">
+          <p class="textExercicio">Cardio</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="treino" size="10">
+          <p class="title">Seu treino</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+
+          <ion-row>
+            <ion-col class="colBtn" size="12">
+              <ion-button class="buttonClean" [routerLink]="'/app-inicio'">Finalizado</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-accordion-group [multiple]="true" [value]="['second']">
+            <ng-container *ngFor="let exercicio of this.fichaDeTreino">
+              <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+                toggleIconSlot="start">
+                <ion-item slot="header">
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <ion-label class="exercicioNome">{{ exercicio.nome }}</ion-label>
+                    </ion-col>
+                  </ion-row>
+
+                </ion-item>
+
+                <ion-row class="ion-padding" slot="content">
+                  <ion-col>
+                    <ion-row class="ion-justify-content-center accordionContent">
+                      <ion-col size="12">
+                        <video class="video" controls width="100%">
+                          <source src="{{ exercicio.videos }}" type="video/mp4">
+                        </video>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="6" class="colSeries">
+                        <p class="exercicioSerie">Série:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.series }}</p>
+                      </ion-col>
+                      <ion-col size="6">
+                        <p class="exercicioSerie">Detalhes:</p>
+                        <p class="exercicioSerieNum">{{ exercicio.descricao }}</p>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <ion-row class="ion-justify-content-center">
+                      <ion-col size="12">
+                        <ion-button class="btnExercicio">Feito</ion-button>
+                      </ion-col>
+                    </ion-row> -->
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-accordion><br>
+            </ng-container>
+          </ion-accordion-group>
+
+        </ion-col>
+      </ion-row>
+    </ng-container>
+</ion-content>
+
+<ion-footer class="nav-bar">
+  <ion-row class="ion-justify-content-center">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-treino'">
+            <ion-icon color="light" size="large" name="accessibility-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-inicio'">
+            <ion-icon color="light" size="large" name="home-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-perfil'">
+            <ion-icon color="light" size="large" name="person-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>

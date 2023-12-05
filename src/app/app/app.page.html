@@ -1,0 +1,154 @@
+<ion-content class="container" [fullscreen]="true">
+
+  <!-- Texto de inspiração -->
+  <ion-row class="ion-justify-content-center text">
+    <ion-col size="12" class="ion-align-items-center">
+      <ion-text class="text-see">O MELHOR APP <br>DE TREINOS <br>PARA VOCÊ</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <!-- Botões de Login e Cadastro -->
+  <ion-row class="ion-justify-content-center buttons1">
+    <ion-col size="6">
+      <ion-button id="open-modal-login" (click)="setOpen_Login(true)" class="button">Sign In</ion-button>
+
+      <!-- Modal Login -->
+      <ion-modal #modal [isOpen]="isModalOpen_Login" [initialBreakpoint]="0.65" [breakpoints]="[0, 0.25, 0.5, 0.75]"
+        (willDismiss)="setOpen_Login(false)">
+        <ng-template>
+          <ion-content class="container-modal">
+            <ion-icon (click)="setOpen_Login(false)" color="light" name="arrow-back-outline" size='large'></ion-icon>
+
+            <!-- Texto de Login -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-login-cadastro">Login</ion-text>
+              </ion-col>
+            </ion-row>
+
+            <!-- Texto de 'Que bom que voltou' -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-back-new">Que bom que voltou</ion-text>
+              </ion-col>
+            </ion-row>
+
+            <form #loginClienteForm="ngForm" (ngSubmit)="login(loginClienteForm.value)">
+
+              <!-- Email -->
+              <ion-row class="form">
+                <ion-col size="12">
+                  <ion-input class="inputs" ngModel type="text" label="Email" label-placement="floating" fill="solid"
+                    placeholder="Digite o email" name="email"></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <!-- Senha -->
+              <ion-row class="form">
+                <ion-col size="12">
+                  <ion-input class="inputs" ngModel type="password" label="Senha" label-placement="floating"
+                    fill="solid" placeholder="Digite a senha" name="senha"></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <!-- Mensagem para abrir o cadastro -->
+              <ion-row class="mensage">
+                <ion-col>
+                  <ion-text class="text-mensage">Não tem um login: <a (click)="setOpen_Cadastro(true)"
+                      (click)="setOpen_Login(false)">Cadastra-se
+                      aqui</a></ion-text>
+                </ion-col>
+              </ion-row>
+
+              <!-- Botão de Login -->
+              <ion-row class="button-singin-singup">
+                <ion-col size="6" size-lg="12">
+                  <ion-button class="button-form" type="submit">
+                    Login
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+
+          </ion-content>
+        </ng-template>
+
+        <ion-toast *ngIf="serverMessage">{{ serverMessage }}</ion-toast>
+
+      </ion-modal>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center buttons2">
+    <ion-col size="6">
+      <ion-button (click)="setOpen_Cadastro(true)" class="button" color="light">Sign Up</ion-button>
+
+      <!-- Modal Cadastro -->
+      <ion-modal #modal [isOpen]="isModalOpen_Cadastro" [initialBreakpoint]="0.68" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+        <ng-template>
+          <ion-content class="container-modal">
+            <ion-icon (click)="setOpen_Cadastro(false)" color="light" name="arrow-back-outline" size='large'></ion-icon>
+
+            <!-- Texto de Cadastro -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-login-cadastro">Cadastro</ion-text>
+              </ion-col>
+            </ion-row>
+
+            <!-- Texto de 'Crie uma conta nova' -->
+            <ion-row class="text-all">
+              <ion-col size="12">
+                <ion-text class="text-back-new">Crie uma conta nova</ion-text>
+              </ion-col>
+            </ion-row>
+
+            <form #cadastrarClienteForm="ngForm" (ngSubmit)="cadastroApp(cadastrarClienteForm.value)">
+
+              <!-- Email -->
+              <ion-row class="form">
+                <ion-col size="12">
+                  <ion-input class="inputs" ngModel type="email" label="Email" label-placement="floating" fill="solid"
+                    placeholder="Digite o email" name="email"></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <!-- Senha -->
+              <ion-row class="form">
+                <ion-col size="12">
+                  <ion-input class="inputs" ngModel type="password" label="Senha" label-placement="floating"
+                    fill="solid" placeholder="Digite a senha" name="senha"></ion-input>
+                </ion-col>
+              </ion-row>
+
+              <!-- Mensagem para abrir o login -->
+              <ion-row class="mensage">
+                <ion-col>
+                  <ion-text class="text-mensage">Já tem login, entre aqui: <a (click)="setOpen_Login(true)"
+                      (click)="setOpen_Cadastro(false)">Login</a></ion-text>
+                </ion-col>
+              </ion-row>
+
+              <!-- Botão de Cadastrar -->
+              <ion-row class="button-singin-singup">
+                <ion-col size="12">
+                  <ion-button class="button-form" type="submit">
+                    Cadastrar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+
+            </form>
+
+          </ion-content>
+        </ng-template>
+
+        <ion-toast *ngIf="serverMessage">{{ serverMessage }}</ion-toast>
+
+      </ion-modal>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,216 @@
+<ion-content [fullscreen]="true">
+
+  <!-- <ng-container *ngIf="this.isLoading == true">
+    <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+
+  </ng-container> -->
+
+  <ion-row class="row">
+    <ion-col>
+      <ion-row>
+        <ion-col size="12" class="ion-padding-start">
+          <ng-container *ngFor="let nome of clienteData">
+            <ion-text class="text-nomeUsuario">Olá, {{nome.nome}}</ion-text>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col size="12" class="ion-padding-start">
+          <ion-text class="text-treinoHoje">Quer treinar o que hoje?</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="rowMeio ion-justify-content-center">
+    <ion-col class="colMeio">
+      <ion-row>
+        <ion-col>
+
+          <ion-card (click)="passarInformacao('Peito')" class="card cardPeito">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Peito</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Peito')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="passarInformacao('Costas')" class="card cardCostas">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Costas</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Costas')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="passarInformacao('Biceps')" class="card cardBiceps">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Bíceps</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Biceps')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="passarInformacao('Triceps')" class="card cardTriceps">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Tríceps</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Triceps')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="passarInformacao('Pernas')" class="card cardPernas">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Pernas</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Pernas')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="passarInformacao('Ombro')" class="card cardOmbro">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Ombro</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Ombros')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="passarInformacao('Abdomen')" class="card cardAbdomen">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Abdômen</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Abdomen')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="passarInformacao('Cardio')" class="card cardCardio">
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <p class="textExe">Cardio</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="buttonExe" (click)="passarInformacao('Cardio')">Começar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer class="nav-bar">
+  <ion-row class="ion-justify-content-center">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-treino'">
+            <ion-icon size="large" name="accessibility-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button color="light" class="btns" [routerLink]="'/app-inicio'">
+            <ion-icon color="dark" size="large" name="home-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4" class="ion-padding-start">
+          <ion-button class="btns" [routerLink]="'/app-perfil'">
+            <ion-icon size="large" name="person-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>

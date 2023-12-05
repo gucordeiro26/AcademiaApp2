@@ -22,12 +22,14 @@
       "es2018", 
       "dom"
     ],
+    "strictPropertyInitialization": false, //adcionado
+    "skipLibCheck": true, //adcionado
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": false, //mudado
   }
 }
