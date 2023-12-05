@@ -82,7 +82,27 @@ ion-content {
     }
 }
 
+.colBtn {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+
+    & .buttonClean {
+        --background: #00B2FF;
+        --border-radius: 8px;
+        width: 80vw;
+        height: 5vh;
+        
+    }
+}
+
 // Title
+.treino {
+    height: 10vh;
+}
+
 .title {
     color: #FFF;
     font-family: 'Bebas Neue';
@@ -186,8 +206,6 @@ ion-item {
     .btnExercicio {
         left: 3em;
     }
-
-
 
     // Botões
     .btns {

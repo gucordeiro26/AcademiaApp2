@@ -107,7 +107,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-searchbar [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
+      <ion-searchbar class="searchBar" [(ngModel)]="buscarTermo" (ionChange)="filtrarPorSearchBar()" show-clear-button="always"
         clear-icon="trash-bin"></ion-searchbar>
     </ion-col>
   </ion-row>
@@ -117,7 +117,7 @@
 
       <ion-accordion-group [multiple]="true" [value]="['second']">
         <ng-container *ngFor="let exercicio of this.fichaDeTreino">
-          <ion-accordion class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
+          <ion-accordion *ngIf="exercicioMatchesSearch(exercicio)" class="accordion" value="{{ exercicio.value }}" toggleIcon="caret-down-circle"
             toggleIconSlot="start">
             <ion-item slot="header">
 
@@ -150,11 +150,11 @@
                   </ion-col>
                 </ion-row>
 
-                <ion-row class="ion-justify-content-center">
+                <!-- <ion-row class="ion-justify-content-center">
                   <ion-col size="12">
                     <ion-button class="btnExercicio">Feito</ion-button>
                   </ion-col>
-                </ion-row>
+                </ion-row> -->
 
               </ion-col>
             </ion-row>

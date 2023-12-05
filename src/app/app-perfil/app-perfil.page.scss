@@ -92,36 +92,22 @@ ion-content {
 
     & .colCard {
         background: #1c1c1c;
-        display: flex;
-        justify-content: center;
-        margin-top: 1.5em;
-        height: 53vh;
-        border-radius: 10px;
+        height: 60vh;
 
         & .card {
             --border-radius: 1.875em;
             --background: linear-gradient(300deg, #707070 0%, #414141 100%);
-            width: 11.438em;
-            height: 8.625em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 3em;
+            height: 3em;
+            position: fixed;
+            right: 20px;
 
             & .cardIcon {
-                width: 1.5em;
-                height: 1.5em;
-                margin-left: 0.5em;
-            }
-
-            & .textCriarObjetivo {
-                color: #FFF;
-                text-align: center;
-                font-family: 'Oswald';
-                font-size: 1em;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                text-transform: uppercase;
+                width: 1em;
+                height: 1em;
+                position: relative;
+                right: 16px;
+                bottom: 12px;
             }
         }
 
@@ -129,16 +115,20 @@ ion-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 11.438em;
-            height: 8.625em;
+            width: 90vw;
+            height: 4em;
             --border-radius: 0px 1.875em 0.625em 1.875em;
-            --background: linear-gradient(300deg, #94C5FF 0%, #0D51FF 100%);
+            --background: #404040;
+            position: relative;
+            top: 50px;
+
+
 
             & .textObjetivo {
                 color: #FFF;
                 text-align: center;
                 font-family: 'Oswald';
-                font-size: 1.25;
+                font-size: 1.25em;
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;

@@ -15,13 +15,15 @@ export class AppTreinoPage {
   dadosId: any;
   serverMessage: string = '';
   buscarTermo: string = '';
+  itensOriginais: any[] = [];
 
   constructor(private dataService: DataService, private toastController: ToastController) {
     this.dadosEmail = this.dataService.getDadosEmail();
     this.dadosTreino = this.dataService.getDadosTreino();
     this.dadosId = this.dataService.getDadosId(); 
-
+    
     this.listarFichaDeTreino();
+    this.itensOriginais = this.fichaDeTreino
   }
 
   async presentToast(message: string) {
@@ -36,11 +38,11 @@ export class AppTreinoPage {
 
   // Função para filtrar funcionários com base na pesquisa
   filtrarPorSearchBar() {
-
     const pesquisar = {
       buscarTermo: this.buscarTermo,
+      dadosId: this.dadosId
     };
-
+  
     // Envia a solicitação POST para realizar a pesquisa
     fetch('http://localhost/academiaapp/filtros/filtroFicha.php', {
       method: 'POST',
@@ -57,12 +59,13 @@ export class AppTreinoPage {
       })
       .then((response) => {
         this.fichaDeTreino = response['exercicios'];
-        console.log(response)
+        console.log(response);
       })
       .catch((error) => {
         console.error('Erro na busca de exercicios:', error);
       })
-      .finally(() => { });
+      .finally(() => {
+      });
   }
 
   listarFichaDeTreino() {
@@ -88,6 +91,20 @@ export class AppTreinoPage {
         console.log(_)
       })
       .finally(()=>{})
+  }
+
+  exercicioMatchesSearch(exercicio: any): boolean {
+    if (!this.buscarTermo) {
+      // Se não houver termo de busca, exibir todos os exercícios
+      return true;
+    }
+  
+    // Lógica de comparação com base no termo de busca
+    const termoLowerCase = this.buscarTermo.toLowerCase();
+    return (
+      exercicio.nome.toLowerCase().includes(termoLowerCase)
+      // Adicione outras condições de pesquisa conforme necessário
+    )
   }
 
   removerExerFicha(codigo: any) {
