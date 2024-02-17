@@ -1,4 +1,4 @@
-# ProjetoAngularFirebase
+# Projeto AcademiaApp
 Projeto angular preparado para uso com firebase.
 
 Angular CLI: 16.0.3
